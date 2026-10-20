@@ -1,0 +1,95 @@
+{
+  "status": "EXPERIMENTAL",
+  "K": 14500,
+  "source": "data/stratified-adaptive-seed.json",
+  "terminal": 125000,
+  "mu": 6.879102581818822e-05,
+  "stratified_tail": 0.0003051003426790415,
+  "margin": -0.0002363093168608533,
+  "rows": [
+    {
+      "order": "5/4",
+      "moment": 225.25156407662266,
+      "retained_lower": 225.251535033564,
+      "overflow_tail": 4.920041592786722e-07,
+      "unstratified_tail": 3.8158758607485708
+    },
+    {
+      "order": "6/4",
+      "moment": 1230.8946273630258,
+      "retained_lower": 1230.8912757899948,
+      "overflow_tail": 6.119250410378491e-07,
+      "unstratified_tail": 0.22473484491618353
+    },
+    {
+      "order": "7/4",
+      "moment": 8869.438190649158,
+      "retained_lower": 8869.042304411492,
+      "overflow_tail": 1.2370658401696164e-06,
+      "unstratified_tail": 0.027715232213783914
+    },
+    {
+      "order": "8/4",
+      "moment": 87597.10403125557,
+      "retained_lower": 87549.03547779372,
+      "overflow_tail": 3.121839326823513e-06,
+      "unstratified_tail": 0.00568904334717795
+    },
+    {
+      "order": "9/4",
+      "moment": 1239183.1042159866,
+      "retained_lower": 1233130.5826355654,
+      "overflow_tail": 9.177140259832976e-06,
+      "unstratified_tail": 0.0018789122853840466
+    },
+    {
+      "order": "10/4",
+      "moment": 26408852.924580798,
+      "retained_lower": 25606343.2493804,
+      "overflow_tail": 3.058611532744995e-05,
+      "unstratified_tail": 0.001006522720134416
+    },
+    {
+      "order": "21/8",
+      "moment": 144719739.33488956,
+      "retained_lower": 135226520.6556217,
+      "overflow_tail": 5.867530240258913e-05,
+      "unstratified_tail": 0.0008944779169201027
+    },
+    {
+      "order": "43/16",
+      "moment": 354833910.5793217,
+      "retained_lower": 321898892.8118752,
+      "overflow_tail": 8.23329729003319e-05,
+      "unstratified_tail": 0.0008870355240166966
+    },
+    {
+      "order": "11/4",
+      "moment": 898540074.8084791,
+      "retained_lower": 783503879.5272273,
+      "overflow_tail": 0.00011681772524757887,
+      "unstratified_tail": 0.0009124554869559632
+    },
+    {
+      "order": "23/8",
+      "moment": 6375833015.884829,
+      "retained_lower": 4938415401.307974,
+      "overflow_tail": 0.00024266950498376064,
+      "unstratified_tail": 0.0010763888143108346
+    },
+    {
+      "order": "12/4",
+      "moment": 52187370148.4327,
+      "retained_lower": 33499147131.04706,
+      "overflow_tail": 0.0005301693265157972,
+      "unstratified_tail": 0.0014805122380274211
+    },
+    {
+      "order": "16/4",
+      "moment": 7.094841755358356e+20,
+      "retained_lower": 6.681628581198812e+17,
+      "overflow_tail": 19.704464862163526,
+      "unstratified_tail": 19.723039204904865
+    }
+  ]
+}

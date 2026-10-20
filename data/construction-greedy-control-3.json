@@ -1,0 +1,84 @@
+{
+  "minimum": 3,
+  "primes": [
+    2,
+    3
+  ],
+  "depths": [
+    2,
+    1
+  ],
+  "maximum_resource_base": 100,
+  "resource_count": 4,
+  "capacity": "3/2",
+  "seed": 1000,
+  "training_samples": 128,
+  "sweeps_budget": 8,
+  "seconds_budget": 30,
+  "iterations": [
+    {
+      "sweep": 1,
+      "training_uncovered": 0,
+      "best_training_uncovered": 0,
+      "elapsed_seconds": 0.032
+    }
+  ],
+  "rows": [
+    {
+      "exponents": [
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        0
+      ],
+      "residues": [
+        1,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        1
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        1
+      ],
+      "residues": [
+        0,
+        0
+      ]
+    }
+  ],
+  "cached_sample_codes": true,
+  "sample_diagnostics": {
+    "best_training_uncovered": 0,
+    "validation_samples": 32768,
+    "validation_uncovered": 0,
+    "interpretation": "Samples are diagnostic; no claim of exact density or covering."
+  },
+  "verification": {
+    "status": "VERIFIED",
+    "minimum_at_least": 3,
+    "kernel_states": 4,
+    "resources": 4,
+    "nodes": 5
+  },
+  "status": "VERIFIED",
+  "elapsed_seconds": 0.032
+}

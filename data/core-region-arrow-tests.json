@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "exact_marginal_comparisons": 6564,
+  "forest_supply": false,
+  "branch_sensitive": true,
+  "expanded_relative_states": 5760,
+  "relative_coverage_implications": 7680,
+  "false_minimum_rejected": true,
+  "false_core_omission_rejected": true
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "complete_small_kernel_states": 384,
+  "containment_comparisons": 405,
+  "relative_cover_instances": 384,
+  "borrowed_implications": 7008,
+  "pairwise_disjoint_exponent_families": 12,
+  "saved_minimum_50_schema": "VERIFIED_PARTIAL_RELATIVE_SCHEMA"
+}

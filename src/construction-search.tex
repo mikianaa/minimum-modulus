@@ -1,0 +1,1735 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newcommand{\Z}{\mathbb Z}
+\title{Construction searches for distinct covering systems\\General and squarefree moduli}
+\author{Research working note}
+\date{15 October 2026}
+\begin{document}
+\maketitle
+
+\paragraph{Status.}
+This investigation has \emph{not} produced a covering system with minimum
+modulus greater than 42. It supplies a finite search formulation, a proof
+that successful certificates yield finite distinct covering systems, an exact
+checker, and bounded initial experiments. The positive controls have minimum
+moduli 3, 6, and 10; a new verified finite-completion schema reaches 20.
+They test the machinery and are not record improvements.
+The thesis-based continuation gives a restricted spare-family obstruction
+and six finite partial-cover schemas covering $3/10$ of the whole
+$10\pmod{42}$ branch, but does not complete its replacement.
+The user subsequently raised the construction target to minimum modulus
+at least 1000. That target, and even the target 43, remain unresolved here.
+The target-100 continuation uses exact overlap counts and
+fresh-prime divisor blocks. It produces an independently rejected candidate
+and a rigorous obstruction for that restricted repair family, not a new cover.
+At target 60, five exact candidates fail independent verification;
+a new policy forbidding overlap between kernel cylinders also fails to
+complete a cover. These experiments do not prove that minimum 60 is impossible.
+The squarefree target-30 experiment used a separate ordinary-residue model
+and failed; a squarefree minimum-2 control is verified. At squarefree minimum
+3, a joint parity construction and exact pair repairs
+give verified partial systems, not a complete cover. A normalization argument
+also excludes all prime supports contained in the primes through 11.
+The current active target is unrestricted minimum modulus 50. Exact nested
+resource exchanges and graded arrow blocks have been implemented and tested.
+No minimum-50 cover has been found. The branch-dependent extension now has
+verified partial replacement schemas, with explicitly checked dependencies.
+
+\paragraph{Sources and scope.}
+Owens's 2014 thesis establishes minimum modulus 42~\cite{owens}.
+The full thesis was obtained on 15 October 2026 through the institutional
+page's browser download, after direct PDF requests returned HTTP 403.
+Sections 3.1--3.4 and the later dependency structure have now been examined.
+The whole 42 construction has not been independently machine-verified.
+Nielsen's 2009 paper~\cite{nielsen} was read
+from the user's local literature collection, including Sections 3--5.
+It describes recursive prime-power tails and their finite closure, and explains
+why removing the smallest class is not repaired simply by introducing later
+primes. The following formulation uses that finite-tail idea. No publication
+priority or claim of a new record is made.
+
+\section{A finite model retaining prime-power tails}
+Fix distinct primes $p_1,\ldots,p_s$ and integers $E_i\geq1$.
+For the coordinate $(p,E)$ use the finite state space
+\[
+ X_{p,E}=\{(a,d):0\leq a<p^{E-1},\quad1\leq d\leq p-1\}.
+\]
+Given an integer $x$, write $a=x\bmod p^{E-1}$, with the indicated
+nonnegative representative. If $x\ne a$, write
+$x-a=p^{E-1+t}u$, where $t\geq0$ and $p\nmid u$, and put
+$d=u\bmod p$. If $x=a$, choose any $d$.
+Thus every integer has a state in each coordinate. No assertion that this
+state depends on a single finite modulus is needed.
+
+A resource is an exponent vector $\mathbf e=(e_1,\ldots,e_s)$ with
+$0\leq e_i\leq E_i$. Its smallest base modulus is
+$b(\mathbf e)=\prod_i p_i^{e_i}$. A row assigns one label in every
+coordinate. The coordinate condition is:
+\begin{itemize}
+\item $e=0$: no restriction;
+\item $1\leq e<E$: $a\equiv r\pmod {p^e}$ for a chosen $0\leq r<p^e$;
+\item $e=E$: one chosen pair $(a,d)\in X_{p,E}$.
+\end{itemize}
+The row is the product of these coordinate conditions. Select at most one
+row for each exponent vector, and only use vectors with $b(\mathbf e)\geq M$.
+The finite search asks whether the selected rows cover
+$X=\prod_i X_{p_i,E_i}$.
+
+The last condition represents the infinite family
+\[
+ x\equiv a+d p^{k-1}\pmod {p^k},\qquad k\geq E.
+\]
+It is essential to close this tail by a finite construction. An infinite
+cover, or coverage of only sampled states, is not a certificate.
+
+\section{Finite closure and distinctness}
+\begin{lemma}
+Fix $p,E,a,d$ as above, and a prime $q\ne p$. Put $N=E+q-1$.
+There is a finite collection of congruence classes, with distinct moduli all
+at least $p^E$, covering every integer whose state is $(a,d)$, and also $a$.
+Every modulus has $p$-adic exponent at least $E$ and no other prime factor
+except possibly $q$.
+\end{lemma}
+\begin{proof}
+Use the $q$ classes
+\[
+ x\equiv a+d p^{k-1}\pmod {p^k},\qquad E\leq k\leq N,
+\]
+and the $q$ classes, defined by the Chinese remainder theorem,
+\[
+ x\equiv a\pmod {p^{N-j}},\qquad x\equiv j\pmod q,
+ \qquad 0\leq j<q.
+\]
+The first group covers all specified nonzero digits at levels at most $N$.
+Any remaining integer under consideration is congruent to $a$ modulo $p^N$.
+Choose $j=x\bmod q$; the corresponding class in the second group covers it.
+The moduli in the first group are $p^E,\ldots,p^N$; those in the second
+group are $qp^N,\ldots,qp^E$. These are distinct and have the stated bounds.
+All classes remain inside the prefix $a\bmod p^{E-1}$, although they may
+cover additional digit states. Such additional coverage is harmless.
+\end{proof}
+
+\begin{proposition}\label{prop:construction}
+If the finite rows cover $X$, there is a finite distinct covering system
+of $\Z$ with all moduli at least $M$.
+\end{proposition}
+\begin{proof}
+Assign a different fresh prime $q$ to every occurrence of a tail coordinate
+in every row, taking all such primes outside $\{p_1,\ldots,p_s\}$.
+For fixed coordinates use their single congruence, and for tail coordinates
+use the preceding lemma. Within each row take all Cartesian products of the
+coordinate classes and combine them by CRT. All coordinate moduli in a row
+are coprime, so this operation is valid.
+
+Every integer has a tuple in $X$; some row contains that tuple. Every
+coordinate of that row covers the integer, so one of the CRT classes does
+as well. Each row generates finitely many classes, and there are finitely
+many rows.
+
+For distinctness, a modulus containing an auxiliary prime identifies its
+row uniquely. Within that row, unique factorization identifies each coordinate
+modulus, so the Cartesian products have distinct moduli. If a modulus has no
+auxiliary prime, its exponent at $p_i$ is exactly $e_i$ when $e_i<E_i$, and
+at least $E_i$ when $e_i=E_i$. These disjoint exponent ranges recover the
+resource vector uniquely. Since no vector is used twice, distinct rows cannot
+produce equal untagged moduli. A tagged modulus cannot equal an untagged one.
+Finally all output exponents at base primes are at least the resource
+exponents, so every modulus is at least $b(\mathbf e)\geq M$.
+\end{proof}
+
+In fact the least output modulus is $\min b(\mathbf e)$: choosing the
+first class of each tail realizes that base modulus. The completion need
+not be enumerated. With the specified auxiliary primes the number of classes
+generated by a row is the product of $2q$ over its tail coordinates.
+
+\paragraph{A failed kernel gives an uncovered progression.}
+If a tuple $((a_i,d_i))_i$ misses every row, take its CRT lift
+\[
+ x\equiv a_i+d_i p_i^{E_i-1}\pmod {p_i^{E_i}},\qquad i=1,\ldots,s.
+\]
+Every integer in this progression has the specified state in every coordinate.
+For a tail row, the classes at levels $k>E_i$ and all its closing classes
+require $x\equiv a\pmod {p_i^{E_i}}$; they cannot hit the lift with its
+nonzero final digit and matching prefix. A different prefix also cannot hit
+it. The only possible matching tail class is the one at level $E_i$, which
+requires precisely the row's state. Fixed coordinate conditions behave as in
+the kernel. Since every row misses at least one coordinate, the whole CRT
+progression misses the completed construction. Thus the extra coverage from
+finite closure cannot repair a failed kernel. The checker records this
+explicit progression as well as the finite-state counterexample.
+
+\paragraph{Expressiveness and limitations.}
+The present tails each follow a single prefix and a single nonzero digit;
+they do not encode arbitrary interacting recursive constructions as compactly
+as Nielsen's notation. Nevertheless, any given finite distinct covering
+system is representable using only fixed coordinates if the base primes
+include all its prime factors and the depths exceed all its exponents.
+A failed search at fixed primes, depths, or resource cap is therefore only
+a restricted failure. It is not a proof that $M=43$ is impossible.
+
+\section{Exact capacity checks}
+Under uniform counting measure on $X$, a row has mass
+\[
+ w(\mathbf e)=\prod_i L(p_i,E_i,e_i)^{-1},\qquad
+ L(p,E,e)=\begin{cases}p^e&e<E,\\p^{E-1}(p-1)&e=E.\end{cases}
+\]
+Consequently $\sum_{\mathbf e}w(\mathbf e)\geq1$ is necessary for a
+kernel cover. It is not sufficient, because rows may overlap.
+Since
+\[
+ \sum_{e=0}^E\frac1{L(p,E,e)}=\frac p{p-1},
+\]
+when every $p_i^{E_i}\geq M$, the unrestricted resource capacity is
+\[
+ \prod_i\frac{p_i}{p_i-1}
+ -\sum_{\substack{1\leq n<M\\\text{all prime factors of }n\text{ among }p_i}}
+ \frac1n.
+\]
+For $M=43$ and base primes through 11 this is exactly
+$20641/21600<1$. Independently, the same sum of reciprocals excludes any
+distinct cover whose moduli are all at least 43 and have no prime factors
+greater than 11. This is an elementary density obstruction, not a new bound
+for unrestricted covering systems.
+
+For primes through 13 the resource capacity becomes
+$682691/561600>1$. With base moduli capped at 10,000 it is
+$24371213/20592000>1$. Thus the density test alone no longer decides the
+finite search; overlaps and placement are essential.
+
+\section{Implementation and initial experiments}
+\texttt{code/construction\_kernel.py} contains the standard-library checker.
+It validates labels, exponent ranges, the minimum modulus, and resource
+uniqueness. It then recursively checks the union of the finite boxes,
+memoizing identical active-row sets. A failed check returns an explicit
+uncovered state; reaching a verification limit returns \texttt{UNKNOWN}.
+Only exhaustive verification can return \texttt{VERIFIED}.
+
+\texttt{code/search\_construction\_kernel.py} uses OR-Tools CP-SAT to
+assign the labels. It initially imposes coverage of sampled states, then
+adds exact counterexamples returned by the independent checker. Feasibility
+of the sampled constraints is never presented as a cover. Solver time limits
+are recorded as incomplete results. Solver infeasibility, if encountered,
+would concern only the recorded finite family and would not have an
+independently checked unsatisfiability proof in this implementation.
+
+The positive controls are:
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+Minimum modulus & Base primes & Depths & Kernel states\\
+\midrule
+3 & $2,3$ & $2,2$ & 12\\
+6 & $2,3,5$ & $4,2,2$ & 960\\
+\bottomrule
+\end{tabular}
+\end{center}
+Both pass the independent exact checker. The naive fresh-prime expansion
+specified above produces respectively 1,366 and 234,295 congruence classes;
+these are deliberately inefficient validation examples.
+
+Tests include 240 randomly generated small kernels compared against direct
+enumeration, 51 finite-tail checks over complete periods, coordinate projection
+checks, and rejection of duplicated resources. These support the code; the
+mathematical justification of large certificates is Proposition~\ref{prop:construction}.
+
+The record-target experiments use primes through 13 and through 19, depths
+$(6,4,3,2,2,2)$ and $(6,4,3,2,2,2,2,2)$, respectively, and minimum modulus 43.
+The JSON files retain budgets, resource caps, sampled-constraint counts,
+solver statuses, candidate labels when available, and uncovered witnesses.
+Both exhausted their time budgets (180 and 240 seconds) without a verified
+cover. The last candidates respectively miss the complete progressions
+\[
+ x\equiv87304082151\pmod{649296648000},
+\]
+and
+\[
+ x\equiv51779995805607655\pmod{67740469989192000}.
+\]
+These witnesses reject those candidates, not all possible row assignments.
+A supplementary minimum-10 run also exhausted its 90-second budget without
+a certificate. Search runtimes and these limited failures should not be
+interpreted as evidence of optimality of the record 42.
+
+\paragraph{Reproduction.}
+From the repository root, the exact checks require ordinary Python 3:
+\begin{verbatim}
+python code/test_construction_kernel.py
+python code/construction_kernel.py data/construction-kernel-control-6.json
+\end{verbatim}
+For searches install \texttt{ortools}, either normally or into
+\texttt{tmp/construction-deps}; the latter was used in this session.
+The full search commands and final statuses are recorded in the companion
+experiment JSON files and the repository README.
+
+\section{Owens's thesis: locating and reserving the 42 branch}
+The downloaded thesis is stored as \texttt{literature/owens-2014.pdf}.
+Printed pages 8--10 (PDF pages 14--16) contain the prime-7 construction.
+Its third input is
+\[
+ 7^\uparrow(\ldots,3(2,4,3^\uparrow(1,2)),\ldots).
+\]
+The first occurrence of the $2$ gives the unique class with modulus 42:
+\[
+ H=\{x:x\equiv0\pmod2,\ x\equiv1\pmod3,\ x\equiv3\pmod7\}
+   =10\pmod{42}.
+\]
+The same symbolic input also produces moduli $6\cdot7^d$ for $d\geq2$;
+those exceed 42 and need not be deleted. Replacing just the first class
+requires covering the part of $H$ not already covered by the retained
+construction. Covering all of $H$ is a sufficient, stronger objective.
+
+\paragraph{An explicit neighboring exchange.}
+The $4$ in the next input of the displayed $3$ is the class $80\pmod{84}$:
+it satisfies $x\equiv0\pmod4$, $x\equiv2\pmod3$, and $x\equiv3\pmod7$.
+Moving that class to $52\pmod{84}$ would cover half of $H$, but opens
+$80\pmod{84}$. The other half is $10\pmod{84}$ and cannot be assigned
+another modulus 84. Thus even the first binary split creates a coupled
+repair problem. The later prime-43 and prime-47 constructions work on
+different inputs modulo 3, so changing those inputs has downstream effects.
+
+\paragraph{Reservation audit.}
+In the symbolic construction, Sections 3.1--3.3 use every modulus
+$2^a3^b5^c\geq42$. For $c=0$, these are the pure powers $2^a$ with $a\geq6$,
+the pure powers $3^b$ with $b\geq4$, and the mixed powers above the cutoff.
+For $c=1$, the used ranges are $(b=0,a\geq4)$, $(b=1,a\geq2)$,
+and $b\geq2$. For $c=2$ they are $(b=0,a\geq1)$ and $b\geq1$.
+For $c\geq3$ all $a,b\geq0$ occur, including the extra tails on printed
+page 7. These are reservations of exponent families, not a verification of
+all the residues in the full thesis.
+
+For a modulus $2^a3^b5^c7^d$ with $d\geq1$, the unambiguous terms of
+Section 3.4 reserve at least the following inner exponents:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+$c$ & Reserved $(a,b)$\\
+\midrule
+0 & $a\geq3$; or $b=1,\ a\in\{1,2\}$; or $b\geq2,\ a\leq1$; or $(2,2)$\\
+1 & $b=0,\ a\geq1$; or $b=1,\ a\leq4$; or $b\geq2$\\
+2 & all $a,b\geq0$\\
+$\geq3$ & $b=0,\ a\leq2$; or $b\geq1,\ a\leq1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The extra $(2,2)$ is the $9\cdot4$ allocation on printed page 10, which
+supports the prime-31 step. We deliberately omit the final $125$-tail
+additions and the extra $125^\uparrow8^\uparrow$ from this reservation
+table: the resulting spare pool is an \emph{overestimate}. In particular,
+the calculation does not depend on resolving the compressed placement of
+the final $125$ factors between the prose on page 8 and summary on page 9.
+
+\begin{proposition}[A restricted density obstruction]
+If these infinite symbolic families stay reserved, spare moduli with prime
+factors only in $\{2,3,5,7\}$ and minimum modulus 43 cannot, by themselves,
+cover the whole progression $H$.
+\end{proposition}
+\begin{proof}
+A single class of modulus $n$ meets $H$ with relative density either zero
+or $\gcd(n,42)/n$. The complement of the reservation table, after imposing
+$n\geq43$, has the following total conditional capacities:
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Potential spare family & Sum of $\gcd(n,42)/n$\\
+\midrule
+$7^d,\ 2\cdot7^d,\ 3\cdot7^d$, $d\geq2$ & $1/2$\\
+$4\cdot7^d$, $d\geq2$ & $1/12$\\
+$5\cdot7^d$, $d\geq2$ & $1/30$\\
+$4\cdot3^b7^d$, $b\geq3,d\geq1$ & $7/72$\\
+$2^a3\cdot5\cdot7^d$, $a\geq5,d\geq1$ & $7/240$\\
+$2^a5^c7^d$, $a\geq3,c\geq3,d\geq1$ & $7/1200$\\
+$2^a3^b5^c7^d$, $a\geq2,b\geq1,c\geq3,d\geq1$ & $7/400$\\
+\midrule
+Total & $2759/3600<1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each entry is a convergent geometric sum. The union bound for any finite
+selection is strictly less than one, which proves the claim.
+\end{proof}
+
+Even releasing all the moduli $36\cdot7^d$ allocated to the prime-31 step
+raises this bound only to $1153/1200<1$. This does \emph{not} rule out
+covering only the true residual subset of $H$, using later-stage overlaps,
+rearranging occupied families, or releasing high powers after a particular
+finite truncation. In particular it is not a proof that a local repair of
+Owens's cover is impossible.
+
+\section{Fresh-prime partial replacements and their limitation}
+There is a constructive route that certifies part of the branch without
+needing a complete transcription of Owens's later stages. All his symbolic
+moduli have prime factors at most 89. A new largest prime $q\geq97$ can
+therefore distinguish a new family of moduli from the old ones.
+
+\begin{lemma}[Disjoint set-building rule]\label{lem:sets}
+Let $F=a\pmod m$. Suppose $T$ symbolic sets each cover $F$ and have
+pairwise disjoint modulus families. Let $p$ be a prime absent from these
+families, and write $e=v_p(m)$. One can construct
+\[
+ T'=(e+1)T+\left\lfloor\frac{T}{p-1}\right\rfloor
+\]
+such sets using the additional prime $p$.
+\end{lemma}
+\begin{proof}
+Keep the $T$ old sets. For each $j=1,\ldots,e$, take a copy of every old
+set with the extra condition $x\equiv a\pmod{p^j}$; its moduli are
+multiplied by $p^j$. These copies still cover $F$.
+Divide the old list into disjoint groups of $p-1$ sets, discarding an
+incomplete final group. Each group fills one $p^{e+1}$-arrow rooted at
+$a\pmod{p^e}$. It covers $F$ symbolically, with the usual finite closure
+at the exceptional tail. Distinctness follows from the disjoint exponent
+ranges $0,1,\ldots,e,[e+1,\infty)$ at $p$, and from disjointness of
+the old families within and between the groups.
+\end{proof}
+
+Start with the formal unit set, with modulus 1, and process each chosen
+prime once by this rule. If the final count is at least $q-1$, use any
+$q-1$ sets as the inputs of $q^\uparrow$. Every resulting modulus is at
+least $q$. Finitely many nested arrow occurrences can be closed with
+distinct auxiliary primes outside the base primes, using the finite-tail
+construction above. This gives an actual finite partial covering of $F$.
+It need not be expanded into an enormous list to specify the construction.
+
+\paragraph{Six certified partial replacements.}
+Take $m=840=2^3\cdot3\cdot5\cdot7$. The following master order was found
+by permutation search:
+\begin{align*}
+(&2,5,11,3,7,61,67,17,59,19,37,79,73,41,71,83,\\
+ &43,29,23,31,47,13,103,53,97,109,89,107,101).
+\end{align*}
+For each row below, remove all primes at least $q$ from this order,
+start with $T=1$, and apply Lemma~\ref{lem:sets} with
+$(e_2,e_3,e_5,e_7)=(3,1,1,1)$ and all other exponents zero.
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+Progression covered & Fresh root $q$ & Available sets & Required sets\\
+\midrule
+$10\pmod{840}$ & 97 & 109 & 96\\
+$52\pmod{840}$ & 101 & 110 & 100\\
+$94\pmod{840}$ & 103 & 111 & 102\\
+$136\pmod{840}$ & 107 & 112 & 106\\
+$178\pmod{840}$ & 109 & 113 & 108\\
+$220\pmod{840}$ & 113 & 114 & 112\\
+\bottomrule
+\end{tabular}
+\end{center}
+For example, the $q=97$ recurrence starts
+$1\to5\to11\to12\to30\to65$ on primes $2,5,11,3,7$.
+All six progressions lie in $H$ and are disjoint. Together they cover
+$6/20=3/10$ of $H$. This is a fraction of the \emph{whole} branch,
+not a measured fraction of the actual gap after deleting 42; some of
+these points can already be covered elsewhere in Owens's construction.
+The new partial covers alone certainly do not cover all of $H$: their
+stated completions all miss
+\[
+ x\equiv189833261760964\pmod{1117116169368360}.
+\]
+This witness is $724\pmod{840}$ and has residues
+$(4,6,4,4,4,6)$ at the six root primes. Those nonzero root digits select
+either the fixed-8 or fixed-5 unit child, whose residue it fails.
+It is not asserted to miss Owens's retained classes.
+
+The six modulus families are disjoint: the largest nonauxiliary prime in
+each identifies its root $q$. An earlier root never uses a later prime.
+Owens's original families have no prime above 89. Auxiliary primes for all
+finite closures must be selected jointly, outside every listed prime and
+distinct across occurrences, so they do not invalidate this separation.
+This establishes finite partial covers with no modulus 42; it does not
+establish a covering system with minimum modulus 43.
+
+\paragraph{Why this rule stalls.}
+For a fixed progression and set of base primes, every order in this rule
+satisfies the rational relaxation
+\[
+ T\leq B=\prod_{p}\left(e_p+1+\frac1{p-1}\right).
+\]
+For one class modulo 840 and \emph{all} primes below 127,
+$B=121.360689\ldots<126$. Hence no order of these operations can fill
+a $127^\uparrow$ on such a class. Nor can a larger fresh root help within
+this rule: if $B(q)<q-1$, adding the base prime $q$ gives
+$B(q)q/(q-1)<q$, whereas the next prime requires at least $q+1$ inputs.
+This induction concerns the stated counting rule only; it is not an upper
+bound on all possible partial coverings of a progression.
+
+We also searched 72 uniform split shapes
+\[
+ m=2^r3^s5^t7^u,\quad
+ 1\leq r\leq6,\ 1\leq s\leq2,\ 0\leq t\leq2,\ 1\leq u\leq2.
+\]
+The number of equal pieces of $H$ is
+$K=2^{r-1}3^{s-1}5^t7^{u-1}$. With base primes frozen at 89 and one
+different fresh root for each piece, the rational relaxation is below
+the inputs required by the $K$th fresh prime in all 72 cases.
+Those 72 restricted uniform constructions are excluded independent of
+the permutation search. Nonuniform splits, partial inputs, and borrowing
+families from the original cover remain outside this calculation.
+
+\paragraph{Reproducibility and remaining work.}
+\texttt{code/owens\_branch\_search.py} writes the exact rational sums,
+all 72 configurations, and the six partial construction schemas to
+\texttt{data/owens-42-branch-search.json}. Run
+\begin{verbatim}
+python code/owens_branch_search.py --iterations 2500
+python code/test_owens_branch_search.py
+\end{verbatim}
+The checker validates the construction recurrence, progression containment,
+prime separation, and available input counts. It does not claim to have
+enumerated the finite completion or verified Owens's full cover. The
+geometric-sum audit is also cross-checked against 7,280 exponent tuples.
+Twelve small literal expansions separately pass exhaustive digit-state
+coverage checks and pairwise exponent-family intersection checks; the
+six actual partial schemas pass the count and progression checker.
+
+The next coupled instance should include the $42$ and $84$ branches,
+the $36\cdot7^d$ allocation that supports prime 31, and the early
+prime-3 placement. The extra $81^\uparrow$ is another candidate for
+relocation, as Owens himself suggests on printed pages 18--19. Before a
+successful switch can be asserted, its opened holes and the later stages
+that rely on their present coverage must all be encoded and checked.
+That full residual-cover computation remains unfinished here. No
+minimum-modulus-43 covering system has been obtained.
+
+\section{The new construction target: minimum modulus at least 1000}
+The user's new target is a \emph{construction lower bound}: a finite
+cover with distinct moduli, all at least 1000. It is not a request to
+lower a universal upper bound to 1000. No such construction was obtained.
+The contemporary primary literature inspected for this continuation still
+reports Owens's minimum modulus 42~\cite{agrawal}; this limited source
+check is not an exhaustive literature survey.
+
+\paragraph{The scale of the change to Owens's construction.}
+The reservation audit above identifies 64 moduli involving only $2,3,5$
+and 42 further moduli involving $7$, all in $[42,999]$, already allocated
+in the early stages. Thus at least 106 early classes would need to be
+removed or replaced to reach 1000 while starting from that schedule.
+The full list is saved in \texttt{data/construction-1000-profile.json}.
+This count does not include the many later-prime classes below 1000.
+
+\paragraph{Exact necessary conditions.}
+For a set of primes $\mathcal P$, define
+\[
+ C(M,\mathcal P)=
+ \prod_{p\in\mathcal P}\frac{p}{p-1}
+ -\sum_{\substack{n<M\\p\mid n\Rightarrow p\in\mathcal P}}\frac1n.
+\]
+Unique factorization and the geometric series show that this is exactly
+the reciprocal sum over all $\mathcal P$-smooth integers at least $M$.
+Every finite distinct cover using only these primes must have
+$C(M,\mathcal P)\geq1$. With all primes at most $y$ allowed, the exact
+rational computations give the following decimal displays:
+\begin{center}
+\begin{tabular}{rr}
+\toprule
+$y$ & $C(1000,\{p:p\leq y\})$\\
+\midrule
+7 & 0.0844650041\\
+47 & 0.9116749285\\
+53 & 0.9843755046\\
+59 & 1.0537687824\\
+\bottomrule
+\end{tabular}
+\end{center}
+Consequently a minimum-1000 cover must use a prime divisor at least 59.
+Passing the test at 59 is not an existence result. The very small mass
+available from the first four primes also explains why retaining the
+early small-prime layout supplies little coverage after the new cutoff.
+
+Separately, if there are $k$ distinct moduli, their reciprocal sum is at
+most $\sum_{j=0}^{k-1}(1000+j)^{-1}$. Exact rational sums show
+\[
+ \sum_{n=1000}^{2716}\frac1n<1
+ <\sum_{n=1000}^{2717}\frac1n.
+\]
+Thus at least 1718 classes are necessary, and the largest modulus must
+be at least 2717. These are elementary necessary conditions, not sharp
+predictions of the size of a successful construction.
+
+\paragraph{Kernel screening.}
+We use the existing finite-tail model with
+$E_p=\min\{e\geq1:p^e\geq1000\}$. Recursive generation now prunes a
+partial exponent vector as soon as its base product exceeds the cap;
+it avoids enumerating the full product of exponent choices. Several
+representative finite families are:
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+Largest base prime & Base-product cap & Resources & Kernel capacity\\
+\midrule
+59 & 10000 & 2189 & 0.659943\\
+73 & 30000 & 6142 & 0.986637\\
+97 & 30000 & 7210 & 1.127651\\
+149 & 10000 & 3801 & 1.083089\\
+311 & 10000 & 4995 & 1.388128\\
+311 & 30000 & 13212 & 1.851013\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first two are excluded by exact capacity. These caps refer to
+\emph{resource bases}, not the largest moduli in a finite completion:
+tail exponents and auxiliary primes can make completed moduli much larger.
+
+\paragraph{Exact verification at larger prime supports.}
+The verifier now partitions each coordinate with a sparse tree of its
+base-$p$ digits. Fixed residue conditions end at prefix nodes; tail
+conditions end at the final digit. Every unmentioned child has the same
+active rows, so one representative suffices. This preserves the exhaustive
+coverage test while avoiding a scan of every state in a coordinate.
+Against direct enumeration, 160 coordinate-partition comparisons and
+240 complete small-kernel comparisons pass. The checks also include
+30 capped-resource comparisons, 51 finite-tail tests, and an explicit
+coordinate with $2^{49}$ states handled symbolically.
+
+\paragraph{Bounded searches performed.}
+One CP-SAT run used the prime-149 family, 3801 resources, and a
+180-second budget. It found a candidate satisfying 65 sampled constraints.
+The exact checker rejected that candidate. After adding constraints to
+reach 130 sampled points, the remaining solves returned unknown before
+the time budget expired. This is not an infeasibility result.
+
+A second search chooses each resource's residue tuple by the gain in
+covered training points, then revisits resources in randomized order.
+Training codes are cached for small instances and streamed for larger
+ones. Fresh diagnostic points are not used to choose the best candidate.
+The results below all use base-product cap 10000; each validation sample
+has 32768 points.
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+Largest prime & Training points & Sweeps & Training misses & Validation misses\\
+\midrule
+149 & 32768 & 1 & 0 & 11572\\
+149 & 262144 & 6 & 38411 & 10905\\
+311 & 262144 & 6 & 15693 & 7944\\
+\bottomrule
+\end{tabular}
+\end{center}
+The entries are for the best training candidate in each run. The second
+run increases the weights of uncovered points after each sweep; the
+third keeps uniform weights. Seeds are 1000, 1001, and 1002 respectively.
+All three candidates fail exact verification. In particular, even perfect
+coverage of the first training sample was a misleading indicator of
+global coverage. The sample counts are not certified density estimates
+and do not establish proximity to a covering system.
+
+Each rejected candidate has an explicit uncovered arithmetic progression
+in its JSON record. The separate standard-library program
+\texttt{verify\_construction\_searches.py} checks these witnesses without
+using the coordinate partition algorithm: for every row it exhibits a
+prime-power condition incompatible with the progression, including the
+whole tail and its finite closing classes. A small positive control at
+minimum modulus 3 passes exhaustive kernel verification. An additional
+minimum-10 diagnostic candidate is rejected, despite fitting its training
+sample; it is not reported as a positive control.
+
+\paragraph{Reproduction.}
+The capacity profile and large searches are reproducible with:
+\begin{verbatim}
+python code/search_large_minimum.py --profile 
+  --output data/construction-1000-profile.json
+python code/search_large_minimum.py --largest-prime 149
+  --samples 262144 --sweeps 6 --seconds 180 --seed 1001
+  --output data/construction-greedy-1000-149-large.json
+python code/search_large_minimum.py --largest-prime 311
+  --samples 262144 --sweeps 6 --seconds 180 --seed 1002
+  --uniform-weights --output data/construction-greedy-1000-311.json
+\end{verbatim}
+Join each displayed command's wrapped lines when running it. NumPy is
+needed for the sample-guided search; capacity screening and witness
+verification use only the standard library. The earlier CP-SAT script
+still requires OR-Tools. The rational values, candidate assignments, seeds,
+budgets, diagnostics, and witnesses are retained in the data files.
+
+The work so far gives a scalable search and reliable rejection procedure,
+not the requested construction. The present random-sample objective
+substantially overfits even at 262144 points. A useful continuation must
+incorporate structural residual constraints or a different recursive
+construction, rather than treating sample coverage as the success test.
+Neither minimum modulus 1000 nor minimum modulus 43 has been established.
+
+\section{Target 100: exact overlap control and fresh-prime blocks}
+\label{sec:structural100}
+
+This continuation changes the construction rule rather than increasing
+the training sample. No sampled points are used. Its positive control has
+minimum modulus 10; its target-100 constructions remain incomplete.
+
+\subsection{An exact residual partition}
+Write each coordinate state as its $E_p-1$ ordinary base-$p$ digits followed
+by its first nonzero tail digit, whose alphabet has size $p-1$. A row of
+exponent $e<E_p$ fixes the first $e$ ordinary digits. A tail row fixes all
+$E_p$ digits. Thus rows are cylinders in a finite product of digit alphabets.
+Represent the residual set $R$ by a reduced ordered decision diagram.
+For a resource fixing the digit positions $S$, compute
+\[
+ g_S(u)=\#\{x\in R:x|_S=u\}
+\]
+by summing over all other positions. Place the resource at a maximizing
+$u$ and replace $R$ by $R\setminus\{x:x|_S=u\}$. This calculation counts
+every overlap exactly. A second placement rule chooses digits successively
+using exact marginal counts; it is a heuristic for the joint maximization,
+but its final gain and the resulting residual are still exact.
+
+The search uses integer arithmetic throughout. A diagram limit stops a
+search with its last valid partial construction, and does not prove
+infeasibility. A separate verifier, based on coordinate cylinders rather
+than marginal decision diagrams, checks any proposed cover.
+
+The minimum-10 control found 215 exponent resources on primes through 23.
+The independent verifier certified all $91\,968\,307\,200$ kernel states,
+using 272272 verification nodes. The finite-completion rule gives an
+explicit schema with $171\,744\,802$ distinct classes, smallest modulus 10,
+and largest auxiliary prime 1483. This is a correctness control, not an
+efficient construction or a record improvement.
+
+For the target 100, use primes through 31 and depths
+\[
+ (7,5,3,3,2,2,2,2,2,2,2).
+\]
+With resource base at most 1000, there are 348 available resources.
+The digitwise placement run stops at its 200000-node diagram limit after
+placing 257 rows. Its exact uncovered kernel fraction is
+\[
+ r_0=\frac{548023176592474367}{1398918654701568000}
+     =0.391747707953315\ldots.
+\]
+Other exact runs with different resource orders and coordinate orders also
+stop short of coverage. All stored target-100 base candidates have explicit
+uncovered progressions checked independently by modular arithmetic.
+
+\subsection{A structural repair with a separate prime for each block}
+Let $q$ be a fresh prime, greater than every base prime. Choose $q-1$
+distinct positive integers $n_1,\ldots,n_{q-1}$, supported on base primes,
+with $qn_d\ge100$. Set $m=\operatorname{lcm}(n_1,\ldots,n_{q-1})$ and
+choose a residue $a\pmod m$. Use the families
+\begin{equation}\label{eq:divisor-block}
+ x\equiv a\pmod {n_d},\qquad
+ x\equiv d q^{k-1}\pmod {q^k},
+ \quad 1\le d\le q-1,\quad k\ge1.
+\end{equation}
+The resulting moduli $n_dq^k$ are distinct: $q\nmid n_d$, and the $n_d$
+are distinct. Blocks assigned different fresh primes cannot collide,
+because their $n_d$ use only the original base primes. They also cannot
+collide with the base construction. Finite completion uses a different
+auxiliary prime for each tail occurrence, all beyond the structural primes.
+Every modulus remains at least 100.
+
+\begin{proposition}[Exact projection identity]
+Suppose each $n_d$ uses only fixed prefix exponents $e_p<E_p$. For a
+fixed base kernel state $x$, block~\eqref{eq:divisor-block} covers every
+state of its new $q$ coordinate if and only if $x\equiv a\pmod m$.
+For several blocks with different fresh roots and no dependencies on one
+another, a base state has an uncovered extension to the new coordinates
+if and only if it is uncovered by the base and lies outside every one of
+these progressions.
+\end{proposition}
+\begin{proof}
+At root state $d$, the block covers $x$ exactly when $x\equiv a\pmod{n_d}$.
+All these congruences hold exactly when $x\equiv a\pmod m$. If no block
+covers all its root states, choose a missed state separately at each root.
+Their Cartesian product is an uncovered extension. Conversely, a block
+covering every state of its root covers every extension of $x$.
+\end{proof}
+
+This identity controls the overlap between blocks exactly, including
+overlap with the base. The construction searches for prefix cylinders
+having maximum intersection with the current projected residual, and
+erases only that intersection. It emits the actual $q-1$ kernel rows for
+each block, rather than treating a virtual cylinder as one modulus.
+
+The implemented experiment considers prefix moduli supported on $2,3,5,7$.
+For each root, it compares the first four distinct admissible moduli,
+optimizing the residue of each by the exact marginal calculation.
+Nineteen blocks with roots $37,41,\ldots,113$ add 1414 rows to the base's
+257 rows. For example, the first block has $q=37$, $a=1323$, $m=1680$;
+its divisors are the first 36 divisors of 1680 satisfying $37n\ge100$.
+The last block has $q=113$, $a=31500$, $m=60480$.
+The final fraction of base states admitting an uncovered extension is
+\[
+ r_1=\frac{11122926985118327}{28549360300032000}
+     =0.389603370030882\ldots.
+\]
+This is a projected kernel fraction. It is not the uncovered natural
+density of the finite completion, nor the uncovered fraction of the
+enlarged kernel. All block residues, divisor assignments, and exact
+incremental gains are saved with the emitted rows.
+
+An uncovered projected state can be lifted efficiently: at each root
+choose a divisor $n_d$ whose congruence it misses, assign that root the
+nonzero residue $d\pmod q$, and use CRT. The independent checker then
+tests the resulting progression against every actual row. Later root-tail
+classes and closing classes require $x\equiv0\pmod q$, whereas the witness
+has $x\equiv d\not\equiv0\pmod q$. The base rows are checked against their
+full finite completions in the same way as before. Thus this procedure
+can certify failure without exhausting the general union verifier.
+For the saved 1671-row candidate the independent check succeeds: every
+integer $x\equiv R\pmod L$ is missed, where
+\begin{align*}
+ R&=29370484486033522038888368677610496702136998137198482290242400,\\
+ L&=191713376283959466494384635189844768308141224115446848519088000.
+\end{align*}
+The row-by-row modular check includes the finite closing classes, so this
+is a genuine failure certificate for the finite-completion schema.
+
+\subsection{A capacity obstruction for the whole independent-block repair}
+The weak gain above is structural. Freeze the 257-row base and allow
+\emph{all} its base primes in the prefix moduli, with $e_p<E_p$.
+Set $B=\prod_p p^{E_p-1}$ and define
+\[
+ m_*(q)=\min\left\{m:m\mid B,\quad
+       \#\{n\mid m:qn\ge100\}\ge q-1\right\},
+\]
+omitting roots with no such $m$. There are
+$\prod_p E_p=40320$ possible prefix moduli, and at most 40320 divisors
+in any one. Hence no root above 40321 is admissible.
+Every block at root $q$ removes a projected cylinder of mass at most
+$1/m_*(q)$. The union bound therefore gives the following necessary
+condition for a complete repair using at most one such block per root:
+\[
+ r_0\ \le\ \sum_{\substack{q>31\\q\text{ prime}}}\frac1{m_*(q)}.
+\]
+An exact enumeration of all 40320 prefix shapes and all 4220 admissible
+roots gives
+\[
+ \sum_q\frac1{m_*(q)}
+ =\frac{9001713966181}{3032474610765600}
+ =0.002968438361932\ldots <r_0.
+\]
+Consequently, even using every admissible root and optimizing all
+residues, this restricted repair leaves projected mass at least
+\[
+ \frac{488939644940579871613}{1257627870576709632000}
+ =0.388779269591383\ldots.
+\]
+The CRT argument above turns a remaining state into an uncovered
+progression for the associated finite completions. This is a rigorous
+exclusion for the frozen-base independent-divisor-block method. It does
+not exclude adding unused base resources, changing the base, allowing
+several interacting blocks at one root, using earlier root primes inside
+later blocks, or using more general complete-set inputs.
+
+\subsection{Verification and reproducibility}
+The new tests compare 900 exact marginal and residual calculations with
+literal enumeration, and test row encoding in all three coordinate
+orders. An additional 2880 exhaustive small-state checks verify the
+fresh-prime projection identity; 14 small capacity audits compare the
+divisor-count screen with direct enumeration. The earlier kernel tests,
+including 51 finite-tail checks, also pass.
+
+The main scripts are \path{code/structural_cover_search.py} and
+\path{code/structural_prime_patches.py}. The base, repair, and capacity
+artifacts are respectively
+\begin{itemize}
+\item \path{data/construction-structural-100-31-digits.json};
+\item \path{data/construction-structural-100-prime-patches.json};
+\item \path{data/construction-structural-100-patch-capacity.json}.
+\end{itemize}
+The independently verified positive control is
+\path{data/construction-structural-control-10-verified.json}.
+Run the standard-library tests with
+\begin{verbatim}
+python code/test_structural_cover_search.py
+python code/test_structural_prime_patches.py
+python code/test_construction_kernel.py
+\end{verbatim}
+The accompanying README contains the full search commands. The next
+structural change must overcome the independent-block projection
+obstruction, for example by arranging dependencies between root primes
+and jointly reallocating base resources. Simply adding more roots within
+this fixed-divisor repair cannot work. No minimum-100 cover, or
+improvement over 42, is claimed.
+
+\section{Target 60: capacity screening and a disjoint-cylinder construction}
+\label{sec:structural60}
+
+Lowering the target from 100 to 60 relaxes the density constraints, but
+the searches below do not produce a minimum-60 covering system.
+For primes $P$, the reciprocal sum of every $P$-smooth modulus at least 60 is
+\[
+ C(60,P)=\prod_{p\in P}\frac{p}{p-1}
+       -\sum_{\substack{n<60\\n\text{ is }P\text{-smooth}}}\frac1n.
+\]
+For $P$ consisting of all primes through 11 this equals
+$3084667/3880800=0.7948533807\ldots<1$. Including 13 raises it to
+$104496767/100900800=1.0356386372\ldots$. Hence any distinct cover with
+minimum at least 60 must use a prime divisor at least 13; this screen
+does not establish that primes through 13 suffice. The corresponding
+first nonexcluded prime range for target 100 ends at 19.
+Also, the reciprocal sum of the 102 smallest permitted distinct moduli,
+$60,\ldots,161$, is less than one, while adding 162 exceeds one.
+Thus at least 103 classes are necessary, as is a maximum modulus at least 162.
+
+The exact searches use the same kernel formulation and independent
+verifier as before. The depths through prime 31 are now
+$(6,4,3,3,2,2,2,2,2,2,2)$. With resource base at most 1000, 369
+resources are available, with total kernel capacity
+$10720444249609/7487591631520=1.4317613429\ldots$.
+Through prime 43 with base cap 3000 there are 973 resources and capacity
+$1.9635285411\ldots$. Capacity exceeding one does not control overlap.
+
+\begin{center}
+\begin{tabular}{lrrl}
+\toprule
+Placement / coordinate order & Rows & Uncovered fraction & Stop reason\\
+\midrule
+Digitwise / increasing primes & 260 & 0.27185609 & Node limit\\
+Maximum / decreasing primes & 257 & 0.30525110 & Node limit\\
+Digitwise / decreasing primes & 245 & 0.39283632 & Node limit\\
+Mass-ordered / decreasing primes & 59 & 0.47534648 & Node limit\\
+Disjoint cylinders / decreasing primes & 180 & 0.74502687 & Resources exhausted\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first run uses primes through 31, cap 1000, and 200000 diagram nodes.
+The next three use primes through 43, cap 3000, and 100000 nodes.
+The last uses primes through 43, cap 10000, and 100000 nodes.
+All are deterministic and use exact integer counts; no samples are drawn.
+The listed fractions refer to each finite kernel, not to the natural
+density of integers missed by finite completions. These different search
+budgets and kernel spaces also preclude interpreting the table as a
+controlled ranking of the placement rules.
+
+\paragraph{The additional structural policy.}
+For selected digit positions $S$, instead of maximizing a marginal count,
+form the Boolean function
+\[
+ h_S(u)=\bigwedge_{v\text{ on the other positions}}1_R(u,v).
+\]
+If some $u$ has $h_S(u)=1$, its whole cylinder lies in the residual;
+choose such a cylinder and erase it. Otherwise skip this resource.
+Universal quantification is implemented by Boolean intersections in a
+reduced decision diagram. Every placed cylinder is disjoint from all
+previously placed cylinders. This restriction is on the kernel only:
+the finite closing classes may overlap.
+The run inspected all 2098 permitted resources, placed 180 cylinders,
+and stopped with a nonempty residual. Independent pairwise checks verify
+all $\binom{180}{2}=16110$ disjointness claims, and the sum of cylinder
+masses agrees exactly with one minus the residual fraction. The universal
+quantification calculation also passes 900 comparisons with literal
+enumeration. Failure of this greedy run does not exclude other disjoint
+assignments or other resource pools.
+
+\paragraph{A concrete failure certificate.}
+The strongest partial result in this batch leaves the exact fraction
+\[
+ \frac{1377915076978579}{5068545850368000}
+ =0.271856093967964\ldots
+\]
+uncovered. Every integer in
+\[
+ x\equiv65199869485917100379505775
+ \pmod{202731531413976570181176000}
+\]
+misses its 260 rows and their finite completions. The modular checker
+independently verifies this statement. It likewise verifies explicit
+uncovered progressions for each of the other four candidates.
+
+For this frozen 260-row base, the earlier independent-divisor-block
+capacity obstruction still applies. Allowing all prefix moduli on its
+original prime coordinates gives 27648 prefix shapes and 3005 admissible
+fresh roots, with total removable projected mass at most
+\[
+ \frac{163159827287}{53201308960800}=0.003066838588637\ldots.
+\]
+This excludes completing that base by at most one independent fixed-divisor
+block per root. It does not exclude changing the base or introducing
+dependencies between blocks. No additional patch experiment is needed
+to reject that restricted route.
+
+\paragraph{Saved evidence.}
+The profile, witness checks, and disjointness checks are
+\path{data/construction-60-profile.json},
+\path{data/construction-60-witness-checks.json}, and
+\path{data/construction-60-disjoint-check.json}.
+The best partial assignment is
+\path{data/construction-structural-60-31-digits.json}.
+The restricted repair audit is
+\path{data/construction-structural-60-patch-capacity.json}.
+Reproduction commands are in the README. The present evidence establishes
+neither existence nor impossibility of a minimum-60 distinct covering system.
+
+\section{Squarefree moduli: target 30 and the literature barrier}
+\label{sec:squarefree30}
+
+Here every modulus must be squarefree, the moduli must be pairwise distinct,
+and the system must be a finite cover of all integers. The literature checked
+does not supply an example with minimum modulus greater than 2.
+Dalton and Trifonov~\cite{daltontrifonov}, Problem 4, ask whether every
+distinct squarefree covering must have least modulus 2. An example with
+minimum at least 30 would answer that question negatively. Any example
+with minimum greater than 3 would also yield one with minimum exactly 3
+by adding an arbitrary class modulo 3.
+Cummings, Filaseta, and Trifonov~\cite{cft} prove the upper bound 118 for
+the minimum of a distinct squarefree covering. That upper bound does not
+settle existence at 30. No impossibility at 30 is proved here.
+
+\paragraph{The correct finite model.}
+An exponent capped at $E_p=1$ in the preceding tail model represents
+\emph{all} powers $p^k$, $k\ge1$, rather than a squarefree modulus.
+Its finite completion still contains higher powers of $p$. Thus changing
+the earlier depth parameter to 1 would not impose squarefreeness.
+Instead use the ordinary CRT box $\prod_{p\in P}\Z/p\Z$, with $p$ states
+at prime $p$, and at most one row for each nonempty subset $S\subseteq P$,
+of modulus $\prod_{p\in S}p$. There are no tail rows or auxiliary-prime
+completions. Every output is a literal finite congruence list.
+
+\paragraph{An exact necessary prime-support condition.}
+Writing $Q=\prod_{p\le y}p$, the total reciprocal capacity is
+\[
+ C_{\rm sf}(30,y)=\sum_{\substack{n\mid Q\\n\ge30}}\frac1n
+ =\prod_{p\le y}\left(1+\frac1p\right)
+  -\sum_{\substack{n\mid Q\\n<30}}\frac1n.
+\]
+Exact arithmetic gives
+\[
+ C_{\rm sf}(30,31)=\frac{31160796824}{33426748355}<1,
+ \qquad
+ C_{\rm sf}(30,37)=\frac{5822269528}{5596333435}>1.
+\]
+Consequently, any squarefree distinct covering with minimum at least 30
+must have a modulus divisible by a prime at least 37. The second inequality
+does not prove that primes through 37 suffice.
+
+\paragraph{The bounded experiment and its verification.}
+The separate script \path{code/search_squarefree_construction.py} uses
+exact marginal placement in the ordinary CRT box. Through prime 37 there
+are 4078 eligible squarefree resources and period $Q=7420738134810$.
+The run places 121 rows before reaching its 100000-node diagram limit.
+Its exact uncovered natural density is
+\[
+ \frac{52284300429}{145504669310}=0.359330739535289\ldots.
+\]
+Unlike earlier tail-kernel fractions, this is the actual density of missed
+integers for the emitted finite congruence list. Direct modular arithmetic
+verifies that every integer in
+\[
+ x\equiv5045898743977\pmod{7420738134810}
+\]
+misses all 121 classes. Each modulus divides the squarefree period $Q$,
+and all are distinct and at least 30.
+
+For the independent union checker only, ordinary residues are encoded
+as prefix rows with $E_p=2$ and exponents $e_p\in\{0,1\}$. Every used
+exponent is strictly below its tail threshold. The extra coordinate states
+are unused duplicates and do not change coverage. Two hundred small
+direct-period comparisons check this encoding and the verifier.
+A positive control produces the following 14-class squarefree cover:
+\[
+\begin{array}{c|rrrrrrr}
+n&2&3&5&6&7&10&14\\
+a&0&0&0&1&0&1&1\\ \hline
+n&15&21&30&35&42&70&105\\
+a&2&2&23&24&11&19&104
+\end{array}
+\]
+Every residue modulo 210 was checked directly; its least modulus is 2.
+It is a correctness control, not a new record.
+
+The failed target-30 candidate, positive control, and test results are
+\path{data/construction-squarefree-30-37.json},
+\path{data/construction-squarefree-control-2.json}, and
+\path{data/construction-squarefree-tests.json}. The run's failure does not
+exclude other placements on these primes, or larger prime supports.
+
+\section{Squarefree minimum 3: normalized parity layers and joint repair}
+\label{sec:parity3}
+
+The new search coordinates the odd classes and the even classes across
+both parity layers. Every modulus is a literal squarefree integer; modulus
+2 is forbidden. No sampling or prime-power completion is used. No complete
+minimum-3 covering has been found.
+
+\subsection{A lossless normalization}
+Fix distinct odd primes $p_1,\ldots,p_k$, with $p_1=3$, and period
+$L=2\prod_i p_i$. For existence, we may add every unused divisor of $L$
+other than 1 and 2 as a new modulus, choosing arbitrary residues. Adding
+classes cannot destroy coverage. In particular, classes modulo each $p_i$
+and $2p_i$ can be assumed present.
+
+\begin{lemma}[Prime and twice-prime normalization]
+If a squarefree distinct covering exists on this prime support with all
+moduli at least 3, then one exists with the following properties. The class
+modulo $p_i$ fixes its CRT coordinate to 0. The class modulo $2p_i$ fixes
+that coordinate to 1 and its parity to some $b_i\in\{0,1\}$. We may take
+$b_1=0$. Every other class has nonzero labels at its fixed odd coordinates.
+\end{lemma}
+\begin{proof}
+If the classes modulo $p_i$ and $2p_i$ have the same label at $p_i$, the
+latter class is redundant. Move its $p_i$ label to any different value;
+this loses no coverage because the former class remains. A permutation
+of the $p_i$ coordinate can then send these two labels to 0 and 1.
+Apply this permutation to every class using $p_i$. Independent coordinate
+permutations give a bijection of the CRT box and preserve all cylinder
+supports, hence all moduli, distinctness, and coverage. Flip the parity
+coordinate if necessary to make $b_1=0$. Finally, any composite class
+having a zero odd label lies inside an already present prime class.
+It can be reassigned nonzero odd labels without losing coverage.
+\end{proof}
+
+This normalization also cannot increase the number of uncovered points,
+starting from any partial system. Thus lower bounds for the normalized
+systems apply to all systems on the same prime support.
+Once the prime classes are placed, the only unhandled points are the two
+copies of $\prod_i\{1,\ldots,p_i-1\}$. In layer $\epsilon$, placing the
+classes modulo $2p_i$ leaves a product box with coordinate sizes
+\[
+ D_i^\epsilon=p_i-1-\mathbf1_{b_i=\epsilon},\qquad
+ R_\epsilon=\prod_iD_i^\epsilon.
+\]
+The solver chooses the parity labels and all composite classes jointly,
+with constraints for every point in this finite box. It minimizes the
+number left uncovered. Solver optimality is not assumed for the results below.
+
+\subsection{A checkable obstruction through prime 11}
+For each subset $S\subseteq\{1,\ldots,k\}$ with $|S|\ge2$, there are two
+remaining resources: $d_S=\prod_{i\in S}p_i$ and $2d_S$. Define
+\[
+ V_\epsilon(S)=\prod_{i\notin S}D_i^\epsilon.
+\]
+The odd class covers at most $V_0(S)+V_1(S)$ residual points. The even
+class occupies only one parity layer and covers at most
+$\max\{V_0(S),V_1(S)\}$. Therefore the number of missed points is at least
+\begin{equation}\label{eq:anchor-capacity}
+ R_0+R_1-\sum_{|S|\ge2}\bigl(V_0(S)+V_1(S)+\max(V_0(S),V_1(S))\bigr).
+\end{equation}
+This is a union bound; overlaps can only make the uncovered set larger.
+For $p_i=3,5,7,11$, all parity patterns up to flipping both layers give:
+\begin{center}
+\begin{tabular}{crrr}
+\toprule
+$(b_3,b_5,b_7,b_{11})$ & $R_0+R_1$ & Capacity upper bound & Missed at least\\
+\midrule
+$(0,0,0,0)$&615&497&118\\
+$(0,0,0,1)$&582&482&100\\
+$(0,0,1,0)$&562&482&80\\
+$(0,0,1,1)$&540&481&59\\
+$(0,1,0,0)$&540&484&56\\
+$(0,1,0,1)$&524&479&45\\
+$(0,1,1,0)$&516&479&37\\
+$(0,1,1,1)$&510&488&22\\
+\bottomrule
+\end{tabular}
+\end{center}
+Consequently any distinct squarefree system with minimum at least 3 and
+all prime factors at most 11 misses at least 22 residues modulo 2310.
+In particular, a putative complete cover must use a prime divisor at least
+13. This proof uses explicit integer arithmetic, not a solver infeasibility
+claim. The analogous minima for supports through $3,5,7$ are respectively
+$3,7,18$ missed points in periods $6,30,210$. The bound ceases to exclude
+the support through 13. No novelty or priority claim is made for this restriction.
+
+\subsection{Exact joint relocation of an odd/even resource pair}
+After constructing a partial system, remove its two classes of moduli
+$d$ and $2d$, where $d$ is odd and composite. Let $g_\epsilon(a)$ be the
+number of currently uncovered points with parity $\epsilon$ and residue
+$a\pmod d$. Replacing the odd class at $a$ gains
+$H(a)=g_0(a)+g_1(a)$. An even class at a different odd residue $c$ gains
+$G(c)=\max\{g_0(c),g_1(c)\}$. If $c=a$, its additional gain is zero.
+Thus the best joint replacement has gain
+\[
+ \max_{a\ne c}\{H(a)+G(c)\}.
+\]
+It suffices to consider the two largest entries of $H$ and the two largest
+entries of $G$: after forbidding one index, at least one of the top two
+remains available. All counts use every integer in the period. Accepting
+only strict improvements ensures termination. The parity of each $2p_i$
+class is also reoptimized exactly while its odd label stays 1.
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Construction & Period & Classes & Missed residues\\
+\midrule
+Joint solver, primes through 7 & 210 & 14 & 22\\
+Joint solver, primes through 11 & 2310 & 30 & 159\\
+Joint solver, primes through 13 & 30030 & 62 & 1921\\
+After joint pair repairs & 30030 & 62 & 829\\
+Extend to 17 and repair all pairs & 510510 & 126 & 8040\\
+\bottomrule
+\end{tabular}
+\end{center}
+The solver runs had time limits of 30, 60, and 60 seconds respectively and
+returned feasible partial systems, not proofs of optimality. For the
+prime-17 experiment, the old classes were first lifted unchanged and
+classes modulo $17d$, $d\mid30030$, were added. The old classes were then
+allowed to move during repair. The final missed density is
+\[
+ \frac{8040}{510510}=\frac{268}{17017}=0.015748956925428\ldots.
+\]
+Every residue of the period was checked directly, and the separate
+coordinate-cylinder verifier also rejected the candidate. In particular,
+\[
+ x\equiv404\pmod{510510}
+\]
+is missed by all 126 congruences. A small missed density is not a covering
+certificate or evidence that the remaining gap is easy to close.
+
+\subsection{Why appending one fresh prime cannot finish this candidate}
+For a frozen partial system of period $L$ with residual $R$, a fresh prime
+$q$ allows new squarefree moduli $qd$, $d\mid L$. Put
+\[
+ B(R)=\sum_{d\mid L}\max_{a\bmod d}\#\{x\in R:x\equiv a\pmod d\}.
+\]
+Over the extended period, there are $q|R|$ residual points. Each class
+modulo $qd$ covers at most the corresponding summand of $B(R)$, so a
+complete extension requires $q|R|\le B(R)$, regardless of placements.
+For the repaired prime-13 candidate, $B(R)=5674$, $|R|=829$; hence no
+fresh prime $q\ge17$ can finish it with its old classes fixed.
+At $q=17$, the greedy initialization covers 5668 of those residual points,
+only six fewer than this total capacity bound, but 8425 points still
+remain. Moving the old classes reduces that number to 8040.
+For this final candidate, $B(R)/|R|=5093/670<19$. It likewise cannot be
+completed by adding just one fresh prime and keeping all its old classes.
+This is a restricted extension obstruction, not a theorem excluding a
+squarefree minimum-3 cover or joint rearrangements on a larger support.
+
+\subsection{Verification files}
+The construction and repair scripts are
+\path{code/squarefree_parity_search.py} and
+\path{code/squarefree_parity_repair.py}. The strongest partial candidate is
+\path{data/squarefree-parity-3-17-repaired.json}, containing literal
+congruences and both coverage checks. The counting certificate is
+\path{data/squarefree-parity-anchor-audit.json}.
+Tests compare 500 joint-pair maximizations with exhaustive alternatives,
+check normalization on 100 finite systems, and verify all 31 anchor
+capacity cases through prime 13 by direct period enumeration. A squarefree
+minimum-2 positive control covers all 210 residues of its period.
+These results develop and test a different structural approach; they do
+not establish a distinct squarefree covering with minimum modulus 3.
+
+\section{Unrestricted minimum 50: coupled resources and relative arrows}
+\label{sec:general50}
+The squarefree restriction is dropped in this section. The objective remains
+an explicit finite distinct cover, with every modulus at least 50. None of
+the following experiments has achieved that objective.
+
+\subsection{An exact two-resource exchange}
+In digit coordinates let $C\subseteq F$ be the supports of two resources.
+Remove both rows and call the resulting residual $R$. For assignments $a$
+on $C$ and $b$ on $F$, write
+\[
+ H(a)=|R\cap[a]_C|,\qquad G(b)=|R\cap[b]_F|.
+\]
+The fine cylinder is either contained in the coarse cylinder or disjoint
+from it. In the disjoint case the union gain is $H(a)+G(b)$; in the nested
+case it is $H(a)$. For any fixed $b$, only one coarse assignment is forbidden
+by disjointness. Therefore a globally optimal disjoint pair uses one of the
+two largest coarse values. For each such coarse assignment, erase its
+cylinder and maximize the fine marginal. Comparing these gains with
+$\max H$ gives an exact joint optimum. This argument includes repeated
+effective supports caused by a one-state binary tail digit.
+
+The implementation in \path{code/nested_resource_exchange.py} counts the
+entire finite kernel using decision diagrams. It accepts only strict
+reductions of the uncovered cardinality, and reconstructs the union from
+scratch afterwards. Four hundred small cases were compared against all
+pairs of placements, including empty residuals, equal supports, and unit
+coordinate domains. The existing diagram tests also passed 900 comparisons.
+
+An initial 73-resource target-50 candidate was improved in three exchanges.
+It still fails the separate kernel checker and a direct modular witness
+check. Its missed progression is
+\[
+ x\equiv199766327024850602910774556931655400
+ \pmod{862639566069660506621770753012536000}.
+\]
+The search stopped at a time limit; no claim of a local or global optimum
+is made. Another prime-stage candidate placed 266 resources and also failed.
+These are incomplete constructions, not approximate coverage certificates.
+
+\subsection{Graded supplies of disjoint covering sets}
+Fix a target progression $A=a\pmod m$. A supply is a list of sets, each
+covering $A$, with pairwise disjoint modulus families. Attach to each set
+a grade, its smallest symbolic modulus. Start with the unit set of grade 1.
+When introducing a previously unused prime $p$, put $e=v_p(m)$. Keep the
+old list, and for $1\leq j\leq e$ make copies constrained to
+$x\equiv a\pmod{p^j}$; their grades are multiplied by $p^j$. Partition the
+old list into disjoint groups of $p-1$. Each group fills a $p^{e+1}$ arrow
+at the prefix $a\pmod{p^e}$, and has grade
+\[
+ p^{e+1}\min\{g:g\text{ is a grade in the group}\}.
+\]
+The lists use mutually disjoint $p$-exponent ranges
+$0,1,\ldots,e,[e+1,\infty)$. Within the tail range, disjoint groups use
+disjoint input spectra. This proves resource distinctness inductively.
+Every operation covers $A$; finite closure uses a different auxiliary
+prime for each tail occurrence, outside all base primes.
+
+A largest-prime stage $(q,j)$ can now use inputs of grade at least
+$\lceil50/q^j\rceil$. At fixed exponent $j$, each input covers one
+progression modulo $q^jm$. At an exponent tail starting at $j$, each group
+of $q-1$ inputs covers a progression modulo $q^{j-1}m$. Different stages
+have disjoint largest-prime/exponent families. If a stage supplies $k$
+progressions of the same modulus, their best placement against the current
+residual is obtained by choosing the $k$ largest residue counts. Thus a
+whole stage is relocated jointly, without sampling.
+
+The experiment used projected period
+$L=2^5 3^3 5^2 7=151200$, largest prime 89, and three deterministic
+prime-order policies for each shape. It produced 37 guaranteed progressions,
+leaving 41308 points outside their union. This is only the gap of the
+\emph{guaranteed progression union}; expanded arrow rows can cover additional
+points. It is not an uncovered progression for the actual expanded system.
+
+There is no reason to repeat placement searches within this precise menu.
+For each stage take the maximum possible guaranteed density over its
+available shapes and add these maxima. Exact arithmetic gives
+\[
+ \sum_{\text{stages}}\max_{\text{searched shapes}}\frac{\min(k,m')}{m'}
+ =\frac{4975}{6048}<1.
+\]
+Here $m'$ is the stage's projected modulus. This excludes a complete union
+of guaranteed progressions within the recorded menu, irrespective of their
+placements. It does not exclude other prime orders, other stage allocations,
+incidental arrow coverage, or minimum 50 itself.
+
+The supply implementation was checked on 48 finite kernels: all 228 input
+sets covered their target, had the claimed minimum grade, and had disjoint
+exponent resources. A minimum-3 positive control covers every point of its
+projected period 360. Duplicate root-exponent stages are rejected.
+
+\subsection{Using coverage inside previously built prime branches}
+The next extension retains the individual input sets of the old arrows.
+For a prospective target $A$, an old $p$-arrow may already cover $A$ in
+$c_p(A)$ of its $p-1$ inputs. A new relative arrow then needs only
+\[
+ k_p(A)=p-1-c_p(A)
+\]
+new input sets. For $k_p(A)>0$, the corresponding supply count becomes
+\[
+ T\longmapsto(v_p(m)+1)T+\left\lfloor T/k_p(A)\right\rfloor.
+\]
+These are sets covering $A$ relative to the frozen old cover. Their new
+moduli become distinct from that cover after multiplication by a fresh
+largest root prime. This step must retain and verify the old-coverage
+dependencies; counts alone are not a covering certificate.
+
+An initial probe using the explicit old input DAGs examined 342 targets
+with modulus at most 720. It found three sufficient input counts for root
+97. For example, $33\pmod{720}$ has 96 available relative sets, exactly
+the 96 needed inputs. The old guaranteed progression union misses all
+210 representatives of this progression modulo 151200. These counts are
+saved as a probe, not as a verified replacement or a complete cover.
+The subsequent continuation exports and independently audits these schemas,
+as described below, and uses branch information during the main construction.
+
+\paragraph{Reproducible records.}
+The algorithms are \path{code/graded_arrow_blocks.py} and
+\path{code/borrowed_arrow_probe.py}. Results, exact menu capacities, and
+the pending relative-input witnesses are in
+\path{data/construction-50-graded-blocks.json} and
+\path{data/construction-50-borrowed-probe-97.json}. The active research
+objective is still open; none of these files claims a minimum-50 cover.
+
+\subsection{Verified relative schemas and a stronger early core}
+The count witness for $33\pmod{720}$ has now been converted into an explicit
+relative-arrow DAG and independently checked. It uses root 97, has 96
+inputs, and contains 29 references to already covered inputs of earlier
+prime arrows. Its finite completion covers $33\pmod{720}$ relative to the
+old system, reducing the gap of the guaranteed progression union from
+41308 to 41098 modulo 151200. This is a verified partial replacement, not
+a covering of all integers.
+
+For clarity, the dependency induction is as follows. Let $B$ be the union
+of all earlier largest-prime stages. A new input set must cover $A\setminus B$.
+At an internal prime $p$, any omitted digit has a recorded earlier $p$-stage
+input that covers $A$, possibly relative to still earlier stages. Thus
+$A\setminus B$ has no points in that digit. Each remaining digit receives
+a new input set covering $A\setminus B$. Fixed copies and disjoint tail
+groups preserve disjointness of the \emph{new} modulus families; borrowed
+classes remain in $B$ and are not copied into the new system. Multiplication
+by the new largest prime separates the new families from all old families.
+References always go to earlier largest-prime stages, so the induction is
+acyclic. Unique auxiliary primes close all own tail occurrences finitely.
+
+Two implementations check whether an earlier input covers a requested
+progression. The construction uses a first-nonzero-digit calculation.
+The independent audit enumerates compatible CRT intersections:
+\[
+ a\equiv r+d p^{k-1}\pmod{\gcd(m,p^k)},\qquad
+ E\leq k\leq\max(E,v_p(m)+1).
+\]
+Here $r$ is the arrow prefix and $E$ its first exponent. One level beyond
+$v_p(m)$ represents every later possible first-nonzero level. The audit
+also reconstructs every recorded supply operation, verifies the root
+inputs' grades, and checks that no stage's exponent family is reused.
+
+An integrated construction rebuilds the stages above prime 7 with these
+dependencies. When there are spare inputs, it prefers smaller admissible
+grades, preserving broader coverage for later stages. Through root 113,
+with target moduli at most 720, it obtains 22 new root stages and 708
+checked borrowed inputs. The guaranteed union leaves 35149 residues.
+Allowing roots through 229 and target moduli at most 2520 produces 36
+stages, the last at root 173, with 2119 checked borrowed inputs and a gap
+of 33689 modulo 151200. Both are verified partial schemas. In particular,
+the first projected gap is not claimed to miss all their expanded rows.
+
+The new dependency tests exhaust all 384 states of a small relative-arrow
+example. They verify 405 containment comparisons, 7008 borrowed-coverage
+implications, and disjointness of all 12 own exponent families; the combined
+small example covers every state. These tests supplement the induction
+and the independent audit, rather than replacing them.
+
+The early core is now being improved separately. An exact array calculation
+places 283 resources on the prime set $\{2,3,5,7\}$ with depths
+$(6,4,3,2)$ and resource bases at most 50000. It checks all 7257600 kernel
+states, leaves 2998392 uncovered, and retains a separately verified modular
+counterexample. The uncovered fraction is
+\[
+ \frac{2998392}{7257600}=\frac{124933}{302400}.
+\]
+This uses partial prime-tail coverage that the progression-only core loses.
+The region-based extension below integrates this core into the
+relative-arrow construction, with a separate dependency audit.
+
+The verified records are \path{data/construction-50-relative-97-certified.json},
+\path{data/construction-50-relative-113.json}, and
+\path{data/construction-50-relative-229.json}; the core is in
+\path{data/construction-50-exact-core.json}. Implementations are
+\path{code/relative_arrow_search.py} and \path{code/exact_core_array.py}.
+
+\subsection{Exact residual regions and a complete minimum-20 control}
+The implementation \path{code/core_region_arrows.py} now allows targets
+which fix a core tail digit, and computes their coordinate supports from
+the entire residual array. At each stage it may use either the frozen core
+residual or the residual left after all previously certified target regions.
+The latter option requires chronological verification: a region may be
+removed only after its own relative-cover implication has been checked.
+When checking a child inside a prime branch, the stronger option conditions
+the actual residual on that branch before taking the other coordinate
+supports. This preserves correlations that independent marginal supports
+would lose.
+
+The induction remains a relative covering argument. Let $B$ contain the
+core and all earlier stages. Every new root input must cover the target
+outside $B$. Omitted core digits are absent from the exhaustively computed
+residual, and omitted noncore digits have recorded earlier input witnesses.
+New own exponent families remain disjoint. Each root uses a new largest
+structural prime; finite closure uses distinct fresh auxiliary primes.
+The checker independently tests branch membership by congruences, rebuilds
+the supply operations, and verifies all grades and backward dependencies.
+
+A minimum-20 control with core depths $(5,3,2,2)$ starts with 15995 missing
+states out of 241920. Sixteen root stages, from 11 through 71, close this
+gap completely. Its audit checks 370 borrowed inputs and returns
+\texttt{VERIFIED\_COMPLETE\_REGION\_SCHEMA}. The record is
+\path{data/construction-region-control-20.json}. This is a finite-completion
+schema, not an enumerated list of its potentially enormous finite expansion.
+It is a correctness control, not a new record or completion of the active
+minimum-50 objective.
+
+For minimum 50, concentrating the early core on the even class gives a
+stronger combined result than the core that minimizes its own gap alone.
+The early core leaves 3419270 states, but the subsequent 26 root stages
+through 113, with 1529 checked borrowed inputs, reduce the guaranteed gap to
+\[
+  \frac{812946}{7257600}\simeq 0.112013.
+\]
+This is the fraction of finite kernel states outside the guaranteed region
+union; it is neither an integer density nor a demonstrated counterexample
+to every expanded congruence. The result is only
+\texttt{VERIFIED\_PARTIAL\_REGION\_SCHEMA}, saved in
+\path{data/construction-50-focus-2-regions-113.json}.
+The full-state tests check 6564 marginal comparisons and 5760 combined
+core/noncore states; the branch-sensitive control checks 7680 relative
+coverage implications and rejects deliberately false certificates.
+
+\subsection{Union inputs and simultaneous resource packing}
+The next structural extension lets a single input be a union of several
+prime-power cylinders. For example,
+\[
+  (1\bmod 3)\ \cup\ (3\bmod 9)
+\]
+can use one exponent-1 resource and one exponent-2 resource. A rule which
+only groups equal-tail inputs cannot represent this allocation directly.
+The program \path{code/prime_forest_supply.py} enumerates antichain covers
+of a prescribed one-prime state set. Each cover has a count vector recording
+how many old inputs it needs at each exponent level. Constructive packing
+allocates each pair $(\hbox{exponent},\hbox{old input})$ at most once.
+Old inputs at exponent zero are retained. Because old input families are
+disjoint, this proves disjointness of the resulting new modulus families.
+The packing heuristic is not asserted to be optimal.
+
+The region checker verifies each recorded forest directly: every needed
+coordinate state is covered, every branch uses a valid old child, no
+exponent/child pair is repeated, and the minimum grade is correct. Its
+small exhaustive control checks 8640 relative implications. The primitive
+packing tests check 324 complete antichain covers in 64 cases. Target
+regions may also unite a residue class modulo $p$ with a different class
+modulo $p^2$; their counts are computed exactly.
+
+These first forest runs have not improved the best minimum-50 result.
+The bounded run through root 53 leaves 1058058 guaranteed missing states;
+the run permitting union targets stops after root 29 with 1492358 missing
+states. Neither is a complete cover. Their records are
+\path{data/construction-50-forest-regions-113.json} and
+\path{data/construction-50-union-regions-113.json}; the filename's 113 is
+the allowed root ceiling, not the last root reached before the time limit.
+
+A further implementation, \path{code/joint_root_repair.py}, chooses all
+$q-1$ inputs simultaneously from a shared pool of fixed-exponent resources.
+Each input may combine cylinders in several primes. Each resource may be
+used at most once across all inputs, while every projected residual point
+must be covered in every input. This projection is exhaustive: a point is
+included whenever its whole fiber contains any core-uncovered target state.
+Thus a successful assignment proves the relative target implication.
+The checker independently reconstructs the projection, checks every input,
+and verifies global resource uniqueness and the minimum modulus.
+
+For the target
+\[
+ (1\bmod4)\cap\bigl((1\bmod3)\cup(3\bmod9)\bigr)
+\]
+in the minimum-50 Owens-inspired core, the first root-11 test has 784
+projected points, 60 resource types, and 4315 candidate classes. The bounded
+solver run returns \texttt{UNKNOWN}; it provides neither a replacement nor
+an impossibility proof. A separate positive control passes direct checks
+over a whole integer period and rejects duplicated resources and uncovered
+inputs. The record is \path{data/construction-50-joint-root-11.json}.
+
+A subsequent exact capacity audit resolves this restricted attempt. For
+nonnegative integer weights $w_x$ on the projected target, every disjoint
+collection of $t$ complete inputs must satisfy
+\[
+ t\sum_x w_x\ \leq\ \sum_{\mathbf e}
+       \max_{\mathbf r}\sum_{x\in C(\mathbf e,\mathbf r)}w_x.
+\]
+A numerical linear program proposes weights; an independent Python integer
+histogram calculation then verifies the displayed inequality's right side.
+For this 60-resource menu the saved weights give
+\[
+ t\leq\frac{6351876232}{1000000179}<10.
+\]
+Thus this particular fixed-exponent menu cannot fill the ten root-11 inputs,
+regardless of how its classes are combined. The certificate is
+\path{data/construction-50-joint-root-11-capacity.json}. It does not exclude
+tail families, deeper exponent resources, different targets, or a
+minimum-50 cover. The following extension implements tail-aware joint projection.
+
+\subsection{Auditing the early Owens-inspired seed}
+The explicit seed in \path{code/owens_seed_core.py} includes chosen
+placements inspired by the early $2,3,5,7$ stages. It does not purport to
+transcribe or verify the full thesis. An independent array audit checks all
+7257600 core states. At cutoff 42 it verifies the three local claims:
+$8\bmod16$ is filled; $4\bmod8$ is filled outside $1\bmod5$; and
+$16\bmod32$ is filled outside $4\bmod5$.
+Raising this seed's cutoff to 50 removes its three resources with bases
+42, 45, and 48. The respective local gaps above then become 17160, 34752,
+and 3500 states. These are overlapping local diagnostics, not a partition
+of the whole residual. The saved audit is
+\path{data/owens-seed-branch-audit.json}. The active objective remains open:
+none of the minimum-50 records is a verified complete covering system.
+
+\subsection{Tail-aware joint inputs and a verified local 42-branch repair}
+The joint-input model now permits a terminal tail resource in each core
+coordinate. To project to a lower tail depth $E$, it keeps the prefix modulo
+$p^{E-1}$ and the first nonzero digit after that prefix. This is determined
+by every state of the finer core kernel. The projected target contains a
+state if any fine state in its fiber remains uncovered, so covering the
+projected target is sufficient for covering the entire original residual.
+The independent test computes the same projection by congruence enumeration.
+
+This model finds a concrete root-11 repair of
+\[
+ A=10\pmod{42}
+  =\{x:x\equiv0\pmod2,\ x\equiv1\pmod3,\ x\equiv3\pmod7\}
+\]
+relative to the saved minimum-50 early core inspired by Owens.
+It uses local tail depths $(2,2,1,2)$ and 40 distinct exponent resources
+distributed among ten inputs. Their minimum grades, in input order, are
+\[
+ 7,9,5,14,21,15,30,45,6,10.
+\]
+Consequently every new modulus is at least $11\cdot5=55$.
+All 40 projected target states are covered in every input; these account
+for 102240 uncovered fine core states in $A$. The independently checked
+record is \path{data/construction-50-joint-tail-repair-42.json}.
+Unique auxiliary-prime closure makes these symbolic tails finite while
+preserving their resource distinctions. This repairs a local branch, not
+Owens's entire covering: it consumes prime-11 resources that his later
+construction needs elsewhere.
+
+The local repair can now initialize the relative-region construction.
+Mixed-prime input unions are checked directly on the actual conditioned
+core residual, allowing later stages to borrow their coverage.
+The independent small test checks 144 projection states and 6888 borrowing
+implications, and its integrated control completes a cover.
+For minimum 50, the bounded continuation reaches root 61 with 14 stages,
+including the joint root, and 160 checked borrowed inputs. It still leaves
+1487500 guaranteed missing core states. The record is
+\path{data/construction-50-repair42-continuation.json}.
+
+Increasing the joint root-11 menu for the old Nielsen target does not by
+itself resolve that target. Exact integer-weight certificates give
+\[
+ \frac{8975856116}{1000000087}<10
+ \quad\hbox{at depths }(3,3,2,1),\qquad
+ \frac{9125393259}{999999621}<10
+ \quad\hbox{at depths }(3,4,2,1).
+\]
+These bound only the respective saved menus; they do not exclude deeper
+resources, other early cores, or other targets.
+
+Another test asks one root-11 stage to repair the union of the three early
+classes with bases 42, 45, and 48. At depths $(5,3,2,2)$ its target has
+12442 projected states and 212 eligible resources. The explicit class
+model has 174560 candidates and returns \texttt{UNKNOWN} in its bounded
+run. A second implementation chooses residue labels implicitly and adds
+exact uncovered-state witnesses after checking every projected state.
+It reaches 24 witness constraints without finding a verified replacement.
+No positive claim is made from intermediate witness solutions. See
+\path{data/construction-50-joint-three-hole-root-11.json} and
+\path{data/construction-50-joint-three-hole-refinement.json}.
+
+\subsection{A fully audited transcription of the published prime-11 stage}
+To compare with the actual published mechanism, the ten inputs from
+Nielsen's Section 4.5 have been written explicitly, with Owens's stated
+prime-5 permutation. The transcription uses translated tail centers:
+the relevant 27-tail is centered at 21, whereas the full 81-tail in the
+eighth input is centered at 3. These are distinct branches; confusing them
+leaves an exactly detectable hole.
+
+The corrected interpretation in \path{code/nielsen_prime11.py} passes an
+exhaustive relative audit against the explicit cutoff-42 early seed.
+Its 417 expanded exponent resources are all distinct, and each of its ten
+inputs covers all 628992 target states left by that seed. The record
+\path{data/nielsen-prime11-transcription.json} is a verified local stage,
+not a verification of the full thesis.
+
+The cutoff-50 audit then identifies the precise damage. Input 1 contains
+the inadmissible grade-4 family, whose first root modulus is $11\cdot4=44$.
+Inputs 6 and 7 each miss 28000 target states after the early modulus-45
+class is removed; inputs 9 and 10 each miss 5600. Inputs 2--5 and 8 retain
+their relative coverage. This diagnostic is saved in
+\path{data/nielsen-prime11-minimum50-diagnostic.json}.
+It motivates reallocating resources among these particular inputs and
+retaining valid higher prime-power parts of a family when only its first
+modulus falls below 50. Neither this diagnosis nor the local 42-branch
+repair is a complete minimum-50 covering system.
+
+\subsection{Partial borrowing at prime 13 and exact input transport}
+The prime-13 step is now explicit as well. Ten inputs are translated copies
+of the prime-11 pattern, with Owens's prime-5 permutation. Two more inputs
+use an internal 11-tail: the new rows on each digit are combined with the
+\emph{own} rows already present in that digit of the earlier prime-11 stage.
+Neither contribution has to cover the entire core target by itself.
+Borrowed rows are never copied into the new modulus family.
+
+This reproduces the published doubling mechanism. In the first new copy,
+the binary-4 and binary-8-tail factors are transported from $1\bmod4$ to
+$3\bmod4$. In the second, those factors are replaced by 1 and the odd
+class modulo 2. The first copy uses binary exponents at least 2 and the
+second uses exponents 0 and 1, so their new families are disjoint.
+Checking the union of old and new coverage separately on every 11-digit
+verifies all 837 expanded resource families; the smallest new modulus is
+52. This is the local record \path{data/nielsen-prime13-transcription.json}.
+
+A compact equivalent representation uses depths $(3,4,2,1)$ for the input
+bodies. It has 117 resources in the prime-11 stage and 237 in the prime-13
+stage. Its independent audit checks 68190 prime-13 state conditions.
+The construction checker now authenticates the older input references,
+checks the new resource distinctions, and evaluates these mixed-prime
+unions on the actual residual. The cached union evaluator agrees with
+direct evaluation in 600 test cases; deliberately repeated resources and
+incorrect transported prefixes are rejected. Files are
+\path{data/nielsen-prime11-compact.json},
+\path{data/nielsen-prime13-compact.json}, and
+\path{data/partial-borrow-transport-tests.json}.
+
+The cutoff-42 continuation from these two audited stages remains partial:
+through root 113 it leaves 521808 guaranteed missing states. This checks
+the stronger mechanism but does not verify the remainder of Owens's thesis.
+
+\subsection{Relocating modulus 90 restores the odd input targets at minimum 50}
+Keeping the early core fixed led to bounded but unsuccessful searches for
+exchanges among the damaged prime-11 inputs. A simpler structural trade
+works: replace the existing core class
+\[
+ 78\pmod{90}\quad\hbox{by}\quad3\pmod{90}.
+\]
+The removed modulus-45 class was $3\pmod{45}$. Its odd part is exactly
+$3\pmod{90}$, whereas the old $78\pmod{90}$ class is even. Therefore this
+trade restores all modulus-45 coverage needed on
+\[
+ T=\{x:x\text{ is odd}\}\cap
+       \bigl((1\bmod3)\cup(3\bmod9)\bigr).
+\]
+The deleted core rows with bases 42 and 48 do not meet $T$. Consequently
+the cutoff-50 relocated core has \emph{exactly the same residual on $T$}
+as the cutoff-42 core. An exhaustive comparison of all 1612800 kernel
+states in $T$ verifies this equality; both residuals contain 1257984 states.
+The lost even class remains an explicit repair obligation.
+
+This gives nine complete admissible prime-11 inputs without changing their
+published resource pattern. The nine-input certificate uses 116 distinct
+resources, and its audit checks 20457 input/state pairs. It is intentionally
+labelled \texttt{VERIFIED\_INPUT\_PACKING}: nine inputs do not fill all ten
+digits of an 11-tail. The default root verifier rejects that incomplete
+packing as a complete root. Records are
+\path{data/construction-50-relocated90-core.json},
+\path{data/construction-50-relocated90-odd-agreement.json}, and
+\path{data/construction-50-relocated90-nine-inputs.json}.
+
+The inadmissible first input need not be discarded wholesale. Keep its
+binary class $1\bmod4$ and all root-11 powers starting with $11^2$; delete
+only the first class, of modulus 44. Together with the other nine inputs,
+this gives 233 disjoint exponent resources of minimum modulus at least 50.
+On the prime-11 target, 227300 of 250030 projected core/root states are
+covered. The remaining 22730 states are precisely the part with
+$x\equiv1\pmod{11}$; since the target already fixes $x\equiv1\pmod4$,
+the exception is contained in $1\pmod{44}$. This is the relative statement
+in \path{data/construction-50-relocated90-prime11-truncated.json}, not a
+claim about every integer outside that class.
+
+The prime-13 target lies in $3\bmod4$, so the missing modulus-44 class
+contributes nothing there. Its complete relative stage remains valid with
+the relocated minimum-50 core and the nine admissible earlier inputs.
+The checker explicitly uses an empty first earlier input when authenticating
+this proof. The resulting minimum-50 record is
+\path{data/construction-50-relocated90-prime13.json}.
+
+Finally, the supply search now interleaves usable old primes with core
+primes according to their effective input multiplier
+\[
+ f+1+\frac1k,
+\]
+where $f$ is the number of available fixed-prefix copies and $k$ is the
+number of tail digits still requiring new inputs. This permits a cheap
+partially filled 11-tail to be used before primes 5 or 7, rather than
+forcing all core primes to precede it. Combined with the relocated core,
+the root-17 stage closes the outstanding part of $T$ with 23 available
+admissible inputs. The bounded continuation through root 59 has 13 root
+stages and 160 checked borrowed inputs, but still leaves 1314132 guaranteed
+missing states. It is saved in
+\path{data/construction-50-relocated90-continuation.json}.
+No complete minimum-50 covering system has yet been obtained. The remaining
+work includes the even holes created or exposed by the core changes and
+more effective use of partial coverage in subsequent stages.
+
+\begin{thebibliography}{9}
+\bibitem{daltontrifonov} J. Dalton and O. Trifonov,
+\emph{Extreme Covering Systems}, Journal of Integer Sequences
+\textbf{25} (2022), Article 22.9.1, especially Problem 4.
+\url{https://cs.uwaterloo.ca/journals/JIS/VOL25/Trifonov/trif3.pdf}.
+\bibitem{cft} M. Cummings, M. Filaseta, and O. Trifonov,
+\emph{An upper bound for the minimum modulus in a covering system with
+squarefree moduli}, arXiv:2211.08548 (2022), Theorem 1.1.
+\url{https://arxiv.org/abs/2211.08548}.
+\bibitem{nielsen} P. P. Nielsen,
+\emph{A covering system whose smallest modulus is 40},
+J. Number Theory \textbf{129} (2009), 640--666.
+\href{https://doi.org/10.1016/j.jnt.2008.09.016}{doi:10.1016/j.jnt.2008.09.016}.
+\bibitem{owens} T. Owens,
+\emph{A Covering System with Minimum Modulus 42},
+MS thesis, Brigham Young University, 2014.
+\url{https://scholarsarchive.byu.edu/etd/4329/}.
+\bibitem{agrawal} R. Agrawal, P. Bhatia, K. Gupta, P. Lamb, A. Lott,
+A. Rice, and C. R. Ward,
+\emph{Computations and observations on congruence covering systems},
+Integers \textbf{24A} (2024), A1.
+\url{https://math.colgate.edu/~integers/a1Proc23/a1Proc23.pdf}.
+\end{thebibliography}
+\end{document}

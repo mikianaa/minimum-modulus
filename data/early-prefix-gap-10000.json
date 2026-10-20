@@ -1,0 +1,20 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/fine-stratified-14500.json",
+  "source_sha256": "a85e034948b701d7f3cedc5b34e0862307b0742fa7206a03784cd415e7319201",
+  "note": "Same fixed parameters at each cutoff; no optimized 10000 claim or barrier theorem.",
+  "rows": [
+    {
+      "K": 14500,
+      "first_150_survivor": 0.15896117038210186,
+      "first_moment": 14.52201128839926,
+      "second_moment": 1852.2490904322567
+    },
+    {
+      "K": 10000,
+      "first_150_survivor": 0.07301140995345518,
+      "first_moment": 14.52201128839926,
+      "second_moment": 1852.2490904322567
+    }
+  ]
+}

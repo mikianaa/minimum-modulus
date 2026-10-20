@@ -1,0 +1,47 @@
+{
+  "data/construction-structural-100-31-mass.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 120,
+    "minimum_target": 100,
+    "uncovered_progression": {
+      "residue": 870170450483245066886130400,
+      "modulus": 1216389188483859421087056000
+    }
+  },
+  "data/construction-structural-100-31-stage.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 203,
+    "minimum_target": 100,
+    "uncovered_progression": {
+      "residue": 945256202858791944731010400,
+      "modulus": 1216389188483859421087056000
+    }
+  },
+  "data/construction-structural-100-31-digits.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 257,
+    "minimum_target": 100,
+    "uncovered_progression": {
+      "residue": 15098259162361326550936155,
+      "modulus": 1216389188483859421087056000
+    }
+  },
+  "data/construction-structural-100-31-reverse.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 155,
+    "minimum_target": 100,
+    "uncovered_progression": {
+      "residue": 318980959444830546002435296,
+      "modulus": 1216389188483859421087056000
+    }
+  },
+  "data/construction-structural-20.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 321,
+    "minimum_target": 20,
+    "uncovered_progression": {
+      "residue": 2614369379882026824032536,
+      "modulus": 3045569502268475358976800
+    }
+  }
+}

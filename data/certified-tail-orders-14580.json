@@ -1,0 +1,62 @@
+{
+  "status": "VERIFIED_TAIL_BOUNDS_ONLY",
+  "note": "Finite losses are not checked by this script.",
+  "witness": "data/sparse-certificate-14580.json",
+  "witness_sha256": "6a10820b9037fadbcf4ac87966aeda19438981c03fc1725f6fb53a4e567f2d5a",
+  "terminal_index": 125000,
+  "terminal_prime": 1655131,
+  "rows": [
+    {
+      "fractional_moment_upper": "219767628.8296351888200141232558669409667387128830",
+      "moment_order": "85/32",
+      "moment_numerator": 85,
+      "moment_denominator": 32,
+      "tail_delta_numerator": 500000000000,
+      "shifted_tail": true,
+      "interpolate_tail": true,
+      "growth_exponent": 11,
+      "growth_exponent_upper": "10.6078659880896600815120621914745790963028",
+      "exponential_argument_upper": "0.0013124965859982437931651462977313922566",
+      "tail_loss_upper": "0.0008637899290753821562371041494137072567"
+    },
+    {
+      "fractional_moment_upper": "345251868.3603763237318598219521929975661165883187",
+      "moment_order": "43/16",
+      "moment_numerator": 43,
+      "moment_denominator": 16,
+      "tail_delta_numerator": 500000000000,
+      "shifted_tail": true,
+      "interpolate_tail": true,
+      "growth_exponent": 11,
+      "growth_exponent_upper": "10.8839423832212869479661344383817306630554",
+      "exponential_argument_upper": "0.0013466551365014083677563320349699240197",
+      "tail_loss_upper": "0.0008630817484968897205810223967144022647"
+    },
+    {
+      "fractional_moment_upper": "546770964.8873366615983405486595281348950768661099",
+      "moment_order": "87/32",
+      "moment_numerator": 87,
+      "moment_denominator": 32,
+      "tail_delta_numerator": 500000000000,
+      "shifted_tail": true,
+      "interpolate_tail": true,
+      "growth_exponent": 12,
+      "growth_exponent_upper": "11.1660640642170037019181773094435393485703",
+      "exponential_argument_upper": "0.0013815616618627498890941327473371108169",
+      "tail_loss_upper": "0.0008707280903082244309015616414494687522"
+    },
+    {
+      "fractional_moment_upper": "873033737.7808806596958422103437326905948214793074",
+      "moment_order": "11/4",
+      "moment_numerator": 11,
+      "moment_denominator": 4,
+      "tail_delta_numerator": 500000000000,
+      "shifted_tail": true,
+      "interpolate_tail": true,
+      "growth_exponent": 12,
+      "growth_exponent_upper": "11.4543634056000329498284335532645537027187",
+      "exponential_argument_upper": "0.0014172325405989273996212807922299996716",
+      "tail_loss_upper": "0.0008865541411779901408589722410067500154"
+    }
+  ]
+}

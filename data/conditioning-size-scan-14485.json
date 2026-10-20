@@ -1,0 +1,57 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/sparse-certificate-14485.json",
+  "source_sha256": "8c6eccd2b71110c605812a64ef24160cff9478899a484dd6a893d374b0888781",
+  "terminal_index": 8000,
+  "rows": [
+    {
+      "K": 10000,
+      "small": 8,
+      "conditioning_states": 85410,
+      "state_cap": 1000000000,
+      "mu": -0.08239716717971743,
+      "seconds": 61.611733198165894
+    },
+    {
+      "K": 10000,
+      "small": 9,
+      "conditioning_states": 133439,
+      "state_cap": 1000000000,
+      "mu": -0.08240702410504584,
+      "seconds": 74.49320077896118
+    },
+    {
+      "K": 10000,
+      "small": 10,
+      "conditioning_states": 193570,
+      "state_cap": 1000000000,
+      "mu": -0.0824200804624267,
+      "seconds": 86.66930031776428
+    },
+    {
+      "K": 14485,
+      "small": 8,
+      "conditioning_states": 85410,
+      "state_cap": 1000000000,
+      "mu": 0.0038732911833461617,
+      "seconds": 69.24227023124695
+    },
+    {
+      "K": 14485,
+      "small": 9,
+      "conditioning_states": 133439,
+      "state_cap": 1000000000,
+      "mu": 0.003860963623626507,
+      "seconds": 81.99939346313477
+    },
+    {
+      "K": 14485,
+      "small": 10,
+      "conditioning_states": 193570,
+      "state_cap": 1000000000,
+      "mu": 0.0038446265485003496,
+      "seconds": 104.1223816871643
+    }
+  ],
+  "note": "Fixed rational parameters; finite survivor comparisons only. No modulus certificate or global optimization claim."
+}

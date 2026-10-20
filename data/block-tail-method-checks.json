@@ -1,0 +1,12 @@
+{
+  "status": "PASSED",
+  "rational_probability_enclosures": 108,
+  "actual_loss_comparisons": 16,
+  "chord_comparisons": 9,
+  "exponential_enclosures": 4,
+  "growth_comparisons": 1,
+  "source_sha256": {
+    "code/block_tail_bound.py": "12a2a96141788f7b77f57075dae9e7d5628d339d85cda63e2386d8db5645a6e8",
+    "C:/Users/mekak/code/covering-weight-mu/code/test_block_tail.py": "e5abef61d3220a0e7e69250c19928d1b4957d8fc50935440d187b481df785129"
+  }
+}

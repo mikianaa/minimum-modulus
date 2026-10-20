@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "direct_integer_input_checks": 12,
+  "duplicate_resource_rejected": true,
+  "uncovered_input_rejected": true,
+  "exact_capacity_control": true,
+  "incorrect_capacity_rejected": true
+}

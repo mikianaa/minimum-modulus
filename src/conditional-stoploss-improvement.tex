@@ -1,0 +1,2420 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,listings}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\pos}[1]{(#1)_+}
+\title{A conditional convex-loss bound of $14484$ for distinct covering systems}
+\author{Computational investigation with an explicit mathematical reduction}
+\date{15 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a computer-assisted argument that every finite distinct covering
+system has a modulus at most $14484$. The distortion measures remain those
+of Balister, Bollob\'as, Morris, Sahasrabudhe and Tiba (BBMST).
+The improvement replaces a quadratic moment estimate of the
+stage loss by a convex comparison with independent prime-adic valuations.
+Conditioning on small-prime valuations retains part of the
+minimum-modulus restriction. A finite distribution calculation, with explicitly
+bounded tails and outward-rounded integer arithmetic, certifies the result.
+Floating-point optimization only supplies rational distortion parameters;
+it is not used to verify any proof inequality.
+The strongest certificate conditions on $85410$ configurations of the first
+eight primes, keeps an unrestricted bound outside that finite set, and
+tracks true first moments inside bins with graph-based support bounds.
+A distribution-stratified fractional-moment tail estimate closes the
+infinite calculation, improving the earlier single-moment certificates.
+Dynamic conditioning allows nonzero distortions inside the conditioned set,
+and a joint product calculation retains forbidden larger-prime divisors
+and their dependence on the remaining divisor-count product.
+Exact early conditioning and joint optimization of early and later
+distortions supply further improvements. A conditioned-complement estimate
+also bounds the configurations outside the retained small-prime set.
+The target $10000$
+remains unproved.
+\end{abstract}
+
+\section{Statement and external inputs}
+\begin{theorem}\label{thm:main}
+If a finite family of arithmetic progressions has distinct positive integer
+moduli, all at least $14485$, it does not cover the integers. Consequently
+the minimum modulus of every finite distinct covering system is at most
+$14484$.
+\end{theorem}
+
+The external inputs are the distortion construction of BBMST,
+\emph{On the Erd\H{o}s Covering Problem: the density of the uncovered set},
+\href{https://arxiv.org/html/1811.03547v1}{arXiv:1811.03547v1}. Numbering here
+refers to that version. The earlier certificates use its Theorem 6.1;
+the strongest certificate uses the fractional-moment extension proved in
+Section~\ref{sec:fractional}, with Dusart's explicit prime-counting bound.
+The conditional comparison and all finite distribution
+bounds needed for the new calculation are proved below. This is a local
+computer-assisted proof, not a proof-assistant formalization or a claim of
+independent peer review or publication priority.
+
+Let $p_i$ be the $i$th prime, including absent primes. Choose distortion
+parameters $0\leq\delta_i\leq1/2$ and write $\nu_i=(1-\delta_i)^{-1}$.
+We use BBMST's stage notation: $A_d=a_d+d\mathbb Z$ is the progression
+with modulus $d$, $N_i$ is the set of newly exposed moduli at stage $i$
+(those with largest prime factor $p_i$), and
+\[
+ B_i=\bigcup_{d\in N_i}A_d
+\]
+is the union of their arithmetic progressions. The distorted probability
+measure $\Pp_i$ is constructed inductively from $\Pp_{i-1}$ exactly as
+in BBMST. For a fixed earlier-coordinate configuration $x$, write
+\[
+ F(x)=\{(x,y):y\in\mathbb Z_{p_i^{\gamma_i}}\},\qquad
+ \alpha_i(x)=\frac{|F(x)\cap B_i|}{p_i^{\gamma_i}},
+\]
+where $\gamma_i$ is the exponent of $p_i$ in the common period.
+Thus $\alpha_i(x)$ is the proportion of the new fibre covered by $B_i$.
+Writing $\E_{i-1}$ for expectation under $\Pp_{i-1}$, the exact loss formula is
+\begin{equation}\label{eq:loss}
+ \Pp_i(B_i)=\frac{\E_{i-1}\pos{\alpha_i-\delta_i}}{1-\delta_i}.
+\end{equation}
+The conditional atom bound at an earlier prime $q=p_j$, with exponent
+$\gamma_j$ in the common period, is
+\begin{equation}\label{eq:cap}
+ \Pp_{i-1}(X_j=t\mid X_1,\ldots,X_{j-1})
+       \leq\frac{\nu_j}{q^{\gamma_j}}.
+\end{equation}
+It holds at stage $j$ by the fibre construction, and at later stages because
+the joint law of every already exposed prefix is preserved.
+
+Set
+\[
+ C_i=\prod_{j\leq i}\left(1+\frac{\nu_j}{p_j-1}\right),\qquad
+ T_i=\prod_{j\leq i}\left(1+
+       \frac{(3p_j-1)\nu_j}{(p_j-1)^2}\right),\qquad
+ \mu_i=1-\sum_{j\leq i}\Pp_j(B_j).
+\]
+BBMST Theorem 6.1 states that, for $k\geq10$, the conditions
+\begin{equation}\label{eq:stop}
+ \mu_k>0,\qquad \frac{T_k}{\mu_k}
+ \leq k(\log k+\log\log k-3)^2
+\end{equation}
+imply noncoverage. Their required unrestricted second-moment bound remains
+$M_i^{(2)}\leq T_{i-1}/(p_i-1)^2$ regardless of the stronger estimates used
+at earlier stages. Thus the original theorem handles the complete infinite
+tail after the verified finite calculation.
+
+\section{Convex comparison, including arbitrary residues}
+\begin{lemma}[Nested-event comparison]\label{lem:nested}
+Let $A_\ell$ be finitely many events with $\Pp(A_\ell)\leq u_\ell\leq1$,
+and let $c_\ell\geq0$. If $U$ is uniform on $[0,1]$, then for every convex
+nondecreasing function $\phi$ on the nonnegative reals,
+\[
+ \E\phi\left(\sum_\ell c_\ell\mathbf1_{A_\ell}\right)
+ \leq\E\phi\left(\sum_\ell c_\ell\mathbf1_{U\leq u_\ell}\right).
+\]
+\end{lemma}
+\begin{proof}
+Write $S=\sum c_\ell\mathbf1_{A_\ell}$ and $a=\Pp(S>t)$. For $t\geq0$,
+\[
+ \E\pos{S-t}
+ \leq\sum_\ell c_\ell\min(a,u_\ell)-ta
+ \leq\max_{0\leq v\leq1}
+       \left\{\sum_\ell c_\ell\min(v,u_\ell)-tv\right\}.
+\]
+If $S^*(u)=\sum c_\ell\mathbf1_{u\leq u_\ell}$, the last expression is
+$\max_v\int_0^v(S^*(u)-t)\,du=\int_0^1\pos{S^*(u)-t}\,du$,
+because $S^*$ is nonincreasing. The linear case follows from the probability
+bounds. Representing a convex nondecreasing function on the bounded range
+as a constant, a nonnegative linear term, and a positive integral of
+$(x-t)_+$ proves the assertion.
+\end{proof}
+
+\begin{lemma}[Product comparison]\label{lem:product}
+Suppose coordinates $X_j$ obey \eqref{eq:cap}. Let $H_\ell$ be cylinders
+specifying one residue modulo $p_j^{a_{\ell j}}$ in coordinate $j$, where
+exponent zero imposes no constraint. Let independent $V_j$ have tails
+\[
+ \Pp(V_j\geq a)=\frac{\nu_j}{p_j^a}\quad(1\leq a\leq\gamma_j),
+ \qquad 0\leq V_j\leq\gamma_j.
+\]
+For $c_\ell\geq0$ and convex nondecreasing $\phi$,
+\[
+ \E\phi\left(\sum_\ell c_\ell\mathbf1_{H_\ell}\right)
+ \leq\E\phi\left(\sum_\ell c_\ell
+              \prod_j\mathbf1_{V_j\geq a_{\ell j}}\right).
+\]
+\end{lemma}
+\begin{proof}
+Condition on all coordinates preceding the last one. A term whose preceding
+constraints fail has coefficient zero. Every remaining last-coordinate
+residue event has conditional probability at most $\nu_j/p_j^a$ by
+\eqref{eq:cap}; an unconstrained event has probability one. Apply
+Lemma~\ref{lem:nested}, using an independent auxiliary variable.
+For each fixed value of this variable, the result is again a nonnegative
+weighted sum of cylinders in the preceding coordinates. Induction on the
+number of coordinates completes the proof. Repeated cylinders and residues
+that vary between terms do not affect the argument.
+\end{proof}
+
+Since $\nu_j\leq2\leq p_j$, these are valid tail probabilities. We may
+extend to independent, unbounded $E_q$ with
+\begin{equation}\label{eq:exponent}
+ \Pp(E_q=0)=1-\frac{\nu_q}{q},\qquad
+ \Pp(E_q=a)=\frac{\nu_q(q-1)}{q^{a+1}}\quad(a\geq1),
+\end{equation}
+by coupling $V_j=\min(E_{p_j},\gamma_j)$. Adding absent primes and additional
+positive terms can only increase the comparison expression.
+
+\section{Keeping the minimum-modulus restriction}
+Fix a stage $p=p_i$ and a cutoff $K$. On the preceding smooth numbers put
+\[
+ F_p(m)=\sum_{\substack{j\geq1\\mp^j\geq K}}p^{-j},\qquad
+ D=\prod_{q<p}q^{E_q},\qquad A=\frac1{p-1}.
+\]
+Distinctness gives at most one residue for each modulus $mp^j$.
+A fibre union bound, followed by Lemma~\ref{lem:product} with
+$\phi(x)=(x-\delta)_+$, therefore gives
+\begin{equation}\label{eq:full}
+ \E\pos{\alpha_i-\delta}\leq
+ \E\pos{S_p(D)-\delta},\qquad
+ S_p(D)=\sum_{m\mid D}F_p(m).
+\end{equation}
+In applying the lemma, the residues for different $j$ are allowed to differ;
+they are separate cylinder terms with coefficients $p^{-j}$. Infinite
+exponents are an increasing extension of finite positive sums. Expectations
+are finite since $\E\tau(D)=C_{i-1}<\infty$.
+
+Let $s_j=\lceil K/p^j\rceil$, for the finitely many $j$ with $p^j<K$.
+Then exactly
+\begin{equation}\label{eq:subtract}
+ S_p(D)=A\tau(D)-\sum_{j:p^j<K}p^{-j}
+                    \#\{m\mid D:m<s_j\}.
+\end{equation}
+We will subtract only divisors supported on $2$ and $3$. This weakens the
+bound in a known direction; it does not assume that all forbidden divisors
+are of this form.
+
+All parameters at $2$ and $3$ are zero. Write
+$D_s=2^a3^b$ and
+$Z=\prod_{5\leq q<p}(E_q+1)$, so $\tau(D)=(a+1)(b+1)Z$.
+These variables are independent in the comparison model, and
+\[
+ \rho_{ab}:=\Pp(E_2=a,E_3=b)
+     =\frac{2}{2^{a+1}3^{b+1}},\qquad
+ \tau_{ab}=(a+1)(b+1),\qquad \E Z=C_{i-1}/3.
+\]
+For each state define
+\[
+ B_{ab}(p)=(p-1)\sum_{j:p^j<K}p^{-j}
+       \#\{2^u3^v<s_j:0\leq u\leq a,\ 0\leq v\leq b\}.
+\]
+Equation \eqref{eq:subtract} implies
+\[
+ S_p(D)\leq A\{\tau_{ab}Z-B_{ab}(p)\}.
+\]
+The expression on the right is nonnegative: the subtracted sum is at most
+$A\tau_{ab}$ and $Z\geq1$.
+
+\begin{proposition}[Conditional loss bound]\label{prop:conditional}
+Retain states $0\leq a\leq A_2$, $0\leq b\leq A_3$, and put
+\[
+ \eta=3-\sum_{a\leq A_2,b\leq A_3}\rho_{ab}\tau_{ab},\qquad
+ t_{ab}=\frac{(p-1)\delta+B_{ab}(p)}{\tau_{ab}}.
+\]
+For $0\leq\delta<1$, a valid upper bound for the stage loss is
+\begin{equation}\label{eq:conditional}
+ \frac{\displaystyle
+  \sum_{a\leq A_2,b\leq A_3}\rho_{ab}\tau_{ab}
+                \E\pos{Z-t_{ab}}+\eta\E Z}
+ {(p-1)(1-\delta)}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+On each retained state, apply the preceding pointwise bound inside
+\eqref{eq:full}. On the omitted states, use
+$(S_p(D)-\delta)_+\leq S_p(D)\leq A\tau(D)$.
+The expectation of $\tau(D_s)$ is $2\cdot(3/2)=3$, so independence gives
+the omitted contribution $A\eta\E Z$. Divide by $1-\delta$ using
+\eqref{eq:loss}.
+\end{proof}
+
+This proof conditions on the independent comparison variables, not on the
+original covering system's valuations. No independence of the distorted
+original measure is asserted.
+
+\subsection{Conditioning on more primes}
+The same argument applies to any initial set $\mathcal S$ of primes whose
+parameters are zero. Write $D_s=\prod_{q\in\mathcal S}q^{E_q}$,
+$Z=\prod_{q<p,\,q\notin\mathcal S}(E_q+1)$ and
+$c_s=\prod_{q\in\mathcal S}q/(q-1)$. For an exponent vector $e$ put
+\[
+ \rho_e=\prod_{q\in\mathcal S}\frac{q-1}{q^{e_q+1}},\quad
+ \tau_e=\prod_{q\in\mathcal S}(e_q+1),\quad
+ B_e=(p-1)\sum_{j:p^j<K}p^{-j}\#\{m\mid D_s:m<s_j\}.
+\]
+For any finite retained set $G$ of vectors, replace $3$ by $c_s$,
+$\eta$ by $c_s-\sum_G\rho_e\tau_e$, and $\E Z$ by $C_{i-1}/c_s$
+in Proposition~\ref{prop:conditional}. Its proof is unchanged.
+States with identical $\tau_e$ and divisor-count vectors may be grouped:
+their coefficients are positive and their excess thresholds are identical.
+The integer implementation sums upper bounds for these coefficients, and
+uses lower bounds when computing the omitted weighted mean.
+
+\section{A finite upper bound for the excess expectation}
+For any nonnegative integrable random variable $Z$,
+\begin{equation}\label{eq:identity}
+ \E\pos{Z-t}=\E Z-t+\E\pos{t-Z}.
+\end{equation}
+Thus the mean is retained exactly through its Euler product, while only the
+bounded lower part of the distribution must be computed. This is the source
+of the large gain over bounding the excess by a quadratic moment.
+
+The earlier verifier constructs integer bin representatives $b_0=0,b_1=1$, followed
+by
+\[
+ b_{r+1}=\min\{100000,\ b_r+\max(1,\lfloor b_r/256\rfloor)\}.
+\]
+Starting at $1$, whenever a multiplier $h=E_q+1$ is applied, its product
+with the current representative is rounded \emph{down} to the largest
+representative not exceeding it. Hence the retained representative
+$\widetilde Z$ is at most the true product $Z$, path by path. A product of
+representatives exceeding $100000$ is dropped. Its true product already
+exceeds $100000$ and can never return below that cutoff; such a path
+contributes zero to $(t-Z)_+$ when $t\leq100000$.
+
+For each prime $q$, choose the least positive integer $H_q$ with
+$q^{H_q}\geq2\cdot10^{32}$. Include multipliers $h=1,2,\ldots,H_q$.
+The omitted probability at that prime is
+\[
+ \Pp(E_q\geq H_q)=\nu_q/q^{H_q}.
+\]
+The probability of ever omitting such a multiplier is at most the sum
+$\epsilon$ of these quantities. This union bound also covers paths already
+discarded, so it is safely conservative.
+
+Let $U_r$ be upper bounds on the probabilities of the retained rounded
+states. For $0\leq t\leq100000$, the coupling gives
+\begin{equation}\label{eq:excess}
+ \E\pos{Z-t}\leq
+ \E Z-t+\sum_{b_r<t}(t-b_r)U_r+t\epsilon.
+\end{equation}
+If the original threshold exceeds $100000$, replace it by $100000$.
+This also increases the excess expectation. The verifier first rounds each
+threshold downward to a fixed-point rational and then applies this cap.
+Monotonicity of $\E(Z-t)_+$ justifies both operations.
+
+The direction of binning is essential: $Z$ is rounded downward only in the
+complementary term $\E(t-Z)_+$. The mean $\E Z$ in \eqref{eq:excess}
+is the independent exact Euler-product mean, not the mean of the rounded
+distribution. This avoids an unaccounted moment error.
+
+\section{First-moment information inside the bins}\label{sec:binmean}
+The complementary bound \eqref{eq:excess} can be sharpened without using
+smaller bins. Let the cap be $H$ and the bin resolution be an integer
+$R\geq2$, with increments $\max(1,\lfloor b/R\rfloor)$. On a retained
+path let $z$ be the true product and $b$ its rounded representative.
+Every nontrivial multiplication increases $b$ by at least
+$g=2R/(R+1)>1$: the downward rounding loses a factor less than $1+1/R$,
+and the multiplier is at least $2$. Let $N$ be the largest integer with
+$g^N\leq H$. There are at most $N$ nontrivial updates on a retained path,
+and therefore
+\[
+ b\leq z\leq u_b:=\left\lceil b(1+1/R)^N\right\rceil.
+\]
+For $b<R$ one may set $u_b=b$, since all preceding integer products were
+represented exactly. These support bounds are computed with integer powers.
+
+Let $P_b$ denote the mass of retained paths in bin $b$, and
+$M_b=\E[Z\mathbf1_{\{\text{retained bin }b\}}]$ their \emph{true}
+weighted first moment. Maintain an upper bound $P_b^+$ and a lower bound
+$M_b^-$. Under a multiplier $h$ of probability $w_h$, the contribution
+to the next mass is $w_hP_b$ and to the next first moment is $hw_hM_b$.
+Rounding these respectively upward and downward gives rigorous bounds.
+
+Convexity of $z\mapsto(t-z)_+$ on $[b,u_b]$ gives the following upper
+contribution of the bin:
+\[
+ \begin{cases}
+ 0,&t\leq b,\\
+ \displaystyle\frac{t-b}{u_b-b}(u_bP_b^+-M_b^-),&b<t<u_b,\\
+ tP_b^+-M_b^-,&t\geq u_b.
+ \end{cases}
+\]
+The middle line is the chord between the two endpoints. The last line is
+exact before rounding, so rounding errors in the representative do not
+accumulate as a false mean deficit for bins entirely below the threshold.
+Adding $t\epsilon$ for omitted prime-power paths and then using
+\eqref{eq:identity} proves an excess upper bound. Discarded paths above
+the cap still have zero complementary contribution for $t\leq H$.
+Thresholds above the cap are decreased to the cap as before.
+
+For efficient evaluation, the code accumulates prefix sums of $P_b^+$,
+$M_b^-$, and of the upward-rounded coefficients
+$(u_bP_b^+-M_b^-)/(u_b-b)$ and their products with $b$.
+The two latter sums use the \emph{same} rounded coefficient. Thus their
+difference is a sum of nonnegative multiples of upper bounds; no subtraction
+of an independently rounded upper bound is mistaken for an upper bound.
+
+\subsection{Sharper supports from the rounded-product graph}\label{sec:reachable}
+The uniform factor $(1+1/R)^N$ can be replaced by an integer reachability
+calculation. Every retained multiplier satisfies $h\leq108$, since
+$2^{108}\geq2\cdot10^{32}$ and $q\geq2$. Form a directed graph on the
+positive bin representatives. For $2\leq h\leq108$ and $bh\leq H$, put an
+edge from $b$ to $r(bh)$, labelled $h$, where $r$ rounds down to a bin.
+Every edge strictly increases its representative, so the graph is acyclic.
+
+Set $U_1=1$, set the other values initially to zero, and process vertices
+in increasing order. For every outgoing edge from a reachable vertex, set
+\[
+ U_{r(bh)}\leftarrow\max\{U_{r(bh)},hU_b\}.
+\]
+The value $U_b$ is the maximum product of edge labels on any graph path
+from $1$ to $b$. Every retained probabilistic path is a graph path after
+its multipliers equal to $1$ have been omitted. Induction over its edges
+therefore gives $Z\leq U_b$. Allowing arbitrary repetitions and orders of
+the labels enlarges the set of paths and is harmless for this upper bound.
+For prefix-sum evaluation use the monotone endpoints
+\[
+ u_b=\max\{b,\max_{c\leq b}U_c\}.
+\]
+They contain every true retained value in their bin. Consequently all
+chord and first-moment inequalities of Section~\ref{sec:binmean} remain
+valid with these endpoints. The calculation uses exact integers in
+\texttt{code/reachable\_support.py}; the verifier also checks $H_q\leq108$
+at every update. This improves the moment enclosure without altering the
+probability distribution, its mean, or the omitted-path estimates.
+
+\section{Finite conditioning with an unrestricted fallback}\label{sec:sparse}
+The omitted-state term $\eta\E Z$ can be avoided. Fix an initial prime
+set $\mathcal S$ with zero distortions, and let $G$ be any finite set of
+$\mathcal S$-smooth positive integers. Put
+\[
+ \rho_n=\Pp(D_s=n)=\frac1n\prod_{q\in\mathcal S}\frac{q-1}{q},\quad
+ B_n=(p-1)\sum_{j:p^j<K}p^{-j}\#\{m\mid n:m<s_j\},\quad A=(p-1)\delta.
+\]
+\begin{proposition}[Bounded conditioning correction]\label{prop:sparse}
+Let $Y=\tau(D_s)Z$ be the complete independent product. A valid stage-loss
+upper bound is
+\begin{equation}\label{eq:sparse}
+ \frac{\displaystyle \E(Y-A)_+
+ -\sum_{n\in G}\rho_n\E\min\{B_n,(\tau(n)Z-A)_+\}}
+ {(p-1)(1-\delta)}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For a retained state $n$, the divisor subtraction gives
+$(p-1)S_p(D)\leq\tau(n)Z-B_n$. Use the identity
+\[
+ (x-A)_+-(x-A-B)_+=\min\{B,(x-A)_+\}\qquad(B\geq0).
+\]
+On all states outside $G$, simply use $(p-1)S_p(D)\leq Y$.
+Taking expectations and applying \eqref{eq:full} and \eqref{eq:loss}
+proves \eqref{eq:sparse}. Independence is used only in the comparison model.
+\end{proof}
+
+We choose $G=\{n<L:n\text{ is }\mathcal S\text{-smooth}\}$.
+There is no unbounded tail approximation: outside this finite set the
+unrestricted excess estimate remains in force. Unlike a discarded first
+moment, each omitted correction is bounded by $B_n$.
+
+The first term in \eqref{eq:sparse} is bounded upward by the method of
+Section~\ref{sec:binmean}, using the full prime product. To bound a correction
+downward, propagate \emph{lower} probability masses $V_b$ for downward bins
+of $Z$. Since
+$z\mapsto\min\{B_n,(\tau(n)z-A)_+\}$ is nonnegative and increasing,
+\[
+ \E\min\{B_n,(\tau(n)Z-A)_+\}
+ \geq\sum_b V_b\min\{B_n,(\tau(n)b-A)_+\}.
+\]
+All omitted paths, including prime-power truncations and products above the
+cap, contribute nonnegative quantities and may be dropped in this lower
+bound. No omitted-probability subtraction is necessary here.
+Multiply by lower bounds for $\rho_n$, sum with downward rounding, subtract
+from the excess upper bound, and divide upward by $(p-1)(1-\delta)$.
+The sign of every rounding operation is therefore fixed explicitly.
+Grouping states with the same divisor-count vector and $\tau(n)$ again
+preserves the bound, now by summing \emph{lower} probabilities.
+
+\subsection{Nonzero distortion inside the conditioned set}\label{sec:dynamic}
+The zero-distortion restriction on $\mathcal S$ is unnecessary. At stage
+$p$, use the active set $\mathcal S_p=\{q\in\mathcal S:q<p\}$ and retain
+$G_p=\{n<N:n\text{ is }\mathcal S_p\text{-smooth}\}$. For
+$\nu_q<q$, the exact comparison probability is
+\[
+ \rho_{n,p}=\frac1n\prod_{q\in\mathcal S_p}\left(1-\frac{\nu_q}{q}\right)
+       \prod_{q\mid n}\frac{\nu_q(q-1)}{q-\nu_q}.
+\]
+This follows directly by multiplying the atom probabilities of the
+independent comparison exponents. Proposition~\ref{prop:sparse} applies
+with these weights and the active set; the proof is unchanged.
+Unexposed primes never contribute to $D_s$ or to its divisor count.
+
+The dynamic integer implementation tracks lower and upper bounds for the
+common normalizer and for each state's coefficient. When $q$ is exposed,
+the normalizer is multiplied by $1-\nu_q/q$, and coefficients of states
+divisible by $q$ are multiplied by $\nu_q(q-1)/(q-\nu_q)$. States involving
+any unexposed prime are excluded. These are rational, positive updates;
+the verifier checks their denominators and rounds every product outward.
+The remaining-prime product contains only primes outside $\mathcal S$.
+
+\subsection{Joint conditioning on larger-prime presence}\label{sec:presence}
+Let $q_0$ be the first prime outside $\mathcal S$, and suppose $p\geq q_0$,
+$K\leq pq_0^2$, and $K\leq p^2q_0$. Every forbidden divisor $m$ with
+$mp^j<K$ then contains at most one prime outside $\mathcal S$, with
+exponent one; such a prime can occur only when $j=1$.
+For a retained small-prime state $n$, write
+\[
+ I_q=\mathbf1_{\{E_q\geq1\}},\quad
+ c_q(n)=\#\{d\mid n:dpq<K\},\quad
+ a=\sum_{q_0\leq q<p}I_q,\quad J=\sum_{q_0\leq q<p}c_q(n)I_q.
+\]
+The $I_q$ are independent Bernoulli variables with probabilities
+$\nu_q/q$ in the comparison model. The full forbidden-divisor subtraction
+is exactly $B_n+(p-1)J/p$, while
+$Y\geq\tau(n)2^a$. Thus an additional valid lower bound for the correction
+subtracted from $\E(Y-A)_+$ is
+\begin{equation}\label{eq:presence}
+ \sum_{n\in G_p}\rho_{n,p}\,
+ \E\min\left\{B_n+\frac{p-1}{p}J,
+       \big(\tau(n)2^{\min(a,12)}-A\big)_+\right\}.
+\end{equation}
+The identity in Proposition~\ref{prop:sparse}, now with the full
+forbidden-divisor count, proves the claim. Capping $a$ at $12$ decreases
+the integrand, and discards no probability. The old correction and
+\eqref{eq:presence} each lower-bound the same full correction, so their
+maximum is still a valid lower bound.
+
+For each divisor-count pattern, a finite recurrence tracks the pair
+$(\min(a,12),J)$. At prime $q$ it either stays in place, with probability
+$1-\nu_q/q$, or moves to $(\min(a+1,12),J+c_q)$, with probability
+$\nu_q/q$. The code rounds both contributions downward and then evaluates
+the nonnegative integrand with exact rational arithmetic. The required
+inequalities on $p,q_0,K$ are checked before every use. This calculation
+retains the dependence between product size and forbidden divisors;
+it never assumes those two quantities are independent.
+
+The maximum can also be taken \emph{before} summing over conditioned states.
+For each $n$, both conditional expressions lower-bound the same conditional
+correction. Therefore summing their pointwise maximum with weights
+$\rho_{n,p}$ is valid and at least as strong as taking the maximum of the
+two sums. The option \texttt{statewise\_presence} implements this refinement.
+Its integer evaluation groups states by all divisor counts needed by either
+expression, rounds both conditional expectations down, and then takes their
+maximum. No statistical independence between the two estimates is needed.
+
+\subsection{Conditioning on a decreasing event}
+For the specific retained set $G=\{D_s<L\}$, the correction can be
+strengthened further. For each fixed $z\geq1$ the function
+\[
+ g_z(e)=\min\{B_e,(\tau(e)z-A)_+\}
+\]
+is increasing in each exponent: both $B_e$ and $\tau(e)$ are increasing.
+The event $G$ is decreasing. Independent coordinates have nonnegative
+covariance for increasing functions, so
+\[
+ \E[g_z\mathbf1_G]\leq\E[g_z]\Pp(G),\qquad
+ \E[g_z]\geq\frac{\E[g_z\mathbf1_G]}{\Pp(G)}.
+\]
+For completeness, the covariance assertion follows in one coordinate from
+$2\operatorname{Cov}(f(X),h(X))=
+\E[(f(X)-f(X'))(h(X)-h(X'))]\geq0$, with $X'$ an independent copy.
+Induction over independent coordinates proves the assertion in a finite
+product; truncation and bounded convergence handle the geometric tails.
+Apply it to $g_z$ and $1-\mathbf1_G$. Here $g_z$ is bounded because
+$B_e$ counts only divisors below finitely many fixed thresholds.
+
+Integrating over the independent remaining-prime product $Z$ proves that
+the correction in \eqref{eq:sparse} may be divided by $\Pp(G)$.
+The integer implementation divides the already certified lower correction
+by an \emph{upper} bound for $\Pp(G)$ and rounds downward. It uses this
+option only for the stated decreasing smooth-number cutoff, not for an
+arbitrary finite retained set. This is an association inequality within
+the independent comparison model, with no assertion of independence or
+association for the original distorted covering measure.
+
+\subsection{Joint product and forbidden-divisor conditioning}\label{sec:jointproduct}
+The presence-only correction can be strengthened by tracking the full
+product of the remaining comparison factors. Suppose the first remaining
+prime is $q_0$, $K\leq pq_0^2$, and $p^2q_0\geq K$.
+For a fixed small-prime state $n$, every forbidden divisor contains at most
+one remaining prime, to exponent one. Thus its full forbidden contribution is
+\[
+ B=B_0(n)+\frac{p-1}{p}J,\qquad
+ J=\sum_{q_0\leq q<p}c_q(n)\mathbf1_{E_q\geq1},\quad
+ c_q(n)=\#\{d\mid n:dpq<K\}.
+\]
+Put $Z=\prod_{q_0\leq q<p}(E_q+1)$, $\tau=\tau(n)$, and
+$A=(p-1)\delta$. The exact conditional correction is
+\[
+ \E\min\{B,(\tau Z-A)_+\}
+ =\E B-\E\min\{B,(A+B-\tau Z)_+\}.
+\]
+Its mean is explicit:
+$\E B=B_0+(p-1)p^{-1}\sum_q c_q\nu_q/q$.
+Let $h$ be the number of remaining primes with $pq<K$. Since
+$B_0\leq\tau$ and $c_q\leq\tau$, we have $B\leq\tau(1+h)$.
+Consequently the complementary integrand is zero for
+$Z>H=\lceil A\rceil+1+h$.
+
+The joint law of $(Z,J)$ for $Z\leq H$ is computed by a finite recurrence.
+At prime $q$, exponent zero multiplies a state probability by $1-\nu_q/q$;
+exponent $a\geq1$ sends $(z,j)$ to $(z(a+1),j+c_q)$ with multiplier
+$\nu_q(q-1)/q^{a+1}$. Retain exactly the transitions with $z(a+1)\leq H$.
+The product never decreases, so no discarded path can return. This gives
+the entire bounded complement, with no assumption on omitted exponents.
+
+The verifier rounds the mean of $B$ downward, all retained probabilities
+and complementary summands upward, and clips the resulting correction
+below at zero. It then weights this lower correction by each retained
+small-state probability rounded downward. Outside the retained small states
+the correction is still omitted, as before. This is an alternative to
+enumerating all early comparison integers: it conditions on the exact
+remaining product and its forbidden-divisor contribution jointly.
+The implementation is \texttt{code/joint\_product\_bound.py}, activated
+by the witness flag \texttt{joint\_product}.
+
+This also permits a different split of the comparison coordinates.
+With only the first eight primes explicitly enumerated, $q_0=23$;
+for the cutoffs tested here the structural hypotheses hold from $p=29$.
+The earlier stages are covered by exact early evaluation. The joint-product
+correction then retains the forbidden divisors involving primes $q\geq23$,
+while the retained set of small-prime states has a smaller omitted tail.
+In this variant the numerical prefix is extended through $150$ primes,
+so that $23p_{150}>K$ and the later adjoint again has no joint-product
+corrections left to differentiate. The verifier checks the structural
+hypotheses before using this correction; it never extrapolates the
+one-remaining-prime identity to stages where two such primes can occur.
+
+There is an exact monotonicity principle behind this change. Let
+$D_{\mathcal S}$ be the part of the comparison integer supported on
+$\mathcal S$, and let $g(D)$ be the full nonnegative forbidden-divisor
+correction. If $\mathcal S\subset\mathcal T$, then
+$D_{\mathcal S}\leq D_{\mathcal T}$ pointwise, and therefore
+\[
+ \E\bigl[g(D)\mathbf1_{D_{\mathcal S}<N}\bigr]
+ \geq \E\bigl[g(D)\mathbf1_{D_{\mathcal T}<N}\bigr].
+\]
+At stages where the structural hypotheses hold for both splits, the exact
+joint-product recurrence computes these same retained corrections.
+Thus reducing the explicitly enumerated set can strengthen the estimate:
+more full comparison states are retained, while the remaining coordinates
+are still integrated jointly. The computational cost shifts to the joint
+product distribution.
+
+\section{Exact finite evaluation of early lower tails}\label{sec:earlyexact}
+There is another way to retain the minimum-modulus restriction, which does
+not discard large comparison integers. At stage $p$, include \emph{all}
+primes $q<p$ in $D$, put $L_0=\lceil K/p\rceil$, $A=(p-1)\delta$, and write
+\[
+ B(D)=(p-1)\sum_{j:p^j<K}p^{-j}\#\{d\mid D:dp^j<K\},\qquad
+ W(D)=\tau(D)-B(D)=(p-1)S_p(D).
+\]
+If $D\geq L_0^2$, pairing divisors $d$ and $D/d$ shows that at most half
+the divisors lie below $L_0$, and hence below any of the smaller thresholds.
+Consequently $B(D)\leq\tau(D)/2$ and $W(D)\geq\tau(D)/2$.
+It follows that the positive part $(A-W(D))_+$ is supported on the finite set
+\begin{equation}\label{eq:earlyfinite}
+ \{D<L_0^2\}\ \cup\ \{\tau(D)\leq\lfloor2A\rfloor\}.
+\end{equation}
+The second set is finite because the number of primes is finite and every
+exponent is at most $\lfloor2A\rfloor-1$. When the floor is zero that set
+is empty. The first set is an ordinary finite smooth-number enumeration.
+
+Let $M_1=\E S_p(D)$, evaluated by the restricted first-moment Euler product
+and finite divisor sum already used above. The identity for a positive part
+gives the exact comparison expectation
+\[
+ \E(S_p(D)-\delta)_+
+ =M_1-\delta+\frac1{p-1}\E(A-W(D))_+.
+\]
+Thus the stage loss is bounded by this expression divided by $1-\delta$.
+The last expectation is an \emph{exact finite sum} over
+\eqref{eq:earlyfinite}; there is no omitted-exponent probability in this step.
+The two enumerations are made disjoint by excluding $D<L_0^2$ from the
+divisor-count enumeration. The probability of each state is the product
+of the comparison probabilities in \eqref{eq:exponent}.
+
+\texttt{code/early\_exact\_states.py} performs the integer enumeration and
+uses upper bounds for every nonnegative summand. The first moment is rounded
+up, the subtraction of $\delta$ uses an outward interval, and division is
+outward. All numerators defining $W$ are integers over a common power of $p$.
+This alternative is practical at early primes, where $2A$ and the number of
+prime coordinates are small. The witness specifies the last prime at which
+it is used; at every such stage the verifier takes the minimum with the
+other valid loss bounds.
+
+\subsection{Conditioning the complement, including omitted configurations}
+\label{sec:conditionedcomplement}
+The full-product calculation can also be applied directly to the preceding
+complement identity. This avoids subtracting a retained correction from an
+unrestricted, binned baseline. Let $D=nD_R$, where $n$ is supported on the
+explicitly conditioned primes and $Z=\tau(D_R)$. Retain $n<N$, assume
+$N\geq L_0^2$, and impose the structural hypotheses of
+Section~\ref{sec:jointproduct}. For a retained $n$, the conditional
+complement is
+\[
+ F_n=\E\left(A+B_0(n)+\frac{p-1}{p}J-\tau(n)Z\right)_+.
+\]
+Its integrand vanishes for $Z>\lceil A\rceil+1+h$, by exactly the same
+bound $B\leq\tau(n)(1+h)$ used there. Thus the finite joint recurrence
+computes $F_n$ without an exponent truncation error.
+
+On the omitted event $n\geq N$, the full comparison integer satisfies
+$D\geq L_0^2$. Divisor pairing therefore gives $W(D)\geq\tau(n)Z/2$.
+Write
+\[
+ a_t=\Pp(\tau(n)=t),\quad
+ b_t=\Pp(\tau(n)=t,\ n<N),\quad r_z=\Pp(Z=z).
+\]
+Independence of the two prime sets proves the rigorous bound
+\begin{equation}\label{eq:conditionedcomplement}
+ \E(A-W(D))_+
+ \leq \sum_{n<N}\Pp(n)F_n
+ +\sum_{tz\leq\lfloor2A\rfloor}(a_t-b_t)r_z
+                       (A-tz/2)_+.
+\end{equation}
+The second sum is finite. The laws $a_t$ and $r_z$ through
+$\lfloor2A\rfloor$ are obtained by the same product recurrence, with all
+additive coefficients zero. No omitted configuration is assumed to have
+zero mass. Multiplicative transitions cannot return below the cutoff.
+
+There is also a monotonicity principle for this bound before rounding.
+For a smaller conditioned prime set, the event $n<N$ becomes larger.
+On the configurations newly retained, the exact complement replaces the
+pairing upper bound $(A-\tau(D)/2)_+$. Thus, wherever the structural
+hypotheses hold for both splits, reducing the conditioned prime set cannot
+increase the right side of \eqref{eq:conditionedcomplement}. This compares
+exact evaluations of the stated bound; it does not compare different
+rounding settings or different choices of the early distortion parameters.
+
+The implementation \texttt{code/conditioned\_complement\_bound.py}
+rounds retained configuration probabilities, $F_n$, $a_t$, and $r_z$
+upward, and $b_t$ downward. It replaces $a_t-b_t$ by the nonnegative
+upper bound $\max(0,a_t^{\rm up}-b_t^{\rm lo})$. All summands are
+nonnegative, so these operations preserve an upper bound. Substitution
+in $(M_1-\delta+\E(A-W)_+/(p-1))/(1-\delta)$ gives a certified stage
+loss. The verifier takes the minimum with the other valid bounds.
+The witness field \texttt{conditioned\_complement\_prime} specifies the
+last stage at which this additional bound is used. Independent rational
+checks enumerate the complete finite complement support in eighteen
+small cases, including nonzero distortions and omitted configurations.
+
+\section{An explicit third-moment stopping criterion}\label{sec:thirdtail}
+There is a useful alternative to the second-moment termination theorem.
+The comparison argument also applies to the increasing convex function
+$x^3$. For the complete product $Y=\prod_{q\leq P}(E_q+1)$, put
+\[
+ U_k=\E Y^3=\prod_{q\leq P}
+ \left(1+\nu_q\frac{7q^2-2q+1}{(q-1)^3}\right),\qquad P=p_k.
+\]
+The Euler factor follows by summing
+$1+\nu_q\sum_{a\geq1}((a+1)^3-a^3)q^{-a}$.
+Choose a constant future distortion $d\in(0,1/2]$ and
+$\nu=(1-d)^{-1}$. The elementary inequality
+\[
+ (x-d)_+\leq\frac{4x^3}{27d^2}\quad(x\geq0)
+\]
+follows by maximizing $(x-d)/x^3$, whose maximum is attained at
+$x=3d/2$. Thus the loss at a later prime $p$ is at most
+\[
+ \frac{4}{27d^2(1-d)}\frac{U(p^-)}{(p-1)^3}.
+\]
+
+For an explicit infinite sum we use Dusart,
+\emph{Estimates of Some Functions Over Primes without R.H.},
+\href{https://arxiv.org/pdf/1002.0442}{arXiv:1002.0442v1},
+Theorem 6.9, inequality (6.6):
+$\pi(x)\leq x/(\log x-1.1)$ for $x\geq60184$.
+Assume $P\geq60184$, put $l=\log P$, and choose a rational
+$c\geq l/(l-1.1)$. Then $\pi(x)\leq cx/\log x$ for all $x\geq P$.
+Partial summation, using the exact count $\pi(P)=k$, gives
+\[
+ \sum_{P<q\leq x}\frac1q
+ \leq \frac{c}{l}-\frac{k}{P}
+       +c\log\frac{\log x}{l}.
+\]
+Set
+\[
+ r=\frac{P}{P-1},\quad \alpha=7\nu r^3,\quad
+ m=\lceil\alpha c\rceil,\quad
+ z=\alpha\left(\frac{c}{l}-\frac{k}{P}\right).
+\]
+The third-moment Euler increment at $q>P$ is at most $\alpha/q$.
+Since $\log(1+t)\leq t$, the preceding prime sum proves
+\[
+ U(p^-)\leq U_k e^z(\log p/l)^m.
+\]
+Suppose $0\leq z<1$ and $m<3l$, as the verifier checks. The function
+$f(x)=(\log x/l)^m/x^3$ is decreasing on $[P,\infty)$.
+Another partial summation yields
+\[
+ \sum_{p>P}f(p)
+ \leq c\left(\frac{3J_{m-1}}{l}
+             -\frac{mJ_{m-2}}{l^2}\right)-\frac{k}{P^3},
+\]
+where integration by parts evaluates the integrals exactly as
+\[
+ J_j=\int_P^\infty\frac{(\log x/l)^j}{x^3}\,dx
+ =\frac1{2P^2}\sum_{h=0}^j\frac{j!}{(j-h)!(2l)^h}.
+\]
+The boundary term $-k/P^3$ is retained; omitting it would significantly
+weaken the estimate. Using $(p-1)^{-3}\leq r^3p^{-3}$ and
+$e^z\leq(1-z)^{-1}$ gives the entirely explicit tail bound
+\begin{equation}\label{eq:thirdtail}
+ \mathcal T_k=
+ \frac{4U_kr^3}{27d^2(1-d)(1-z)}
+ \left[c\left(\frac{3J_{m-1}}l-
+                   \frac{mJ_{m-2}}{l^2}\right)-\frac{k}{P^3}\right].
+\end{equation}
+If $\mu_k>\mathcal T_k$, the sum of all stage losses is less than one.
+Prefix preservation and the union bound, as in equation (13) in BBMST's
+proof of Theorem 3.1, imply noncoverage for every finite covering candidate.
+This argument closes the entire infinite prime tail; it does not infer
+noncoverage merely from survival through a finite list of primes.
+
+\texttt{code/third\_moment\_tail.py} evaluates \eqref{eq:thirdtail}
+using the existing outward integer intervals. It encloses $\log P$ by
+the rational atanh series, rounds $c$ upward to a multiple of $10^{-6}$,
+and verifies every stated hypothesis. No floating-point logarithm or
+exponential participates in this certificate.
+
+\subsection{Interpolation of the tail growth exponent}
+The upward rounding of $\alpha c$ to an integer can be sharpened.
+Let $s$ be a rational upper bound for $\alpha c$, let $m=\lceil s\rceil$,
+and put $\theta=s-(m-1)$. For $t\geq1$, convexity in the exponent gives
+\[
+ t^{\alpha c}\leq t^s\leq(1-\theta)t^{m-1}+\theta t^m.
+\]
+Apply the already proved prime-sum bound separately to these two integer
+powers and combine them with the nonnegative weights. This replaces the
+bracket in \eqref{eq:thirdtail} by the corresponding weighted combination
+of the brackets for $m-1$ and $m$. The verifier checks the decreasing-function
+condition for the larger exponent and evaluates $\theta$ exactly at its
+fixed-point rational value. This option avoids any unevaluated fractional
+power or numerical integration in the proof.
+
+\subsection{Using the shifted logarithm directly}
+One can use Dusart's bound without replacing its denominator by a constant
+multiple of $\log x$. Put $\ell=\log P-1.1$. Partial summation gives
+\[
+ \sum_{P<q\leq x}\frac1q
+ \leq\frac1\ell-\frac{k}{P}
+       +\log\frac{\log x-1.1}{\ell}.
+\]
+Indeed the endpoint term is at most $1/\ell$ and the integral is the stated
+logarithmic ratio. The preceding third-moment proof now applies with
+$c=1$, $l=\ell$, and growth exponent $\alpha$, using
+$(\log x-1.1)/\ell$ throughout. The integration-by-parts recurrence for
+$J_j$ is unchanged. The option \texttt{shifted\_tail} implements exactly
+this variant, including the same monotonicity and positivity checks.
+
+\subsection{Fractional-moment termination}\label{sec:fractional}
+The moment order need not be an integer. For $1<s\leq3$, set
+\[
+ U_k^{(s)}=\E Y^s=
+ \prod_{q\leq P}\left(1+\nu_q a_s(q)\right),\qquad
+ a_s(q)=\sum_{a\geq1}\frac{(a+1)^s-a^s}{q^a}.
+\]
+Maximizing $(x-d)/x^s$ gives, for $x\geq0$,
+\[
+ (x-d)_+\leq\frac{(s-1)^{s-1}}{s^s d^{s-1}}x^s.
+\]
+The same convex comparison therefore bounds the later stage loss by
+$\kappa_s(d)U^{(s)}(p^-)/(p-1)^s$, where
+$\kappa_s(d)=(s-1)^{s-1}/[s^s d^{s-1}(1-d)]$.
+
+For integers $a\geq1$,
+\[
+ (a+1)^s-a^s\leq(2^s-1)\frac{a(a+1)}2.
+\]
+To see this, write the left side as
+$s\int_a^{a+1}t^{s-1}\,dt$. Its ratio to $a(a+1)$ is $s$ times
+the $t^2$-weighted average of $t^{s-3}$ on that interval, multiplied by
+$1+1/[3a(a+1)]$. Both factors are at most their values at $a=1$:
+the first because $s\leq3$ and the integer intervals are ordered, and the
+second directly. Summing the displayed bound gives
+\[
+ a_s(q)\leq\frac{2^s-1}{q}\left(\frac q{q-1}\right)^3.
+\]
+For $r=P/(P-1)$, $\nu=(1-d)^{-1}$, $\ell=\log P-1.1$, and
+$\alpha=\nu(2^s-1)r^3$, the shifted prime sum thus bounds moment growth
+by $U_k^{(s)}e^z[(\log x-1.1)/\ell]^\alpha$, where
+$z=\alpha(1/\ell-k/P)$.
+
+Choose a rational upper bound $u\geq\max(\alpha,2)$, put
+$m=\max(3,\lceil u\rceil)$ and
+$\theta=u-(m-1)$. Assume $0\leq z<1$ and $m<s\ell$.
+With $\beta=s-1$, define
+\[
+ J_j^{(s)}=\frac1{\beta P^\beta}
+       \sum_{h=0}^j\frac{j!}{(j-h)!(\beta\ell)^h},\qquad
+ Q_j^{(s)}=\frac{sJ_{j-1}^{(s)}}\ell
+       -\frac{jJ_{j-2}^{(s)}}{\ell^2}-\frac{k}{P^s}.
+\]
+These follow by integrating $x^{-s}[(\log x-1.1)/\ell]^j$ and then
+applying partial summation to the decreasing function
+$x^{-s}[(\log x-1.1)/\ell]^j$. Convex interpolation of the exponent gives
+the explicit infinite loss bound
+\begin{equation}\label{eq:fractionaltail}
+ \mathcal T_k^{(s)}=
+ \frac{\kappa_s(d)U_k^{(s)}r^s}{1-z}
+ \left[(1-\theta)Q_{m-1}^{(s)}+\theta Q_m^{(s)}\right].
+\end{equation}
+Positivity of $\mu_k-\mathcal T_k^{(s)}$ proves noncoverage by the same
+prefix-preservation and union-bound argument.
+
+The implemented orders are dyadic rationals $s=a/b$ with $1<s\leq3$
+and $b\in\{4,8,16,32\}$. An omitted denominator in an older witness means
+$b=4$. All powers are evaluated by integer products and outward integer
+square-root enclosures, iterated $\log_2 b$ times for the fractional part,
+so no floating-point power is a proof input. This permits a finer moment
+search, including $43/16$, without changing the tail argument. Each Euler
+series is summed through the least $H$ with $q^H\geq10^{35}$.
+Its nonnegative remainder is bounded by $2^s-1$ times
+\[
+ \frac{(H+1)(H+2)}{2q^{H+1}}
+ \left(1-\frac{H+3}{q(H+1)}\right)^{-1},
+\]
+because successive terms of the dominating series have at most that
+geometric ratio. The denominator is checked positive. These enclosures,
+the logarithm, and every hypothesis of \eqref{eq:fractionaltail} are
+evaluated with integer intervals in \texttt{code/fractional\_moment\_tail.py}.
+
+\subsection{Moment orders between three and four}
+The same tail integration also applies at $s=4$, using the exact increment
+\[
+ a_4(q)=\frac{15q^3+5q^2+5q-1}{(q-1)^4}
+ \leq\frac{15+5/P+5/P^2}{q}\left(\frac P{P-1}\right)^4
+ \quad(q>P).
+\]
+This identity follows by summing
+$\sum_{a\geq1}(4a^3+6a^2+4a+1)q^{-a}$.
+Set $\alpha=\nu(15+5/P+5/P^2)r^4$ and use the same formulas for
+$z,m,\theta,J_j^{(s)},Q_j^{(s)}$ and $\kappa_s(d)$, checking their
+hypotheses anew. This does not extend the earlier $s\leq3$ increment
+inequality to $s=4$; it supplies a separate valid growth bound.
+More generally, for $3<s\leq4$ the ratio
+\[
+ \frac{(a+1)^s-a^s}{(a+1)^4-a^4}
+ =\frac{s}{4}\frac{\int_a^{a+1}t^3t^{s-4}\,dt}
+                         {\int_a^{a+1}t^3\,dt}
+ \leq\frac{2^s-1}{15}
+\]
+decreases over successive integer intervals. Hence the same proof works
+with $\alpha=\nu(2^s-1)(15+5/P+5/P^2)r^4/15$.
+The Euler sum is still evaluated directly by outward root enclosures.
+For its omitted terms use $(2^s-1)/15$ times the fourth increment
+$4a^3+6a^2+4a+1$. Starting at $a=H+1$, successive terms have ratio at
+most $(H+2)^3/[q(H+1)^3]$, giving an explicit geometric remainder.
+The same reasoning extends to $4<s\leq5$. In this range use
+\[
+ a_5(q)=\frac{31q^4+56q^3+36q^2-4q+1}{(q-1)^5},\qquad
+ \alpha=\frac{\nu(2^s-1)}{31}
+       (31+56/P+36/P^2+1/P^4)r^5.
+\]
+Indeed, $((a+1)^s-a^s)/((a+1)^5-a^5)$ is a decreasing
+weighted average of $t^{s-5}$ and is at most $(2^s-1)/31$.
+The positive coefficients of $5a^4+10a^3+10a^2+5a+1$ give the
+Euler-remainder ratio $(H+2)^4/[q(H+1)^4]$.
+Every hypothesis of the tail integration must still be checked:
+in particular, large moment orders can fail $m<s(\log P-1.1)$ at a
+shorter horizon. Such an order is inadmissible there. The integer
+verifier rejects an inadmissible listed order rather than ignoring it.
+Thus the implemented dyadic orders $1<s\leq5$ have explicit increment
+and tail bounds whenever their stated analytic hypotheses hold.
+
+\subsection{Stratifying the infinite tail by the terminal product}
+\label{sec:stratifiedtail}
+Write $Y=\prod_{q\leq P}(E_q+1)$ for the independent comparison product.
+For any event $G$ determined by these earlier comparison coordinates,
+future factors remain independent. The preceding tail proof therefore
+applies with $U_k^{(s)}$ replaced by $\E[Y^s\mathbf1_G]$. Let $b_s$ be
+the certified tail coefficient for initial moment one. For any finite
+partition $G_1,\ldots,G_m,G_*$ of the comparison space and finite set
+$\mathcal S$ of admissible moment orders,
+\begin{equation}\label{eq:stratifiedtail}
+ \sum_{i>k}\Pp_i(B_i)
+ \leq\sum_{j=1}^m\min_{s\in\mathcal S}
+                 b_s\E[Y^s\mathbf1_{G_j}]
+       +\min_{s\in\mathcal S}b_s\E[Y^s\mathbf1_{G_*}].
+\end{equation}
+The split is made \emph{after} the convex comparison with the independent
+model. No conditional comparison theorem for indicators under the original
+distorted measure is assumed.
+
+Take $G_j$ to be the retained product-bin histories and $G_*$ their entire
+complement, including discarded high exponents and products. On $G_j$,
+$l_j\leq Y\leq u_j$. Write $P_j=\Pp(G_j)$ and
+$M_j=\E[Y\mathbf1_{G_j}]$. Suppose their enclosures are
+$P_j^-\leq P_j\leq P_j^+$ and $M_j^-\leq M_j\leq M_j^+$.
+For $s>1$, Jensen's inequality and the lower support endpoint give
+\[
+ L_{s,j}=\max\left\{l_j^{s-1}M_j^-,
+             \frac{(M_j^-)^s}{(P_j^+)^{s-1}}\right\}
+ \leq\E[Y^s\mathbf1_{G_j}],
+\]
+where the second term is zero if $P_j^+=0$.
+Convex secants give the upper bound
+\[
+ V_{s,j}=\min\left\{u_j^sP_j^+,\,
+ \frac{l_j^s(u_jP_j^+-M_j^-)
+       +u_j^s(M_j^+-l_jP_j^-)}{u_j-l_j}\right\}
+ \geq\E[Y^s\mathbf1_{G_j}].
+\]
+For a singleton support use $V_{s,j}=l_j^sP_j^+$.
+Thus the omitted part has the moment upper bound
+$V_{s,*}=\max(0,(U_k^{(s)})^+-\sum_j L_{s,j})$.
+Substituting $V_{s,j},V_{s,*}$ into \eqref{eq:stratifiedtail} proves
+the implemented bound, with every power and summand rounded outward.
+
+The existing bin recursion stores upper masses and lower first moments.
+The opposite endpoints can be recovered without a second recursion.
+At most $109$ operations per bin per prime introduce rounding error,
+each less than one integer unit at scale $10^{40}$. Probability
+transitions contract total error. First-moment transitions amplify it
+by at most $1+\nu_q/(q-1)$. With $B$ bins and $k$ processed primes,
+the aggregate probability error is at most $109kB$ integer units and
+the aggregate moment error at most
+$\lceil109kB C_k^+\rceil$ units. Here $C_k^+$ is expressed in ordinary
+units, not fixed-point integers. These aggregate bounds also bound each
+individual bin error. The exponent cutoff used by the recursion is at
+most $108$ at every prime, which justifies the stated operation bound.
+Discarded paths belong to $G_*$; their mass is not counted as rounding
+error or set to zero.
+
+\texttt{code/stratified\_moment\_tail.py} implements this argument.
+The witness explicitly lists \texttt{stratified\_tail\_orders}.
+An optional nonempty subset \texttt{stratified\_overflow\_orders} restricts
+the orders used for the last minimum in \eqref{eq:stratifiedtail}.
+This remains a valid upper bound and avoids computing unused global
+Euler moments; every retained bin still uses the full listed set.
+The checker compares the resulting tail with the original single-moment
+tail and takes the smaller valid upper bound. Nine exact partition checks
+and twelve exact bin-recursion checks test the assembly and rounding
+enclosures independently.
+
+\subsection{Refining an initial segment without repeating the long suffix}
+Fix the complete rational parameter sequence. The independent comparison
+distribution at each stage depends on that sequence, not on which valid
+numerical upper bound was chosen for earlier losses. Suppose a completed
+base calculation uses stage bounds $b_i$, terminal survivor
+$\mu_k=1-\sum_{i\leq k}b_i$, and tail bound $\mathcal T_k$ at cutoff
+$K_0$. Recompute its initial segment through $p_h\geq K_0$ exactly,
+obtaining $\mu_h^{\rm old}$, and compute valid refined bounds through
+the same stage at $K_1\leq K_0$, obtaining $\mu_h^{\rm new}$.
+The parameters are identical throughout. After $h$, every modulus newly
+allowed by lowering the cutoff has already been exposed. All base suffix
+bounds and the tail therefore remain valid. The combined certificate is
+\[
+ \mu_k^{\rm new}=\mu_k-\mu_h^{\rm old}+\mu_h^{\rm new},\qquad
+ \mu_k^{\rm new}>\mathcal T_k.
+\]
+This subtracts an \emph{identical numerical prefix sum}, not an arbitrary
+lower bound for an unknown probability. Binning is only a device for
+computing comparison expectations: the suffix retains its independently
+computed base bins, rather than restarting those bins from the refined
+prefix. Nonnegative stage losses ensure positivity at all intermediate
+suffix stages once the final survivor is positive.
+
+\texttt{code/verify\_prefix\_refinement.py} checks exact agreement of the
+parameters and base-prefix settings, and allows only the cutoff and bin
+resolution to change in the refined prefix. Its default command replays
+the full base certificate and both finite prefixes. Its optional
+composition-only mode checks hashes, compatibility and exact arithmetic
+of already completed reports; that mode by itself does not replay the
+reported component inequalities. Finite-prefix reports explicitly carry
+no infinite-tail or minimum-modulus conclusion.
+
+\section{Integer implementation and the earlier certificates}
+The witness file \texttt{data/stoploss-certificate-40000.json} contains
+$K=40000$, the initial index $20$, the bin specification, retained exponents
+$(A_2,A_3)=(32,22)$, and integers $D_i$ for $21\leq i\leq50000$.
+The proof uses exactly $\delta_i=D_i/10^{12}$. Parameters up to index $20$
+are zero. Six subsequent parameters are also zero; the code checks their
+losses by the first moment.
+
+Initialization is the exact smooth-number union bound
+\[
+ \mu_{20}\geq1-\prod_{q\leq71}\frac q{q-1}
+   +\sum_{\substack{1\leq m<40000\\m\text{ is }71\text{-smooth}}}\frac1m.
+\]
+The verifier independently generates the primes and the finite smooth set.
+Every numerical enclosure has integer endpoints with scale $10^{40}$.
+All additions, products, divisions, and finite sums round outward.
+
+For a given prime and rational parameter, the probabilities of multipliers
+$1$ and $h\geq2$ are exactly
+\[
+ \frac{q(10^{12}-D_i)-10^{12}}{q(10^{12}-D_i)},\qquad
+ \frac{10^{12}(q-1)}{(10^{12}-D_i)q^h}.
+\]
+The finite probability vector is propagated with upward integer rounding.
+The omitted probability bound $\epsilon$ is also rounded upward.
+For the small-state tail, the verifier subtracts lower bounds for the
+retained weighted probabilities from the exact total $3$, obtaining an
+upper bound for $\eta$. Counts of small divisors and the numerators of
+$B_{ab}(p)$ are computed with exact integers.
+
+At each stage the loss upper bound is the minimum of the new conditional
+bound, the restricted first-moment bound, and, when $\delta_i>0$, BBMST's
+restricted second-moment bound divided by $4\delta_i(1-\delta_i)$.
+Taking this minimum is legitimate because each candidate independently
+upper-bounds the same loss. The certified survivor lower bound is reduced
+by this upper bound and is required to remain positive at every stage.
+The established generic product $T_i$ is propagated independently.
+The finite evaluation of the restricted first and second moments is derived
+in Section 3 of the companion report
+\texttt{src/minimum-modulus-improvement.tex}; the new verifier reuses that
+integer implementation, including its geometric prime-power tails.
+
+The two logarithms in \eqref{eq:stop} are enclosed by the same integer
+atanh-series procedure as in the earlier $615300$ certificate. After range
+reduction to $1\leq x\leq2$, use $z=(x-1)/(x+1)$ and
+\[
+ \log x=2\sum_{j=0}^{79}\frac{z^{2j+1}}{2j+1}+R,
+ \qquad 0\leq R\leq\frac{2z^{161}}{161(1-z^2)}.
+\]
+This proves a lower bound on the analytic threshold without relying on
+floating-point logarithms or the rounded values in BBMST's Table 1.
+
+At $k=50000$, with $p_k=611953$, the certificate establishes
+\begin{align*}
+ \mu_k&>0.0093593,\\
+ T_k/\mu_k&<5053132.141,\\
+ k(\log k+\log\log k-3)^2&>5203177.214.
+\end{align*}
+Thus the stopping inequality has a margin exceeding $150045$, and
+BBMST Theorem 6.1 proves the earlier cutoff $40000$ result.
+The full endpoint values, witness SHA-256 hash, accumulated tail bounds,
+and checkpoint data are in \texttt{data/stoploss-verified-40000.json}.
+The accumulated omitted prime-power probability is below $3.4\cdot10^{-29}$;
+the omitted small-state weighted mean is below $6.633\cdot10^{-9}$.
+The finite distribution has $1935$ bins. The full integer verification took
+approximately $254$ seconds in the local environment.
+
+With $\mathcal S=\{2,3,5,7\}$ and retained exponent limits
+$(26,17,11,9)$, the generalized integer verifier additionally certifies
+the exclusion cutoff $30000$. It starts at index $12$ and stops at
+$k=21077$, $p_k=238213$, where
+\[
+ \mu_k>0.01760298905,\qquad T_k/\mu_k<1804956.480,
+ \qquad k(\log k+\log\log k-3)^2>1805002.510.
+\]
+The certified margin exceeds $46.03$. The witness is
+\texttt{data/strong-30000-trial.json}, and the integer result is
+\texttt{data/strong-30000-trial-verified.json}. This establishes the
+intermediate bound $29999$. The filename ``trial'' does not supply proof
+evidence; the independent integer verification does.
+
+\section{The earlier certified cutoff $20000$}\label{sec:earlier20}
+The earlier witness is
+\texttt{data/sparse-certificate-20000-50000.json}. It contains only the
+integer proof inputs and $49984$ rational parameter numerators. Specifically,
+\[
+ K=20000,\quad i_0=16,\quad \mathcal S=\{q:q\leq53\},\quad
+ G=\{n<3000000:n\text{ is }53\text{-smooth}\}.
+\]
+All parameters through $i_0$ are zero; for $17\leq i\leq50000$ use
+$\delta_i=D_i/10^{12}$ from the witness. There are exactly $64315$
+retained conditioning states. Their total probability is bounded below by
+$0.99741880360423$, but the omitted probability need not be estimated to
+justify the unrestricted fallback in Proposition~\ref{prop:sparse}.
+
+The initial survivor bound is computed independently by the exact finite
+smooth-number sum
+\[
+ \mu_{16}\geq1-\prod_{q\leq53}\frac q{q-1}
+ +\sum_{\substack{1\leq m<20000\\m\text{ is }53\text{-smooth}}}\frac1m
+ >0.7392162265286074.
+\]
+Both product distributions use cap $H=1000000$ and resolution $R=256$,
+giving $2526$ bins. For the first-moment support bound in
+Section~\ref{sec:binmean}, $N=20$ is valid. The complete-product
+distribution propagates upper probabilities and lower true first moments;
+the independent remaining-prime distribution propagates lower probabilities
+for the bounded corrections. All arithmetic uses integer scale $10^{40}$.
+
+At each stage, the verifier also computes the restricted first and second
+moment alternatives. In this certificate the new bounded-correction loss
+is the smallest upper bound at all $49984$ stages. The generic second
+moment product $T_i$ is retained for BBMST's analytic termination theorem.
+
+At $k=50000$, $p_k=611953$, the integer verification gives
+\begin{align*}
+ \mu_k&>0.00982698529,\\
+ T_k&<44516.640350,\\
+ T_k/\mu_k&<4530040.397,\\
+ k(\log k+\log\log k-3)^2&>5203177.214.
+\end{align*}
+The full-precision certified stopping margin exceeds $673136.818$.
+Thus BBMST Theorem 6.1 proves the exclusion cutoff $20000$, including the entire
+prime tail after the finite calculation. The accumulated omitted
+prime-power probability in the full-product bound is below
+$3.3680\cdot10^{-29}$. No floating-point value is used in these checks.
+
+Full endpoints, checkpoint data and the witness SHA-256 hash are saved in
+\texttt{data/sparse-verified-20000.json}. The standard-library verifier
+is \texttt{code/verify\_sparse\_conditioning.py}; its bin-moment arithmetic
+is in \texttt{code/moment\_product\_bound.py}. Verification took about
+$424$ seconds locally. A separate complete run also certified cutoff
+$22000$, with its result in \texttt{data/sparse-22000-verified.json}.
+
+\section{The standalone certified cutoff $14485$}\label{sec:14485}
+The witness \texttt{data/sparse-certificate-14485.json} and completed
+report \texttt{data/sparse-verified-14485.json} exclude distinct moduli
+all at least $14485$, giving a minimum-modulus bound of $14484$.
+The $300000$ parameters have denominator $10^{12}$, beginning before
+prime $2$. Their first two numerators are $122070312$ and $76207895$.
+These are rational inputs, not floating-point optimizer outputs used
+as proof inequalities.
+
+The calculation retains $85410$ small-prime configurations below $10^9$,
+uses $1946$ reachable-support bins of resolution $128$ and cap $10^8$,
+and enables exact early evaluation through $79$ and the conditioned
+complement through $859$. The recursive atom table has limit $16384$,
+uses the quadratic density envelope, and runs through prime $859$.
+There is no finer-prefix switch in this standalone certificate.
+The prime-exponent truncation threshold is $2\cdot10^{20}$, with its
+omitted probability explicitly bounded as described below.
+
+At $k=300000$ and $p_k=4256233$, outward integer arithmetic gives
+\begin{align*}
+ \mu_k&\geq0.0001221311353374066996560280579954660622,\\
+ \mathcal T_k&\leq0.0001176057163955139323983019124351514869,\\
+ \mu_k-\mathcal T_k&\geq0.0000045254189418927672577261455603145753>0.
+\end{align*}
+The retained-bin tail is at most
+$0.0001164968894452301254940597958410357200$; the omitted-path tail
+is at most $0.0000011088269502838069042421165941157669$.
+Every order $j/16$, $17\leq j\leq80$, is available in retained bins,
+and the omitted paths use order $5/4$. Future distortions equal $1/2$.
+All analytic hypotheses pass. The unused original BBMST stopping
+comparison is negative and is not the certificate's stopping criterion.
+
+There are $16$ exact-early wins, $90$ conditioned-complement wins and
+$299894$ other conditional-bin wins. The recursive first- and second-moment
+candidates have no winning stages in this run. The atom refinements are
+rigorously implemented, but the improved cutoff is attributable to the
+first-prime extension, joint parameter search and longer horizon, rather
+than to a claimed winning recursive-moment estimate.
+The complete verification took approximately $4279$ seconds locally.
+The witness SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+8c6eccd2b71110c605812a64ef24160cff9478899a484dd6a893d374b0888781
+\end{lstlisting}
+The completed report SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+fe14d3e46020a602bba27ecb37b551e952004ccd0067be313c20f93e57f3e707
+\end{lstlisting}
+The main implementation suite completed $18$ test runs. Its record is
+\texttt{data/conditioning-method-checks.json}; additional block-tail
+checks are recorded separately. These checks support the implementation;
+the displayed positive integer enclosure and the proved inequalities
+are the computer-assisted certificate.
+
+\section{The earlier certified cutoff $14497$}\label{sec:14497}
+The completed certificate excludes distinct moduli all at least $14497$,
+so the minimum modulus is at most $14496$. Its manifest is
+\texttt{data/prefix-refinement-certificate-14497.json}, and its result is
+\texttt{data/prefix-refinement-verified-14497.json}. It combines three
+independently completed outward-integer calculations by the prefix
+refinement argument above.
+
+The base witness \texttt{data/sparse-certificate-14498.json} has $249998$
+rational parameters with denominator $10^{12}$, following zero distortions
+at $2,3$. It retains $85410$ configurations of the first eight primes below
+$10^9$, and $1946$ reachable-support product bins of resolution $128$
+and cap $10^8$. Exact early evaluation runs through $79$, and the
+conditioned-complement calculation through $859$. At $k=250000$,
+$p_k=3497861$, its verified numerical survivor lower bound is
+\[
+ b=0.0001620609777159115917251321898076325110.
+\]
+The stratified tail uses every order $j/16$, $17\leq j\leq80$, in the
+retained bins, and order $5/4$ for all omitted paths. Its upper bound is
+\[
+ t=0.0001478123106801941952158770197251205558.
+\]
+The retained-bin contribution is below $0.0001468232980447728$ and the
+omitted-path contribution below $0.0000009890126354215$. Every future
+distortion equals $1/2$. All listed orders pass their analytic hypotheses.
+The base certificate alone proves a minimum-modulus bound of $14497$.
+
+The old and refined prefixes both end at $h=8000$, $p_h=81799$.
+The old prefix is an exact restriction of the base witness. The new prefix
+changes the cutoff to $14497$ and the bin resolution to $512$, retaining
+exactly the same rational parameters and all other proof settings.
+Their \emph{numerical lower bounds}, not their unknown actual survivor
+probabilities, are respectively
+\begin{align*}
+ a_{\rm old}&=0.0039851016466857902333527255719098098536,\\
+ a_{\rm new}&=0.0039756491508369363264759558976855727636.
+\end{align*}
+The component records are \texttt{data/prefix-base-14498-verified.json}
+and \texttt{data/prefix-fine-14497-verified.json}; the base result is
+\texttt{data/sparse-verified-14498.json}.
+Exact fixed-point subtraction now gives
+\begin{align*}
+ \mu_k^{\rm new}&\geq b-a_{\rm old}+a_{\rm new}
+                   >0.0001526084818670576,\\
+ \mathcal T_k&\leq t<0.0001478123106801942,\\
+ \mu_k^{\rm new}-\mathcal T_k
+       &>0.0000047961711868634.
+\end{align*}
+This proves the earlier bound $14496$. The base verification took about
+$1418$ seconds; the two prefix checks took about $261$ and $423$ seconds.
+The composition report records that these component checks had already
+completed, rather than claiming that the final arithmetic step replayed
+them. The default reproduction command does replay all three.
+The manifest SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+a29a2f841bbc207121004a1c6ea79e9cea127c594ec64fa046573a270afddeab
+\end{lstlisting}
+The base, old-prefix and new-prefix witness hashes, respectively, are
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+7d5ec94244a3b205a098a83af379fb0337a5bffb6d7ae9fc448cbbe9e297c566
+bd337c495f9b687f7e342bc2090651e2d672bede01a9e6dcd1fda69fb80e68a4
+c019c5549c76691e6aac084cda37965295da543900b6a4f22fb73a58f84275ff
+\end{lstlisting}
+
+\section{The intermediate certified cutoff $14501$}\label{sec:14501}
+The witness \texttt{data/sparse-certificate-14501.json} and result
+\texttt{data/sparse-verified-14501.json} give a completed integer
+certificate. The index \texttt{data/latest-certified-bound.json}
+records the strongest completed result. The calculation uses $199998$
+rational parameters of denominator $10^{12}$ after primes $2,3$,
+$85410$ retained small-prime states, and $1946$ reachable-support bins
+of resolution $128$ and cap $10^8$. Exact early evaluation ends at $79$
+and the conditioned-complement bound is enabled through $859$.
+
+At $k=200000$, $P=2750159$, the verified enclosures are
+\begin{align*}
+ \mu_k&>0.0001778508865535655,\\
+ \mathcal T_k&<0.0001639618795721118,\\
+ \mu_k-\mathcal T_k&>0.0000138890069814537.
+\end{align*}
+The finite set of stratified moment orders is
+\[
+ \{5/4,3/2,7/4,2,9/4,5/2,21/8,43/16,11/4,23/8,3,13/4,7/2,15/4,4\}.
+\]
+The retained-bin tail is below $0.0001633092424567484$ and the
+omitted-path tail is below $0.0000006526371153635$, the latter using
+order $5/4$. Future distortions equal $1/2$. The single-order upper bound
+of order $43/16$ is greater than $0.0004933$ and fails the stopping test;
+the distribution-stratified bound is needed for this certificate.
+The positive certified margin excludes moduli all at least $14501$.
+Verification took about $1872$ seconds. The witness SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+61338909a181da8e8ee12a2c215369746d176d8602cdcdbcd87d048a2595ec1e
+\end{lstlisting}
+
+\section{The intermediate certified cutoff $14580$}\label{sec:14580}
+The witness \texttt{data/sparse-certificate-14580.json} and completed
+integer verification \texttt{data/sparse-verified-14580.json} preserve an
+earlier result. The index \texttt{data/latest-certified-bound.json}
+records the strongest completed certificate. There are $124998$ rational
+parameters of denominator $10^{12}$, after zero distortions at $2,3$.
+The calculation retains $85410$ states on the first eight primes below
+$10^9$, uses $1354$ reachable-support bins of resolution $128$ and cap
+$10^6$, and enables exact early evaluation through $79$.
+The new conditioned-complement bound of
+Section~\ref{sec:conditionedcomplement} is enabled through $859$.
+Dynamic conditioning and the older joint corrections remain available;
+the verifier chooses the least valid loss at every stage.
+
+At $k=125000$, $P=1655131$, integer arithmetic at scale $10^{40}$ gives
+\begin{align*}
+ \mu_k&>0.0009103361669684205,\\
+ U_k^{(11/4)}&<873033737.780881,\\
+ \mathcal T_k^{(11/4)}&<0.0008865541411779902,\\
+ \mu_k-\mathcal T_k^{(11/4)}&>0.0000237820257904304.
+\end{align*}
+The future distortion is $1/2$; all finite survivor inequalities and
+infinite-tail hypotheses pass. There are $14$ exact-early wins, $90$
+conditioned-complement wins, and $124894$ other conditional-bin wins.
+The retained probability exceeds $0.9999944861071504$, and the omitted
+prime-power probability is below $4.1019\cdot10^{-29}$.
+The positive margin excludes moduli all at least $14580$. Verification took
+about $917$ seconds. The witness SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+6a10820b9037fadbcf4ac87966aeda19438981c03fc1725f6fb53a4e567f2d5a
+\end{lstlisting}
+
+\section{The intermediate certified cutoff $14600$}\label{sec:14600}
+The rational witness is \texttt{data/sparse-certificate-14600.json};
+the completed integer verification is \texttt{data/sparse-verified-14600.json}.
+These files preserve the earlier certificate.
+There are $124998$ parameters with denominator $10^{12}$, following zero
+distortions at $2,3$. The explicitly conditioned primes are
+$2,3,5,7,11,13,17,19$, with $85410$ smooth states below $10^9$.
+The product distributions use cap $10^6$, resolution $128$, and $1354$
+bins with reachable supports. Exact early evaluation is enabled through
+prime $79$. Dynamic conditioning, statewise presence, and the full
+joint-product correction of Section~\ref{sec:jointproduct} are enabled.
+No decreasing-event normalization is used.
+
+At $k=125000$, $P=1655131$, outward integer arithmetic at scale $10^{40}$
+certifies
+\begin{align*}
+ \mu_k&>0.0010344360279985,\\
+ U_k^{(11/4)}&<872472474.383796,\\
+ \mathcal T_k^{(11/4)}&<0.0008859841856684,\\
+ \mu_k-\mathcal T_k^{(11/4)}&>0.0001484518423301.
+\end{align*}
+The future distortion is $d=1/2$. The fractional tail uses $m=12$,
+an exponent upper bound below $11.454363405601$, and
+$0<z<0.001417232541$. Every finite survivor inequality and every hypothesis
+of the infinite-tail bound passes. The positive margin therefore proves
+the earlier cutoff $14600$. The retained conditioning probability exceeds
+$0.9999944825760185$, and the omitted prime-power probability in the
+product-bin calculation is below $4.1019\cdot10^{-29}$.
+Exact early evaluation supplies $20$ finite losses; the other $124978$
+use the conditional product-bin estimate.
+
+The parameters originate in the joint early/late search, followed by the
+eight-prime split and extension to $125000$ stages. The proof checks the
+saved rational parameters independently of their discovery. The unused
+BBMST stopping comparison is negative; the successful stopping field is
+\texttt{infinite\_survivor\_lower}. Verification took about $885$ seconds
+locally. The witness SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+c2da0e7df896df66073c8855df737fb7eca37981daf1eb7c79775689eb027e6e
+\end{lstlisting}
+
+\section{The intermediate certified cutoff $14800$}\label{sec:14800}
+The rational inputs are \texttt{data/sparse-certificate-14800.json}; the
+completed verification is \texttt{data/sparse-verified-14800.json}.
+The calculation starts after primes $2,3$, whose distortions are zero,
+and specifies $74998$ further parameters as integers divided by $10^{12}$.
+It retains $891573$ states below $10^9$ on primes through $53$ and uses
+$2526$ product bins, with cap $10^6$, resolution $256$, and reachable
+supports. Dynamic and statewise joint-presence conditioning are enabled;
+the exact early complement is used through prime $79$.
+
+At $k=75000$, $P=951161$, integer arithmetic at scale $10^{40}$ gives
+\begin{align*}
+ \mu_k&>0.0020237950735297,\\
+ U_k^{(11/4)}&<596318942.506165,\\
+ \mathcal T_k^{(11/4)}&<0.0017099206128265,\\
+ \mu_k-\mathcal T_k^{(11/4)}&>0.0003138744607032.
+\end{align*}
+The future distortion is $d=1/2$. The shifted-log fractional tail has
+$m=12$, exponent upper bound below $11.454378771593$, and
+$0<z<0.001191472833$. Exact early evaluation wins at $20$ stages;
+all other finite losses use the conditional product-bin bound.
+The verifier checks positivity at every finite stage and all infinite-tail
+hypotheses. Thus this is a completed certificate excluding moduli all
+at least $14800$, not merely a positive finite numerical run.
+Verification took about $933$ seconds locally. Its witness SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+0706089d7118d7f0459ad23a0f130187e66c2fe90b97f583a0b76f8a988bfba4
+\end{lstlisting}
+
+\section{The earlier certified cutoff $14900$}\label{sec:latest}
+The exact witness is \texttt{data/sparse-certificate-14900.json}, and the
+completed verification is \texttt{data/sparse-verified-14900.json}.
+It starts at index $8$, conditions on the $891573$ smooth states below
+$10^9$ supported on primes through $53$, and uses $2526$ bins with
+cap $10^6$, resolution $256$, and reachable support bounds.
+The first eight distortions are zero. The subsequent $149992$ parameters
+are integers divided by $10^{12}$. Dynamic conditioning and the joint
+presence correction are enabled; decreasing-event normalization is not.
+
+At $k=150000$, $P=2015177$, outward integer arithmetic gives
+\begin{align*}
+ \mu_k&>0.0012690976240386,\\
+ U_k&<65311923939.363,\\
+ \mathcal T_k&<0.0012352021012060,\\
+ \mu_k-\mathcal T_k&>0.0000338955228326.
+\end{align*}
+The tail uses $d=1/2$ and exponent interpolation. It has $c=1.081991$,
+$m=16$, rational exponent upper bound below $15.147896550708$, and
+$0<z<0.001421760630$. All finite losses
+use the conditional bound; joint presence improves $32$ stages.
+The verifier checks positivity at every finite step and all hypotheses
+of the infinite-tail theorem. The positive margin certifies the cutoff
+$14900$. Verification took about $867$ seconds locally.
+The retained conditioning probability exceeds $0.99991241074800$, and
+the accumulated omitted prime-power probability is below $4.1161\cdot10^{-29}$.
+The unused BBMST stopping comparison fails at this endpoint; the positive
+\texttt{infinite\_survivor\_lower} is the successful certificate.
+The witness SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+5f52c9e0af5aec929251c26e71a5a2de812ce535bf0e2676ac14b5dedd1b7b89
+\end{lstlisting}
+
+An intermediate complete certificate excludes moduli all at least $15000$.
+Its files are \texttt{data/sparse-certificate-15000.json} and
+\texttt{data/sparse-verified-15000.json}. At $k=100000$, $P=1299709$,
+it has $\mu_k>0.0026456108887526$,
+$\mathcal T_k<0.0021855315082204$, and infinite margin exceeding
+$0.0004600793805322$. Thus the stricter cutoff $14900$ is supported by
+its own longer calculation, rather than inferred from the $15000$ run.
+
+\section{The intermediate certified cutoff $15500$}\label{sec:15500}
+The exact rational witness is \texttt{data/sparse-certificate-15500.json};
+the completed integer verification is \texttt{data/sparse-verified-15500.json}.
+It uses $K=15500$, initial index $8$, the conditioned primes through $53$,
+and the $333339$ smooth states below $10^8$. The first eight distortions
+are zero; the next $49992$ parameters are explicit integers divided by
+$10^{12}$. Both product distributions have cap $10^6$ and resolution $256$,
+giving $2526$ bins with the reachable supports of Section~\ref{sec:reachable}.
+Sections~\ref{sec:dynamic} and~\ref{sec:presence} supply the new corrections.
+No decreasing-event normalization is used.
+
+At $k=50000$, $P=611953$, the integer verifier obtains
+\begin{align*}
+ \mu_k&>0.0071454188046704,\\
+ U_k&<13981835645.195,\\
+ \mathcal T_k&<0.0033846693791260,\\
+ \mu_k-\mathcal T_k&>0.0037607494255444.
+\end{align*}
+The tail uses $d=493/1000$ and exponent interpolation. The joint-presence
+correction improves $34$ stages. Every finite stage has positive certified
+survivor mass. The strictly positive infinite margin proves
+the cutoff $15500$. The negative \texttt{bbmst\_gap} is only the
+unused second-moment stopping comparison.
+The witness SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+cbd0c799910e4c0bc88d27df7241518486c6e43a6e62aa785e90013c6c477c4c
+\end{lstlisting}
+
+\section{The earlier certified cutoff $17000$}\label{sec:17000}
+The exact witness is \texttt{data/sparse-certificate-17000.json}; its
+integer verification record is \texttt{data/sparse-verified-17000.json}.
+The parameters are
+\[
+ K=17000,\quad i_0=16,\quad \mathcal S=\{q:q\leq53\},\quad
+ G=\{n<10^9:n\text{ is }53\text{-smooth}\}.
+\]
+There are $891573$ retained states and $49984$ rational distortion
+parameters $D_i/10^{12}$ for $17\leq i\leq50000$. The initial parameters
+are zero. The conditioning probability exceeds $0.99992069255168$.
+This certificate uses the unnormalized bounded correction of
+Proposition~\ref{prop:sparse}; it does not rely on the later decreasing-event
+normalization refinement. Both product distributions have cap $10^6$ and
+resolution $256$, giving $2526$ bins. Their first-moment supports use
+Section~\ref{sec:reachable}. The initial survivor bound exceeds
+$0.7180800146287439$.
+
+At $k=50000$, $P=611953$, integer arithmetic gives
+\begin{align*}
+ \mu_k&>0.0037894992424377,\\
+ U_k&<10853047335.689,\\
+ \mathcal T_k&<0.0027157104637365,\\
+ \mu_k-\mathcal T_k&>0.0010737887787013.
+\end{align*}
+For the infinite tail choose $d=9/20$. The verifier obtains
+$c=1.089984$, $m=14$, and $0<z<0.001246275513877$ in
+\eqref{eq:thirdtail}. All $49984$ finite losses use the sparse correction.
+The accumulated omitted prime-power probability is below
+$3.3889\cdot10^{-29}$. The strict positive infinite-survivor bound proves
+the stated cutoff $17000$.
+
+The computed upper estimate for $T_k/\mu_k$ is approximately $11762483.414$,
+which exceeds the certified BBMST threshold of approximately $5203177.214$.
+Thus that comparison does not certify this endpoint, and the third-moment tail closes this particular
+certificate. The negative \texttt{bbmst\_gap} in the result file is a
+diagnostic for that unused criterion; the positive
+\texttt{infinite\_survivor\_lower} is the successful stopping certificate.
+Verification took about $413$ seconds locally, using integer arithmetic
+at scale $10^{40}$. The witness SHA-256 is
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize,breaklines=true]
+2380cb96ae57c4d17e0e9a35e25916a04265908c14e892477c2596d485bd683d
+\end{lstlisting}
+
+An intermediate complete certificate, \texttt{data/sparse-verified-18000.json},
+uses $333339$ states below $10^8$ and the original BBMST stopping theorem.
+It certifies the bound $17999$ with stopping margin exceeding $1695823$.
+Thus both changes to the finite calculation and the stronger termination
+argument have independently recorded roles in the improvement.
+
+\section{Parameter search, independent checks, and reproduction}
+The exploratory program maintains the comparison distribution in binary64
+arithmetic. At each step it numerically minimizes the next upper estimate
+of $T_i/\mu_i$ over $0\leq\delta_i\leq1/2$, comparing the conditional
+loss with the first- and second-moment alternatives. Golden-section searches
+use a fixed number of iterations. The resulting parameters are quantized
+to the rational witness. This is systematic local optimization, not a
+claim of global optimality of the entire parameter sequence.
+
+For the finite-conditioning search we also screen the policy parameter
+$\lambda\in\{0.75,0.9,1,1.1,1.25\}$. At each stage the trial objective is
+\[
+ \log\left(1+\frac{a_i}{1-\delta}\right)
+ -\lambda\log\left(1-\frac{\ell_i(\delta)}{\widehat\mu_{i-1}}\right),
+ \qquad a_i=\frac{3p_i-1}{(p_i-1)^2},
+\]
+where $\ell_i$ is the candidate loss bound. The policy $\lambda=0.9$
+gave the best stage-$15000$ result in the fixed $K=20000$ screening run;
+the candidates and endpoint comparisons are saved in
+\texttt{data/sparse-policy-sweep.json}. This is a reproducible finite
+policy search, with no assertion of global optimality.
+
+\subsection{Optimization of the complete parameter sequence}
+The new exploratory program \texttt{code/global\_distortion\_search.py}
+optimizes a terminal stopping margin, rather than optimizing one stage at
+a time. For a fixed terminal index $k$, let
+$H_k=k(\log k+\log\log k-3)^2$ and minimize
+\[
+ J=-\widehat\mu_k+\widehat T_k/H_k.
+\]
+A negative value is an experimental candidate for certification. Hats
+emphasize that this search uses binary64 arithmetic; its objective value
+is never accepted as a proof inequality.
+
+Let $x_i$ contain the probability vectors, true bin moments, and Euler
+first moment before stage $i$. Its update is linear,
+$x_{i+1}=F_i(\delta_i)x_i$, and the stage loss is affine in $x_i$.
+With terminal costate zero, reverse accumulation gives
+\[
+ \lambda_i=\nabla_x\ell_i+F_i^{\mathsf T}\lambda_{i+1},\qquad
+ \frac{\partial J}{\partial\delta_i}
+ =\frac{\partial\ell_i}{\partial\delta_i}
+  +\lambda_{i+1}^{\mathsf T}\frac{\partial F_i}{\partial\delta_i}x_i
+  +\frac{\widehat T_k}{H_k}
+       \frac{a_i\nu_i^2}{1+a_i\nu_i}.
+\]
+Here $a_i=(3p_i-1)/(p_i-1)^2$. Thus the derivative includes the effect of
+an early parameter on all later distributions and losses. The code
+checkpoints the forward calculation and reconstructs short blocks during
+the reverse pass to limit memory use.
+
+The parameters are represented by piecewise-linear perturbations in
+$\log p_i$ of $\log(2\delta_i/(1-2\delta_i))$, and searched by a
+quasi-Newton method with backtracking. The full-horizon runs adjust all
+parameters through the stopping index. This is optimization of a global
+objective, \emph{not} a proof of a global minimum: the objective is
+piecewise differentiable and the numerical search can reach local minima.
+Finite-difference checks are separate from the exact certificate checker.
+
+For searches using Section~\ref{sec:thirdtail}, replace the terminal cost
+$\widehat T_k/H_k$ by $b_k\widehat U_k$, where $b_k$ is the certified
+tail coefficient for $U_k=1$, converted to binary64 only for the search.
+The last term in the derivative is then
+$b_k\widehat U_k a_i^{(3)}\nu_i^2/(1+a_i^{(3)}\nu_i)$, with
+$a_i^{(3)}=(7p_i^2-2p_i+1)/(p_i-1)^3$. The same reverse calculation and
+independent derivative checks apply.
+
+For the dynamic and joint-presence runs, the implementation
+\texttt{code/frozen\_prefix\_search.py} fixes the first $100$ parameters
+and optimizes all subsequent parameters together. At $p_{100}=541$,
+every forbidden divisor is already supported on the conditioned primes,
+since $59p_{100}>K$ for the cutoffs used here. All conditioned-prime
+probabilities are then fixed. Thus the adjoint equations above apply to
+the subsequent calculation without omitting derivatives of the early
+conditioning weights. No optimization of those fixed early parameters is
+claimed. These exploratory runs use $d=493/1000$ with the interpolated
+exponent bound; the $14900$ certificate selects $d=1/2$ after a
+separate rational comparison of tail parameters. Extending the finite horizon is another search variable:
+the code records the survivor and tail estimates at several terminal
+indices, and the exact witness can be shortened to any chosen endpoint.
+
+The additional program \texttt{code/joint\_distortion\_search.py} removes
+the fixed-prefix restriction. Starting after primes $2,3$, it varies the
+fourteen parameters through prime $53$ individually, six linear controls
+over the rest of the first $100$ primes, and sixteen logarithmic-prime
+controls over all later stages. In those earlier searches the first two
+distortions remain zero.
+The eight-prime conditioning variant extends the prefix to $150$ primes
+and keeps the same fourteen individually controlled early parameters.
+The optimization uses a projected quasi-Newton search with backtracking;
+the tail objective may be the third or the fractional moment criterion.
+The revised search scales the early perturbation at stage $i$ by
+$s_i=\min(0.1,\max(0.002,\delta_i^{\rm seed}))$, so that the much smaller
+early distortions do not dominate an unscaled search direction. Outward
+directions at active box constraints are removed before the descent test.
+The saved history includes the projected gradient and individual gradient
+components. A centered difference of prefix states is used in the adjoint
+pullback to reduce cancellation; a forward finite-difference option is
+available for exploratory speed. None of these search derivatives or
+convergence diagnostics enters the integer proof. The number of individual
+early controls can also be increased by the seed field
+\texttt{individual\_prefix\_count}.
+
+The distribution-stratified tail also supplies a directly differentiated
+terminal objective. For the search, fix an overflow order $t$ (here $5/4$)
+and choose the least secant bound independently in each retained bin.
+If its selected order is $s_j$, write the corresponding secant as
+$a_jM_j+c_jP_j$. On the Jensen branch of the overflow estimate, the
+terminal derivatives are
+\[
+ \partial_{P_j}F=b_{s_j}c_j+b_t(t-1)(M_j/P_j)^t,\qquad
+ \partial_{M_j}F=b_{s_j}a_j-b_t t(M_j/P_j)^{t-1},\qquad
+ \partial_{U^{(t)}}F=b_t.
+\]
+The code handles zero masses, singleton supports and the lower-endpoint
+branch separately. These derivatives initialize the reverse calculation
+instead of zero terminal bin costates. The Euler-moment derivative uses
+the overflow contribution $b_tU^{(t)}$, not the entire stratified tail.
+The implementation is \texttt{code/stratified\_tail\_search.py}.
+The certificate still evaluates every inequality independently in integers.
+
+The subsequent block search also scales the initial inverse Hessian by
+the prime at each logarithmic control knot. Its diagonal entry at knot
+$q_j$ is $h_0q_j/q_0$. Later parameters have smaller individual effects,
+and this scaling allows larger coordinated updates there. Backtracking
+still requires a decrease in the actual terminal objective. This is a
+search preconditioner, not a change to a proof inequality or a claim of
+global optimality.
+
+Additional experiments use a weighted single-moment proxy and coordinate
+searches. A proxy score is explicitly labeled in its result file and is
+never treated as a certified tail. In
+\texttt{code/coordinate\_prefix\_search.py}, the conditioned-prime
+parameters and the suffix are fixed. For a single-moment terminal cost,
+the suffix objective is then linear in the prefix distributions and
+moments; one adjoint evaluates the prefix coordinate trials. The final
+full calculation checks that identity numerically. The program refuses
+to apply this linearity shortcut to the nonlinear stratified terminal
+objective. These are local searches, not global optimality certificates.
+
+For completeness, its early pullback includes the dependence of the
+conditioned probabilities on the early parameters. At the end of the
+prefix, let $P,M,R,C,U,\mu$ denote the propagated distributions and moments,
+and let $\rho_n$ denote a conditioned-state probability. The late reverse
+pass computes a local first variation of the form
+\[
+ dJ=-d\mu+\langle\lambda_P,dP\rangle+
+ \langle\lambda_M,dM\rangle+\langle\lambda_R,dR\rangle+
+ \lambda_C\,dC+\lambda_U\,dU+\sum_n\Psi_n\,d\rho_n.
+\]
+Here $\Psi_n$ is the accumulated direct derivative of the later conditional
+losses with respect to that probability. It is computed using the actual
+later product distributions at the current parameters. This term is
+necessary: changing an early distortion changes both the propagated state
+and the weights in every subsequent conditional correction.
+Central differences through the short prefix evaluate this pullback; the
+long suffix is differentiated once by the adjoint. Integer verification
+does not rely on the accuracy or convergence of these search derivatives.
+An optional forward-difference variant uses step $10^{-4}$ to reduce
+search cost. The joint-product probability laws are cached when only the
+explicitly conditioned prime parameters change; this does not alter them.
+
+When the exact early bound covers all conditioned primes, the exploratory
+implementation groups probabilities by their prime-presence mask. For
+fixed $n$, all parameter dependence of $\rho_n$ is through that mask,
+while $1/n$ is fixed. This reduces repeated probability calculations
+without changing the finite probability law. The integer verifier still
+uses its separate outward-arithmetic implementation.
+
+\subsection{Including the first two distortion parameters}
+The distortion construction also permits the computation to begin before
+prime $2$, with initial survivor bound $1$ and initial Euler products $1$.
+This removes the earlier numerical restriction $\delta_2=\delta_3=0$.
+Here subscripts indicate the primes themselves. The search restricts
+$\delta_2\leq1/4$, so that $\nu_2<2$ and all comparison probabilities and
+conditioning normalizers stay strictly positive. At every other prime the
+existing restriction $\delta_p\leq1/2$ suffices.
+
+If $r_2=\min\{r:2^r\geq K\}$, then the first fibre satisfies
+\[
+ \alpha_2\leq\sum_{r\geq r_2}2^{-r}=2^{1-r_2}.
+\]
+Thus choosing $\delta_2$ at least this explicit value removes the first
+stage's loss, at the cost of slightly increasing its subsequent distortion
+factor. At prime $3$, the value
+$3^{1-r_3}/2$, where $r_3=\min\{r:3^r\geq K\}$, is a natural breakpoint
+of the exact comparison loss; it does not remove all of that stage's loss.
+The finite experiment at $K=14490$ chooses parameters close to
+$1/8192$ and $1/13122$. At the $8000$-prime horizon this improves the
+survivor estimate by approximately $0.0000452784$ for the tested fixed
+later parameters. This finite gain alone does not certify a full-horizon
+improvement, because the later distribution and tail also change.
+
+The search option \texttt{--start 0} includes these parameters; the
+integer verifier independently begins with the empty prefix.
+\texttt{code/test\_first\_prime\_search.py} checks agreement with the
+old calculation when both parameters vanish, two derivative comparisons,
+and three finite integer-verifier runs. The exact early loss is used at
+primes $2$ and $3$ just as at the other early primes. No other distortion
+identity or convex comparison is changed.
+
+\subsection{Recursive residue-cap refinements}
+There is another rigorous local inequality which may help improve the
+early moments. In a fibre with covered proportion $\alpha$, the BBMST
+density relative to uniform measure is at most
+\[
+ g(\alpha)=\frac1{1-\min(\alpha,\delta)}
+ \leq\min\{\nu,1+\nu\alpha\},\qquad \nu=(1-\delta)^{-1}.
+\]
+For $\alpha\leq\delta$, covered points have density zero and uncovered
+points density $(1-\alpha)^{-1}$. For $\alpha>\delta$, both densities
+are at most $\nu$. These cases also prove the displayed affine bound.
+Consequently a residue modulo $q^a$, $a\geq1$, has \emph{marginal}
+probability at most
+\[
+ q^{-a}\min\{\nu_q,1+\nu_q M_q^{(1)}\}.
+\]
+For example, the parameters in the $14498$ base certificate give, at $q=643$,
+a marginal coefficient below $1.024182902374710$, whereas the usual
+sequential conditional coefficient is approximately $1.575931487484709$.
+The outward integer calculation is recorded in
+\texttt{data/marginal-cap-diagnostic.json}. This is a verified local
+inequality, not a new modulus certificate. Multiplying these marginal
+coefficients across primes would be unjustified.
+
+A version retaining the earlier event is also valid. Let $F_{i-1}(d)$
+bound the probability of every residue modulo the earlier-smooth number
+$d$, and write $q=p_i$. For $a\geq1$, a valid recursive upper bound is
+\[
+ F_i(dq^a)=q^{-a}\min\left\{\nu_iF_{i-1}(d),\,
+ F_{i-1}(d)+\nu_i\sum_{r\geq1}\sum_{\substack{m\text{ earlier-smooth}\\mq^r\geq K}}
+ q^{-r}F_{i-1}(\operatorname{lcm}(d,m))\right\}.
+\]
+For exponent zero use prefix preservation. To prove the recursion,
+multiply the affine fibre-density bound by the earlier residue indicator,
+bound $\alpha_i$ by the union sum, and observe that two earlier residue
+events intersect either in the empty set or in one residue modulo their
+least common multiple. Using existing bounds for $F_{i-1}$ makes the
+positive sum convergent. The finite implementation below retains this
+dependence explicitly; the independent-product loss estimates do not
+silently substitute marginal coefficients.
+For any stage $p=p_i$, valid preceding atom bounds imply
+\[
+ M_p^{(2)}\leq\frac1{(p-1)^2}
+       \sum_{d\text{ earlier-smooth}}\tau(d^2)F_{i-1}(d).
+\]
+Expand the square of the fibre union sum and group pairs of earlier
+moduli by their least common multiple. For a prime exponent $a$, there
+are $2a+1$ ordered exponent pairs with maximum $a$, giving $\tau(d^2)$.
+The usual product atom bound recovers $T_{i-1}$; the recursive refinement
+is no larger. Retaining the minimum-modulus restrictions in that pair
+sum can sharpen it further. These are integer-moment bounds on the actual
+distorted measure, and cannot be substituted for the comparison-model
+Euler moments in the convex-loss identity without an additional argument.
+
+\subsection{Implemented finite recursive atom bounds}
+\label{sec:finite-recursive-atoms}
+The implementation in \texttt{code/recursive\_atom\_bound.py} now evaluates
+this recursion with a finite table and an analytic bound for all omitted
+terms. This is a bound for actual residue probabilities; it does not assume
+that the actual distorted coordinates are independent.
+
+Fix a table limit $N$ and let
+\[
+ b(d)=\prod_{q^a\parallel d}\frac{\nu_q}{q^a},\qquad
+ h_p(m)=\sum_{r\geq1:\,mp^r\geq K}p^{-r}
+       =\frac{p^{1-r_0}}{p-1},
+ \quad r_0=\min\{r\geq1:mp^r\geq K\}.
+\]
+All integers in the following sums are smooth over the primes preceding
+$p$. Store an upper bound $F(n)$ for every residue modulo $n\leq N$,
+and use the valid bound $b(n)$ outside the table. Set
+$e(n)=(b(n)-F(n))_+$ inside the table and zero outside. The infinite sum
+needed for the affine recursion has the upper bound
+\begin{align*}
+ H_p(d)={}&\frac{C b(d)}{p-1}
+ \prod_{q^a\parallel d}
+ \frac{a+1+1/(q-1)}{1+\nu_q/(q-1)}\\
+ &-\sum_{m<(K/p)}\left(\frac1{p-1}-h_p(m)\right)
+                    b(\operatorname{lcm}(d,m))\\
+ &-\sum_{\substack{m\leq N\\\operatorname{lcm}(d,m)\leq N}}
+       h_p(m)e(\operatorname{lcm}(d,m)).
+\end{align*}
+The first line is an exact Euler product for the unrestricted sum over
+$m$. The second removes exactly the forbidden powers $mp^r<K$.
+The third subtracts only known finite improvements. No infinite remainder
+is discarded. The identity
+$b(\operatorname{lcm}(d,m))=b(d)b(m)/b(\gcd(d,m))$
+is used to evaluate the finite terms.
+
+For each earlier-smooth $d$ with $dp\leq N$, and every $a\geq1$ with
+$dp^a\leq N$, update
+\[
+ F(dp^a)\ \leq\ \frac1{p^a}
+       \min\{\nu_p F(d),\ F(d)+\nu_p H_p(d)\}.
+\]
+The old table is read throughout this update, and all new entries are
+inserted together. Entries not involving $p$ are preserved. In the
+integer implementation the positive product is rounded upwards and each
+subtracted quantity downwards; in particular $e(n)$ is replaced by
+$\max\{0,b(n)^--F(n)^+\}$. Taking the minimum with $b(dp^a)^+$ gives
+another valid upper bound. This proves the table by induction.
+
+An additional valid density envelope is
+\[
+ \frac1{1-\min(\alpha,\delta)}
+ \leq 1+\alpha+\nu\alpha^2,\qquad 0\leq\alpha\leq1.
+\]
+For $\alpha\leq\delta$, use
+$1/(1-\alpha)=1+\alpha+\alpha^2/(1-\alpha)$.
+For $\alpha\geq\delta$, the right side is increasing and equals $\nu$
+at $\alpha=\delta$. Thus one may also take the minimum with
+$p^{-a}\{F(d)+H_p(d)+\nu_p H_{2,p}(d)\}$. A convenient, deliberately
+unrestricted bound for its last term is
+\[
+ H_{2,p}(d)=\frac{T b(d)}{(p-1)^2}
+ \prod_{q^a\parallel d}
+ \frac{(a+1)^2+(2a+3)/(q-1)+2/(q-1)^2}
+      {1+\nu_q(3q-1)/(q-1)^2}.
+\]
+This is the exact product-atom sum over two unrestricted earlier moduli
+intersected with the residue modulo $d$. For a prime occurring to exponent
+$a$ in $d$, the exponent pairs below $a$ contribute $(a+1)^2$, and the
+remaining geometric series gives the other two terms. Omitting the
+minimum-modulus restrictions only increases this nonnegative sum.
+The witness field \texttt{recursive\_density\_degree=2} enables this
+additional candidate; degree one retains the affine envelope alone.
+
+To retain the minimum-modulus restriction in the moments, define
+\[
+ c_{r,p}(n)=\sum_{\substack{m_1,\ldots,m_r\mid n\\
+                   \operatorname{lcm}(m_1,\ldots,m_r)=n}}
+                  \prod_{j=1}^r h_p(m_j)\ \geq0.
+\]
+These weights are evaluated by divisor inversion of
+$\bigl(\sum_{m\mid n}h_p(m)\bigr)^r$. Expansion of the actual fibre
+union bound and the residue-intersection bound gives
+\[
+ M_p^{(r)}\leq M_{p,\mathrm{old}}^{(r)}
+       -\sum_{n\leq N} c_{r,p}(n)e(n),\qquad r=1,2,
+\]
+where $M_{p,\mathrm{old}}^{(r)}$ is the existing restricted product-atom
+majorant. Nonnegativity permits the omitted improvements to be ignored.
+The verifier takes the minimum of the resulting first-moment loss,
+second-moment loss, and the existing stop-loss candidates. In particular,
+it never inserts this improved actual first moment into an identity for
+the independent comparison distribution.
+
+\texttt{code/test\_recursive\_atoms.py} compares $1056$ computed caps
+with an independent exact-rational recursion, checks $7336$ actual residue
+probabilities in explicitly constructed finite distorted measures, and
+checks $64$ moment bounds. The finite measures use varying residue choices
+and distortion parameters. These tests check the implementation; the
+inductive argument above establishes the general inequality.
+
+At cutoff $10000$, the fixed-parameter experiments with $N=2048$ and
+$N=16384$ are recorded in
+\texttt{data/recursive-atoms-10000.json} and
+\texttt{data/recursive-atoms-large-10000.json}. The latter yields up to
+approximately $4.921\%$ improvement in the first-moment majorant and
+$0.228\%$ in the second, through prime $859$. The moment enclosures use
+outward integer arithmetic. The separate comparison files show that
+neither improved moment beats the already available conditioned stop-loss
+bound at those parameters. That comparison is experimental and is not
+an obstruction theorem for other parameters or stronger recursions.
+
+\subsection{Mixing actual moments with comparison losses}
+There is a valid way to combine these two kinds of bounds without confusing
+the actual and comparison measures. Suppose $A_r\geq\E[\alpha^r]$ and
+$G(t)\geq\E[(\alpha-t)_+]$, where $G$ is supplied by the independent
+comparison and its conditional evaluation. For $0\leq c<1$ and $x\geq0$,
+\[
+ (x-\delta)_+\leq c x+(1-c)
+                \left(x-\frac{\delta}{1-c}\right)_+.
+\]
+This follows by splitting at $\delta$ and $\delta/(1-c)$. Consequently
+\[
+ \Pp_i(B_i)\leq
+ \frac{c A_1+(1-c)G(\delta/(1-c))}{1-\delta}.
+\]
+Likewise, for $\delta\leq t\leq2\delta$,
+\[
+ (x-\delta)_+\leq\frac{t-\delta}{t^2}x^2+
+                   \left(\frac{2\delta}{t}-1\right)(x-t)_+.
+\]
+On $[\delta,t]$ the difference between the quadratic and $x-\delta$
+is nonnegative, with roots $t$ and $\delta t/(t-\delta)\geq t$.
+Above $t$ the difference is $(t-\delta)(x-t)^2/t^2$; below $\delta$
+nonnegativity suffices. The case $t=\delta$ is immediate.
+Both coefficients are nonnegative, so this gives
+\[
+ \Pp_i(B_i)\leq\frac{(t-\delta)A_2/t^2+
+                      (2\delta/t-1)G(t)}{1-\delta}.
+\]
+Thus improved actual moments can enter a valid inequality involving the
+comparison stop-loss, even though they cannot replace its mean in an
+identity. These inequalities require $\delta>0$ in the second formula.
+
+The exploratory implementation \texttt{code/explore\_mixed\_atom\_loss.py}
+checks $1312$ exact-rational scalar cases and samples threshold grids at
+primes $31,53,79,101,151,251,557,829,859$, using the quadratic recursive
+moment profile at cutoff $10000$. No mixture improves the original
+comparison estimate at these sampled parameters. The floating evaluation
+is recorded separately in \texttt{data/mixed-atom-loss-10000.json}; it is
+not used in the certified modulus calculation and is not an exhaustive
+search over parameters.
+
+\subsection{One-pass fine-prefix verification}
+A single verification can retain the benefit of the finer early bins.
+Propagate coarse and fine product distributions from the same initial law
+with the same rational distortion parameters. Use the fine loss estimates
+through a specified index $h$, then use the independently propagated coarse
+distribution for every later finite loss and the terminal stratified tail.
+The conditioned remainder distribution is also propagated in both
+resolutions. Neither distribution is obtained by converting the other's
+bins. Every individual loss bound therefore remains valid, and their sum
+is a valid survivor bound. The terminal tail uses the coarse distribution
+with its original rounding and support bounds.
+
+The fields \texttt{prefix\_index} and \texttt{prefix\_resolution} select
+this calculation in \texttt{code/verify\_sparse\_conditioning.py}.
+\texttt{code/test\_hybrid\_prefix.py} checks that the resulting integer
+survivor equals the independently computed coarse survivor minus its
+coarse prefix plus the fine prefix, exactly, including recursive atom
+candidates. This avoids requiring three complete component reports for
+future certificates while preserving the earlier composition proof.
+
+\subsection{Explicitly controlled exponent truncation}
+The exponent cutoff is also a numerical parameter. With witness field
+\texttt{product\_tail\_power}$=t$, choose the smallest $H$ satisfying
+$p^H\geq2\cdot10^t$ in each product-distribution update, and retain
+exponents $0,\ldots,H-1$. The omitted probability at that step is at most
+$\nu_p/p^H$. Add this quantity, rounded upwards, to the existing
+omitted-exponent error counter. The complement is bounded by its threshold,
+so its omitted contribution is bounded exactly as in the original
+binning proof. Omitted terms in a lower correction or retained lower
+moment are nonnegative and may be discarded. The overflow moment in the
+stratified tail still bounds every discarded path.
+
+The original setting is $t=32$; the new verifier permits $12\leq t\leq32$.
+The setting $t=20$ reduces the number of retained exponents while leaving
+an explicitly enclosed remainder. All arithmetic still uses scale $10^{40}$.
+Since these cutoffs never increase $H$, the existing $109$-operations
+rounding estimate remains valid. Twelve independent rational recursion
+checks, including deliberately much larger omitted probabilities, are
+in \texttt{code/test\_product\_truncation.py}.
+
+\subsection{Rechecking a common future distortion}
+The terminal report also stores the moment bound for each group of retained
+bins assigned to one moment order. If $s_j$ is that order, $b_j>0$ its
+old tail coefficient, and $A_j$ the sum of its rounded bin costs, then
+\[
+ \E[Y^{s_j}\mathbf1_{G_j}]\leq Q_j:=A_j/b_j.
+\]
+The stored $Q_j$ is rounded upwards. Therefore, for any new \emph{common}
+future distortion $d$ satisfying the analytic tail hypotheses,
+\[
+ \mathcal T_k(d)\leq\sum_j b_{s_j}(d)Q_j+
+ \min_s b_s(d)\bigl(U_k^{(s),+}-L_{k,\mathrm{ret}}^{(s),-}\bigr)_+.
+\]
+This compressed version keeps the group assignment fixed, and uses the
+overflow moments already enclosed in the completed base verification. All future primes
+use the same $d$; this is not a choice of different future distortion
+parameters on different comparison bins. The program
+\texttt{code/refine\_tail\_parameter.py} recomputes these coefficients
+and sums in outward integer arithmetic. It requires the base witness and
+its separately completed report, whose hashes are checked. Its own run
+does not replay the finite sieve. The report also saves the exact integer terminal bin state, including its
+mass and first-moment rounding bounds. When that state is available, the
+program rebuilds each per-bin moment enclosure once and reselects the least
+moment order in every bin for each tested common distortion. This is exactly
+the stratified-tail inequality already proved above. As a consistency check,
+reassembly at the original distortion must reproduce the original
+stratified-tail sum exactly. Eighteen exact-rational comparisons check
+reselection with changed coefficients, in addition to the existing group
+checks. The distortion parameter remains common to all bins.
+A finite grid search certifies each
+listed candidate, not a global optimum over the continuous parameter.
+
+\subsection{A rigorously accelerated block tail}\label{sec:blocktail}
+A longer finite horizon can be enclosed without updating every product
+bin at every prime. This refinement begins from a separately completed
+certificate at $(k_0,P_0)$ and its stored integer bin state. All future
+distortions equal one common rational number $d$. Set $\nu=(1-d)^{-1}$.
+For a future comparison exponent $E_q$,
+\[
+ \Pr(E_q\geq a)=\frac{\nu}{q^a}
+ \leq\left(\frac{\nu}{q}\right)^a,\qquad a\geq1.
+\]
+It is therefore stochastically dominated by a geometric variable $G_q$
+on the nonnegative integers with parameter $\rho_q=\nu/q$. Since
+$E_q+1\leq2^{E_q}$, the future divisor-count multiplier is dominated by
+$2^{Z_b}$, where $Z_b=\sum_{P_0<q\leq p_b}G_q$ and these variables are
+independent of the comparison history through $P_0$.
+
+The distribution of $Z_b$ is enclosed using positive power sums:
+\[
+ A_j=\sum_{P_0<q\leq p_b}\rho_q^j,\qquad h_0=1,\qquad
+ h_j=\frac1j\sum_{a=1}^j A_a h_{j-a},\qquad
+ \pi_j=\Pr(Z_b=j)=h_j\prod_{P_0<q\leq p_b}(1-\rho_q).
+\]
+These identities follow by differentiating
+$\prod_q(1-\rho_q z)^{-1}$ as a formal power series. For an exponent
+cutoff $H$, all omitted first moment is bounded using the exact product
+\[
+ R_1=\E[2^{Z_b}]=\prod_q\frac{1-\rho_q}{1-2\rho_q},\qquad
+ R_{1,>H}=R_1-\sum_{j=0}^H2^j\pi_j.
+\]
+The implementation uses an upper bound for $R_1$ and lower bounds for
+the subtracted terms. All denominators are positive here.
+
+For a block of $m$ consecutive future primes whose first prime is $p_a$
+and whose last prime is $p_b$, an upper bound for its total loss,
+conditional on initial divisor-count product $y$, is
+\[
+ L_B(y)=\frac{m}{(p_a-1)(1-d)}
+ \left\{\sum_{j=0}^H\pi_j\bigl(y2^j-d(p_a-1)\bigr)_+
+                          +yR_{1,>H}\right\}.
+\]
+Indeed, at each stage in this block the preceding future multiplier is
+stochastically at most $2^{Z_b}$, and replacing its denominator $p-1$
+by $p_a-1$ only increases the loss. The exponent law here includes
+\emph{every} prime from $P_0$ to the current block endpoint; it is not
+reset at block boundaries. The first-moment remainder bounds every
+omitted exponent, rather than dropping its loss.
+
+The function $L_B$ is convex. Its chord on each original bin $[b,u]$
+therefore integrates to an upper bound using the stored probability and
+first-moment enclosures. Sum these chord bounds over all blocks up to a
+new auxiliary endpoint $(k_1,P_1)$. No initial bin is reinterpreted as a
+point mass, and the stored mass and moment rounding errors are retained.
+
+For the infinite part after $P_1$, write $a=2^s$ and
+$\rho_* = \max_{P_0<q\leq P_1}\rho_q$. The geometric envelope satisfies
+\[
+ \E[2^{sZ}] =\prod_q\frac{1-\rho_q}{1-a\rho_q}
+ \leq\exp\!\left(\frac{(a-1)\sum_q\rho_q}{1-a\rho_*}\right),
+ \qquad a\rho_*<1.
+\]
+To prove this, expand the logarithm and use
+$(a^j-1)/j\leq(a-1)a^{j-1}$. Multiply this growth bound by the previously
+proved fractional tail coefficient at $(k_1,P_1)$ and by the initial
+bin's moment bound. The moment order may again be selected separately
+in each bin. Positive Taylor terms with a geometric remainder enclose
+the exponential in integer arithmetic.
+
+The paths omitted from the \emph{initial} retained distribution are
+handled separately for their entire future, using the original
+fractional-moment coefficient at $(k_0,P_0)$ with the new common $d$ and
+the certified omitted moment. Thus retained finite blocks, retained
+infinite remainder, and omitted initial paths cover every contribution.
+This proves the block-tail estimate without a new assumption on the
+actual distorted measure.
+
+\texttt{code/block\_tail\_bound.py} implements this calculation with
+outward integer arithmetic. Its report depends explicitly on the hash
+of the completed base report. The finite base computation is not replayed
+by the block-tail command. The separate test checks $108$ rational
+probability enclosures, $16$ actual-loss comparisons, nine chord bounds,
+four exponential enclosures and a moment-growth bound. Focused
+integration checks also exercise prefix composition and exact terminal
+state replay; see \texttt{data/block-tail-integration-checks.json}.
+
+Starting from the standalone cutoff $14485$ certificate, $700$ blocks
+of $1000$ primes, $H=16$ and $d=2/5$ extend the auxiliary endpoint to
+$k_1=1000000$, $P_1=15485863$. The completed block report
+\texttt{data/block-tail-14485-million.json} gives
+\begin{align*}
+ \mathcal T_{k_0}&\leq0.0000810218897014432511338972005472332288,\\
+ \mu_{k_0}-\mathcal T_{k_0}
+ &\geq0.0000411092456359634485221308574482328334.
+\end{align*}
+This strengthens the tail margin at the same cutoff. A lower cutoff
+additionally requires the verified prefix comparison; the longer
+auxiliary endpoint alone does not change the cutoff.
+
+\subsection{Larger conditioned sets at fixed state cap}
+A further experiment retains the same $300000$-parameter witness but
+compares the first eight, nine and ten conditioned primes, keeping the
+state cap $10^9$ and the other proof settings fixed. The finite comparison
+ends at $8000$ primes. The retained state counts are respectively $85410$,
+$133439$ and $193570$. Its floating-point survivor estimates are
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+Conditioned primes & Cutoff $10000$ & Cutoff $14485$\\
+\midrule
+$8$ & $-0.0823971672$ & $0.0038732912$\\
+$9$ & $-0.0824070241$ & $0.0038609636$\\
+$10$ & $-0.0824200805$ & $0.0038446265$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus increasing the number of conditioned primes alone does not improve
+these tested bounds. The finite retained event and its omitted complement
+also change, so monotonic improvement is not implied by adding primes.
+This is a fixed-parameter experiment, not an impossibility result for
+larger state caps, alternative partitions or reoptimized parameters.
+The complete record is \texttt{data/conditioning-size-scan-14485.json};
+\texttt{code/scan\_conditioning\_size.py} reproduces it.
+
+A separate terminal-distribution scan of a common future distortion,
+recorded in \texttt{data/common-tail-experiment-14485.json}, finds its best
+tested value at $0.48$, with experimental tail $0.0001169173734$.
+The grid spacing is $0.01$, from $0.05$ to $0.50$. This scan uses floating
+arithmetic and does not itself establish any modulus bound; a completed
+integer state and \texttt{code/refine\_tail\_parameter.py} are needed for
+certification. The code \texttt{code/explore\_common\_tail\_parameter.py}
+reconstructs the experimental terminal distribution from the witness.
+
+\subsection{Experiments at smaller cutoffs}
+The recursive-enabled $10000$ run uses a table limit of $2048$ through
+prime $859$, fourteen individual early parameters, six further prefix
+controls and twelve late controls. Three iterations reduce its objective
+from approximately $0.0903052151$ to $0.0902460884$. A separate five-step
+run at cutoff $14490$ jointly varies thirty individual early parameters,
+eight prefix controls and thirty-two late controls; its objective decreases
+from $0.0000789127$ to $0.0000613315$. Neither search closes the tail.
+Combining the first-prime extension with the quadratic atom candidate at
+$10000$ gives a further experimental objective $0.0902073896$, still
+positive. Its finite survivor estimate is already negative at $8000$
+primes. This concerns that tested parameter vector, not all possible
+parameters or stronger estimates. The full record is
+\texttt{data/first-prime-target-10000.json}.
+Their complete parameter vectors and histories are stored in
+\texttt{data/recursive-turn-joint-10000.json} and
+\texttt{data/recursive-turn-joint-14490.json}.
+
+The latest experiments compare the \emph{actual stratified terminal
+objective} $\mathcal T_k-\mu_k$, rather than a weighted proxy. Rounded
+floating-point results are shown below; these are not certificate values.
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+Cutoff & Terminal index & Survivor estimate & Tail minus survivor\\
+\midrule
+$14500$ & $200000$ & $0.0002385482$ & $-0.0000392078$\\
+$14498$ & $250000$ & $0.0001621572$ & $-0.0000143449$\\
+$14490$ & $250000$ & $0.0000702648$ & $0.0000823893$\\
+$14490$ & $250000$ & $0.0000894461$ & $0.0000613315$\\
+$14485$ & $300000$ & $0.0001222532$ & $-0.0000046475$\\
+$10000$ & $8000$ & $-0.0826073981$ & $0.0903052151$\\
+$10000$ & $8000$ & $-0.0825826249$ & $0.0902460884$\\
+$10000$ & $8000$ & $-0.0825425786$ & $0.0902073896$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The corresponding records are
+\texttt{data/dense-preconditioned-14500.json},
+\texttt{data/extended-fifth-14498.json},
+\texttt{data/joint-preconditioned-14490.json}, and
+\texttt{data/joint-target-10000-wide.json}. The last two searches vary
+early and later parameters together. No local or global optimum is claimed.
+
+An additional early-coordinate scan tests nearby exact rational breakpoints
+of the stage loss, includes changes to the conditioned-state weights, and
+checks the selected candidate with the full terminal calculation.
+At $10000$ this reduces its starting objective from approximately
+$0.0903963164$ to $0.0903837342$, which still fails. The code and record
+are \texttt{code/breakpoint\_prefix\_search.py} and
+\texttt{data/breakpoint-target-10000.json}. Only a finite local subset
+of the breakpoints is tested.
+
+For the fixed parameters in \texttt{data/fine-stratified-14500.json},
+lowering the cutoff from $14500$ to $10000$ changes the experimental
+survivor after $150$ primes from $0.1589611704$ to $0.0730114100$.
+This accounts for about $99.49\%$ of the survivor deterioration through
+$8000$ primes. See \texttt{data/early-prefix-gap-10000.json} and
+\texttt{data/fixed-parameter-cutoff-scan.json}. This diagnoses the early
+losses in one parameter family; it is not an obstruction theorem for
+other parameters or stronger moment estimates.
+
+The target $10000$ remains unproved by this investigation. For example,
+conditioning on the first twelve primes with a state cutoff $10^7$ and
+$\lambda=0.9$ exhausts the experimental survivor bound at $p=1597$.
+The record is \texttt{data/sparse-10000-larger-trial.json}. Searches with
+six conditioning primes, a dynamically growing conditioned set, and a
+positive-association correction were also explored. None supplies a
+certificate for $10000$. The positive survivor estimates in some $18000$
+and $19000$ finite runs are likewise not stopping certificates: they did
+not meet the analytic termination inequality at their tested endpoint.
+These earlier outcomes concern the stated computations; they are not impossibility
+results for either those cutoffs or the distortion method.
+
+The new $10000$ experiment dynamically conditions on primes through $101$
+with a smooth-number cutoff of $10^8$, starting at index $12$. With policy
+$0.9$, its survivor estimate is exhausted at $p=1823$; see
+\texttt{data/dynamic-reachable-10000-large.json}. A corresponding $16000$
+run with thirty conditioning primes also fails. Full-horizon searches at
+$16900$, including the normalized decreasing-event correction, remain
+experimental and do not pass the tested third-moment stopping bound.
+Their records are \texttt{data/global-third-16900.json} and
+\texttt{data/global-normalized-16900.json}. No failed search is presented
+as an obstruction to a future proof at those cutoffs.
+
+The latest joint-presence trial at $K=10000$, with initial index $8$,
+sixteen conditioning primes, state cutoff $10^8$, resolution $256$, and
+policy $1$, fails to find a feasible next step at $p=2179$. Its record is
+\texttt{data/joint-dynamic-10000.json}. At $K=14000$, a fixed-parameter
+comparison through $50000$ primes gives experimental survivor estimates
+$-0.01191478735$ at resolution $256$ and $-0.01191062463$ at resolution
+$512$. The gain from finer bins is only about $4.16\cdot10^{-6}$ in this
+comparison, far below its survivor deficit. The records are
+\texttt{data/joint-coarse-14000.json} and
+\texttt{data/joint-fine-14000.json}. These are failed numerical trials,
+not proofs of an obstruction to other conditioning bounds or parameters.
+Starting the dynamic greedy search at index $2$, so that distortions may
+be nonzero from prime $5$, also fails in the tested $K=14000$ run: with
+policy $1$ and state cutoff $10^8$, no feasible next step is found at
+$p=18253$. This is recorded in
+\texttt{data/joint-dynamic-14000-start2.json}. The separate program
+\texttt{code/early\_parameter\_sweep.py} tests coordinated logit shifts
+of the first $100$ parameters while evaluating the full terminal objective;
+its experimental output is \texttt{data/early-parameter-sweep-14000.json}.
+All four shifts $-0.5,-0.25,0.25,0.5$ worsen the tested terminal objective
+relative to the unshifted sequence. This finite comparison does not
+establish local or global optimality in the full parameter space.
+
+The new fractional-moment and stronger-conditioning trials remain subject
+to the same distinction. At $K=14500$, extending exact early evaluation
+through prime $127$ gives experimental $\mu_{100000}\approx-0.00198496$;
+the record is \texttt{data/exact127-fractional-14500.json}.
+The joint-product alternative gives
+$\mu_{75000}\approx-0.00191866$ in
+\texttt{data/joint-product-fractional-14500.json}. Both trials fail.
+Their negative margins do not rule out different parameters or stronger
+conditioning at that cutoff. The results are indexed separately from
+completed certificates in \texttt{data/conditioning-experiment-summary.json}.
+With only four explicitly conditioned primes and exact early evaluation
+through $127$, the fixed-parameter $K=14500$ trial still has
+$\mu_{125000}\approx-0.00030397$, with tail estimate about $0.00088698$.
+This further failed experiment is
+\texttt{data/joint-four-fractional-14500.json}. It is not a barrier theorem
+for four-prime conditioning or for the cutoff $14500$.
+The further eight-prime forward-difference search was stopped after two
+completed quasi-Newton steps, with
+$\mu_{125000}\approx-0.00033809$ and terminal margin about $-0.00122464$.
+Its saved record is \texttt{data/joint-eight-forward-14500.json}.
+This is a finite unsuccessful search, not a convergence certificate.
+
+The experiments first obtained successful runs at cutoff $80000$ using an
+unconditioned product bound. Retaining the $2$- and $3$-power divisor
+restriction produced a successful $40000$ run. Binning and an extended
+stopping index make the delivered certificate compact and robust.
+Neither numerical success flags nor recorded floating-point moments are
+trusted by the verifier. The $30000$, $22000$, $20000$, $18000$, $17000$,
+$15500$, $15000$, $14900$, $14800$, and $14600$ certificates are
+successive verified improvements. No bound of $10000$ is claimed.
+
+The comparison theorem is proved above, independently of the numerical
+experiments. In addition, \texttt{code/test\_stoploss.py} performs $361$
+exact-rational checks of excess expectations, downward binning, and the
+complete finite-state conditional bound against independently enumerated
+small product distributions. The earlier $2520$ interval-arithmetic checks
+and $24$ exact restricted-moment checks remain applicable. An additional
+$384$ exact tests exercise the convex comparison with dependent coordinates,
+nonuniform conditional measures, and conflicting residue choices. These checks
+supplement the proof; they do not replace it.
+
+Further independent tests check $48$ generalized conditioning cases,
+$903$ first-moment bin bounds against exact rational distributions,
+finite retained-path support bounds, and $72$ finite-conditioning corrections
+and combined loss bounds. The latter compare against separately enumerated
+divisors and exact excess expectations. All checks passed.
+
+The new checks add $903$ exact excess comparisons using graph-based supports,
+$21892$ retained-path support checks, $24$ exact third-moment Euler factors,
+$9$ independent 75-digit tail comparisons, and $27$ exact comparisons for
+normalized decreasing-event conditioning. The search derivatives pass $24$
+finite-difference checks with the BBMST terminal objective and two with the
+third-moment terminal objective. These search checks validate the optimizer's
+implementation, not global optimality or the final proof inequalities.
+
+The dynamic and joint-presence additions pass $196$ exact atom-probability
+enclosures and $24$ exact joint-correction comparisons, including nonzero
+distortions on conditioned primes. A separate check verifies the capped
+presence-count recurrence, and $324$ direct full-divisor enumerations verify
+the structural identity used by the joint correction. Nine further 75-digit comparisons check the
+interpolated tail enclosure. Two finite-difference checks of the adjoint
+after a prefix with nonzero conditioned-prime distortions have maximum
+absolute error below $1.1\cdot10^{-6}$.
+
+The further additions pass $48$ exhaustive exact-rational tests of the
+finite early-complement support and expectation, $12$ statewise-maximum
+comparisons, $325$ independent 80-digit fractional Euler-factor comparisons,
+$585$ fractional-tail enclosures, and $108$ independent rational checks of
+the full joint-product distribution and correction. Twelve additional
+comparisons validate the shifted logarithm. The joint early/late search
+passes eight derivative checks, four with exact early evaluation and
+fractional moments, and two with the full-product correction. The respective
+maximum errors are below $5.0\cdot10^{-7}$, $1.7\cdot10^{-7}$, and
+$1.7\cdot10^{-7}$. These derivative checks remain exploratory validation.
+Three checks for the eight-prime split have maximum error below
+$4.7\cdot10^{-7}$. Three checks of its forward-difference variant have
+maximum error below $2.0\cdot10^{-6}$.
+The dense moment tests include every order $j/16$, $17\leq j\leq80$.
+The prefix-composition tests check exact signed arithmetic, reject five
+incompatible or unsuccessful compositions, and verify a real finite-only
+example without assigning it a minimum-modulus conclusion.
+The standard-library check suite records its outputs and source hashes in
+\texttt{data/conditioning-method-checks.json}.
+
+Run from the repository root with ordinary Python 3; the verifier requires
+only the standard library and rejects execution with assertions disabled:
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/test_minimum_modulus.py
+python code/test_stoploss.py
+python code/test_strong_conditioning.py
+python code/test_moment_bins.py
+python code/test_sparse_conditioning.py
+python code/test_reachable_support.py
+python code/test_third_moment_tail.py
+python code/test_normalized_conditioning.py
+python code/test_dynamic_joint.py
+python code/check_conditioning_methods.py
+python code/verify_prefix_refinement.py data/prefix-refinement-certificate-14497.json --output data/prefix-refinement-verified-14497.json
+\end{lstlisting}
+To regenerate an experimental witness, use Python with NumPy installed:
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/test_global_search.py
+python code/global_distortion_search.py data/sparse-certificate-20000-50000.json --K 17000 --terminal 50000 --control-prime 2000000 --knots 20 --iterations 18 --state-cap 1000000000 --support-mode reachable --stopping-method third_moment --output data/regenerated-17000.json
+python code/extract_sparse_witness.py data/regenerated-17000.json data/regenerated-17000-witness.json --terminal 50000
+python code/verify_sparse_conditioning.py data/regenerated-17000-witness.json --output data/regenerated-17000-verified.json
+\end{lstlisting}
+Regenerated candidates must be verified afresh. The supplied rational
+witness fixes the certified calculation even if floating-point search
+results vary across platforms.
+
+The new dynamic search and the fixed-prefix terminal optimizer can be
+reproduced with NumPy as follows. The horizon profiler evaluates explicit
+extensions of a saved parameter sequence; it does not certify them.
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/test_frozen_prefix.py
+python code/sparse_conditioning_experiment.py --K 15000 --start 8 --small 16 --state-cap 1000000000 --policy 1 --dynamic --joint-presence --support-mode reachable --max-steps 50000 --min-stop 50000 --output data/regenerated-joint-15000.json
+python code/frozen_prefix_search.py data/regenerated-joint-15000.json --K 15000 --terminal 50000 --iterations 2 --output data/regenerated-joint-global-15000.json
+python code/profile_conditioning_horizon.py data/regenerated-joint-global-15000.json --terminal 150000 --output data/regenerated-joint-extended-15000.json
+python code/frozen_prefix_search.py data/regenerated-joint-extended-15000.json --K 14900 --terminal 150000 --iterations 1 --output data/regenerated-joint-14900.json
+python code/extract_sparse_witness.py data/regenerated-joint-14900.json data/regenerated-joint-witness.json --terminal 150000 --tail-delta-numerator 500000000000
+python code/verify_sparse_conditioning.py data/regenerated-joint-witness.json --output data/regenerated-joint-verified.json
+\end{lstlisting}
+The final verification command must succeed before any regenerated
+candidate is used as evidence for a bound. The canonical witnesses and
+their hashes, rather than a floating-point search trajectory, specify
+the delivered computer-assisted results.
+
+The joint early/late search and stronger-conditioning experiment can be
+reproduced with the saved seeds (NumPy required):
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/check_conditioning_methods.py --with-search --output data/regenerated-method-checks.json
+python code/joint_distortion_search.py data/joint-fractional-seed.json --K 14700 --terminal 100000 --state-cap 1000000000 --resolution 128 --iterations 6 --output data/regenerated-joint-all.json
+python code/profile_conditioning_horizon.py data/joint-product-seed.json --K 14700 --terminal 100000 --state-cap 1000000000 --resolution 128 --tail-delta-numerator 500000000000 --output data/regenerated-joint-product.json
+python code/profile_conditioning_horizon.py data/joint-eight-seed.json --K 14600 --freeze 150 --terminal 125000 --state-cap 1000000000 --resolution 128 --tail-delta-numerator 500000000000 --output data/regenerated-eight-prime.json
+python code/profile_conditioning_horizon.py data/joint-four-seed.json --K 14500 --freeze 250 --terminal 125000 --state-cap 1000000000 --resolution 128 --tail-delta-numerator 500000000000 --output data/regenerated-four-prime.json
+python code/test_joint_eight_search.py --forward
+python code/joint_distortion_search.py data/joint-eight-forward-seed.json --K 14500 --freeze 150 --terminal 125000 --state-cap 1000000000 --resolution 128 --iterations 2 --output data/regenerated-eight-prime-search.json
+\end{lstlisting}
+The seed records specify the fractional order, exact-early cutoff, and
+conditioning options explicitly. A regenerated floating-point result must
+still be extracted to a rational witness and verified independently.
+
+The latest distribution-stratified searches and the local cap diagnostic
+have the following reproducible commands. The first two remain exploratory:
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/frozen_prefix_search.py data/dense-final-seed.json --K 14500 --freeze 150 --terminal 200000 --knots 32 --iterations 8 --initial-scale 100 --prime-preconditioning --tail-delta-numerator 500000000000 --output data/regenerated-dense-search.json
+python code/joint_distortion_search.py data/joint-target-10000-seed.json --K 10000 --freeze 150 --terminal 8000 --resolution 128 --knots 12 --iterations 6 --initial-scale 30 --prime-preconditioning --output data/regenerated-target-10000.json
+python code/breakpoint_prefix_search.py data/joint-target-10000.json --candidates 16 --output data/regenerated-breakpoint-target.json
+python code/marginal_cap_diagnostic.py data/sparse-certificate-14498.json --output data/regenerated-marginal-cap.json
+\end{lstlisting}
+
+The recursive moment profiles and the further joint search are reproducible
+as follows. Moment profiles prove their stated local numerical enclosures;
+they are not minimum-modulus certificates. The joint search is experimental.
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/test_recursive_atoms.py
+python code/test_hybrid_prefix.py
+python code/profile_recursive_atoms.py data/dense-preconditioned-14500.json --K 10000 --cap 2048 --last-prime 859 --output data/regenerated-recursive-atoms-10000.json
+python code/profile_recursive_atoms.py data/dense-preconditioned-14500.json --K 10000 --cap 16384 --last-prime 859 --density-degree 2 --output data/regenerated-quadratic-atoms-10000.json
+python code/joint_distortion_search.py data/recursive-turn-10000-seed.json --K 10000 --terminal 8000 --freeze 150 --knots 12 --early-knots 6 --iterations 3 --initial-scale 1000 --max-step 3 --output data/regenerated-recursive-joint-10000.json
+python code/joint_distortion_search.py data/recursive-turn-joint-seed.json --K 14490 --terminal 250000 --freeze 150 --knots 32 --early-knots 8 --iterations 5 --initial-scale 100 --prime-preconditioning --output data/regenerated-joint-14490.json
+\end{lstlisting}
+
+The first-prime extension can be searched from its saved seed:
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/test_first_prime_search.py
+python code/joint_distortion_search.py data/first-prime-joint-seed.json --K 14490 --start 0 --terminal 250000 --freeze 150 --knots 32 --early-knots 8 --iterations 2 --initial-scale 100 --prime-preconditioning --output data/regenerated-first-prime-joint.json
+\end{lstlisting}
+\end{document}

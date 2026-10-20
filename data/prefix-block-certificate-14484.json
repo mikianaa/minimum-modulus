@@ -1,0 +1,21 @@
+{
+  "base": {
+    "witness": "data/sparse-certificate-14485.json",
+    "report": "data/sparse-verified-14485.json"
+  },
+  "old_prefix": {
+    "witness": "data/prefix-base-14485.json",
+    "report": "data/prefix-base-14485-verified.json"
+  },
+  "new_prefix": {
+    "witness": "data/prefix-new-14484.json",
+    "report": "data/prefix-new-14484-verified.json"
+  },
+  "block_tail": {
+    "report": "data/block-tail-14485-two-million.json",
+    "terminal_index": 2000000,
+    "block_size": 1000,
+    "future_delta_numerator": 400000000000,
+    "exponent_truncation": 16
+  }
+}

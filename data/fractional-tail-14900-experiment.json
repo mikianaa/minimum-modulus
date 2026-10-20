@@ -1,0 +1,11 @@
+{
+  "fractional_moment_upper": "30675604.6812075698666196863152580240688537835044",
+  "moment_order": "5/2",
+  "tail_delta_numerator": 500000000000,
+  "shifted_tail": true,
+  "interpolate_tail": true,
+  "growth_exponent": 10,
+  "growth_exponent_upper": "9.3137223643440949145586544790548117920809",
+  "exponential_argument_upper": "0.0009454124089914164632387757304360181999",
+  "tail_loss_upper": "0.0008506906282440191277463172846389826703"
+}

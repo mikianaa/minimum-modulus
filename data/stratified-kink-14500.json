@@ -1,0 +1,144 @@
+{
+  "status": "EXPERIMENTAL",
+  "K": 14500,
+  "source": "data/stratified-kink-seed.json",
+  "terminal": 200000,
+  "mu": 3.879798295564104e-05,
+  "stratified_tail": 0.00016125710093922778,
+  "margin": -0.00012245911798358674,
+  "tail_delta_numerator": 500000000000,
+  "tail_parameter_scan": [
+    {
+      "tail_delta_numerator": 300000000000,
+      "tail": 0.00021779698969208718,
+      "margin": -0.00017899900673644614
+    },
+    {
+      "tail_delta_numerator": 350000000000,
+      "tail": 0.0001881237067455049,
+      "margin": -0.00014932572378986386
+    },
+    {
+      "tail_delta_numerator": 400000000000,
+      "tail": 0.00017050432178532918,
+      "margin": -0.00013170633882968815
+    },
+    {
+      "tail_delta_numerator": 450000000000,
+      "tail": 0.00016201040507112392,
+      "margin": -0.00012321242211548288
+    },
+    {
+      "tail_delta_numerator": 500000000000,
+      "tail": 0.00016125710093922778,
+      "margin": -0.00012245911798358674
+    }
+  ],
+  "rows": [
+    {
+      "order": "5/4",
+      "moment": 243.7920620423651,
+      "retained_lower": 243.7920169164655,
+      "overflow_tail": 6.37871906590416e-07,
+      "unstratified_tail": 3.446094345846123
+    },
+    {
+      "order": "6/4",
+      "moment": 1367.0605685736991,
+      "retained_lower": 1367.0553389319355,
+      "overflow_tail": 7.035429695249317e-07,
+      "unstratified_tail": 0.18391046564940886
+    },
+    {
+      "order": "7/4",
+      "moment": 10157.815353662196,
+      "retained_lower": 10157.195234332674,
+      "overflow_tail": 1.2577370205144578e-06,
+      "unstratified_tail": 0.02060226122559473
+    },
+    {
+      "order": "8/4",
+      "moment": 104053.1186242407,
+      "retained_lower": 103977.48045822434,
+      "overflow_tail": 2.8060485450407064e-06,
+      "unstratified_tail": 0.00386019542117591
+    },
+    {
+      "order": "9/4",
+      "moment": 1537317.2658122387,
+      "retained_lower": 1527734.8975390524,
+      "overflow_tail": 7.296454079381996e-06,
+      "unstratified_tail": 0.0011705837759155855
+    },
+    {
+      "order": "10/4",
+      "moment": 34499269.61655474,
+      "retained_lower": 33217425.459499788,
+      "overflow_tail": 2.1559505550274608e-05,
+      "unstratified_tail": 0.0005802477553023224
+    },
+    {
+      "order": "21/8",
+      "moment": 194692567.58696818,
+      "retained_lower": 179436938.6996842,
+      "overflow_tail": 3.8994755466932176e-05,
+      "unstratified_tail": 0.0004976516615851306
+    },
+    {
+      "order": "43/16",
+      "moment": 484902306.5301368,
+      "retained_lower": 431784829.4937382,
+      "overflow_tail": 5.315960066518599e-05,
+      "unstratified_tail": 0.00048528684747406014
+    },
+    {
+      "order": "11/4",
+      "moment": 1248175330.404833,
+      "retained_lower": 1061889959.6129941,
+      "overflow_tail": 7.329878428973384e-05,
+      "unstratified_tail": 0.0004911267798980552
+    },
+    {
+      "order": "23/8",
+      "moment": 9171736208.391914,
+      "retained_lower": 6820990360.823334,
+      "overflow_tail": 0.00014404394471334786,
+      "unstratified_tail": 0.0005620059117379652
+    },
+    {
+      "order": "12/4",
+      "moment": 77988498704.86794,
+      "retained_lower": 47030286707.284134,
+      "overflow_tail": 0.0002985381473580785,
+      "unstratified_tail": 0.0007520635209942458
+    },
+    {
+      "order": "13/4",
+      "moment": 9111726013402.166,
+      "retained_lower": 2642875125839.7837,
+      "overflow_tail": 0.00159757167766197,
+      "unstratified_tail": 0.0022502660312691794
+    },
+    {
+      "order": "14/4",
+      "moment": 2182336427758303.0,
+      "retained_lower": 174118608260234.56,
+      "overflow_tail": 0.013261683839151238,
+      "unstratified_tail": 0.01441151226455451
+    },
+    {
+      "order": "15/4",
+      "moment": 1.1917766272188846e+18,
+      "retained_lower": 1.2724708388955304e+16,
+      "overflow_tail": 0.21789550429551813,
+      "unstratified_tail": 0.2202471028189965
+    },
+    {
+      "order": "16/4",
+      "moment": 1.678263140294932e+21,
+      "retained_lower": 9.961715159928127e+17,
+      "overflow_tail": 9.178669770472428,
+      "unstratified_tail": 9.184121215919246
+    }
+  ]
+}

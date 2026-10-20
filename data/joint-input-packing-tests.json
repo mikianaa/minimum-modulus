@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "verified_three_input_packing": true,
+  "incomplete_root_rejected": true,
+  "restricted_capacity_verified": true,
+  "invalid_resource_subset_rejected": true
+}

@@ -1,0 +1,937 @@
+{
+  "status": "EXPERIMENTAL",
+  "profile": "data/recursive-atoms-quadratic-10000-comparison.json",
+  "profile_sha256": "20c8497fdf631533b284dad57b6c7c580f13987083f50646ce1ff378d9649e1f",
+  "pointwise_rational_checks": 1312,
+  "rows": [
+    {
+      "prime": 31,
+      "delta": 0.036497587179,
+      "existing_loss": 0.027616021272969953,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.036497587179,
+        "loss": 0.027616021272969953
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.036497587179,
+          "loss": 0.027616021272969953
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.02763115913750665
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.02765503669439185
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.027699868967817485
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.02781101224248976
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.028090820748323888
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.0284089039242565
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.028736443319230316
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.03686256305079,
+          "loss": 0.03975531137928494
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.037410026858475,
+          "loss": 0.05706396859161791
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.03832246653795,
+          "loss": 0.083683376016472
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.04014734589690001,
+          "loss": 0.1295823129562274
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.0437971046148,
+          "loss": 0.1982752639693894
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.047446863332700005,
+          "loss": 0.2448305084320141
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.0510966220506,
+          "loss": 0.2762951800215479
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.0583961394864,
+          "loss": 0.3108311728020465
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.0656956569222,
+          "loss": 0.32352841770587293
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.072995174358,
+          "loss": 0.324805268482728
+        }
+      ]
+    },
+    {
+      "prime": 53,
+      "delta": 0.097916316457,
+      "existing_loss": 0.022929056234687824,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.097916316457,
+        "loss": 0.02292905623468785
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.097916316457,
+          "loss": 0.02292905623468785
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.023005578788951906
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.023128826647225268
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.023345906521936136
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.02378914585304727
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.0247022748177927
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.02571569756701288
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.026862478555714248
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.09889547962157,
+          "loss": 0.02638365854294647
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.10036422436842499,
+          "loss": 0.03130613905440911
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.10281213227985,
+          "loss": 0.038858745029531766
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.1077079481027,
+          "loss": 0.051795037395005065
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.11749957974839999,
+          "loss": 0.07085506228056589
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.1272912113941,
+          "loss": 0.0834894540251261
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.13708284303979998,
+          "loss": 0.09175975336659072
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.1566661063312,
+          "loss": 0.10024172118970873
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.1762493696226,
+          "loss": 0.10263018971944483
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.195832632914,
+          "loss": 0.101919264707523
+        }
+      ]
+    },
+    {
+      "prime": 79,
+      "delta": 0.155412690935,
+      "existing_loss": 0.017742158520705504,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.155412690935,
+        "loss": 0.01774215852070552
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.155412690935,
+          "loss": 0.01774215852070552
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.017893750849864696
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.018124588716784993
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.018509714670733153
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.019296236547309473
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.020958302783872496
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.022762975071689378
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.024722619857414117
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.15696681784435,
+          "loss": 0.019426196203587036
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.15929800820837497,
+          "loss": 0.02182064901084321
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.16318332548175,
+          "loss": 0.02547834304264617
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.1709539600285,
+          "loss": 0.03170951490034725
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.18649522912199998,
+          "loss": 0.04081748676010288
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.2020364982155,
+          "loss": 0.04674526720766671
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.21757776730899997,
+          "loss": 0.05054256185190066
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.248660305496,
+          "loss": 0.054219309629074244
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.279742843683,
+          "loss": 0.05498089519278082
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.31082538187,
+          "loss": 0.054292149809805255
+        }
+      ]
+    },
+    {
+      "prime": 101,
+      "delta": 0.182749405171,
+      "existing_loss": 0.01415122987081292,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.182749405171,
+        "loss": 0.01415122987081292
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.182749405171,
+          "loss": 0.01415122987081292
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.014334079565510608
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.014608354107561798
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.015067915541335646
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.016011646606840246
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.01800210132885673
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.020148958597961373
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.022441991558460467
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.18457689922271,
+          "loss": 0.0152810684842306
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.18731814030027497,
+          "loss": 0.01688377032348583
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.19188687542955,
+          "loss": 0.019329084173359122
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.20102434568810001,
+          "loss": 0.02349409246358542
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.21929928620519998,
+          "loss": 0.029559335207407743
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.2375742267223,
+          "loss": 0.03349027805169803
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.2558491672394,
+          "loss": 0.0359880577326091
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.2923990482736,
+          "loss": 0.03834604944603498
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.3289489293078,
+          "loss": 0.038753624148267156
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.365498810342,
+          "loss": 0.03820388676892409
+        }
+      ]
+    },
+    {
+      "prime": 151,
+      "delta": 0.234291854444,
+      "existing_loss": 0.00945507623274944,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.234291854444,
+        "loss": 0.00945507623274944
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.234291854444,
+          "loss": 0.00945507623274944
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.009690647568094199
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.01004402698036348
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.010642229329323627
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.011864851354051492
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.014409304751982616
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.017054655124205655
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.01985973542025237
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.23663477298844,
+          "loss": 0.01008455076319899
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.24014915080509996,
+          "loss": 0.010976406782177834
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.24600644716620002,
+          "loss": 0.012341696397092837
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.2577210398884,
+          "loss": 0.01466722503964741
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.2811502253328,
+          "loss": 0.018050754106913817
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.3045794107772,
+          "loss": 0.020226730084969873
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.3280085962216,
+          "loss": 0.021593781743400785
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.3748669671104,
+          "loss": 0.022873757229936977
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.4217253379992,
+          "loss": 0.02307529786907607
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.468583708888,
+          "loss": 0.022735603040589938
+        }
+      ]
+    },
+    {
+      "prime": 251,
+      "delta": 0.292423797102,
+      "existing_loss": 0.005056543696896821,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.292423797102,
+        "loss": 0.005056543696896821
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.292423797102,
+          "loss": 0.005056543696896821
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.005314816993147323
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.0057027792392581045
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.006351190917786807
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.00765988642019278
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.010384163186007406
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.01320321284658627
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.016098170890306483
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.29534803507302,
+          "loss": 0.005369536140255085
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.29973439202955,
+          "loss": 0.005813254597762894
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.30704498695710003,
+          "loss": 0.00648954538470877
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.32166617681220006,
+          "loss": 0.0076382306281599375
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.3509085565224,
+          "loss": 0.00932920502085259
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.38015093623260005,
+          "loss": 0.010444027042203152
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.4093933159428,
+          "loss": 0.011146668471847239
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.46787807536320003,
+          "loss": 0.011809155904415555
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.5263628347836,
+          "loss": 0.011931110780445512
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.584847594204,
+          "loss": 0.011778642749702669
+        }
+      ]
+    },
+    {
+      "prime": 557,
+      "delta": 0.325769731039,
+      "existing_loss": 0.0017256694809053884,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.325769731039,
+        "loss": 0.0017256967276865133
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.325769731039,
+          "loss": 0.0017256967276865133
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.0019311708095406342
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.0022434017916765805
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.002771192996689049
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.003830078239798125
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.005960163799275087
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.00812495161960536
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.010336805478819629
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.32902742834938997,
+          "loss": 0.0018431674467084959
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.33391397431497494,
+          "loss": 0.0020133330436748714
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.34205821759095,
+          "loss": 0.0022789565468413074
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.3583467041429,
+          "loss": 0.0027316709019469046
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.39092367724679994,
+          "loss": 0.0033890841586528947
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.4235006503507,
+          "loss": 0.0038173532682192145
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.45607762345459996,
+          "loss": 0.004096217845989823
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.5212315696624,
+          "loss": 0.004378338465355164
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.5863855158701999,
+          "loss": 0.004447141027069004
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.651539462078,
+          "loss": 0.004406537989328703
+        }
+      ]
+    },
+    {
+      "prime": 829,
+      "delta": 0.360376362951,
+      "existing_loss": 0.0009620710768512788,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.360376362951,
+        "loss": 0.0009623565515721461
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.360376362951,
+          "loss": 0.0009623565515721461
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.0011439017644932594
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.0014162298709600118
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.0018709803274048974
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.002786525714906993
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.004623259765946526
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.006498519929355386
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.00838995695067274
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.36398012658051,
+          "loss": 0.0010351143158607965
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.36938577202477496,
+          "loss": 0.0011383023451140223
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.37839518109855,
+          "loss": 0.0012961963253112767
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.39641399924610005,
+          "loss": 0.0015686591861540408
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.4324516355412,
+          "loss": 0.001966330356584294
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.4684892718363,
+          "loss": 0.0022305599134702547
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.5045269081314,
+          "loss": 0.0024081834146232823
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.5766021807216001,
+          "loss": 0.0025868626388204263
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.6486774533118,
+          "loss": 0.0026356903973711507
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.720752725902,
+          "loss": 0.002617559911069739
+        }
+      ]
+    },
+    {
+      "prime": 859,
+      "delta": 0.353567872302,
+      "existing_loss": 0.0009264193446620234,
+      "best": {
+        "kind": "comparison",
+        "parameter": 0.353567872302,
+        "loss": 0.0009267077694971471
+      },
+      "improvement": 0.0,
+      "candidates": [
+        {
+          "kind": "comparison",
+          "parameter": 0.353567872302,
+          "loss": 0.0009267077694971471
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.01,
+          "loss": 0.0011028450488878932
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.025,
+          "loss": 0.0013670938549523966
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.05,
+          "loss": 0.0018101486186587153
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.1,
+          "loss": 0.002699065251457271
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.2,
+          "loss": 0.004483195183835533
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.3,
+          "loss": 0.0063065072190960254
+        },
+        {
+          "kind": "first_mixture",
+          "parameter": 0.4,
+          "loss": 0.008143376010326057
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.35710355102502,
+          "loss": 0.0009966956880486846
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.36240706910954995,
+          "loss": 0.0010959756067624835
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.3712462659171,
+          "loss": 0.0012495388750895378
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.3889246595322,
+          "loss": 0.0015122226121373071
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.4242814467624,
+          "loss": 0.0018951203360716685
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.4596382339926,
+          "loss": 0.0021526459036917247
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.4949950212227999,
+          "loss": 0.0023235433221704626
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.5657085956832,
+          "loss": 0.002496257112270776
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.6364221701436,
+          "loss": 0.002543639539842698
+        },
+        {
+          "kind": "second_mixture",
+          "parameter": 0.707135744604,
+          "loss": 0.002526305836218203
+        }
+      ]
+    }
+  ],
+  "total_sampled_improvement": 0.0,
+  "note": "Finite threshold grids at sampled primes; no modulus conclusion."
+}

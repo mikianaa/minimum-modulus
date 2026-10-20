@@ -1,0 +1,46 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/dense-preconditioned-14500.json",
+  "source_sha256": "71febfdf17bd4132c94ca3dd0924e0c7b64ed8ff83e1e869e4b74ffc0a59baca",
+  "short_terminal": 8000,
+  "long_terminal": 200000,
+  "note": "Fixed parameters; cutoff transfer only. No impossibility or optimality claim.",
+  "rows": [
+    {
+      "K": 14500,
+      "short_mu": 0.003956848603260623,
+      "survivor_change": 0.0,
+      "predicted_long_margin": 3.920781918894119e-05
+    },
+    {
+      "K": 14497,
+      "short_mu": 0.003923553123767273,
+      "survivor_change": -3.3295479493349565e-05,
+      "predicted_long_margin": 5.912339695591623e-06
+    },
+    {
+      "K": 14496,
+      "short_mu": 0.0038990949096269524,
+      "survivor_change": -5.7753693633670264e-05,
+      "predicted_long_margin": -1.8545874444729076e-05
+    },
+    {
+      "K": 14495,
+      "short_mu": 0.003889890593404473,
+      "survivor_change": -6.695800985614953e-05,
+      "predicted_long_margin": -2.7750190667208337e-05
+    },
+    {
+      "K": 14494,
+      "short_mu": 0.0038898740077417827,
+      "survivor_change": -6.697459551884e-05,
+      "predicted_long_margin": -2.776677632989881e-05
+    },
+    {
+      "K": 14490,
+      "short_mu": 0.0038173344200852963,
+      "survivor_change": -0.00013951418317532634,
+      "predicted_long_margin": -0.00010030636398638515
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "status": "VERIFIED_TAIL_REFINEMENT_FROM_COMPLETED_REPORT",
+  "cutoff": 14485,
+  "minimum_modulus_at_most": 14484,
+  "decimal_places": 40,
+  "base_witness": "data/sparse-certificate-14485.json",
+  "base_report": "data/sparse-verified-14485.json",
+  "base_witness_sha256": "8c6eccd2b71110c605812a64ef24160cff9478899a484dd6a893d374b0888781",
+  "base_report_sha256": "fe14d3e46020a602bba27ecb37b551e952004ccd0067be313c20f93e57f3e707",
+  "original_tail_upper": "0.0001176057163955139323983019124351514869",
+  "best_tested": {
+    "tail_delta_numerator": 480000000000,
+    "tail_upper": "0.0001169173700604581344152497389024645085"
+  },
+  "tail_loss_upper": "0.0001169173700604581344152497389024645085",
+  "infinite_survivor_lower": "0.0000052137652769485652407783190930015537",
+  "finite_computation_replayed": false,
+  "bin_moment_orders_reoptimized": true,
+  "rows": [
+    {
+      "tail_delta_numerator": 50000000000,
+      "tail_upper": "0.0018453224849374482268284892098608848854"
+    },
+    {
+      "tail_delta_numerator": 60000000000,
+      "tail_upper": "0.0014130670146206129467305415584257910425"
+    },
+    {
+      "tail_delta_numerator": 70000000000,
+      "tail_upper": "0.0011271620911340040677988419749621831201"
+    },
+    {
+      "tail_delta_numerator": 80000000000,
+      "tail_upper": "0.0009268130863742441882447301241762033514"
+    },
+    {
+      "tail_delta_numerator": 90000000000,
+      "tail_upper": "0.0007801778931291778550917650212410871046"
+    },
+    {
+      "tail_delta_numerator": 100000000000,
+      "tail_upper": "0.0006693163333687788680923717828447998216"
+    },
+    {
+      "tail_delta_numerator": 110000000000,
+      "tail_upper": "0.0005830367609266227965642229576403377705"
+    },
+    {
+      "tail_delta_numerator": 120000000000,
+      "tail_upper": "0.0005144067354816986939082321183636585998"
+    },
+    {
+      "tail_delta_numerator": 130000000000,
+      "tail_upper": "0.0004588530066176137210015433165722092965"
+    },
+    {
+      "tail_delta_numerator": 140000000000,
+      "tail_upper": "0.0004131317506229107211409549236685374991"
+    },
+    {
+      "tail_delta_numerator": 150000000000,
+      "tail_upper": "0.0003750186603460452735202682116613323707"
+    },
+    {
+      "tail_delta_numerator": 160000000000,
+      "tail_upper": "0.0003429138013652566701009997487773687122"
+    },
+    {
+      "tail_delta_numerator": 170000000000,
+      "tail_upper": "0.0003155480658721050325198079044215045729"
+    },
+    {
+      "tail_delta_numerator": 180000000000,
+      "tail_upper": "0.0002920418531621864931078950655911168010"
+    },
+    {
+      "tail_delta_numerator": 190000000000,
+      "tail_upper": "0.0002716865454427976761055721030467294832"
+    },
+    {
+      "tail_delta_numerator": 200000000000,
+      "tail_upper": "0.0002539221369537211745626812904368146933"
+    },
+    {
+      "tail_delta_numerator": 210000000000,
+      "tail_upper": "0.0002383681786362150319698761771280852946"
+    },
+    {
+      "tail_delta_numerator": 220000000000,
+      "tail_upper": "0.0002246583013875818263515591995876177251"
+    },
+    {
+      "tail_delta_numerator": 230000000000,
+      "tail_upper": "0.0002125290852484683641285847111342215337"
+    },
+    {
+      "tail_delta_numerator": 240000000000,
+      "tail_upper": "0.0002017181743064594911795783102540638803"
+    },
+    {
+      "tail_delta_numerator": 250000000000,
+      "tail_upper": "0.0001920725657624876626203091580012016902"
+    },
+    {
+      "tail_delta_numerator": 260000000000,
+      "tail_upper": "0.0001834236933632042777782179912686425590"
+    },
+    {
+      "tail_delta_numerator": 270000000000,
+      "tail_upper": "0.0001756791876210635788817201561300051004"
+    },
+    {
+      "tail_delta_numerator": 280000000000,
+      "tail_upper": "0.0001686978409532931492896638764059152014"
+    },
+    {
+      "tail_delta_numerator": 290000000000,
+      "tail_upper": "0.0001624016107068157507124944286025171828"
+    },
+    {
+      "tail_delta_numerator": 300000000000,
+      "tail_upper": "0.0001567267153735072387768081618973103532"
+    },
+    {
+      "tail_delta_numerator": 310000000000,
+      "tail_upper": "0.0001516054580195677144122166225002786377"
+    },
+    {
+      "tail_delta_numerator": 320000000000,
+      "tail_upper": "0.0001469769657438573179432269056087326625"
+    },
+    {
+      "tail_delta_numerator": 330000000000,
+      "tail_upper": "0.0001427909127109659832118600691022539633"
+    },
+    {
+      "tail_delta_numerator": 340000000000,
+      "tail_upper": "0.0001390232180786715302227239515208494868"
+    },
+    {
+      "tail_delta_numerator": 350000000000,
+      "tail_upper": "0.0001356327752802462234360815162079038233"
+    },
+    {
+      "tail_delta_numerator": 360000000000,
+      "tail_upper": "0.0001325847980239090358712207218917917677"
+    },
+    {
+      "tail_delta_numerator": 370000000000,
+      "tail_upper": "0.0001298581821128911778281389234093221072"
+    },
+    {
+      "tail_delta_numerator": 380000000000,
+      "tail_upper": "0.0001274341182518027939174318195760577366"
+    },
+    {
+      "tail_delta_numerator": 390000000000,
+      "tail_upper": "0.0001252892394969860382301018405739863421"
+    },
+    {
+      "tail_delta_numerator": 400000000000,
+      "tail_upper": "0.0001234030861284675381800041867587307840"
+    },
+    {
+      "tail_delta_numerator": 410000000000,
+      "tail_upper": "0.0001217840778423116007031240041740405801"
+    },
+    {
+      "tail_delta_numerator": 420000000000,
+      "tail_upper": "0.0001204037312983715282781788798976093675"
+    },
+    {
+      "tail_delta_numerator": 430000000000,
+      "tail_upper": "0.0001192477272072758344874545494611830720"
+    },
+    {
+      "tail_delta_numerator": 440000000000,
+      "tail_upper": "0.0001183302184501129865645807046094711162"
+    },
+    {
+      "tail_delta_numerator": 450000000000,
+      "tail_upper": "0.0001176453347777731599617394811714531582"
+    },
+    {
+      "tail_delta_numerator": 460000000000,
+      "tail_upper": "0.0001171791056324548914732021901221895835"
+    },
+    {
+      "tail_delta_numerator": 470000000000,
+      "tail_upper": "0.0001169334557340288972810488309478901490"
+    },
+    {
+      "tail_delta_numerator": 480000000000,
+      "tail_upper": "0.0001169173700604581344152497389024645085"
+    },
+    {
+      "tail_delta_numerator": 490000000000,
+      "tail_upper": "0.0001171535243906448853428806573061149674"
+    },
+    {
+      "tail_delta_numerator": 500000000000,
+      "tail_upper": "0.0001176057163955139323983019124351514869"
+    }
+  ],
+  "note": "Conditional on the separately completed base verification. One common future distortion; no adaptive bin-specific parameters and no global optimality claim."
+}

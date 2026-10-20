@@ -1,0 +1,47 @@
+{
+  "data/construction-structural-60-31-digits.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 260,
+    "minimum_target": 60,
+    "uncovered_progression": {
+      "residue": 65199869485917100379505775,
+      "modulus": 202731531413976570181176000
+    }
+  },
+  "data/construction-structural-60-43-disjoint.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 180,
+    "minimum_target": 60,
+    "uncovered_progression": {
+      "residue": 762919164418468712473651400097433904,
+      "modulus": 862639566069660506621770753012536000
+    }
+  },
+  "data/construction-structural-60-43-mass.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 59,
+    "minimum_target": 60,
+    "uncovered_progression": {
+      "residue": 297755981264064836954990786068564656,
+      "modulus": 862639566069660506621770753012536000
+    }
+  },
+  "data/construction-structural-60-43-reverse.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 257,
+    "minimum_target": 60,
+    "uncovered_progression": {
+      "residue": 485364112077436929358066262427439152,
+      "modulus": 862639566069660506621770753012536000
+    }
+  },
+  "data/construction-structural-60-43-reverse-digits.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 245,
+    "minimum_target": 60,
+    "uncovered_progression": {
+      "residue": 638389817000609581716209244089932400,
+      "modulus": 862639566069660506621770753012536000
+    }
+  }
+}

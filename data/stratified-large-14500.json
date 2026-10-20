@@ -1,0 +1,67 @@
+{
+  "status": "EXPERIMENTAL",
+  "K": 14500,
+  "source": "data/stratified-large-seed.json",
+  "terminal": 125000,
+  "mu": -1.2958160286766592e-05,
+  "stratified_tail": 0.0004375025144512756,
+  "margin": -0.0004504606747380422,
+  "rows": [
+    {
+      "order": "9/4",
+      "moment": 1233680.6035026314,
+      "retained_lower": 1189488.1895508699,
+      "overflow_tail": 6.700677987961782e-05,
+      "unstratified_tail": 0.0018705691146649794
+    },
+    {
+      "order": "10/4",
+      "moment": 26263618.977056187,
+      "retained_lower": 24400989.015779093,
+      "overflow_tail": 7.099056443619622e-05,
+      "unstratified_tail": 0.0010009874070961784
+    },
+    {
+      "order": "21/8",
+      "moment": 143836903.7071431,
+      "retained_lower": 128107536.48231874,
+      "overflow_tail": 9.721943733725536e-05,
+      "unstratified_tail": 0.0008890213221465166
+    },
+    {
+      "order": "43/16",
+      "moment": 352555757.2942673,
+      "retained_lower": 304086116.35912013,
+      "overflow_tail": 0.00012116737454888262,
+      "unstratified_tail": 0.0008813404570212697
+    },
+    {
+      "order": "11/4",
+      "moment": 892471212.627715,
+      "retained_lower": 738089344.2150766,
+      "overflow_tail": 0.00015677273264595428,
+      "unstratified_tail": 0.0009062926381841953
+    },
+    {
+      "order": "23/8",
+      "moment": 6328235368.292138,
+      "retained_lower": 4627146908.412311,
+      "overflow_tail": 0.00028718327249255656,
+      "unstratified_tail": 0.001068353225027264
+    },
+    {
+      "order": "12/4",
+      "moment": 51757419411.01143,
+      "retained_lower": 31225486341.434727,
+      "overflow_tail": 0.0005824738455570774,
+      "unstratified_tail": 0.001468314893599246
+    },
+    {
+      "order": "16/4",
+      "moment": 6.971797496077551e+20,
+      "retained_lower": 5.99869675062005e+17,
+      "overflow_tail": 19.36431107978461,
+      "unstratified_tail": 19.380986931800823
+    }
+  ]
+}

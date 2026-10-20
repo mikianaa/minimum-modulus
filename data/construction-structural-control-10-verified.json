@@ -1,0 +1,1372 @@
+{
+  "verification": {
+    "status": "VERIFIED",
+    "minimum_at_least": 10,
+    "kernel_states": 91968307200,
+    "resources": 215,
+    "nodes": 272272
+  },
+  "finite_completion": {
+    "class_count": "171744802",
+    "largest_auxiliary_prime": 1483,
+    "allocation": [
+      {
+        "row": 0,
+        "coordinate": 0,
+        "auxiliary_prime": 29,
+        "last_exponent": 32
+      },
+      {
+        "row": 2,
+        "coordinate": 4,
+        "auxiliary_prime": 31,
+        "last_exponent": 31
+      },
+      {
+        "row": 4,
+        "coordinate": 5,
+        "auxiliary_prime": 37,
+        "last_exponent": 37
+      },
+      {
+        "row": 7,
+        "coordinate": 6,
+        "auxiliary_prime": 41,
+        "last_exponent": 41
+      },
+      {
+        "row": 9,
+        "coordinate": 7,
+        "auxiliary_prime": 43,
+        "last_exponent": 43
+      },
+      {
+        "row": 10,
+        "coordinate": 1,
+        "auxiliary_prime": 47,
+        "last_exponent": 49
+      },
+      {
+        "row": 12,
+        "coordinate": 4,
+        "auxiliary_prime": 53,
+        "last_exponent": 53
+      },
+      {
+        "row": 13,
+        "coordinate": 2,
+        "auxiliary_prime": 59,
+        "last_exponent": 60
+      },
+      {
+        "row": 15,
+        "coordinate": 8,
+        "auxiliary_prime": 61,
+        "last_exponent": 61
+      },
+      {
+        "row": 17,
+        "coordinate": 5,
+        "auxiliary_prime": 67,
+        "last_exponent": 67
+      },
+      {
+        "row": 18,
+        "coordinate": 0,
+        "auxiliary_prime": 71,
+        "last_exponent": 74
+      },
+      {
+        "row": 21,
+        "coordinate": 4,
+        "auxiliary_prime": 73,
+        "last_exponent": 73
+      },
+      {
+        "row": 22,
+        "coordinate": 6,
+        "auxiliary_prime": 79,
+        "last_exponent": 79
+      },
+      {
+        "row": 25,
+        "coordinate": 7,
+        "auxiliary_prime": 83,
+        "last_exponent": 83
+      },
+      {
+        "row": 26,
+        "coordinate": 5,
+        "auxiliary_prime": 89,
+        "last_exponent": 89
+      },
+      {
+        "row": 27,
+        "coordinate": 1,
+        "auxiliary_prime": 97,
+        "last_exponent": 99
+      },
+      {
+        "row": 29,
+        "coordinate": 4,
+        "auxiliary_prime": 101,
+        "last_exponent": 101
+      },
+      {
+        "row": 30,
+        "coordinate": 2,
+        "auxiliary_prime": 103,
+        "last_exponent": 104
+      },
+      {
+        "row": 31,
+        "coordinate": 0,
+        "auxiliary_prime": 107,
+        "last_exponent": 110
+      },
+      {
+        "row": 33,
+        "coordinate": 3,
+        "auxiliary_prime": 109,
+        "last_exponent": 110
+      },
+      {
+        "row": 34,
+        "coordinate": 8,
+        "auxiliary_prime": 113,
+        "last_exponent": 113
+      },
+      {
+        "row": 36,
+        "coordinate": 6,
+        "auxiliary_prime": 127,
+        "last_exponent": 127
+      },
+      {
+        "row": 37,
+        "coordinate": 5,
+        "auxiliary_prime": 131,
+        "last_exponent": 131
+      },
+      {
+        "row": 38,
+        "coordinate": 4,
+        "auxiliary_prime": 137,
+        "last_exponent": 137
+      },
+      {
+        "row": 39,
+        "coordinate": 7,
+        "auxiliary_prime": 139,
+        "last_exponent": 139
+      },
+      {
+        "row": 41,
+        "coordinate": 0,
+        "auxiliary_prime": 149,
+        "last_exponent": 152
+      },
+      {
+        "row": 43,
+        "coordinate": 5,
+        "auxiliary_prime": 151,
+        "last_exponent": 151
+      },
+      {
+        "row": 44,
+        "coordinate": 4,
+        "auxiliary_prime": 157,
+        "last_exponent": 157
+      },
+      {
+        "row": 45,
+        "coordinate": 2,
+        "auxiliary_prime": 163,
+        "last_exponent": 164
+      },
+      {
+        "row": 47,
+        "coordinate": 6,
+        "auxiliary_prime": 167,
+        "last_exponent": 167
+      },
+      {
+        "row": 48,
+        "coordinate": 8,
+        "auxiliary_prime": 173,
+        "last_exponent": 173
+      },
+      {
+        "row": 50,
+        "coordinate": 4,
+        "auxiliary_prime": 179,
+        "last_exponent": 179
+      },
+      {
+        "row": 52,
+        "coordinate": 7,
+        "auxiliary_prime": 181,
+        "last_exponent": 181
+      },
+      {
+        "row": 53,
+        "coordinate": 5,
+        "auxiliary_prime": 191,
+        "last_exponent": 191
+      },
+      {
+        "row": 54,
+        "coordinate": 1,
+        "auxiliary_prime": 193,
+        "last_exponent": 195
+      },
+      {
+        "row": 55,
+        "coordinate": 0,
+        "auxiliary_prime": 197,
+        "last_exponent": 200
+      },
+      {
+        "row": 56,
+        "coordinate": 6,
+        "auxiliary_prime": 199,
+        "last_exponent": 199
+      },
+      {
+        "row": 57,
+        "coordinate": 4,
+        "auxiliary_prime": 211,
+        "last_exponent": 211
+      },
+      {
+        "row": 58,
+        "coordinate": 2,
+        "auxiliary_prime": 223,
+        "last_exponent": 224
+      },
+      {
+        "row": 59,
+        "coordinate": 0,
+        "auxiliary_prime": 227,
+        "last_exponent": 230
+      },
+      {
+        "row": 59,
+        "coordinate": 4,
+        "auxiliary_prime": 229,
+        "last_exponent": 229
+      },
+      {
+        "row": 61,
+        "coordinate": 5,
+        "auxiliary_prime": 233,
+        "last_exponent": 233
+      },
+      {
+        "row": 62,
+        "coordinate": 3,
+        "auxiliary_prime": 239,
+        "last_exponent": 240
+      },
+      {
+        "row": 63,
+        "coordinate": 8,
+        "auxiliary_prime": 241,
+        "last_exponent": 241
+      },
+      {
+        "row": 65,
+        "coordinate": 7,
+        "auxiliary_prime": 251,
+        "last_exponent": 251
+      },
+      {
+        "row": 66,
+        "coordinate": 4,
+        "auxiliary_prime": 257,
+        "last_exponent": 257
+      },
+      {
+        "row": 67,
+        "coordinate": 1,
+        "auxiliary_prime": 263,
+        "last_exponent": 265
+      },
+      {
+        "row": 68,
+        "coordinate": 6,
+        "auxiliary_prime": 269,
+        "last_exponent": 269
+      },
+      {
+        "row": 69,
+        "coordinate": 5,
+        "auxiliary_prime": 271,
+        "last_exponent": 271
+      },
+      {
+        "row": 70,
+        "coordinate": 0,
+        "auxiliary_prime": 277,
+        "last_exponent": 280
+      },
+      {
+        "row": 70,
+        "coordinate": 5,
+        "auxiliary_prime": 281,
+        "last_exponent": 281
+      },
+      {
+        "row": 71,
+        "coordinate": 4,
+        "auxiliary_prime": 283,
+        "last_exponent": 283
+      },
+      {
+        "row": 73,
+        "coordinate": 7,
+        "auxiliary_prime": 293,
+        "last_exponent": 293
+      },
+      {
+        "row": 74,
+        "coordinate": 5,
+        "auxiliary_prime": 307,
+        "last_exponent": 307
+      },
+      {
+        "row": 75,
+        "coordinate": 8,
+        "auxiliary_prime": 311,
+        "last_exponent": 311
+      },
+      {
+        "row": 76,
+        "coordinate": 6,
+        "auxiliary_prime": 313,
+        "last_exponent": 313
+      },
+      {
+        "row": 78,
+        "coordinate": 5,
+        "auxiliary_prime": 317,
+        "last_exponent": 317
+      },
+      {
+        "row": 79,
+        "coordinate": 4,
+        "auxiliary_prime": 331,
+        "last_exponent": 331
+      },
+      {
+        "row": 80,
+        "coordinate": 4,
+        "auxiliary_prime": 337,
+        "last_exponent": 337
+      },
+      {
+        "row": 80,
+        "coordinate": 5,
+        "auxiliary_prime": 347,
+        "last_exponent": 347
+      },
+      {
+        "row": 81,
+        "coordinate": 2,
+        "auxiliary_prime": 349,
+        "last_exponent": 350
+      },
+      {
+        "row": 82,
+        "coordinate": 0,
+        "auxiliary_prime": 353,
+        "last_exponent": 356
+      },
+      {
+        "row": 84,
+        "coordinate": 7,
+        "auxiliary_prime": 359,
+        "last_exponent": 359
+      },
+      {
+        "row": 85,
+        "coordinate": 3,
+        "auxiliary_prime": 367,
+        "last_exponent": 368
+      },
+      {
+        "row": 86,
+        "coordinate": 1,
+        "auxiliary_prime": 373,
+        "last_exponent": 375
+      },
+      {
+        "row": 87,
+        "coordinate": 6,
+        "auxiliary_prime": 379,
+        "last_exponent": 379
+      },
+      {
+        "row": 88,
+        "coordinate": 0,
+        "auxiliary_prime": 383,
+        "last_exponent": 386
+      },
+      {
+        "row": 88,
+        "coordinate": 6,
+        "auxiliary_prime": 389,
+        "last_exponent": 389
+      },
+      {
+        "row": 89,
+        "coordinate": 8,
+        "auxiliary_prime": 397,
+        "last_exponent": 397
+      },
+      {
+        "row": 91,
+        "coordinate": 4,
+        "auxiliary_prime": 401,
+        "last_exponent": 401
+      },
+      {
+        "row": 92,
+        "coordinate": 2,
+        "auxiliary_prime": 409,
+        "last_exponent": 410
+      },
+      {
+        "row": 93,
+        "coordinate": 7,
+        "auxiliary_prime": 419,
+        "last_exponent": 419
+      },
+      {
+        "row": 94,
+        "coordinate": 6,
+        "auxiliary_prime": 421,
+        "last_exponent": 421
+      },
+      {
+        "row": 95,
+        "coordinate": 5,
+        "auxiliary_prime": 431,
+        "last_exponent": 431
+      },
+      {
+        "row": 96,
+        "coordinate": 1,
+        "auxiliary_prime": 433,
+        "last_exponent": 435
+      },
+      {
+        "row": 97,
+        "coordinate": 0,
+        "auxiliary_prime": 439,
+        "last_exponent": 442
+      },
+      {
+        "row": 97,
+        "coordinate": 7,
+        "auxiliary_prime": 443,
+        "last_exponent": 443
+      },
+      {
+        "row": 98,
+        "coordinate": 0,
+        "auxiliary_prime": 449,
+        "last_exponent": 452
+      },
+      {
+        "row": 98,
+        "coordinate": 1,
+        "auxiliary_prime": 457,
+        "last_exponent": 459
+      },
+      {
+        "row": 99,
+        "coordinate": 4,
+        "auxiliary_prime": 461,
+        "last_exponent": 461
+      },
+      {
+        "row": 100,
+        "coordinate": 8,
+        "auxiliary_prime": 463,
+        "last_exponent": 463
+      },
+      {
+        "row": 101,
+        "coordinate": 6,
+        "auxiliary_prime": 467,
+        "last_exponent": 467
+      },
+      {
+        "row": 102,
+        "coordinate": 4,
+        "auxiliary_prime": 479,
+        "last_exponent": 479
+      },
+      {
+        "row": 102,
+        "coordinate": 6,
+        "auxiliary_prime": 487,
+        "last_exponent": 487
+      },
+      {
+        "row": 103,
+        "coordinate": 2,
+        "auxiliary_prime": 491,
+        "last_exponent": 492
+      },
+      {
+        "row": 104,
+        "coordinate": 0,
+        "auxiliary_prime": 499,
+        "last_exponent": 502
+      },
+      {
+        "row": 104,
+        "coordinate": 2,
+        "auxiliary_prime": 503,
+        "last_exponent": 504
+      },
+      {
+        "row": 105,
+        "coordinate": 7,
+        "auxiliary_prime": 509,
+        "last_exponent": 509
+      },
+      {
+        "row": 107,
+        "coordinate": 5,
+        "auxiliary_prime": 521,
+        "last_exponent": 521
+      },
+      {
+        "row": 108,
+        "coordinate": 3,
+        "auxiliary_prime": 523,
+        "last_exponent": 524
+      },
+      {
+        "row": 109,
+        "coordinate": 0,
+        "auxiliary_prime": 541,
+        "last_exponent": 544
+      },
+      {
+        "row": 110,
+        "coordinate": 8,
+        "auxiliary_prime": 547,
+        "last_exponent": 547
+      },
+      {
+        "row": 111,
+        "coordinate": 0,
+        "auxiliary_prime": 557,
+        "last_exponent": 560
+      },
+      {
+        "row": 111,
+        "coordinate": 8,
+        "auxiliary_prime": 563,
+        "last_exponent": 563
+      },
+      {
+        "row": 113,
+        "coordinate": 7,
+        "auxiliary_prime": 569,
+        "last_exponent": 569
+      },
+      {
+        "row": 114,
+        "coordinate": 5,
+        "auxiliary_prime": 571,
+        "last_exponent": 571
+      },
+      {
+        "row": 115,
+        "coordinate": 4,
+        "auxiliary_prime": 577,
+        "last_exponent": 577
+      },
+      {
+        "row": 116,
+        "coordinate": 4,
+        "auxiliary_prime": 587,
+        "last_exponent": 587
+      },
+      {
+        "row": 116,
+        "coordinate": 7,
+        "auxiliary_prime": 593,
+        "last_exponent": 593
+      },
+      {
+        "row": 117,
+        "coordinate": 2,
+        "auxiliary_prime": 599,
+        "last_exponent": 600
+      },
+      {
+        "row": 118,
+        "coordinate": 1,
+        "auxiliary_prime": 601,
+        "last_exponent": 603
+      },
+      {
+        "row": 119,
+        "coordinate": 1,
+        "auxiliary_prime": 607,
+        "last_exponent": 609
+      },
+      {
+        "row": 119,
+        "coordinate": 4,
+        "auxiliary_prime": 613,
+        "last_exponent": 613
+      },
+      {
+        "row": 120,
+        "coordinate": 6,
+        "auxiliary_prime": 617,
+        "last_exponent": 617
+      },
+      {
+        "row": 121,
+        "coordinate": 5,
+        "auxiliary_prime": 619,
+        "last_exponent": 619
+      },
+      {
+        "row": 121,
+        "coordinate": 6,
+        "auxiliary_prime": 631,
+        "last_exponent": 631
+      },
+      {
+        "row": 122,
+        "coordinate": 8,
+        "auxiliary_prime": 641,
+        "last_exponent": 641
+      },
+      {
+        "row": 123,
+        "coordinate": 4,
+        "auxiliary_prime": 643,
+        "last_exponent": 643
+      },
+      {
+        "row": 124,
+        "coordinate": 2,
+        "auxiliary_prime": 647,
+        "last_exponent": 648
+      },
+      {
+        "row": 124,
+        "coordinate": 4,
+        "auxiliary_prime": 653,
+        "last_exponent": 653
+      },
+      {
+        "row": 126,
+        "coordinate": 4,
+        "auxiliary_prime": 659,
+        "last_exponent": 659
+      },
+      {
+        "row": 127,
+        "coordinate": 3,
+        "auxiliary_prime": 661,
+        "last_exponent": 662
+      },
+      {
+        "row": 128,
+        "coordinate": 7,
+        "auxiliary_prime": 673,
+        "last_exponent": 673
+      },
+      {
+        "row": 129,
+        "coordinate": 5,
+        "auxiliary_prime": 677,
+        "last_exponent": 677
+      },
+      {
+        "row": 130,
+        "coordinate": 5,
+        "auxiliary_prime": 683,
+        "last_exponent": 683
+      },
+      {
+        "row": 130,
+        "coordinate": 7,
+        "auxiliary_prime": 691,
+        "last_exponent": 691
+      },
+      {
+        "row": 131,
+        "coordinate": 1,
+        "auxiliary_prime": 701,
+        "last_exponent": 703
+      },
+      {
+        "row": 131,
+        "coordinate": 5,
+        "auxiliary_prime": 709,
+        "last_exponent": 709
+      },
+      {
+        "row": 132,
+        "coordinate": 8,
+        "auxiliary_prime": 719,
+        "last_exponent": 719
+      },
+      {
+        "row": 133,
+        "coordinate": 4,
+        "auxiliary_prime": 727,
+        "last_exponent": 727
+      },
+      {
+        "row": 133,
+        "coordinate": 8,
+        "auxiliary_prime": 733,
+        "last_exponent": 733
+      },
+      {
+        "row": 134,
+        "coordinate": 6,
+        "auxiliary_prime": 739,
+        "last_exponent": 739
+      },
+      {
+        "row": 135,
+        "coordinate": 6,
+        "auxiliary_prime": 743,
+        "last_exponent": 743
+      },
+      {
+        "row": 136,
+        "coordinate": 5,
+        "auxiliary_prime": 751,
+        "last_exponent": 751
+      },
+      {
+        "row": 137,
+        "coordinate": 4,
+        "auxiliary_prime": 757,
+        "last_exponent": 757
+      },
+      {
+        "row": 138,
+        "coordinate": 4,
+        "auxiliary_prime": 761,
+        "last_exponent": 761
+      },
+      {
+        "row": 138,
+        "coordinate": 5,
+        "auxiliary_prime": 769,
+        "last_exponent": 769
+      },
+      {
+        "row": 139,
+        "coordinate": 2,
+        "auxiliary_prime": 773,
+        "last_exponent": 774
+      },
+      {
+        "row": 140,
+        "coordinate": 2,
+        "auxiliary_prime": 787,
+        "last_exponent": 788
+      },
+      {
+        "row": 140,
+        "coordinate": 5,
+        "auxiliary_prime": 797,
+        "last_exponent": 797
+      },
+      {
+        "row": 141,
+        "coordinate": 0,
+        "auxiliary_prime": 809,
+        "last_exponent": 812
+      },
+      {
+        "row": 141,
+        "coordinate": 4,
+        "auxiliary_prime": 811,
+        "last_exponent": 811
+      },
+      {
+        "row": 143,
+        "coordinate": 7,
+        "auxiliary_prime": 821,
+        "last_exponent": 821
+      },
+      {
+        "row": 144,
+        "coordinate": 5,
+        "auxiliary_prime": 823,
+        "last_exponent": 823
+      },
+      {
+        "row": 145,
+        "coordinate": 3,
+        "auxiliary_prime": 827,
+        "last_exponent": 828
+      },
+      {
+        "row": 146,
+        "coordinate": 1,
+        "auxiliary_prime": 829,
+        "last_exponent": 831
+      },
+      {
+        "row": 147,
+        "coordinate": 8,
+        "auxiliary_prime": 839,
+        "last_exponent": 839
+      },
+      {
+        "row": 148,
+        "coordinate": 5,
+        "auxiliary_prime": 853,
+        "last_exponent": 853
+      },
+      {
+        "row": 148,
+        "coordinate": 8,
+        "auxiliary_prime": 857,
+        "last_exponent": 857
+      },
+      {
+        "row": 149,
+        "coordinate": 7,
+        "auxiliary_prime": 859,
+        "last_exponent": 859
+      },
+      {
+        "row": 151,
+        "coordinate": 4,
+        "auxiliary_prime": 863,
+        "last_exponent": 863
+      },
+      {
+        "row": 152,
+        "coordinate": 2,
+        "auxiliary_prime": 877,
+        "last_exponent": 878
+      },
+      {
+        "row": 153,
+        "coordinate": 0,
+        "auxiliary_prime": 881,
+        "last_exponent": 884
+      },
+      {
+        "row": 154,
+        "coordinate": 6,
+        "auxiliary_prime": 883,
+        "last_exponent": 883
+      },
+      {
+        "row": 155,
+        "coordinate": 5,
+        "auxiliary_prime": 887,
+        "last_exponent": 887
+      },
+      {
+        "row": 156,
+        "coordinate": 6,
+        "auxiliary_prime": 907,
+        "last_exponent": 907
+      },
+      {
+        "row": 156,
+        "coordinate": 7,
+        "auxiliary_prime": 911,
+        "last_exponent": 911
+      },
+      {
+        "row": 157,
+        "coordinate": 1,
+        "auxiliary_prime": 919,
+        "last_exponent": 921
+      },
+      {
+        "row": 157,
+        "coordinate": 6,
+        "auxiliary_prime": 929,
+        "last_exponent": 929
+      },
+      {
+        "row": 158,
+        "coordinate": 0,
+        "auxiliary_prime": 937,
+        "last_exponent": 940
+      },
+      {
+        "row": 158,
+        "coordinate": 5,
+        "auxiliary_prime": 941,
+        "last_exponent": 941
+      },
+      {
+        "row": 159,
+        "coordinate": 4,
+        "auxiliary_prime": 947,
+        "last_exponent": 947
+      },
+      {
+        "row": 160,
+        "coordinate": 8,
+        "auxiliary_prime": 953,
+        "last_exponent": 953
+      },
+      {
+        "row": 162,
+        "coordinate": 6,
+        "auxiliary_prime": 967,
+        "last_exponent": 967
+      },
+      {
+        "row": 163,
+        "coordinate": 4,
+        "auxiliary_prime": 971,
+        "last_exponent": 971
+      },
+      {
+        "row": 163,
+        "coordinate": 6,
+        "auxiliary_prime": 977,
+        "last_exponent": 977
+      },
+      {
+        "row": 164,
+        "coordinate": 2,
+        "auxiliary_prime": 983,
+        "last_exponent": 984
+      },
+      {
+        "row": 164,
+        "coordinate": 6,
+        "auxiliary_prime": 991,
+        "last_exponent": 991
+      },
+      {
+        "row": 165,
+        "coordinate": 7,
+        "auxiliary_prime": 997,
+        "last_exponent": 997
+      },
+      {
+        "row": 166,
+        "coordinate": 1,
+        "auxiliary_prime": 1009,
+        "last_exponent": 1011
+      },
+      {
+        "row": 166,
+        "coordinate": 7,
+        "auxiliary_prime": 1013,
+        "last_exponent": 1013
+      },
+      {
+        "row": 167,
+        "coordinate": 8,
+        "auxiliary_prime": 1019,
+        "last_exponent": 1019
+      },
+      {
+        "row": 168,
+        "coordinate": 6,
+        "auxiliary_prime": 1021,
+        "last_exponent": 1021
+      },
+      {
+        "row": 169,
+        "coordinate": 5,
+        "auxiliary_prime": 1031,
+        "last_exponent": 1031
+      },
+      {
+        "row": 170,
+        "coordinate": 3,
+        "auxiliary_prime": 1033,
+        "last_exponent": 1034
+      },
+      {
+        "row": 171,
+        "coordinate": 0,
+        "auxiliary_prime": 1039,
+        "last_exponent": 1042
+      },
+      {
+        "row": 171,
+        "coordinate": 3,
+        "auxiliary_prime": 1049,
+        "last_exponent": 1050
+      },
+      {
+        "row": 172,
+        "coordinate": 4,
+        "auxiliary_prime": 1051,
+        "last_exponent": 1051
+      },
+      {
+        "row": 173,
+        "coordinate": 6,
+        "auxiliary_prime": 1061,
+        "last_exponent": 1061
+      },
+      {
+        "row": 173,
+        "coordinate": 8,
+        "auxiliary_prime": 1063,
+        "last_exponent": 1063
+      },
+      {
+        "row": 175,
+        "coordinate": 7,
+        "auxiliary_prime": 1069,
+        "last_exponent": 1069
+      },
+      {
+        "row": 176,
+        "coordinate": 5,
+        "auxiliary_prime": 1087,
+        "last_exponent": 1087
+      },
+      {
+        "row": 177,
+        "coordinate": 4,
+        "auxiliary_prime": 1091,
+        "last_exponent": 1091
+      },
+      {
+        "row": 178,
+        "coordinate": 4,
+        "auxiliary_prime": 1093,
+        "last_exponent": 1093
+      },
+      {
+        "row": 178,
+        "coordinate": 7,
+        "auxiliary_prime": 1097,
+        "last_exponent": 1097
+      },
+      {
+        "row": 179,
+        "coordinate": 4,
+        "auxiliary_prime": 1103,
+        "last_exponent": 1103
+      },
+      {
+        "row": 179,
+        "coordinate": 5,
+        "auxiliary_prime": 1109,
+        "last_exponent": 1109
+      },
+      {
+        "row": 180,
+        "coordinate": 2,
+        "auxiliary_prime": 1117,
+        "last_exponent": 1118
+      },
+      {
+        "row": 181,
+        "coordinate": 2,
+        "auxiliary_prime": 1123,
+        "last_exponent": 1124
+      },
+      {
+        "row": 181,
+        "coordinate": 7,
+        "auxiliary_prime": 1129,
+        "last_exponent": 1129
+      },
+      {
+        "row": 182,
+        "coordinate": 1,
+        "auxiliary_prime": 1151,
+        "last_exponent": 1153
+      },
+      {
+        "row": 183,
+        "coordinate": 1,
+        "auxiliary_prime": 1153,
+        "last_exponent": 1155
+      },
+      {
+        "row": 183,
+        "coordinate": 4,
+        "auxiliary_prime": 1163,
+        "last_exponent": 1163
+      },
+      {
+        "row": 184,
+        "coordinate": 1,
+        "auxiliary_prime": 1171,
+        "last_exponent": 1173
+      },
+      {
+        "row": 184,
+        "coordinate": 2,
+        "auxiliary_prime": 1181,
+        "last_exponent": 1182
+      },
+      {
+        "row": 185,
+        "coordinate": 0,
+        "auxiliary_prime": 1187,
+        "last_exponent": 1190
+      },
+      {
+        "row": 186,
+        "coordinate": 7,
+        "auxiliary_prime": 1193,
+        "last_exponent": 1193
+      },
+      {
+        "row": 187,
+        "coordinate": 3,
+        "auxiliary_prime": 1201,
+        "last_exponent": 1202
+      },
+      {
+        "row": 188,
+        "coordinate": 6,
+        "auxiliary_prime": 1213,
+        "last_exponent": 1213
+      },
+      {
+        "row": 189,
+        "coordinate": 5,
+        "auxiliary_prime": 1217,
+        "last_exponent": 1217
+      },
+      {
+        "row": 189,
+        "coordinate": 6,
+        "auxiliary_prime": 1223,
+        "last_exponent": 1223
+      },
+      {
+        "row": 190,
+        "coordinate": 0,
+        "auxiliary_prime": 1229,
+        "last_exponent": 1232
+      },
+      {
+        "row": 190,
+        "coordinate": 6,
+        "auxiliary_prime": 1231,
+        "last_exponent": 1231
+      },
+      {
+        "row": 191,
+        "coordinate": 8,
+        "auxiliary_prime": 1237,
+        "last_exponent": 1237
+      },
+      {
+        "row": 192,
+        "coordinate": 7,
+        "auxiliary_prime": 1249,
+        "last_exponent": 1249
+      },
+      {
+        "row": 192,
+        "coordinate": 8,
+        "auxiliary_prime": 1259,
+        "last_exponent": 1259
+      },
+      {
+        "row": 193,
+        "coordinate": 1,
+        "auxiliary_prime": 1277,
+        "last_exponent": 1279
+      },
+      {
+        "row": 193,
+        "coordinate": 8,
+        "auxiliary_prime": 1279,
+        "last_exponent": 1279
+      },
+      {
+        "row": 194,
+        "coordinate": 4,
+        "auxiliary_prime": 1283,
+        "last_exponent": 1283
+      },
+      {
+        "row": 195,
+        "coordinate": 2,
+        "auxiliary_prime": 1289,
+        "last_exponent": 1290
+      },
+      {
+        "row": 195,
+        "coordinate": 4,
+        "auxiliary_prime": 1291,
+        "last_exponent": 1291
+      },
+      {
+        "row": 196,
+        "coordinate": 0,
+        "auxiliary_prime": 1297,
+        "last_exponent": 1300
+      },
+      {
+        "row": 196,
+        "coordinate": 4,
+        "auxiliary_prime": 1301,
+        "last_exponent": 1301
+      },
+      {
+        "row": 198,
+        "coordinate": 5,
+        "auxiliary_prime": 1303,
+        "last_exponent": 1303
+      },
+      {
+        "row": 199,
+        "coordinate": 4,
+        "auxiliary_prime": 1307,
+        "last_exponent": 1307
+      },
+      {
+        "row": 200,
+        "coordinate": 3,
+        "auxiliary_prime": 1319,
+        "last_exponent": 1320
+      },
+      {
+        "row": 201,
+        "coordinate": 2,
+        "auxiliary_prime": 1321,
+        "last_exponent": 1322
+      },
+      {
+        "row": 202,
+        "coordinate": 3,
+        "auxiliary_prime": 1327,
+        "last_exponent": 1328
+      },
+      {
+        "row": 202,
+        "coordinate": 4,
+        "auxiliary_prime": 1361,
+        "last_exponent": 1361
+      },
+      {
+        "row": 203,
+        "coordinate": 7,
+        "auxiliary_prime": 1367,
+        "last_exponent": 1367
+      },
+      {
+        "row": 204,
+        "coordinate": 5,
+        "auxiliary_prime": 1373,
+        "last_exponent": 1373
+      },
+      {
+        "row": 205,
+        "coordinate": 5,
+        "auxiliary_prime": 1381,
+        "last_exponent": 1381
+      },
+      {
+        "row": 205,
+        "coordinate": 7,
+        "auxiliary_prime": 1399,
+        "last_exponent": 1399
+      },
+      {
+        "row": 206,
+        "coordinate": 1,
+        "auxiliary_prime": 1409,
+        "last_exponent": 1411
+      },
+      {
+        "row": 206,
+        "coordinate": 5,
+        "auxiliary_prime": 1423,
+        "last_exponent": 1423
+      },
+      {
+        "row": 207,
+        "coordinate": 0,
+        "auxiliary_prime": 1427,
+        "last_exponent": 1430
+      },
+      {
+        "row": 207,
+        "coordinate": 7,
+        "auxiliary_prime": 1429,
+        "last_exponent": 1429
+      },
+      {
+        "row": 208,
+        "coordinate": 8,
+        "auxiliary_prime": 1433,
+        "last_exponent": 1433
+      },
+      {
+        "row": 209,
+        "coordinate": 4,
+        "auxiliary_prime": 1439,
+        "last_exponent": 1439
+      },
+      {
+        "row": 209,
+        "coordinate": 8,
+        "auxiliary_prime": 1447,
+        "last_exponent": 1447
+      },
+      {
+        "row": 210,
+        "coordinate": 2,
+        "auxiliary_prime": 1451,
+        "last_exponent": 1452
+      },
+      {
+        "row": 210,
+        "coordinate": 8,
+        "auxiliary_prime": 1453,
+        "last_exponent": 1453
+      },
+      {
+        "row": 211,
+        "coordinate": 6,
+        "auxiliary_prime": 1459,
+        "last_exponent": 1459
+      },
+      {
+        "row": 212,
+        "coordinate": 4,
+        "auxiliary_prime": 1471,
+        "last_exponent": 1471
+      },
+      {
+        "row": 213,
+        "coordinate": 8,
+        "auxiliary_prime": 1481,
+        "last_exponent": 1481
+      },
+      {
+        "row": 214,
+        "coordinate": 6,
+        "auxiliary_prime": 1483,
+        "last_exponent": 1483
+      }
+    ],
+    "minimum_modulus": 10
+  }
+}

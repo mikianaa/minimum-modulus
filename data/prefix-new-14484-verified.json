@@ -1,0 +1,19 @@
+{
+  "status": "VERIFIED_FINITE_PREFIX",
+  "cutoff": 14484,
+  "terminal_index": 2000,
+  "terminal_prime": 17389,
+  "mu_lower": "0.0153421621567151466541428943534062558233",
+  "decimal_places": 40,
+  "witness_sha256": "faa9952865660821452f4716f7067c035f8e23f59dfc73d0c76cd94f83f186cd",
+  "wins": {
+    "first": 0,
+    "second": 0,
+    "sparse": 1894,
+    "early_exact": 16,
+    "conditioned_complement": 90,
+    "recursive_first": 0,
+    "recursive_second": 0
+  },
+  "note": "Finite losses only; no infinite-tail or minimum-modulus conclusion."
+}

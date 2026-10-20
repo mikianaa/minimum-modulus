@@ -1,0 +1,2132 @@
+{
+  "minimum": 50,
+  "largest_prime": 89,
+  "core_primes": [
+    2,
+    3,
+    5,
+    7
+  ],
+  "core_exponents": [
+    5,
+    3,
+    2,
+    1
+  ],
+  "period": 151200,
+  "method": "graded_resource_disjoint_arrow_blocks",
+  "blocks": [
+    {
+      "root_prime": 2,
+      "exponent": 6,
+      "tail": true,
+      "order": [],
+      "fixed_exponents": {},
+      "input_threshold": 1,
+      "available_inputs": 1,
+      "available_blocks": 1,
+      "modulus": 32,
+      "residues": [
+        0
+      ]
+    },
+    {
+      "root_prime": 3,
+      "exponent": 1,
+      "tail": false,
+      "order": [
+        2
+      ],
+      "fixed_exponents": {
+        "2": 4
+      },
+      "input_threshold": 17,
+      "available_inputs": 1,
+      "available_blocks": 1,
+      "modulus": 48,
+      "residues": [
+        1
+      ]
+    },
+    {
+      "root_prime": 3,
+      "exponent": 2,
+      "tail": false,
+      "order": [
+        2
+      ],
+      "fixed_exponents": {
+        "2": 2
+      },
+      "input_threshold": 6,
+      "available_inputs": 1,
+      "available_blocks": 1,
+      "modulus": 36,
+      "residues": [
+        2
+      ]
+    },
+    {
+      "root_prime": 3,
+      "exponent": 3,
+      "tail": false,
+      "order": [
+        2
+      ],
+      "fixed_exponents": {
+        "2": 2
+      },
+      "input_threshold": 2,
+      "available_inputs": 3,
+      "available_blocks": 3,
+      "modulus": 108,
+      "residues": [
+        9,
+        21,
+        45
+      ]
+    },
+    {
+      "root_prime": 3,
+      "exponent": 4,
+      "tail": true,
+      "order": [
+        2
+      ],
+      "fixed_exponents": {
+        "2": 2
+      },
+      "input_threshold": 1,
+      "available_inputs": 4,
+      "available_blocks": 2,
+      "modulus": 108,
+      "residues": [
+        57,
+        81
+      ]
+    },
+    {
+      "root_prime": 5,
+      "exponent": 1,
+      "tail": false,
+      "order": [
+        2,
+        3
+      ],
+      "fixed_exponents": {
+        "2": 1,
+        "3": 1
+      },
+      "input_threshold": 10,
+      "available_inputs": 2,
+      "available_blocks": 2,
+      "modulus": 30,
+      "residues": [
+        4,
+        10
+      ]
+    },
+    {
+      "root_prime": 5,
+      "exponent": 2,
+      "tail": false,
+      "order": [
+        2,
+        3
+      ],
+      "fixed_exponents": {},
+      "input_threshold": 2,
+      "available_inputs": 2,
+      "available_blocks": 2,
+      "modulus": 25,
+      "residues": [
+        1,
+        2
+      ]
+    },
+    {
+      "root_prime": 5,
+      "exponent": 3,
+      "tail": true,
+      "order": [
+        2,
+        3
+      ],
+      "fixed_exponents": {
+        "2": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 4,
+      "available_blocks": 1,
+      "modulus": 50,
+      "residues": [
+        6
+      ]
+    },
+    {
+      "root_prime": 7,
+      "exponent": 1,
+      "tail": false,
+      "order": [
+        2,
+        3,
+        5
+      ],
+      "fixed_exponents": {
+        "2": 2
+      },
+      "input_threshold": 8,
+      "available_inputs": 3,
+      "available_blocks": 3,
+      "modulus": 28,
+      "residues": [
+        3,
+        7,
+        11
+      ]
+    },
+    {
+      "root_prime": 7,
+      "exponent": 2,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5
+      ],
+      "fixed_exponents": {
+        "2": 2
+      },
+      "input_threshold": 2,
+      "available_inputs": 6,
+      "available_blocks": 1,
+      "modulus": 28,
+      "residues": [
+        15
+      ]
+    },
+    {
+      "root_prime": 11,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "fixed_exponents": {
+        "2": 2,
+        "3": 1
+      },
+      "input_threshold": 5,
+      "available_inputs": 10,
+      "available_blocks": 1,
+      "modulus": 12,
+      "residues": [
+        6
+      ]
+    },
+    {
+      "root_prime": 13,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11
+      ],
+      "fixed_exponents": {
+        "2": 2,
+        "3": 1
+      },
+      "input_threshold": 4,
+      "available_inputs": 12,
+      "available_blocks": 1,
+      "modulus": 12,
+      "residues": [
+        8
+      ]
+    },
+    {
+      "root_prime": 17,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 1
+      },
+      "input_threshold": 3,
+      "available_inputs": 17,
+      "available_blocks": 1,
+      "modulus": 24,
+      "residues": [
+        13
+      ]
+    },
+    {
+      "root_prime": 19,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 1
+      },
+      "input_threshold": 3,
+      "available_inputs": 18,
+      "available_blocks": 1,
+      "modulus": 24,
+      "residues": [
+        12
+      ]
+    },
+    {
+      "root_prime": 23,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19
+      ],
+      "fixed_exponents": {
+        "2": 4,
+        "3": 1
+      },
+      "input_threshold": 3,
+      "available_inputs": 24,
+      "available_blocks": 1,
+      "modulus": 48,
+      "residues": [
+        25
+      ]
+    },
+    {
+      "root_prime": 29,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "fixed_exponents": {
+        "2": 2,
+        "3": 1,
+        "5": 1
+      },
+      "input_threshold": 2,
+      "available_inputs": 31,
+      "available_blocks": 1,
+      "modulus": 60,
+      "residues": [
+        58
+      ]
+    },
+    {
+      "root_prime": 31,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "fixed_exponents": {
+        "2": 2,
+        "3": 1,
+        "5": 1
+      },
+      "input_threshold": 2,
+      "available_inputs": 32,
+      "available_blocks": 1,
+      "modulus": 60,
+      "residues": [
+        5
+      ]
+    },
+    {
+      "root_prime": 37,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 1,
+        "5": 1
+      },
+      "input_threshold": 2,
+      "available_inputs": 42,
+      "available_blocks": 1,
+      "modulus": 120,
+      "residues": [
+        28
+      ]
+    },
+    {
+      "root_prime": 41,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 1,
+        "5": 1
+      },
+      "input_threshold": 2,
+      "available_inputs": 43,
+      "available_blocks": 1,
+      "modulus": 120,
+      "residues": [
+        29
+      ]
+    },
+    {
+      "root_prime": 43,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 1,
+        "5": 1
+      },
+      "input_threshold": 2,
+      "available_inputs": 44,
+      "available_blocks": 1,
+      "modulus": 120,
+      "residues": [
+        89
+      ]
+    },
+    {
+      "root_prime": 47,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43
+      ],
+      "fixed_exponents": {
+        "2": 2,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 2,
+      "available_inputs": 52,
+      "available_blocks": 1,
+      "modulus": 180,
+      "residues": [
+        14
+      ]
+    },
+    {
+      "root_prime": 53,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47
+      ],
+      "fixed_exponents": {
+        "2": 2,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 54,
+      "available_blocks": 1,
+      "modulus": 180,
+      "residues": [
+        50
+      ]
+    },
+    {
+      "root_prime": 59,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 69,
+      "available_blocks": 1,
+      "modulus": 360,
+      "residues": [
+        69
+      ]
+    },
+    {
+      "root_prime": 61,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 70,
+      "available_blocks": 1,
+      "modulus": 360,
+      "residues": [
+        98
+      ]
+    },
+    {
+      "root_prime": 67,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 71,
+      "available_blocks": 1,
+      "modulus": 360,
+      "residues": [
+        105
+      ]
+    },
+    {
+      "root_prime": 71,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61,
+        67
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 72,
+      "available_blocks": 1,
+      "modulus": 360,
+      "residues": [
+        134
+      ]
+    },
+    {
+      "root_prime": 73,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61,
+        67,
+        71
+      ],
+      "fixed_exponents": {
+        "2": 3,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 73,
+      "available_blocks": 1,
+      "modulus": 360,
+      "residues": [
+        158
+      ]
+    },
+    {
+      "root_prime": 79,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61,
+        67,
+        71,
+        73
+      ],
+      "fixed_exponents": {
+        "2": 4,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 87,
+      "available_blocks": 1,
+      "modulus": 720,
+      "residues": [
+        24
+      ]
+    },
+    {
+      "root_prime": 83,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61,
+        67,
+        71,
+        73,
+        79
+      ],
+      "fixed_exponents": {
+        "2": 4,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 88,
+      "available_blocks": 1,
+      "modulus": 720,
+      "residues": [
+        88
+      ]
+    },
+    {
+      "root_prime": 89,
+      "exponent": 1,
+      "tail": true,
+      "order": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61,
+        67,
+        71,
+        73,
+        79,
+        83
+      ],
+      "fixed_exponents": {
+        "2": 4,
+        "3": 2,
+        "5": 1
+      },
+      "input_threshold": 1,
+      "available_inputs": 89,
+      "available_blocks": 1,
+      "modulus": 720,
+      "residues": [
+        120
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "sweep": 1,
+      "root": 2,
+      "exponent": 6,
+      "tail": true,
+      "before": 151200,
+      "after": 146475,
+      "progression_modulus": 32,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 3,
+      "exponent": 1,
+      "tail": false,
+      "before": 146475,
+      "after": 143325,
+      "progression_modulus": 48,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 3,
+      "exponent": 2,
+      "tail": false,
+      "before": 143325,
+      "after": 139125,
+      "progression_modulus": 36,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 3,
+      "exponent": 3,
+      "tail": false,
+      "before": 139125,
+      "after": 133525,
+      "progression_modulus": 54,
+      "progressions": 2
+    },
+    {
+      "sweep": 1,
+      "root": 3,
+      "exponent": 4,
+      "tail": true,
+      "before": 133525,
+      "after": 128100,
+      "progression_modulus": 27,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 5,
+      "exponent": 1,
+      "tail": false,
+      "before": 128100,
+      "after": 118650,
+      "progression_modulus": 30,
+      "progressions": 2
+    },
+    {
+      "sweep": 1,
+      "root": 5,
+      "exponent": 2,
+      "tail": false,
+      "before": 118650,
+      "after": 108402,
+      "progression_modulus": 25,
+      "progressions": 2
+    },
+    {
+      "sweep": 1,
+      "root": 5,
+      "exponent": 3,
+      "tail": true,
+      "before": 108402,
+      "after": 105840,
+      "progression_modulus": 50,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 7,
+      "exponent": 1,
+      "tail": false,
+      "before": 105840,
+      "after": 93168,
+      "progression_modulus": 28,
+      "progressions": 3
+    },
+    {
+      "sweep": 1,
+      "root": 7,
+      "exponent": 2,
+      "tail": true,
+      "before": 93168,
+      "after": 88944,
+      "progression_modulus": 28,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 11,
+      "exponent": 1,
+      "tail": true,
+      "before": 88944,
+      "after": 78640,
+      "progression_modulus": 12,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 13,
+      "exponent": 1,
+      "tail": true,
+      "before": 78640,
+      "after": 68497,
+      "progression_modulus": 12,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 17,
+      "exponent": 1,
+      "tail": true,
+      "before": 68497,
+      "after": 62953,
+      "progression_modulus": 24,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 19,
+      "exponent": 1,
+      "tail": true,
+      "before": 62953,
+      "after": 57801,
+      "progression_modulus": 24,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 23,
+      "exponent": 1,
+      "tail": true,
+      "before": 57801,
+      "after": 55029,
+      "progression_modulus": 48,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 29,
+      "exponent": 1,
+      "tail": true,
+      "before": 55029,
+      "after": 52509,
+      "progression_modulus": 60,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 31,
+      "exponent": 1,
+      "tail": true,
+      "before": 52509,
+      "after": 50269,
+      "progression_modulus": 60,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 37,
+      "exponent": 1,
+      "tail": true,
+      "before": 50269,
+      "after": 49009,
+      "progression_modulus": 120,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 41,
+      "exponent": 1,
+      "tail": true,
+      "before": 49009,
+      "after": 47889,
+      "progression_modulus": 120,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 43,
+      "exponent": 1,
+      "tail": true,
+      "before": 47889,
+      "after": 46769,
+      "progression_modulus": 120,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 47,
+      "exponent": 1,
+      "tail": true,
+      "before": 46769,
+      "after": 45929,
+      "progression_modulus": 180,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 53,
+      "exponent": 1,
+      "tail": true,
+      "before": 45929,
+      "after": 45089,
+      "progression_modulus": 180,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 59,
+      "exponent": 1,
+      "tail": true,
+      "before": 45089,
+      "after": 44669,
+      "progression_modulus": 360,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 61,
+      "exponent": 1,
+      "tail": true,
+      "before": 44669,
+      "after": 44249,
+      "progression_modulus": 360,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 67,
+      "exponent": 1,
+      "tail": true,
+      "before": 44249,
+      "after": 43829,
+      "progression_modulus": 360,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 71,
+      "exponent": 1,
+      "tail": true,
+      "before": 43829,
+      "after": 43409,
+      "progression_modulus": 360,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 73,
+      "exponent": 1,
+      "tail": true,
+      "before": 43409,
+      "after": 42989,
+      "progression_modulus": 360,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 79,
+      "exponent": 1,
+      "tail": true,
+      "before": 42989,
+      "after": 42779,
+      "progression_modulus": 720,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 83,
+      "exponent": 1,
+      "tail": true,
+      "before": 42779,
+      "after": 42569,
+      "progression_modulus": 720,
+      "progressions": 1
+    },
+    {
+      "sweep": 1,
+      "root": 89,
+      "exponent": 1,
+      "tail": true,
+      "before": 42569,
+      "after": 42359,
+      "progression_modulus": 720,
+      "progressions": 1
+    },
+    {
+      "sweep": 2,
+      "root": 3,
+      "exponent": 3,
+      "tail": false,
+      "before": 42359,
+      "after": 41623,
+      "progression_modulus": 108,
+      "progressions": 3
+    },
+    {
+      "sweep": 2,
+      "root": 3,
+      "exponent": 4,
+      "tail": true,
+      "before": 41623,
+      "after": 41402,
+      "progression_modulus": 108,
+      "progressions": 2
+    },
+    {
+      "sweep": 2,
+      "root": 5,
+      "exponent": 3,
+      "tail": true,
+      "before": 41402,
+      "after": 41308,
+      "progression_modulus": 50,
+      "progressions": 1
+    }
+  ],
+  "guaranteed_uncovered": 41308,
+  "elapsed_seconds": 2.75,
+  "recipe": "Reconstruct supply(order,fixed,with_nodes=True), retain grades >= input_threshold in descending order, and allocate consecutive disjoint groups to recorded residues. A fixed root uses one input; a tail root uses q-1 in digit order 1,...,q-1. Fixed coordinates match the target residue; inner arrows have that target prefix. Finitize every tail occurrence with a distinct auxiliary prime > largest_prime, allocated by stage, residue, then preorder traversal. Gaps in guaranteed progressions are not asserted to miss expanded rows.",
+  "verification": {
+    "status": "INCOMPLETE_GUARANTEED_COVER",
+    "period": 151200,
+    "guaranteed_uncovered": 41308,
+    "progressions": 37,
+    "first_projected_gap": 16,
+    "gap_scope": "Gap in guaranteed progressions; not a disproof of incidental coverage by expanded rows"
+  },
+  "status": "INCOMPLETE_GUARANTEED_COVER",
+  "capacity_audit": {
+    "status": "RESTRICTED_MENU_EXCLUDED",
+    "minimum": 50,
+    "largest_prime": 89,
+    "core_primes": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "core_exponents": [
+      5,
+      3,
+      2,
+      1
+    ],
+    "total_capacity": "4975/6048",
+    "stages": [
+      {
+        "root_prime": 2,
+        "exponent": 6,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 2,
+          "exponent": 6,
+          "tail": true,
+          "order": [],
+          "fixed_exponents": {},
+          "input_threshold": 1,
+          "available_inputs": 1,
+          "available_blocks": 1,
+          "modulus": 32
+        },
+        "capacity": "1/32"
+      },
+      {
+        "root_prime": 3,
+        "exponent": 1,
+        "tail": false,
+        "best_shape": {
+          "root_prime": 3,
+          "exponent": 1,
+          "tail": false,
+          "order": [
+            2
+          ],
+          "fixed_exponents": {
+            "2": 4
+          },
+          "input_threshold": 17,
+          "available_inputs": 1,
+          "available_blocks": 1,
+          "modulus": 48
+        },
+        "capacity": "1/48"
+      },
+      {
+        "root_prime": 3,
+        "exponent": 2,
+        "tail": false,
+        "best_shape": {
+          "root_prime": 3,
+          "exponent": 2,
+          "tail": false,
+          "order": [
+            2
+          ],
+          "fixed_exponents": {
+            "2": 2
+          },
+          "input_threshold": 6,
+          "available_inputs": 1,
+          "available_blocks": 1,
+          "modulus": 36
+        },
+        "capacity": "1/36"
+      },
+      {
+        "root_prime": 3,
+        "exponent": 3,
+        "tail": false,
+        "best_shape": {
+          "root_prime": 3,
+          "exponent": 3,
+          "tail": false,
+          "order": [
+            2
+          ],
+          "fixed_exponents": {},
+          "input_threshold": 2,
+          "available_inputs": 1,
+          "available_blocks": 1,
+          "modulus": 27
+        },
+        "capacity": "1/27"
+      },
+      {
+        "root_prime": 3,
+        "exponent": 4,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 3,
+          "exponent": 4,
+          "tail": true,
+          "order": [
+            2
+          ],
+          "fixed_exponents": {},
+          "input_threshold": 1,
+          "available_inputs": 2,
+          "available_blocks": 1,
+          "modulus": 27
+        },
+        "capacity": "1/27"
+      },
+      {
+        "root_prime": 5,
+        "exponent": 1,
+        "tail": false,
+        "best_shape": {
+          "root_prime": 5,
+          "exponent": 1,
+          "tail": false,
+          "order": [
+            2,
+            3
+          ],
+          "fixed_exponents": {
+            "2": 1,
+            "3": 1
+          },
+          "input_threshold": 10,
+          "available_inputs": 2,
+          "available_blocks": 2,
+          "modulus": 30
+        },
+        "capacity": "1/15"
+      },
+      {
+        "root_prime": 5,
+        "exponent": 2,
+        "tail": false,
+        "best_shape": {
+          "root_prime": 5,
+          "exponent": 2,
+          "tail": false,
+          "order": [
+            2,
+            3
+          ],
+          "fixed_exponents": {},
+          "input_threshold": 2,
+          "available_inputs": 2,
+          "available_blocks": 2,
+          "modulus": 25
+        },
+        "capacity": "2/25"
+      },
+      {
+        "root_prime": 5,
+        "exponent": 3,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 5,
+          "exponent": 3,
+          "tail": true,
+          "order": [
+            2,
+            3
+          ],
+          "fixed_exponents": {
+            "2": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 4,
+          "available_blocks": 1,
+          "modulus": 50
+        },
+        "capacity": "1/50"
+      },
+      {
+        "root_prime": 7,
+        "exponent": 1,
+        "tail": false,
+        "best_shape": {
+          "root_prime": 7,
+          "exponent": 1,
+          "tail": false,
+          "order": [
+            2,
+            3,
+            5
+          ],
+          "fixed_exponents": {
+            "2": 2
+          },
+          "input_threshold": 8,
+          "available_inputs": 3,
+          "available_blocks": 3,
+          "modulus": 28
+        },
+        "capacity": "3/28"
+      },
+      {
+        "root_prime": 7,
+        "exponent": 2,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 7,
+          "exponent": 2,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5
+          ],
+          "fixed_exponents": {
+            "2": 2
+          },
+          "input_threshold": 2,
+          "available_inputs": 6,
+          "available_blocks": 1,
+          "modulus": 28
+        },
+        "capacity": "1/28"
+      },
+      {
+        "root_prime": 11,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 11,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "fixed_exponents": {
+            "2": 2,
+            "3": 1
+          },
+          "input_threshold": 5,
+          "available_inputs": 10,
+          "available_blocks": 1,
+          "modulus": 12
+        },
+        "capacity": "1/12"
+      },
+      {
+        "root_prime": 13,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 13,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11
+          ],
+          "fixed_exponents": {
+            "2": 2,
+            "3": 1
+          },
+          "input_threshold": 4,
+          "available_inputs": 12,
+          "available_blocks": 1,
+          "modulus": 12
+        },
+        "capacity": "1/12"
+      },
+      {
+        "root_prime": 17,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 17,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 1
+          },
+          "input_threshold": 3,
+          "available_inputs": 17,
+          "available_blocks": 1,
+          "modulus": 24
+        },
+        "capacity": "1/24"
+      },
+      {
+        "root_prime": 19,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 19,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 1
+          },
+          "input_threshold": 3,
+          "available_inputs": 18,
+          "available_blocks": 1,
+          "modulus": 24
+        },
+        "capacity": "1/24"
+      },
+      {
+        "root_prime": 23,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 23,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19
+          ],
+          "fixed_exponents": {
+            "2": 4,
+            "3": 1
+          },
+          "input_threshold": 3,
+          "available_inputs": 24,
+          "available_blocks": 1,
+          "modulus": 48
+        },
+        "capacity": "1/48"
+      },
+      {
+        "root_prime": 29,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 29,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23
+          ],
+          "fixed_exponents": {
+            "2": 2,
+            "3": 1,
+            "5": 1
+          },
+          "input_threshold": 2,
+          "available_inputs": 31,
+          "available_blocks": 1,
+          "modulus": 60
+        },
+        "capacity": "1/60"
+      },
+      {
+        "root_prime": 31,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 31,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29
+          ],
+          "fixed_exponents": {
+            "2": 2,
+            "3": 1,
+            "5": 1
+          },
+          "input_threshold": 2,
+          "available_inputs": 32,
+          "available_blocks": 1,
+          "modulus": 60
+        },
+        "capacity": "1/60"
+      },
+      {
+        "root_prime": 37,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 37,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 1,
+            "5": 1
+          },
+          "input_threshold": 2,
+          "available_inputs": 42,
+          "available_blocks": 1,
+          "modulus": 120
+        },
+        "capacity": "1/120"
+      },
+      {
+        "root_prime": 41,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 41,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 1,
+            "5": 1
+          },
+          "input_threshold": 2,
+          "available_inputs": 43,
+          "available_blocks": 1,
+          "modulus": 120
+        },
+        "capacity": "1/120"
+      },
+      {
+        "root_prime": 43,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 43,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 1,
+            "5": 1
+          },
+          "input_threshold": 2,
+          "available_inputs": 44,
+          "available_blocks": 1,
+          "modulus": 120
+        },
+        "capacity": "1/120"
+      },
+      {
+        "root_prime": 47,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 47,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 1,
+            "7": 1
+          },
+          "input_threshold": 2,
+          "available_inputs": 46,
+          "available_blocks": 1,
+          "modulus": 168
+        },
+        "capacity": "1/168"
+      },
+      {
+        "root_prime": 53,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 53,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47
+          ],
+          "fixed_exponents": {
+            "2": 2,
+            "3": 2,
+            "5": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 54,
+          "available_blocks": 1,
+          "modulus": 180
+        },
+        "capacity": "1/180"
+      },
+      {
+        "root_prime": 59,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 59,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53
+          ],
+          "fixed_exponents": {
+            "2": 4,
+            "3": 1,
+            "7": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 58,
+          "available_blocks": 1,
+          "modulus": 336
+        },
+        "capacity": "1/336"
+      },
+      {
+        "root_prime": 61,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 61,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            7,
+            5,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59
+          ],
+          "fixed_exponents": {
+            "2": 4,
+            "3": 1,
+            "7": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 61,
+          "available_blocks": 1,
+          "modulus": 336
+        },
+        "capacity": "1/336"
+      },
+      {
+        "root_prime": 67,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 67,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59,
+            61
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 2,
+            "5": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 71,
+          "available_blocks": 1,
+          "modulus": 360
+        },
+        "capacity": "1/360"
+      },
+      {
+        "root_prime": 71,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 71,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59,
+            61,
+            67
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 2,
+            "5": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 72,
+          "available_blocks": 1,
+          "modulus": 360
+        },
+        "capacity": "1/360"
+      },
+      {
+        "root_prime": 73,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 73,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59,
+            61,
+            67,
+            71
+          ],
+          "fixed_exponents": {
+            "2": 3,
+            "3": 2,
+            "5": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 73,
+          "available_blocks": 1,
+          "modulus": 360
+        },
+        "capacity": "1/360"
+      },
+      {
+        "root_prime": 79,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 79,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59,
+            61,
+            67,
+            71,
+            73
+          ],
+          "fixed_exponents": {
+            "2": 4,
+            "3": 2,
+            "5": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 87,
+          "available_blocks": 1,
+          "modulus": 720
+        },
+        "capacity": "1/720"
+      },
+      {
+        "root_prime": 83,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 83,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59,
+            61,
+            67,
+            71,
+            73,
+            79
+          ],
+          "fixed_exponents": {
+            "2": 4,
+            "3": 2,
+            "5": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 88,
+          "available_blocks": 1,
+          "modulus": 720
+        },
+        "capacity": "1/720"
+      },
+      {
+        "root_prime": 89,
+        "exponent": 1,
+        "tail": true,
+        "best_shape": {
+          "root_prime": 89,
+          "exponent": 1,
+          "tail": true,
+          "order": [
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59,
+            61,
+            67,
+            71,
+            73,
+            79,
+            83
+          ],
+          "fixed_exponents": {
+            "2": 4,
+            "3": 2,
+            "5": 1
+          },
+          "input_threshold": 1,
+          "available_inputs": 89,
+          "available_blocks": 1,
+          "modulus": 720
+        },
+        "capacity": "1/720"
+      }
+    ],
+    "scope": "Only the recorded three order policies, one shape per largest-prime/exponent stage, and guaranteed progressions. Does not bound incidental arrow coverage or all possible constructions."
+  }
+}

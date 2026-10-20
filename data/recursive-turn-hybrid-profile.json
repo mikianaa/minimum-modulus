@@ -1,0 +1,11 @@
+{
+  "status": "EXPERIMENTAL",
+  "cutoff": 14491,
+  "prefix_index": 8000,
+  "prefix_resolution": 512,
+  "coarse_resolution": 128,
+  "fine_mu": 0.003896889988468067,
+  "coarse_mu": 0.0038868155242223713,
+  "gain": 1.0074464245695813e-05,
+  "predicted_margin": 7.347927882752535e-06
+}

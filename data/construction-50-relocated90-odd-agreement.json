@@ -1,0 +1,8 @@
+{
+  "status": "VERIFIED_EXACT_ODD_TARGET_RESTORATION",
+  "target": "odd integers intersect (1 mod 3 union 3 mod 9)",
+  "checked_kernel_states": 1612800,
+  "identical_uncovered_states": 1257984,
+  "reason": "3 mod 90 restores the odd half of 3 mod 45; the lost 78 mod 90 class is even. The deleted 42 and 48 rows do not meet this target.",
+  "scope": "Equality on this target only; other new holes remain."
+}

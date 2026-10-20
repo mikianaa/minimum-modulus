@@ -1,0 +1,133 @@
+{
+  "core": {
+    "minimum": 3,
+    "primes": [
+      2,
+      3
+    ],
+    "depths": [
+      4,
+      3
+    ],
+    "rows": [],
+    "exact_uncovered_states": 144
+  },
+  "region": {
+    "exponents": [
+      2,
+      0
+    ],
+    "residues": [
+      1,
+      0
+    ]
+  },
+  "levels": [
+    2,
+    1
+  ],
+  "root_prime": 5,
+  "tail_mode": true,
+  "method": "implicit_joint_root_witness_refinement",
+  "status": "VERIFIED_RELATIVE_ROOT",
+  "search_outcome": "CANDIDATE_COMPLETE",
+  "projected_points": 2,
+  "core_states_targeted": 36,
+  "resources": 6,
+  "witnesses": 2,
+  "trace": [
+    {
+      "iteration": 1,
+      "witnesses": 2,
+      "solver_status": "OPTIMAL",
+      "elapsed_seconds": 0.016,
+      "exact_input_gaps": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "elapsed_seconds": 0.01600000000325963,
+  "scope": "Witnesses guide search; every projected point must pass before any relative covering claim.",
+  "inputs": [
+    [
+      {
+        "exponents": [
+          0,
+          0
+        ],
+        "residues": [
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "exponents": [
+          0,
+          1
+        ],
+        "residues": [
+          0,
+          1
+        ]
+      },
+      {
+        "exponents": [
+          1,
+          1
+        ],
+        "residues": [
+          1,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "exponents": [
+          1,
+          0
+        ],
+        "residues": [
+          1,
+          0
+        ]
+      },
+      {
+        "exponents": [
+          2,
+          1
+        ],
+        "residues": [
+          1,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "exponents": [
+          2,
+          0
+        ],
+        "residues": [
+          1,
+          0
+        ]
+      }
+    ]
+  ],
+  "verification": {
+    "status": "VERIFIED_RELATIVE_ROOT",
+    "root_prime": 5,
+    "projected_points": 2,
+    "checked_input_points": 8,
+    "resource_count": 6,
+    "core_states_repaired": 36,
+    "scope": "Only the specified target region is repaired relative to the saved core."
+  }
+}

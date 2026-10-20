@@ -1,0 +1,14 @@
+{
+  "base": {
+    "witness": "data/sparse-certificate-14498.json",
+    "report": "data/sparse-verified-14498.json"
+  },
+  "old_prefix": {
+    "witness": "data/prefix-base-14498.json",
+    "report": "data/prefix-base-14498-verified.json"
+  },
+  "new_prefix": {
+    "witness": "data/prefix-fine-14497.json",
+    "report": "data/prefix-fine-14497-verified.json"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "exhaustive_projection_states": 144,
+  "projected_target_states": 24,
+  "checked_borrowing_implications": 6888,
+  "integrated_joint_roots": 1,
+  "continuation_status": "VERIFIED_COMPLETE_REGION_SCHEMA"
+}

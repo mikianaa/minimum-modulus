@@ -1,0 +1,106 @@
+{
+  "status": "VERIFIED_TAIL_REFINEMENT_FROM_COMPLETED_REPORT",
+  "cutoff": 14485,
+  "minimum_modulus_at_most": 14484,
+  "decimal_places": 40,
+  "base_witness": "data/sparse-certificate-14485.json",
+  "base_report": "data/sparse-verified-14485.json",
+  "base_witness_sha256": "8c6eccd2b71110c605812a64ef24160cff9478899a484dd6a893d374b0888781",
+  "base_report_sha256": "fe14d3e46020a602bba27ecb37b551e952004ccd0067be313c20f93e57f3e707",
+  "original_tail_upper": "0.0001176057163955139323983019124351514869",
+  "best_tested": {
+    "tail_delta_numerator": 475000000000,
+    "tail_upper": "0.0001168945625529062300845397797617684997"
+  },
+  "tail_loss_upper": "0.0001168945625529062300845397797617684997",
+  "infinite_survivor_lower": "0.0000052365727845004695714882782336975625",
+  "finite_computation_replayed": false,
+  "bin_moment_orders_reoptimized": true,
+  "rows": [
+    {
+      "tail_delta_numerator": 470000000000,
+      "tail_upper": "0.0001169334557340288972810488309478901490"
+    },
+    {
+      "tail_delta_numerator": 471000000000,
+      "tail_upper": "0.0001169205514303334658796584881680977286"
+    },
+    {
+      "tail_delta_numerator": 472000000000,
+      "tail_upper": "0.0001169101323125063371159202187796545505"
+    },
+    {
+      "tail_delta_numerator": 473000000000,
+      "tail_upper": "0.0001169020076644891704658336806566876994"
+    },
+    {
+      "tail_delta_numerator": 474000000000,
+      "tail_upper": "0.0001168965673587020007804016576322860317"
+    },
+    {
+      "tail_delta_numerator": 475000000000,
+      "tail_upper": "0.0001168945625529062300845397797617684997"
+    },
+    {
+      "tail_delta_numerator": 476000000000,
+      "tail_upper": "0.0001168947979478583275853538887792831656"
+    },
+    {
+      "tail_delta_numerator": 477000000000,
+      "tail_upper": "0.0001168968980037191067954313711658627638"
+    },
+    {
+      "tail_delta_numerator": 478000000000,
+      "tail_upper": "0.0001169010069440496948220539786837373273"
+    },
+    {
+      "tail_delta_numerator": 479000000000,
+      "tail_upper": "0.0001169074259766590976617941953651475055"
+    },
+    {
+      "tail_delta_numerator": 480000000000,
+      "tail_upper": "0.0001169173700604581344152497389024645085"
+    },
+    {
+      "tail_delta_numerator": 481000000000,
+      "tail_upper": "0.0001169297215407437683419900585091910582"
+    },
+    {
+      "tail_delta_numerator": 482000000000,
+      "tail_upper": "0.0001169444593533853409031160702727582224"
+    },
+    {
+      "tail_delta_numerator": 483000000000,
+      "tail_upper": "0.0001169612984489730226273912431169869102"
+    },
+    {
+      "tail_delta_numerator": 484000000000,
+      "tail_upper": "0.0001169813702472549808861986878459044606"
+    },
+    {
+      "tail_delta_numerator": 485000000000,
+      "tail_upper": "0.0001170035360597756689520307664354545654"
+    },
+    {
+      "tail_delta_numerator": 486000000000,
+      "tail_upper": "0.0001170297748666212446646078732468426801"
+    },
+    {
+      "tail_delta_numerator": 487000000000,
+      "tail_upper": "0.0001170585407984318657206289057607535101"
+    },
+    {
+      "tail_delta_numerator": 488000000000,
+      "tail_upper": "0.0001170887224095505674211187659869383446"
+    },
+    {
+      "tail_delta_numerator": 489000000000,
+      "tail_upper": "0.0001171206574636514821647436325232958740"
+    },
+    {
+      "tail_delta_numerator": 490000000000,
+      "tail_upper": "0.0001171535243906448853428806573061149674"
+    }
+  ],
+  "note": "Conditional on the separately completed base verification. One common future distortion; no adaptive bin-specific parameters and no global optimality claim."
+}

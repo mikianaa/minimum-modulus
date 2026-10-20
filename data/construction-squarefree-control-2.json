@@ -1,0 +1,312 @@
+{
+  "minimum": 2,
+  "primes": [
+    2,
+    3,
+    5,
+    7
+  ],
+  "depths": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "model": "ordinary_residues_squarefree_no_tails",
+  "resource_count": 15,
+  "full_squarefree_capacity": "61/35",
+  "period": 210,
+  "node_limit": 100000,
+  "seconds_budget": 30,
+  "rows": [
+    {
+      "exponents": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "residues": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "residues": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "residues": [
+        0,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        0,
+        4,
+        3
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "residues": [
+        1,
+        2,
+        0,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "residues": [
+        1,
+        0,
+        4,
+        5
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        4,
+        6
+      ]
+    }
+  ],
+  "congruences": [
+    {
+      "residue": 0,
+      "modulus": 2
+    },
+    {
+      "residue": 0,
+      "modulus": 3
+    },
+    {
+      "residue": 0,
+      "modulus": 5
+    },
+    {
+      "residue": 1,
+      "modulus": 6
+    },
+    {
+      "residue": 0,
+      "modulus": 7
+    },
+    {
+      "residue": 1,
+      "modulus": 10
+    },
+    {
+      "residue": 1,
+      "modulus": 14
+    },
+    {
+      "residue": 2,
+      "modulus": 15
+    },
+    {
+      "residue": 2,
+      "modulus": 21
+    },
+    {
+      "residue": 23,
+      "modulus": 30
+    },
+    {
+      "residue": 24,
+      "modulus": 35
+    },
+    {
+      "residue": 11,
+      "modulus": 42
+    },
+    {
+      "residue": 19,
+      "modulus": 70
+    },
+    {
+      "residue": 104,
+      "modulus": 105
+    }
+  ],
+  "capacity_profile": [
+    {
+      "largest_prime": 2,
+      "full_squarefree_capacity": "1/2",
+      "excluded_by_density": true
+    },
+    {
+      "largest_prime": 3,
+      "full_squarefree_capacity": "1",
+      "excluded_by_density": false
+    },
+    {
+      "largest_prime": 5,
+      "full_squarefree_capacity": "7/5",
+      "excluded_by_density": false
+    },
+    {
+      "largest_prime": 7,
+      "full_squarefree_capacity": "61/35",
+      "excluded_by_density": false
+    }
+  ],
+  "search_outcome": "EXACT_COVER_FOUND",
+  "resources_processed": 14,
+  "uncovered_residues_per_period": 0,
+  "exact_uncovered_density": "0",
+  "verification": {
+    "status": "VERIFIED",
+    "minimum_at_least": 2,
+    "kernel_states": 10080,
+    "resources": 14,
+    "nodes": 18
+  },
+  "status": "VERIFIED",
+  "elapsed_seconds": 0.0
+}

@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "minimum_modulus_at_most": 14484,
+  "cutoff": 14485,
+  "proof_document": "src/conditional-stoploss-improvement.tex",
+  "witness": "data/sparse-certificate-14485.json",
+  "verification": "data/sparse-verified-14485.json",
+  "witness_sha256": "8c6eccd2b71110c605812a64ef24160cff9478899a484dd6a893d374b0888781",
+  "verification_sha256": "fe14d3e46020a602bba27ecb37b551e952004ccd0067be313c20f93e57f3e707",
+  "terminal_index": 300000,
+  "terminal_prime": 4256233,
+  "mu_lower": "0.0001221311353374066996560280579954660622",
+  "tail_loss_upper": "0.0001176057163955139323983019124351514869",
+  "infinite_survivor_lower": "0.0000045254189418927672577261455603145753",
+  "tail_method": "distribution-stratified moments after 300000 independently checked finite stages",
+  "method_checks": "data/conditioning-method-checks.json",
+  "source_audit": "data/recursive-proof-source-audit.json",
+  "previous_certificate": "data/prefix-refinement-certificate-14497.json",
+  "target": 10000,
+  "target_proved": false
+}

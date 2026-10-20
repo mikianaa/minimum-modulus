@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "exhaustive_pair_placement_comparisons": 400,
+  "includes_empty_residual": true,
+  "includes_unit_domains": true,
+  "includes_equal_supports": true
+}

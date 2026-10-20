@@ -1,0 +1,321 @@
+{
+  "minimum": 2,
+  "primes": [
+    2,
+    3,
+    5,
+    7
+  ],
+  "depths": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "method": "joint_parity_normalized_exact_period_model",
+  "period": 210,
+  "unit_points_constrained": 48,
+  "selection_variables": 276,
+  "seconds_solver_budget": 10,
+  "normalization": "p:0; 2p:1 modulo p and free parity; no prime powers",
+  "rows": [
+    {
+      "exponents": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "residues": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "residues": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "residues": [
+        0,
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        2,
+        4,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        0,
+        5
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "residues": [
+        1,
+        2,
+        0,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "residues": [
+        1,
+        0,
+        3,
+        6
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "residues": [
+        1,
+        2,
+        3,
+        3
+      ]
+    }
+  ],
+  "congruences": [
+    {
+      "residue": 0,
+      "modulus": 2
+    },
+    {
+      "residue": 0,
+      "modulus": 3
+    },
+    {
+      "residue": 1,
+      "modulus": 6
+    },
+    {
+      "residue": 0,
+      "modulus": 5
+    },
+    {
+      "residue": 1,
+      "modulus": 10
+    },
+    {
+      "residue": 0,
+      "modulus": 7
+    },
+    {
+      "residue": 1,
+      "modulus": 14
+    },
+    {
+      "residue": 2,
+      "modulus": 15
+    },
+    {
+      "residue": 29,
+      "modulus": 30
+    },
+    {
+      "residue": 5,
+      "modulus": 21
+    },
+    {
+      "residue": 11,
+      "modulus": 42
+    },
+    {
+      "residue": 23,
+      "modulus": 35
+    },
+    {
+      "residue": 13,
+      "modulus": 70
+    },
+    {
+      "residue": 2,
+      "modulus": 105
+    },
+    {
+      "residue": 143,
+      "modulus": 210
+    }
+  ],
+  "model_build_seconds": 0.0,
+  "solver_status": "OPTIMAL",
+  "solver_best_bound": 0.0,
+  "solver_objective": 0.0,
+  "anchor_parities": [
+    1,
+    1,
+    1
+  ],
+  "direct_period_check": {
+    "status": "VERIFIED",
+    "period_checked": 210,
+    "uncovered_count": 0,
+    "uncovered_density": "0",
+    "first_uncovered_residues": [],
+    "all_moduli_distinct_squarefree": true
+  },
+  "verification": {
+    "status": "VERIFIED",
+    "minimum_at_least": 2,
+    "kernel_states": 10080,
+    "resources": 15,
+    "nodes": 18
+  },
+  "status": "VERIFIED",
+  "elapsed_seconds": 0.11
+}

@@ -1,0 +1,105 @@
+{
+  "minimum": 3,
+  "primes": [
+    2,
+    3
+  ],
+  "depths": [
+    2,
+    2
+  ],
+  "maximum_resource_base": 100,
+  "seed": 1,
+  "seconds_budget": 20.0,
+  "kernel_states": 12,
+  "resource_count": 7,
+  "capacity": "3/2",
+  "rows": [
+    {
+      "exponents": [
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        1
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        2
+      ],
+      "residues": [
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1
+      ],
+      "residues": [
+        1,
+        2
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        2
+      ],
+      "residues": [
+        0,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        0
+      ],
+      "residues": [
+        1,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        1
+      ],
+      "residues": [
+        0,
+        2
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        2
+      ],
+      "residues": [
+        0,
+        1
+      ]
+    }
+  ],
+  "iterations": [
+    {
+      "samples": 12,
+      "solver_status": "OPTIMAL",
+      "elapsed_seconds": 0.016
+    }
+  ],
+  "verification": {
+    "status": "VERIFIED",
+    "minimum_at_least": 3,
+    "kernel_states": 12,
+    "resources": 7,
+    "nodes": 8
+  },
+  "status": "VERIFIED",
+  "elapsed_seconds": 0.016
+}

@@ -1,0 +1,36 @@
+{
+ "note": "Fable diagnostic (20 Oct 2026): adversarially optimised global class assignment vs the certificate's comparison value; test values are lower bounds on the tower adversary, not proved bounds",
+ "witness": "../data/sparse-certificate-14485.json",
+ "results": [
+  {
+   "p": 101,
+   "delta": 0.182066645958,
+   "train": {
+    "loss_S": 0.013270084453142015,
+    "loss_truncS": 0.010440525661920415,
+    "loss_alpha": 0.009927564838909872,
+    "first_moment_S": 0.031368713431910264,
+    "first_moment_alpha": 0.028595440616121688
+   },
+   "test": {
+    "loss_S": 0.012923545632023418,
+    "loss_truncS": 0.009991761564630048,
+    "loss_alpha": 0.00835481457801001,
+    "first_moment_S": 0.03074903573770486,
+    "first_moment_alpha": 0.02697779901466856
+   },
+   "sweeps": 3,
+   "seed": 1,
+   "level1_moduli": 495414,
+   "train_history": [
+    0.006967871274913795,
+    0.00990628461823831,
+    0.009922042570353748,
+    0.009927564838909872
+   ],
+   "gap_truncation_only": 0.2268560154365583,
+   "gap_optimised_adversary": 0.3535199382662054,
+   "seconds": 29.1
+  }
+ ]
+}

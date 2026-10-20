@@ -1,0 +1,38 @@
+{
+ "note": "Fable diagnostic (20 Oct 2026): rule-based global class assignment for the tower adversary (honest lower bound on the adversary) vs the certificate's comparison value",
+ "witness": "../data/sparse-certificate-14485.json",
+ "results": [
+  {
+   "p": 199,
+   "delta": 0.26914190845,
+   "samples": 15000,
+   "M": 3000000,
+   "k0": 30,
+   "rule_moduli": 290887,
+   "loss_S": 0.00645806419744044,
+   "loss_truncS": 0.0049659402616000665,
+   "loss_rule": 0.003637591079278441,
+   "gap_truncation_only": 0.2310481732949876,
+   "gap_rule_adversary": 0.43673661827020127,
+   "collision_gap_vs_truncated": 0.26749197782206524,
+   "seconds_rule": 14551.2,
+   "seconds": 14552.1
+  },
+  {
+   "p": 307,
+   "delta": 0.288201384373,
+   "samples": 15000,
+   "M": 3000000,
+   "k0": 30,
+   "rule_moduli": 399502,
+   "loss_S": 0.004007502103009841,
+   "loss_truncS": 0.0031195973177773305,
+   "loss_rule": 0.0021050932962262503,
+   "gap_truncation_only": 0.22156065359657529,
+   "gap_rule_adversary": 0.47471186736365856,
+   "collision_gap_vs_truncated": 0.3252035177007717,
+   "seconds_rule": 424.3,
+   "seconds": 425.2
+  }
+ ]
+}

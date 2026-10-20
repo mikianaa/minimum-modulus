@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "classes": 126,
+  "minimum": 3,
+  "distinct": true,
+  "squarefree": true,
+  "period": 510510,
+  "exhaustive_uncovered": 8040,
+  "missed_witness": 404,
+  "fresh_prime_capacity": 61116,
+  "next_fresh_prime": 19,
+  "frozen_extension_impossible": true,
+  "method": "standalone literal integer enumeration, trial-square checks, and independent divisor enumeration"
+}

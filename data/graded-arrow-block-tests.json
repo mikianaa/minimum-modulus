@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "exhaustive_supply_cases": 48,
+  "resource_disjoint_target_covers_checked": 228,
+  "minimum_3_positive_control": "VERIFIED_CONSTRUCTION_SCHEMA",
+  "duplicate_stage_rejected": true
+}

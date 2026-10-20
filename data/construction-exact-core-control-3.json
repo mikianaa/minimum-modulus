@@ -1,0 +1,96 @@
+{
+  "minimum": 3,
+  "primes": [
+    2,
+    3,
+    5
+  ],
+  "depths": [
+    2,
+    1,
+    1
+  ],
+  "rows": [
+    {
+      "exponents": [
+        0,
+        1,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        0,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "processed": 1,
+      "rows": 1,
+      "uncovered": 8,
+      "fraction": "1/2",
+      "seconds": 0.0
+    },
+    {
+      "processed": 4,
+      "rows": 4,
+      "uncovered": 0,
+      "fraction": "0",
+      "seconds": 0.0
+    }
+  ],
+  "method": "exhaustive_core_integer_marginals",
+  "order": "mass",
+  "maximum_resource_base": 1000,
+  "resource_count": 10,
+  "capacity": "9/4",
+  "kernel_states": 16,
+  "exact_uncovered_states": 0,
+  "exact_uncovered_fraction": "0",
+  "elapsed_seconds": 0.0,
+  "verification": {
+    "status": "VERIFIED",
+    "minimum_at_least": 3,
+    "kernel_states": 16,
+    "resources": 4,
+    "nodes": 5
+  },
+  "status": "VERIFIED"
+}

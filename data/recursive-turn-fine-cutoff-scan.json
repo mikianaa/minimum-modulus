@@ -1,0 +1,40 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/recursive-turn-extended-14495.json",
+  "source_sha256": "64c347e90202e3f5bfd16239d426a108e37cdf452f290b9980b1795c1745e3ba",
+  "short_terminal": 8000,
+  "long_terminal": 250000,
+  "note": "Fixed parameters; cutoff transfer only. No impossibility or optimality claim.",
+  "rows": [
+    {
+      "K": 14495,
+      "short_mu": 0.003889890593404473,
+      "survivor_change": 0.0,
+      "predicted_long_margin": 3.4853281915856273e-07
+    },
+    {
+      "K": 14494,
+      "short_mu": 0.0038898740077417827,
+      "survivor_change": -1.658566269047146e-08,
+      "predicted_long_margin": 3.319471564680913e-07
+    },
+    {
+      "K": 14493,
+      "short_mu": 0.003889837066905372,
+      "survivor_change": -5.352649910111973e-08,
+      "predicted_long_margin": 2.95006320057443e-07
+    },
+    {
+      "K": 14492,
+      "short_mu": 0.0038897569559503357,
+      "survivor_change": -1.3363745413746964e-07,
+      "predicted_long_margin": 2.148953650210931e-07
+    },
+    {
+      "K": 14491,
+      "short_mu": 0.0038868155242223713,
+      "survivor_change": -3.0750691821018403e-06,
+      "predicted_long_margin": -2.7265363629432775e-06
+    }
+  ]
+}

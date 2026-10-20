@@ -1,0 +1,93 @@
+{
+ "note": "Fable diagnostic (20 Oct 2026): adversarially optimised global class assignment vs the certificate's comparison value; test values are lower bounds on the tower adversary, not proved bounds",
+ "witness": "../data/sparse-certificate-14485.json",
+ "results": [
+  {
+   "p": 43,
+   "delta": 0.073622555962,
+   "train": {
+    "loss_S": 0.021797069921334827,
+    "loss_truncS": 0.017163705642941944,
+    "loss_alpha": 0.016773516616377673,
+    "first_moment_S": 0.03034929994713184,
+    "first_moment_alpha": 0.025695593476496983
+   },
+   "test": {
+    "loss_S": 0.02208452865106172,
+    "loss_truncS": 0.017515894718357163,
+    "loss_alpha": 0.016153268651261404,
+    "first_moment_S": 0.03081605632625764,
+    "first_moment_alpha": 0.025321470847717797
+   },
+   "sweeps": 2,
+   "seed": 7,
+   "level1_moduli": 75011,
+   "train_history": [
+    0.013793566319889313,
+    0.016750803259026358,
+    0.016773516616377673
+   ],
+   "gap_truncation_only": 0.2068703391813128,
+   "gap_optimised_adversary": 0.2685708213888083,
+   "seconds": 6.4
+  },
+  {
+   "p": 61,
+   "delta": 0.119059854194,
+   "train": {
+    "loss_S": 0.018863068422736506,
+    "loss_truncS": 0.014899925472490859,
+    "loss_alpha": 0.014451656730617476,
+    "first_moment_S": 0.03213273055371597,
+    "first_moment_alpha": 0.02823821674577277
+   },
+   "test": {
+    "loss_S": 0.01859645920083179,
+    "loss_truncS": 0.01446391445198635,
+    "loss_alpha": 0.012954963394609366,
+    "first_moment_S": 0.03142010191588541,
+    "first_moment_alpha": 0.026447969120920616
+   },
+   "sweeps": 2,
+   "seed": 7,
+   "level1_moduli": 153258,
+   "train_history": [
+    0.011122914100243395,
+    0.014429494499749361,
+    0.014451656730617476
+   ],
+   "gap_truncation_only": 0.22222212864374735,
+   "gap_optimised_adversary": 0.3033639761901604,
+   "seconds": 10.7
+  },
+  {
+   "p": 79,
+   "delta": 0.155649335462,
+   "train": {
+    "loss_S": 0.016382563788537367,
+    "loss_truncS": 0.012946428611738059,
+    "loss_alpha": 0.012495604457002646,
+    "first_moment_S": 0.03274719600509534,
+    "first_moment_alpha": 0.029448360502879217
+   },
+   "test": {
+    "loss_S": 0.015661303134861727,
+    "loss_truncS": 0.012354945411226972,
+    "loss_alpha": 0.010515442392895187,
+    "first_moment_S": 0.03211455673716346,
+    "first_moment_alpha": 0.027734405098284957
+   },
+   "sweeps": 2,
+   "seed": 7,
+   "level1_moduli": 232666,
+   "train_history": [
+    0.009099747356373889,
+    0.012475775351784315,
+    0.012495604457002646
+   ],
+   "gap_truncation_only": 0.21111638636729235,
+   "gap_optimised_adversary": 0.32857168382827384,
+   "seconds": 16.3
+  }
+ ]
+}

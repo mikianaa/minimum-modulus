@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "random_direct_period_comparisons": 200,
+  "squarefree_control_period_exhaustively_checked": 210,
+  "squarefree_control_classes": 14
+}

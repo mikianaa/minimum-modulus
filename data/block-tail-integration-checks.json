@@ -1,0 +1,33 @@
+{
+  "status": "PASSED",
+  "checks": [
+    {
+      "file": "code/test_block_tail.py",
+      "returncode": 0,
+      "stdout": "{\n  \"status\": \"PASSED\",\n  \"rational_probability_enclosures\": 108,\n  \"actual_loss_comparisons\": 16,\n  \"chord_comparisons\": 9,\n  \"exponential_enclosures\": 4,\n  \"growth_comparisons\": 1,\n  \"source_sha256\": {\n    \"code/block_tail_bound.py\": \"12a2a96141788f7b77f57075dae9e7d5628d339d85cda63e2386d8db5645a6e8\",\n    \"C:/Users/mekak/code/covering-weight-mu/code/test_block_tail.py\": \"e5abef61d3220a0e7e69250c19928d1b4957d8fc50935440d187b481df785129\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "file": "code/test_prefix_refinement.py",
+      "returncode": 0,
+      "stdout": "Conditioning states 40\nVerified stage 5 prime 11\nPASS: exact prefix and block-tail compositions, eight invalid-composition rejections, and real finite-only verification.\n",
+      "stderr": ""
+    },
+    {
+      "file": "code/test_stratified_tail.py",
+      "returncode": 0,
+      "stdout": "PASS: 9 exact stratified moment partitions, selected-group enclosures, 18 regrouped-coefficient and 18 reselected-order comparisons; exact state replay.\nPASS: 12 exact retained-bin mass and moment rounding-error enclosures.\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "code/block_tail_bound.py": "12a2a96141788f7b77f57075dae9e7d5628d339d85cda63e2386d8db5645a6e8",
+    "code/verify_prefix_refinement.py": "0a22101f29664187f74daf55ec9ab02cc5df1df6a8ca1c8d3153243e924a9b7d",
+    "code/stratified_moment_tail.py": "b51d00f6e8d9ad18953b21573eacf3d444e623e51b4f6b243e19dfc766ccc569",
+    "code/refine_tail_parameter.py": "88a4da392bb1dc48b5c38bf8e66d22e4d6627a00349a9737b1fcd3128e722762",
+    "code/test_block_tail.py": "e5abef61d3220a0e7e69250c19928d1b4957d8fc50935440d187b481df785129",
+    "code/test_prefix_refinement.py": "199ec28682c29c729fc17849041117da792dfc29faa5bc215aa71ee337573974",
+    "code/test_stratified_tail.py": "7ced90c912109eb06850a40a8d2e4ce3b5868d7ba47fb1782854ce3be13e7b8f"
+  },
+  "note": "Focused rechecks after adding the block-tail continuation and optional prefix composition. The earlier 18-run suite is preserved separately."
+}

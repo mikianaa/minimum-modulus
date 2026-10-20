@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "packing_cases": 64,
+  "exact_disjoint_frontier_covers": 324,
+  "two_progression_union_profile": [
+    0,
+    1,
+    1,
+    0
+  ],
+  "scope": "Packing primitive used by partial minimum-50 region schemas; this test alone does not certify a covering system."
+}

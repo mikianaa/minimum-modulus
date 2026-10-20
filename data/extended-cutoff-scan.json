@@ -1,0 +1,40 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/extended-stratified-14499.json",
+  "source_sha256": "42909b78abc73edafc86e08ba1899ec45d719066f2d08079db76f1b8dc04823e",
+  "short_terminal": 8000,
+  "long_terminal": 250000,
+  "note": "Fixed parameters; cutoff transfer only. No impossibility or optimality claim.",
+  "rows": [
+    {
+      "K": 14499,
+      "short_mu": 0.003987014803274336,
+      "survivor_change": 0.0,
+      "predicted_long_margin": 1.261952247017591e-05
+    },
+    {
+      "K": 14498,
+      "short_mu": 0.003985101650697669,
+      "survivor_change": -1.913152576666667e-06,
+      "predicted_long_margin": 1.0706369893509243e-05
+    },
+    {
+      "K": 14497,
+      "short_mu": 0.0039660521134659244,
+      "survivor_change": -2.096268980841115e-05,
+      "predicted_long_margin": -8.34316733823524e-06
+    },
+    {
+      "K": 14496,
+      "short_mu": 0.0039415938993256,
+      "survivor_change": -4.542090394873532e-05,
+      "predicted_long_margin": -3.280138147855941e-05
+    },
+    {
+      "K": 14495,
+      "short_mu": 0.003932389583103121,
+      "survivor_change": -5.462522017121458e-05,
+      "predicted_long_margin": -4.200569770103867e-05
+    }
+  ]
+}

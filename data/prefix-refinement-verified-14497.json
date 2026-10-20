@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED_COMPOSITION",
+  "cutoff": 14497,
+  "minimum_modulus_at_most": 14496,
+  "decimal_places": 40,
+  "method": "refined finite prefix with independently computed base suffix and tail",
+  "terminal_index": 250000,
+  "terminal_prime": 3497861,
+  "prefix_index": 8000,
+  "prefix_prime": 81799,
+  "prefix_survivor_adjustment": "-0.0000094524958488539068767696742242370900",
+  "mu_lower": "0.0001526084818670576848483625155833954210",
+  "tail_loss_upper": "0.0001478123106801941952158770197251205558",
+  "infinite_survivor_lower": "0.0000047961711868634896324854958582748652",
+  "component_report_sha256": {
+    "base": "aa8b97cb1b9c882767bfa34e0b4f67f9de37dc0ace1fd533f770fdaf26eb72b2",
+    "old_prefix": "ef2a8d4ccd09371a51f29351e84043ad89d374922d2cd9668a59b4d049abe151",
+    "new_prefix": "475d90d46f69975a02c4bb9003e134bb0570af110b80bac9494a5e7479515950"
+  },
+  "note": "The mathematical conclusion uses all three independently verified component bounds. Their fresh replay is the default command.",
+  "witness_sha256": "a29a2f841bbc207121004a1c6ea79e9cea127c594ec64fa046573a270afddeab",
+  "components_replayed_in_this_run": false
+}

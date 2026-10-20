@@ -1,0 +1,11 @@
+{
+  "data/construction-structural-100-prime-patches.json": {
+    "status": "UNCOVERED_PROGRESSION_VERIFIED",
+    "rows_checked": 1671,
+    "minimum_target": 100,
+    "uncovered_progression": {
+      "residue": 29370484486033522038888368677610496702136998137198482290242400,
+      "modulus": 191713376283959466494384635189844768308141224115446848519088000
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "minimum": 3,
+  "primes": [
+    2,
+    3
+  ],
+  "depths": [
+    2,
+    1
+  ],
+  "maximum_resource_base": 100,
+  "resource_count": 4,
+  "capacity": "3/2",
+  "order": "mass",
+  "node_limit": 100000,
+  "seconds_budget": 120,
+  "method": "exact_residual_partition_no_sampling",
+  "rows": [
+    {
+      "exponents": [
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        0
+      ],
+      "residues": [
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1
+      ],
+      "residues": [
+        1,
+        1
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "resources_processed": 1,
+      "rows_placed": 1,
+      "uncovered_fraction": "1/2",
+      "uncovered_decimal": 0.5,
+      "diagram_nodes": 1,
+      "query_nodes": 0,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "resources_processed": 3,
+      "rows_placed": 3,
+      "uncovered_fraction": "0",
+      "uncovered_decimal": 0.0,
+      "diagram_nodes": 2,
+      "query_nodes": 2,
+      "elapsed_seconds": 0.0
+    }
+  ],
+  "search_outcome": "EXACT_PARTITION_COVER_FOUND",
+  "resources_processed": 3,
+  "last_resource_considered": [
+    1,
+    1
+  ],
+  "exact_uncovered_fraction": "0",
+  "exact_uncovered_states": 0,
+  "kernel_states": 4,
+  "verification": {
+    "status": "VERIFIED",
+    "minimum_at_least": 3,
+    "kernel_states": 4,
+    "resources": 3,
+    "nodes": 5
+  },
+  "status": "VERIFIED",
+  "elapsed_seconds": 0.0
+}

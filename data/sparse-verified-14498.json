@@ -1,0 +1,709 @@
+{
+  "status": "VERIFIED",
+  "cutoff": 14498,
+  "minimum_modulus_at_most": 14497,
+  "method": "finite conditioning correction and first-moment product bins",
+  "decimal_places": 40,
+  "initial_mu_lower": "0.9989619837212791495198902606310013717393",
+  "terminal_index": 250000,
+  "terminal_prime": 3497861,
+  "f_upper": "791931989.9324811001074460429327411656468377212089",
+  "stopping_lower": "35696239.7416284581520225007709357701992203402650",
+  "bbmst_gap": "-756235750.1908526419554235421618053954476173809439",
+  "certified_gap": "0.0000142486670357173965092551700825119552",
+  "gap_kind": "infinite survivor mass",
+  "mu_lower": "0.0001620609777159115917251321898076325110",
+  "bins": 1946,
+  "cap": 100000000,
+  "resolution": 128,
+  "support_mode": "reachable",
+  "normalize_conditioning": false,
+  "dynamic": true,
+  "joint_presence": true,
+  "joint_improved_stages": 105,
+  "statewise_presence": true,
+  "joint_product": true,
+  "conditioned_complement_prime": 859,
+  "exact_early_prime": 79,
+  "early_exact_states": {
+    "5": 42,
+    "7": 88,
+    "11": 133,
+    "13": 176,
+    "17": 210,
+    "19": 238,
+    "23": 245,
+    "29": 237,
+    "31": 477,
+    "37": 469,
+    "41": 764,
+    "43": 1182,
+    "47": 1258,
+    "53": 2425,
+    "59": 3508,
+    "61": 4877,
+    "67": 7704,
+    "71": 10070,
+    "73": 13436,
+    "79": 23210
+  },
+  "omitted_probability_upper": "0.0000000000000000000000000002597860064198",
+  "small_primes": [
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19
+  ],
+  "conditioning_states": 85410,
+  "state_cap": 1000000000,
+  "retained_conditioning_probability_lower": "0.9999944867598461654198209609964356169270",
+  "retained_conditioning_probability_upper": "0.9999944867598461654198209609964356312788",
+  "witness_sha256": "7d5ec94244a3b205a098a83af379fb0337a5bffb6d7ae9fc448cbbe9e297c566",
+  "wins": {
+    "first": 0,
+    "second": 0,
+    "sparse": 249894,
+    "early_exact": 14,
+    "conditioned_complement": 90
+  },
+  "checkpoints": [
+    {
+      "i": 100,
+      "p": 541,
+      "mu_lower": "0.2216420445983276718530263266496534482328",
+      "T_upper": "1327.6197982544497963553602766444923584243696",
+      "f_upper": "5989.9275909516082891433625539484344387573942",
+      "wins": {
+        "first": 0,
+        "second": 0,
+        "sparse": 0,
+        "early_exact": 14,
+        "conditioned_complement": 84
+      }
+    },
+    {
+      "i": 1000,
+      "p": 7919,
+      "mu_lower": "0.0301381398253017393465705306896911620510",
+      "T_upper": "7499.0197238994507518375025064198255852762336",
+      "f_upper": "248821.5851199891196115237781558262794742003178",
+      "wins": {
+        "first": 0,
+        "second": 0,
+        "sparse": 894,
+        "early_exact": 14,
+        "conditioned_complement": 90
+      }
+    },
+    {
+      "i": 10000,
+      "p": 104729,
+      "mu_lower": "0.0031662970414810577908405700653163748120",
+      "T_upper": "29551.5274499345880280134509582192649974541787",
+      "f_upper": "9333150.7002614171885472112562614182977161226853",
+      "wins": {
+        "first": 0,
+        "second": 0,
+        "sparse": 9894,
+        "early_exact": 14,
+        "conditioned_complement": 90
+      }
+    },
+    {
+      "i": 25000,
+      "p": 287117,
+      "mu_lower": "0.0012232040038058390557652636549604803672",
+      "T_upper": "46971.2394490034116475819290036121061286556011",
+      "f_upper": "38400168.1672546459042728542811863800592428181581",
+      "wins": {
+        "first": 0,
+        "second": 0,
+        "sparse": 24894,
+        "early_exact": 14,
+        "conditioned_complement": 90
+      }
+    },
+    {
+      "i": 50000,
+      "p": 611953,
+      "mu_lower": "0.0006099255895394846231650633025503580179",
+      "T_upper": "65359.6267282826070331436889891518254217404998",
+      "f_upper": "107160000.9070474239857435589016829979270505708102",
+      "wins": {
+        "first": 0,
+        "second": 0,
+        "sparse": 49894,
+        "early_exact": 14,
+        "conditioned_complement": 90
+      }
+    },
+    {
+      "i": 100000,
+      "p": 1299709,
+      "mu_lower": "0.0003215585722497681164120634575776898178",
+      "T_upper": "88998.2086280865811217304056121714661319376945",
+      "f_upper": "276771376.3791621632364159153337504267405506298861",
+      "wins": {
+        "first": 0,
+        "second": 0,
+        "sparse": 99894,
+        "early_exact": 14,
+        "conditioned_complement": 90
+      }
+    },
+    {
+      "i": 250000,
+      "p": 3497861,
+      "mu_lower": "0.0001620609777159115917251321898076325110",
+      "T_upper": "128341.2725729653425680614156862719500279153076",
+      "f_upper": "791931989.9324811001074460429327411656468377212089",
+      "wins": {
+        "first": 0,
+        "second": 0,
+        "sparse": 249894,
+        "early_exact": 14,
+        "conditioned_complement": 90
+      }
+    }
+  ],
+  "stopping_method": "fractional_moment",
+  "fractional_moment_upper": "268.4623877587622788681398731896018862940035",
+  "moment_order": "5/4",
+  "moment_numerator": 5,
+  "moment_denominator": 4,
+  "tail_delta_numerator": 500000000000,
+  "shifted_tail": true,
+  "interpolate_tail": true,
+  "growth_exponent": 3,
+  "growth_exponent_upper": "2.7568308244530701960918911010472667403545",
+  "exponential_argument_upper": "0.0003354815458601366984336382908374396633",
+  "tail_loss_upper": "0.0001478123106801941952158770197251205558",
+  "stratified_retained_tail_upper": "0.0001468232980447727548876038049645087609",
+  "stratified_overflow_tail_upper": "0.0000009890126354214403282732147606117949",
+  "stratified_overflow_order": "20/16",
+  "stratified_bin_choices": [
+    37,
+    0,
+    0,
+    0,
+    0,
+    16,
+    59,
+    49,
+    51,
+    33,
+    22,
+    21,
+    29,
+    15,
+    11,
+    21,
+    8,
+    11,
+    14,
+    4,
+    13,
+    7,
+    10,
+    4,
+    7,
+    7,
+    9,
+    3,
+    8,
+    5,
+    5,
+    11,
+    3,
+    5,
+    7,
+    8,
+    6,
+    6,
+    4,
+    5,
+    7,
+    7,
+    7,
+    6,
+    10,
+    7,
+    7,
+    13,
+    7,
+    14,
+    10,
+    16,
+    16,
+    15,
+    21,
+    22,
+    28,
+    32,
+    34,
+    47,
+    51,
+    65,
+    69,
+    901
+  ],
+  "stratified_orders": [
+    {
+      "order": "17/16",
+      "coefficient_upper": "2.0065072577356634372884662603122817300080",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "18/16",
+      "coefficient_upper": "0.2478650393565295330101938281827262797037",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "19/16",
+      "coefficient_upper": "0.0512979335383222253667112118238558392361",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "20/16",
+      "coefficient_upper": "0.0129851336247502719823567623204316271369",
+      "moment_upper": "268.4623877587622788681398731896018862940035",
+      "retained_moment_lower": "268.4623115937674469061498442723545182571207",
+      "overflow_tail_upper": "0.0000009890126354214403282732147606117949"
+    },
+    {
+      "order": "21/16",
+      "coefficient_upper": "0.0036595522851730111864542012498970405760",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "22/16",
+      "coefficient_upper": "0.0011186676007299801192620241275457848002",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "23/16",
+      "coefficient_upper": "0.0003558159518856143976298621528980847691",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "24/16",
+      "coefficient_upper": "0.0001165079727906627804138911175528808666",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "25/16",
+      "coefficient_upper": "0.0000390519756702143329259934197753387179",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "26/16",
+      "coefficient_upper": "0.0000134172957502599669475319338212309445",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "27/16",
+      "coefficient_upper": "0.0000046849335785853918214567013628882199",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "28/16",
+      "coefficient_upper": "0.0000016541107654500186680620041234458227",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "29/16",
+      "coefficient_upper": "0.0000005902039907645968714823218710560298",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "30/16",
+      "coefficient_upper": "0.0000002135536833081404044409889768791595",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "31/16",
+      "coefficient_upper": "0.0000000777542222338938582914885682461179",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "32/16",
+      "coefficient_upper": "0.0000000284795012155763943682835684092738",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "33/16",
+      "coefficient_upper": "0.0000000105404466636557663933881720339474",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "34/16",
+      "coefficient_upper": "0.0000000039165009897029681292135574204145",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "35/16",
+      "coefficient_upper": "0.0000000014629225361305255462219255494149",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "36/16",
+      "coefficient_upper": "0.0000000005499816452521016486433867851398",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "37/16",
+      "coefficient_upper": "0.0000000002073277106046529494816979610622",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "38/16",
+      "coefficient_upper": "0.0000000000786471567249507585672640759425",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "39/16",
+      "coefficient_upper": "0.0000000000299098150267857836562771600026",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "40/16",
+      "coefficient_upper": "0.0000000000114275868354511502592846963062",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "41/16",
+      "coefficient_upper": "0.0000000000043783560313075530541692857496",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "42/16",
+      "coefficient_upper": "0.0000000000016841977299713928524037763596",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "43/16",
+      "coefficient_upper": "0.0000000000006493673245083356766918353214",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "44/16",
+      "coefficient_upper": "0.0000000000002513968573487241598702404215",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "45/16",
+      "coefficient_upper": "0.0000000000000974874335245771993832543034",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "46/16",
+      "coefficient_upper": "0.0000000000000379589641451868895959280144",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "47/16",
+      "coefficient_upper": "0.0000000000000148124663717286864131312825",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "48/16",
+      "coefficient_upper": "0.0000000000000057915114522821232879999944",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "49/16",
+      "coefficient_upper": "0.0000000000000022734259599758188248988689",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "50/16",
+      "coefficient_upper": "0.0000000000000008942999812250486168677999",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "51/16",
+      "coefficient_upper": "0.0000000000000003525781279327438699515437",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "52/16",
+      "coefficient_upper": "0.0000000000000001393335521913306911541839",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "53/16",
+      "coefficient_upper": "0.0000000000000000552426353092748050291672",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "54/16",
+      "coefficient_upper": "0.0000000000000000219594322125680147500364",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "55/16",
+      "coefficient_upper": "0.0000000000000000087513997495099372160667",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "56/16",
+      "coefficient_upper": "0.0000000000000000034969722924759409895015",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "57/16",
+      "coefficient_upper": "0.0000000000000000014012345384033396852204",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "58/16",
+      "coefficient_upper": "0.0000000000000000005630865959247826891254",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "59/16",
+      "coefficient_upper": "0.0000000000000000002269456712616648555670",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "60/16",
+      "coefficient_upper": "0.0000000000000000000917448041562512107861",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "61/16",
+      "coefficient_upper": "0.0000000000000000000372246995876600549958",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "62/16",
+      "coefficient_upper": "0.0000000000000000000151630905858998140036",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "63/16",
+      "coefficient_upper": "0.0000000000000000000061975559949632367294",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "64/16",
+      "coefficient_upper": "0.0000000000000000000025416856094587570108",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "65/16",
+      "coefficient_upper": "0.0000000000000000000010486064957884329413",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "66/16",
+      "coefficient_upper": "0.0000000000000000000004341420304283762797",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "67/16",
+      "coefficient_upper": "0.0000000000000000000001809022885085152903",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "68/16",
+      "coefficient_upper": "0.0000000000000000000000757277706339197409",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "69/16",
+      "coefficient_upper": "0.0000000000000000000000319502266072652329",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "70/16",
+      "coefficient_upper": "0.0000000000000000000000135770603704103131",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "71/16",
+      "coefficient_upper": "0.0000000000000000000000058160422631143063",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "72/16",
+      "coefficient_upper": "0.0000000000000000000000025152921947600557",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "73/16",
+      "coefficient_upper": "0.0000000000000000000000011000685249171748",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "74/16",
+      "coefficient_upper": "0.0000000000000000000000004874336908364579",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "75/16",
+      "coefficient_upper": "0.0000000000000000000000002192287383603759",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "76/16",
+      "coefficient_upper": "0.0000000000000000000000001002681321970016",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "77/16",
+      "coefficient_upper": "0.0000000000000000000000000468798762676432",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "78/16",
+      "coefficient_upper": "0.0000000000000000000000000224823312574387",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "79/16",
+      "coefficient_upper": "0.0000000000000000000000000111088404719658",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    },
+    {
+      "order": "80/16",
+      "coefficient_upper": "0.0000000000000000000000000056743897378644",
+      "moment_upper": null,
+      "retained_moment_lower": null,
+      "overflow_tail_upper": null
+    }
+  ],
+  "stratified_mass_rounding_error": "0.0000000000000000000000000000053028500000",
+  "stratified_moment_rounding_error": "0.0000000000000000000000000003163717918333",
+  "single_moment_tail_loss_upper": "3.4860199782670498758055441069280628829228",
+  "stratified_tail_enabled": true,
+  "infinite_survivor_lower": "0.0000142486670357173965092551700825119552"
+}

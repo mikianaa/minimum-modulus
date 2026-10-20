@@ -1,0 +1,205 @@
+{
+  "status": "CERTIFIED_IMPROVEMENT_AND_EXPERIMENTS",
+  "target": 10000,
+  "target_proved": false,
+  "moment_profiles": [
+    {
+      "file": "data/recursive-atoms-10000.json",
+      "sha256": "58b52a4169455d5d409316880f338fbfd0c29c9f99262d3fdb0ddd76cacdc24a",
+      "status": "VERIFIED_MOMENT_BOUNDS",
+      "cutoff": 10000,
+      "cap": 2048,
+      "density_degree": 1,
+      "refined_atoms": 887,
+      "first_largest_relative_gain_experimental": 0.030312676909855632,
+      "first_largest_gain_prime": 661,
+      "second_largest_relative_gain_experimental": 0.0008076927059392061,
+      "second_largest_gain_prime": 263
+    },
+    {
+      "file": "data/recursive-atoms-large-10000.json",
+      "sha256": "e6398ec48c0ff9fc09e9e8e3cbe40f85a9311727f8816f4c39c895f22f08f28c",
+      "status": "VERIFIED_MOMENT_BOUNDS",
+      "cutoff": 10000,
+      "cap": 16384,
+      "density_degree": 1,
+      "refined_atoms": 6095,
+      "first_largest_relative_gain_experimental": 0.0492106674668978,
+      "first_largest_gain_prime": 829,
+      "second_largest_relative_gain_experimental": 0.0022755946945818696,
+      "second_largest_gain_prime": 557
+    },
+    {
+      "file": "data/recursive-atoms-quadratic-10000.json",
+      "sha256": "3496e95d56148ba62820d3868a2a62c0e01d749f91e62cf7748162dffaaa909a",
+      "status": "VERIFIED_MOMENT_BOUNDS",
+      "cutoff": 10000,
+      "cap": 16384,
+      "density_degree": 2,
+      "refined_atoms": 6095,
+      "first_largest_relative_gain_experimental": 0.04924195320219246,
+      "first_largest_gain_prime": 829,
+      "second_largest_relative_gain_experimental": 0.0022756306847531655,
+      "second_largest_gain_prime": 557
+    }
+  ],
+  "comparison_note": "The local moment bounds are rigorously enclosed; percentages and comparisons to the existing stop-loss estimate are experimental. No improved moment candidate wins at the profiled fixed parameters.",
+  "joint_target_experiment": {
+    "file": "data/recursive-turn-joint-10000.json",
+    "iterations": 3,
+    "mu": -0.08258262489723858,
+    "objective": 0.09024608836108153,
+    "tail": 0.007663463463842945,
+    "recursive_atom_cap": 2048
+  },
+  "candidate_verification": {
+    "witness": "data/sparse-certificate-14485.json",
+    "status": "VERIFIED",
+    "cutoff": 14485,
+    "terminal_index": 300000,
+    "report": "data/sparse-verified-14485.json",
+    "minimum_modulus_at_most": 14484,
+    "infinite_survivor_lower": "0.0000045254189418927672577261455603145753",
+    "wins": {
+      "first": 0,
+      "second": 0,
+      "sparse": 299894,
+      "early_exact": 16,
+      "conditioned_complement": 90,
+      "recursive_first": 0,
+      "recursive_second": 0
+    }
+  },
+  "proof_document": "src/conditional-stoploss-improvement.tex",
+  "strongest_completed_result": "data/latest-certified-bound.json",
+  "joint_near_bound_experiment": {
+    "file": "data/recursive-turn-joint-14490.json",
+    "iterations": 5,
+    "mu": 8.944608562491605e-05,
+    "objective": 6.133149116441362e-05,
+    "tail": 0.00015077757678932967,
+    "early_controls": 38,
+    "late_controls": 32
+  },
+  "prior_candidate_verification": {
+    "witness": "data/sparse-certificate-14491.json",
+    "status": "STOPPED_UNCERTIFIED",
+    "last_confirmed_stage": 100000,
+    "note": "Stopped to concentrate computation on the stronger cutoff 14485 candidate. No completed report is claimed."
+  },
+  "first_prime_extension": {
+    "search": "data/first-prime-joint-14490.json",
+    "final_profile": "data/first-prime-final-14485.json",
+    "scan": "data/first-prime-300k-cutoff-scan.json",
+    "experimental_final_margin": 4.647502749174023e-06
+  },
+  "proof_source_audit": "data/recursive-proof-source-audit.json",
+  "combined_target_experiment": {
+    "file": "data/first-prime-target-10000.json",
+    "status": "EXPERIMENTAL",
+    "K": 10000,
+    "mu": -0.08254257855898725,
+    "objective": 0.09020738955637028,
+    "tail": 0.007664810997383028,
+    "start": 0,
+    "recursive_density_degree": 2
+  },
+  "common_tail_experiment": {
+    "file": "data/common-tail-experiment-14485.json",
+    "status": "EXPERIMENTAL",
+    "best_tested": {
+      "tail_delta_numerator": 480000000000,
+      "tail": 0.00011691737343736329
+    },
+    "note": "One common future distortion; no finite computation or proof claim in this experiment."
+  },
+  "conditioning_size_scan": {
+    "file": "data/conditioning-size-scan-14485.json",
+    "status": "EXPERIMENTAL",
+    "sizes": [
+      8,
+      9,
+      10
+    ],
+    "cutoffs": [
+      10000,
+      14485
+    ],
+    "rows": [
+      {
+        "K": 10000,
+        "small": 8,
+        "conditioning_states": 85410,
+        "state_cap": 1000000000,
+        "mu": -0.08239716717971743,
+        "seconds": 61.611733198165894
+      },
+      {
+        "K": 10000,
+        "small": 9,
+        "conditioning_states": 133439,
+        "state_cap": 1000000000,
+        "mu": -0.08240702410504584,
+        "seconds": 74.49320077896118
+      },
+      {
+        "K": 10000,
+        "small": 10,
+        "conditioning_states": 193570,
+        "state_cap": 1000000000,
+        "mu": -0.0824200804624267,
+        "seconds": 86.66930031776428
+      },
+      {
+        "K": 14485,
+        "small": 8,
+        "conditioning_states": 85410,
+        "state_cap": 1000000000,
+        "mu": 0.0038732911833461617,
+        "seconds": 69.24227023124695
+      },
+      {
+        "K": 14485,
+        "small": 9,
+        "conditioning_states": 133439,
+        "state_cap": 1000000000,
+        "mu": 0.003860963623626507,
+        "seconds": 81.99939346313477
+      },
+      {
+        "K": 14485,
+        "small": 10,
+        "conditioning_states": 193570,
+        "state_cap": 1000000000,
+        "mu": 0.0038446265485003496,
+        "seconds": 104.1223816871643
+      }
+    ],
+    "note": "Eight conditioned primes give the largest finite survivor estimate in both fixed-parameter comparisons; no barrier theorem."
+  },
+  "mixed_moment_loss_experiment": {
+    "file": "data/mixed-atom-loss-10000.json",
+    "status": "EXPERIMENTAL",
+    "sampled_primes": [
+      31,
+      53,
+      79,
+      101,
+      151,
+      251,
+      557,
+      829,
+      859
+    ],
+    "pointwise_rational_checks": 1312,
+    "winning_mixtures": 0
+  },
+  "million_prime_experiment": {
+    "file": "data/million-prime-profile-14485.json",
+    "status": "EXPERIMENTAL",
+    "margin": 4.890994891196415e-05
+  },
+  "block_tail_verifications": [
+    "data/block-tail-14485-million.json"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/fine-stratified-14500.json",
+  "source_sha256": "a85e034948b701d7f3cedc5b34e0862307b0742fa7206a03784cd415e7319201",
+  "short_terminal": 8000,
+  "long_terminal": 200000,
+  "note": "Fixed parameters; cutoff transfer only. No impossibility or optimality claim.",
+  "rows": [
+    {
+      "K": 14500,
+      "short_mu": 0.004017499534779383,
+      "survivor_change": 0.0,
+      "predicted_long_margin": 8.697985433339395e-06
+    },
+    {
+      "K": 14499,
+      "short_mu": 0.004005166745094451,
+      "survivor_change": -1.2332789684932344e-05,
+      "predicted_long_margin": -3.6348042515929482e-06
+    },
+    {
+      "K": 14490,
+      "short_mu": 0.003877984028958964,
+      "survivor_change": -0.00013951550582041918,
+      "predicted_long_margin": -0.0001308175203870798
+    },
+    {
+      "K": 14400,
+      "short_mu": 0.002487981841737704,
+      "survivor_change": -0.001529517693041679,
+      "predicted_long_margin": -0.0015208197076083396
+    },
+    {
+      "K": 14000,
+      "short_mu": -0.003838655226953711,
+      "survivor_change": -0.007856154761733094,
+      "predicted_long_margin": -0.007847456776299755
+    },
+    {
+      "K": 10000,
+      "short_mu": -0.0823710158959893,
+      "survivor_change": -0.08638851543076868,
+      "predicted_long_margin": -0.08637981744533535
+    }
+  ]
+}

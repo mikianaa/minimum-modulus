@@ -1,0 +1,481 @@
+{
+  "minimum": 6,
+  "primes": [
+    2,
+    3,
+    5
+  ],
+  "depths": [
+    4,
+    2,
+    2
+  ],
+  "maximum_resource_base": 1000,
+  "seed": 1,
+  "seconds_budget": 90.0,
+  "kernel_states": 960,
+  "resource_count": 37,
+  "capacity": "117/80",
+  "rows": [
+    {
+      "exponents": [
+        0,
+        0,
+        2
+      ],
+      "residues": [
+        0,
+        0,
+        8
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        2
+      ],
+      "residues": [
+        0,
+        2,
+        10
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        2,
+        0
+      ],
+      "residues": [
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        2,
+        1
+      ],
+      "residues": [
+        0,
+        4,
+        1
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        2,
+        2
+      ],
+      "residues": [
+        0,
+        4,
+        3
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        2
+      ],
+      "residues": [
+        0,
+        0,
+        9
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        2
+      ],
+      "residues": [
+        0,
+        2,
+        11
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        2,
+        0
+      ],
+      "residues": [
+        1,
+        5,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        2,
+        1
+      ],
+      "residues": [
+        0,
+        5,
+        1
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        2,
+        2
+      ],
+      "residues": [
+        1,
+        4,
+        2
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        0,
+        1
+      ],
+      "residues": [
+        2,
+        0,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        0,
+        2
+      ],
+      "residues": [
+        1,
+        0,
+        11
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        1,
+        2
+      ],
+      "residues": [
+        1,
+        2,
+        9
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        2,
+        0
+      ],
+      "residues": [
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        2,
+        1
+      ],
+      "residues": [
+        2,
+        2,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        2,
+        2,
+        2
+      ],
+      "residues": [
+        2,
+        2,
+        10
+      ]
+    },
+    {
+      "exponents": [
+        3,
+        0,
+        0
+      ],
+      "residues": [
+        7,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        3,
+        0,
+        1
+      ],
+      "residues": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        3,
+        0,
+        2
+      ],
+      "residues": [
+        2,
+        0,
+        11
+      ]
+    },
+    {
+      "exponents": [
+        3,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        3,
+        1,
+        1
+      ],
+      "residues": [
+        5,
+        2,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        3,
+        1,
+        2
+      ],
+      "residues": [
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        3,
+        2,
+        0
+      ],
+      "residues": [
+        5,
+        2,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        3,
+        2,
+        1
+      ],
+      "residues": [
+        2,
+        2,
+        3
+      ]
+    },
+    {
+      "exponents": [
+        4,
+        0,
+        0
+      ],
+      "residues": [
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        4,
+        0,
+        1
+      ],
+      "residues": [
+        1,
+        0,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        4,
+        0,
+        2
+      ],
+      "residues": [
+        6,
+        0,
+        11
+      ]
+    },
+    {
+      "exponents": [
+        4,
+        1,
+        0
+      ],
+      "residues": [
+        7,
+        2,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        4,
+        1,
+        1
+      ],
+      "residues": [
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        4,
+        2,
+        0
+      ],
+      "residues": [
+        4,
+        4,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        4,
+        2,
+        1
+      ],
+      "residues": [
+        6,
+        2,
+        3
+      ]
+    }
+  ],
+  "iterations": [
+    {
+      "samples": 960,
+      "solver_status": "OPTIMAL",
+      "elapsed_seconds": 4.672
+    }
+  ],
+  "verification": {
+    "status": "VERIFIED",
+    "minimum_at_least": 6,
+    "kernel_states": 960,
+    "resources": 37,
+    "nodes": 64
+  },
+  "status": "VERIFIED",
+  "elapsed_seconds": 4.687
+}

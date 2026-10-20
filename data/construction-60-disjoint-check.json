@@ -1,0 +1,8 @@
+{
+  "status": "PAIRWISE_DISJOINT_KERNEL_VERIFIED",
+  "rows": 180,
+  "pairwise_checks": 16110,
+  "covered_fraction": "436680347994938311/1712652392509531200",
+  "uncovered_fraction": "1275972044514592889/1712652392509531200",
+  "scope": "kernel cylinders only; finite closing classes may overlap"
+}

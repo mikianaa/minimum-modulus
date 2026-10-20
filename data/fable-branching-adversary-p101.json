@@ -1,0 +1,32 @@
+{
+ "note": "Fable diagnostic (20 Oct 2026): greedy top-level branching adversary vs tower; truncated excess; sample-fitted, not a proved bound",
+ "witness": "../data/sparse-certificate-14485.json",
+ "results": [
+  {
+   "p": 101,
+   "delta": 0.182066645958,
+   "train_samples": 40000,
+   "test_samples": 20000,
+   "moduli": 330575,
+   "branched_moduli": 2999,
+   "branched_weight_fraction": 0.04779969640339306,
+   "train": {
+    "loss_comparison": 0.012920777278531827,
+    "loss_tower_truncated": 0.010096747415766123,
+    "loss_branching_truncated": 0.010846405013874101,
+    "gap_truncation": 0.21856501368984171,
+    "gap_branching": 0.16054547028717414,
+    "recovered_fraction": 0.2654566823078153
+   },
+   "test": {
+    "loss_comparison": 0.012892527371985815,
+    "loss_tower_truncated": 0.010142728675975488,
+    "loss_branching_truncated": 0.009489756692321915,
+    "gap_truncation": 0.21328624067809754,
+    "gap_branching": 0.2639335625579343,
+    "recovered_fraction": -0.23746174023610053
+   },
+   "seconds": 12.1
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+  "status": "EXPERIMENTAL",
+  "K": 14500,
+  "source": "data/joint-fast-seed.json",
+  "terminal": 125000,
+  "mu": -1.2958160347886783e-05,
+  "stratified_tail": 0.0005501283991204642,
+  "margin": -0.000563086559468351,
+  "rows": [
+    {
+      "order": "9/4",
+      "moment": 1233680.6035026314,
+      "retained_lower": 995452.757565842,
+      "overflow_tail": 0.0003612131451182168,
+      "unstratified_tail": 0.0018705691146649794
+    },
+    {
+      "order": "10/4",
+      "moment": 26263618.977056187,
+      "retained_lower": 15455314.136381077,
+      "overflow_tail": 0.00041193778538379936,
+      "unstratified_tail": 0.0010009874070961784
+    },
+    {
+      "order": "21/8",
+      "moment": 143836903.7071431,
+      "retained_lower": 65338480.507593274,
+      "overflow_tail": 0.00048517988207928095,
+      "unstratified_tail": 0.0008890213221465166
+    },
+    {
+      "order": "43/16",
+      "moment": 352555757.2942673,
+      "retained_lower": 136312427.62819076,
+      "overflow_tail": 0.0005405783086861534,
+      "unstratified_tail": 0.0008813404570212697
+    },
+    {
+      "order": "11/4",
+      "moment": 892471212.627715,
+      "retained_lower": 286846806.90064883,
+      "overflow_tail": 0.0006150035235299795,
+      "unstratified_tail": 0.0009062926381841953
+    },
+    {
+      "order": "23/8",
+      "moment": 6328235368.292138,
+      "retained_lower": 1299737732.2669904,
+      "overflow_tail": 0.0008489272844381086,
+      "unstratified_tail": 0.001068353225027264
+    },
+    {
+      "order": "12/4",
+      "moment": 51757419411.01143,
+      "retained_lower": 6046244573.607347,
+      "overflow_tail": 0.0012967879693669582,
+      "unstratified_tail": 0.001468314893599246
+    }
+  ]
+}

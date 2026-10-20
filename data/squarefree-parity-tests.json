@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "joint_pair_exhaustive_comparisons": 500,
+  "normalization_direct_period_comparisons": 100,
+  "anchor_capacity_direct_period_checks": 31
+}

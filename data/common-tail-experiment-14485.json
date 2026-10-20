@@ -1,0 +1,198 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/sparse-certificate-14485.json",
+  "source_sha256": "8c6eccd2b71110c605812a64ef24160cff9478899a484dd6a893d374b0888781",
+  "terminal_index": 300000,
+  "terminal_prime": 4256233,
+  "best_tested": {
+    "tail_delta_numerator": 480000000000,
+    "tail": 0.00011691737343736329
+  },
+  "rows": [
+    {
+      "tail_delta_numerator": 50000000000,
+      "tail": 0.0018453224875863675
+    },
+    {
+      "tail_delta_numerator": 60000000000,
+      "tail": 0.0014130670171791809
+    },
+    {
+      "tail_delta_numerator": 70000000000,
+      "tail": 0.0011271620936228056
+    },
+    {
+      "tail_delta_numerator": 80000000000,
+      "tail": 0.0009268130888078352
+    },
+    {
+      "tail_delta_numerator": 90000000000,
+      "tail": 0.0007801778955183677
+    },
+    {
+      "tail_delta_numerator": 100000000000,
+      "tail": 0.0006693163357219034
+    },
+    {
+      "tail_delta_numerator": 110000000000,
+      "tail": 0.0005830367632503067
+    },
+    {
+      "tail_delta_numerator": 120000000000,
+      "tail": 0.0005144067377813381
+    },
+    {
+      "tail_delta_numerator": 130000000000,
+      "tail": 0.0004588530088977011
+    },
+    {
+      "tail_delta_numerator": 140000000000,
+      "tail": 0.00041313175288725434
+    },
+    {
+      "tail_delta_numerator": 150000000000,
+      "tail": 0.0003750186625979226
+    },
+    {
+      "tail_delta_numerator": 160000000000,
+      "tail": 0.0003429138036075342
+    },
+    {
+      "tail_delta_numerator": 170000000000,
+      "tail": 0.00031554806810731815
+    },
+    {
+      "tail_delta_numerator": 180000000000,
+      "tail": 0.00029204185539260646
+    },
+    {
+      "tail_delta_numerator": 190000000000,
+      "tail": 0.0002716865476704822
+    },
+    {
+      "tail_delta_numerator": 200000000000,
+      "tail": 0.00025392213918055235
+    },
+    {
+      "tail_delta_numerator": 210000000000,
+      "tail": 0.00023836818086393145
+    },
+    {
+      "tail_delta_numerator": 220000000000,
+      "tail": 0.00022465830361780308
+    },
+    {
+      "tail_delta_numerator": 230000000000,
+      "tail": 0.00021252908748271618
+    },
+    {
+      "tail_delta_numerator": 240000000000,
+      "tail": 0.00020171817654617634
+    },
+    {
+      "tail_delta_numerator": 250000000000,
+      "tail": 0.0001920725680090497
+    },
+    {
+      "tail_delta_numerator": 260000000000,
+      "tail": 0.0001834236956179334
+    },
+    {
+      "tail_delta_numerator": 270000000000,
+      "tail": 0.00017567918988523892
+    },
+    {
+      "tail_delta_numerator": 280000000000,
+      "tail": 0.0001686978432281609
+    },
+    {
+      "tail_delta_numerator": 290000000000,
+      "tail": 0.00016240161299359567
+    },
+    {
+      "tail_delta_numerator": 300000000000,
+      "tail": 0.0001567267176734001
+    },
+    {
+      "tail_delta_numerator": 310000000000,
+      "tail": 0.00015160546033376416
+    },
+    {
+      "tail_delta_numerator": 320000000000,
+      "tail": 0.00014697696809550564
+    },
+    {
+      "tail_delta_numerator": 330000000000,
+      "tail": 0.00014279091510415557
+    },
+    {
+      "tail_delta_numerator": 340000000000,
+      "tail": 0.0001390232205157332
+    },
+    {
+      "tail_delta_numerator": 350000000000,
+      "tail": 0.00013563277776361028
+    },
+    {
+      "tail_delta_numerator": 360000000000,
+      "tail": 0.00013258480055611943
+    },
+    {
+      "tail_delta_numerator": 370000000000,
+      "tail": 0.00012985818469661572
+    },
+    {
+      "tail_delta_numerator": 380000000000,
+      "tail": 0.00012743412088984544
+    },
+    {
+      "tail_delta_numerator": 390000000000,
+      "tail": 0.00012528924219230134
+    },
+    {
+      "tail_delta_numerator": 400000000000,
+      "tail": 0.00012340308888417518
+    },
+    {
+      "tail_delta_numerator": 410000000000,
+      "tail": 0.00012178408066171214
+    },
+    {
+      "tail_delta_numerator": 420000000000,
+      "tail": 0.00012040373418496232
+    },
+    {
+      "tail_delta_numerator": 430000000000,
+      "tail": 0.00011924773016477256
+    },
+    {
+      "tail_delta_numerator": 440000000000,
+      "tail": 0.00011833022148246716
+    },
+    {
+      "tail_delta_numerator": 450000000000,
+      "tail": 0.00011764533788919738
+    },
+    {
+      "tail_delta_numerator": 460000000000,
+      "tail": 0.00011717910882744742
+    },
+    {
+      "tail_delta_numerator": 470000000000,
+      "tail": 0.00011693345901740023
+    },
+    {
+      "tail_delta_numerator": 480000000000,
+      "tail": 0.00011691737343736329
+    },
+    {
+      "tail_delta_numerator": 490000000000,
+      "tail": 0.00011715352786661782
+    },
+    {
+      "tail_delta_numerator": 500000000000,
+      "tail": 0.00011760571997650517
+    }
+  ],
+  "note": "No finite losses replayed; no modulus conclusion or global optimality claim."
+}

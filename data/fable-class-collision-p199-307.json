@@ -1,0 +1,66 @@
+{
+ "note": "Fable diagnostic (20 Oct 2026): adversarially optimised global class assignment vs the certificate's comparison value; test values are lower bounds on the tower adversary, not proved bounds",
+ "witness": "../data/sparse-certificate-14485.json",
+ "results": [
+  {
+   "p": 199,
+   "delta": 0.26914190845,
+   "train": {
+    "loss_S": 0.0066295658589236636,
+    "loss_truncS": 0.005048279627782759,
+    "loss_alpha": 0.004818029041144261,
+    "first_moment_S": 0.027416969203275902,
+    "first_moment_alpha": 0.025859169387877193
+   },
+   "test": {
+    "loss_S": 0.0070047557883109795,
+    "loss_truncS": 0.005295109002223275,
+    "loss_alpha": 0.003638435776310308,
+    "first_moment_S": 0.02786402618111669,
+    "first_moment_alpha": 0.025169275729710963
+   },
+   "sweeps": 3,
+   "seed": 2,
+   "level1_moduli": 1040357,
+   "train_history": [
+    0.0028396509146233523,
+    0.0048042017342243585,
+    0.004815420299129988,
+    0.004818029041144261
+   ],
+   "gap_truncation_only": 0.2440694347889526,
+   "gap_optimised_adversary": 0.480576356083411,
+   "seconds": 54.0
+  },
+  {
+   "p": 307,
+   "delta": 0.288201384373,
+   "train": {
+    "loss_S": 0.003833659674376185,
+    "loss_truncS": 0.002991746871220306,
+    "loss_alpha": 0.0028914686075621177,
+    "first_moment_S": 0.022396432515628666,
+    "first_moment_alpha": 0.021440360995395195
+   },
+   "test": {
+    "loss_S": 0.003985481370476424,
+    "loss_truncS": 0.0029788745426820194,
+    "loss_alpha": 0.00190665302382444,
+    "first_moment_S": 0.02266600188486331,
+    "first_moment_alpha": 0.020896387992828596
+   },
+   "sweeps": 3,
+   "seed": 2,
+   "level1_moduli": 1591193,
+   "train_history": [
+    0.0015766833953689307,
+    0.0028854288809067943,
+    0.0028903017726551843,
+    0.0028914686075621177
+   ],
+   "gap_truncation_only": 0.25256844386505684,
+   "gap_optimised_adversary": 0.5216003171038486,
+   "seconds": 85.8
+  }
+ ]
+}

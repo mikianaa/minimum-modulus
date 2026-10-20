@@ -1,0 +1,4339 @@
+{
+ "title": "Candidate distinct covering system with minimum modulus 43 (Fable, 19 Oct 2026, 44-piece version)",
+ "status": "COVERAGE VERIFIED ON THE FINITE KERNEL AND BY INTEGER SAMPLING; MODULUS DISTINCTNESS ARGUED STRUCTURALLY; DEPENDS ON OWENS' THESIS BEING CORRECT AND ON CODEX'S TRANSCRIPTION OF ITS SECTIONS 3.1-3.4",
+ "construction": [
+  "1. Take Owens' 2014 covering system with minimum modulus 42 (all primes through 89) and delete its unique class of modulus 42, namely 10 (mod 42) (the '2' in 7^(..., 3(2,4,3^(1,2)), ...) of Section 3.4). Everything else in Owens' Sections 3.1-3.20 is kept verbatim, including every later budget that relied on this class being covered.",
+  "2. The part of H = 10 (mod 42) left uncovered by Owens' Sections 3.1-3.4 is H' = (all 7-adic states of 3 mod 7) x C', C' = [2 mod 4 x 5-classes 1,2,3,4 and 20 mod 25] + [4 mod 8 x 5-classes 1,2,3,4 and the 5-tail (20,4)] + [8 mod 16 x 5-classes 2,3,4] + [16 mod 32 x 5-class 4], all within 1 mod 3 (density 71/4200; verified on the kernel with Codex's owens_seed_core transcription at minimum 43).",
+  "3. Cover part of H' with 15 classes whose moduli are {2,3,5,7}-smooth, at least 43, and unused by Owens (checked against the transcription's exponent vectors): 49, 98, 147 (three full classes mod 49), the arrow families 343^, 686^, 1029^ (three 7-adic digit states of a fourth class mod 49), 1372^ and 1715^, 196, 245, 3360, 6720, 23520, 47040.",
+  "4. Cover the rest of H' with 44 progressions F_i (listed below), each by its own arrow q_i^ rooted at F_i with a FRESH prime q_i in {89, 97, ..., 331} (89 is admissible because every modulus of Owens containing 89 also contains 67, and 67 is excluded from the base primes for q=89). The q_i-1 inputs of each arrow are supplied by Codex's disjoint set-building rule over the base primes p<q_i; the recorded order of base primes achieves at least q_i-1 sets. Every modulus produced contains q_i, so these families are distinct from Owens' moduli, from the spares and from each other. The design minimises the number of pieces (CP-SAT, scratchpad m43/design_ilp11.py).",
+  "5. Finitize all arrows (Owens', spare and fresh) with auxiliary primes larger than 797, one per arrow occurrence, as in Nielsen/Codex."
+ ],
+ "verification": {
+  "kernel": "scratchpad m43/build43.py on plan11: Owens seed (minimum 43, depths 6,4,3,3) + 14 spares + 44 pieces cover all 50,803,200 kernel states of H (0 remaining)",
+  "integer_sampling": "scratchpad m43/mc_check.py: 40,000 random integers x = 10 (mod 42) with x < 42*2^56, evaluated as genuine congruences (tails via p-adic digits): seed covers 29.4%, seed+spares 75.6%, seed+spares+pieces 100% (0 uncovered). Kernel-vs-integer semantics cross-checked on 3,000 samples with Codex's construction_kernel.matches: 0 disagreements.",
+  "set_building": "scratchpad m43/certify_orders.py: 44/44 (shape, prime) pairs reach >= q-1 sets",
+  "transcription_audit": "Fable re-read Owens Sections 3.1-3.4 (tmp/pdfs/owens-2014-extracted.txt) and matched every family of owens_seed_core.py in structure; the only difference is a cyclic relabelling of the five classes mod 25 inside 2 mod 5 within the seventh-prime sixth input (a tree automorphism applied consistently to that branch), which does not change the structure. The residual after the prime-7 stage matches the thesis diagrams hole by hole (hole 16 full, hole 8 only its first 5-input, hole 32 only its fourth 5-input).",
+  "modulus_distinctness": "Structural: every fresh modulus contains its own prime q (89 or 97..331), Owens' moduli contain no prime >= 97 and all of his 89-moduli contain 67 (excluded as a base prime for q=89), spare moduli are {2,3,5,7}-smooth exponent vectors absent from the transcription. Within one fresh arrow, Codex's lemma gives disjoint families: copies use p-exponents 1..e_p, arrows use exponents >= e_p+1, and distinct sets have disjoint families by induction. Machine test (scratchpad m43/check_families2.py): the rule was expanded explicitly with base primes <= 13, 23 and 31 for all eight shapes used (up to 8,292 symbolic classes per instance); no two classes share a modulus pattern. Full expansion is exponential (about 2^60 classes) and was not attempted."
+ },
+ "caveats": [
+  "Owens' construction (Sections 3.5-3.20) has never been machine-verified; this certificate inherits that risk.",
+  "Codex's owens_seed_core is a transcription of Sections 3.1-3.4 made by another agent; the spare list and C' depend on it.",
+  "The restoration of Owens' later budgets relies on H being covered, which this construction provides; no later-stage class was changed."
+ ],
+ "spare_classes": [
+  {
+   "modulus": 49,
+   "shape": [
+    0,
+    0,
+    0,
+    2
+   ],
+   "conditions": [
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 3,
+     "condition": "x = 3 (mod 49)"
+    }
+   ]
+  },
+  {
+   "modulus": 98,
+   "shape": [
+    1,
+    0,
+    0,
+    2
+   ],
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 1,
+     "residue": 0,
+     "condition": "x = 0 (mod 2)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 10,
+     "condition": "x = 10 (mod 49)"
+    }
+   ]
+  },
+  {
+   "modulus": 147,
+   "shape": [
+    0,
+    1,
+    0,
+    2
+   ],
+   "conditions": [
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 17,
+     "condition": "x = 17 (mod 49)"
+    }
+   ]
+  },
+  {
+   "modulus": 343,
+   "shape": [
+    0,
+    0,
+    0,
+    3
+   ],
+   "conditions": [
+    {
+     "prime": 7,
+     "exponent": 3,
+     "tail": true,
+     "prefix": 24,
+     "digit": 1,
+     "condition": "arrow family: x = 24 (mod 49) with first nonzero base-7 digit 1; one class at each level >= 3"
+    }
+   ]
+  },
+  {
+   "modulus": 686,
+   "shape": [
+    1,
+    0,
+    0,
+    3
+   ],
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 1,
+     "residue": 0,
+     "condition": "x = 0 (mod 2)"
+    },
+    {
+     "prime": 7,
+     "exponent": 3,
+     "tail": true,
+     "prefix": 24,
+     "digit": 2,
+     "condition": "arrow family: x = 24 (mod 49) with first nonzero base-7 digit 2; one class at each level >= 3"
+    }
+   ]
+  },
+  {
+   "modulus": 1029,
+   "shape": [
+    0,
+    1,
+    0,
+    3
+   ],
+   "conditions": [
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 7,
+     "exponent": 3,
+     "tail": true,
+     "prefix": 24,
+     "digit": 3,
+     "condition": "arrow family: x = 24 (mod 49) with first nonzero base-7 digit 3; one class at each level >= 3"
+    }
+   ]
+  },
+  {
+   "modulus": 1372,
+   "shape": [
+    2,
+    0,
+    0,
+    3
+   ],
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 2,
+     "residue": 2,
+     "condition": "x = 2 (mod 4)"
+    },
+    {
+     "prime": 7,
+     "exponent": 3,
+     "tail": true,
+     "prefix": 24,
+     "digit": 4,
+     "condition": "arrow family: x = 24 (mod 49) with first nonzero base-7 digit 4; one class at each level >= 3"
+    }
+   ]
+  },
+  {
+   "modulus": 1715,
+   "shape": [
+    0,
+    0,
+    1,
+    3
+   ],
+   "conditions": [
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 3,
+     "tail": true,
+     "prefix": 24,
+     "digit": 5,
+     "condition": "arrow family: x = 24 (mod 49) with first nonzero base-7 digit 5; one class at each level >= 3"
+    }
+   ]
+  },
+  {
+   "modulus": 196,
+   "shape": [
+    2,
+    0,
+    0,
+    2
+   ],
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 2,
+     "residue": 2,
+     "condition": "x = 2 (mod 4)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 31,
+     "condition": "x = 31 (mod 49)"
+    }
+   ]
+  },
+  {
+   "modulus": 245,
+   "shape": [
+    0,
+    0,
+    1,
+    2
+   ],
+   "conditions": [
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 38,
+     "condition": "x = 38 (mod 49)"
+    }
+   ]
+  },
+  {
+   "modulus": 3360,
+   "shape": [
+    5,
+    1,
+    1,
+    1
+   ],
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 5,
+     "residue": 8,
+     "condition": "x = 8 (mod 32)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ]
+  },
+  {
+   "modulus": 6720,
+   "shape": [
+    6,
+    1,
+    1,
+    1
+   ],
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 6,
+     "tail": true,
+     "prefix": 24,
+     "digit": 1,
+     "condition": "arrow family: x = 24 (mod 32) with first nonzero base-2 digit 1; one class at each level >= 6"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ]
+  },
+  {
+   "modulus": 23520,
+   "shape": [
+    5,
+    1,
+    1,
+    2
+   ],
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 5,
+     "residue": 16,
+     "condition": "x = 16 (mod 32)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ]
+  },
+  {
+   "modulus": 47040,
+   "shape": [
+    6,
+    1,
+    1,
+    2
+   ],
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 6,
+     "tail": true,
+     "prefix": 16,
+     "digit": 1,
+     "condition": "arrow family: x = 16 (mod 32) with first nonzero base-2 digit 1; one class at each level >= 6"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 31,
+     "condition": "x = 31 (mod 49)"
+    }
+   ]
+  }
+ ],
+ "fresh_pieces": [
+  {
+   "unit": "h4c1",
+   "fresh_prime": 89,
+   "shape": [
+    3,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 840,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 2,
+     "condition": "x = 2 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 96,
+    "needed": 88,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     53
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c1",
+   "fresh_prime": 103,
+   "shape": [
+    3,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 840,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 6,
+     "condition": "x = 6 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 111,
+    "needed": 102,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     53,
+     97,
+     89,
+     101
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c2",
+   "fresh_prime": 137,
+   "shape": [
+    3,
+    1,
+    1,
+    2
+   ],
+   "progression_modulus": 5880,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 2,
+     "condition": "x = 2 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 2,
+     "condition": "x = 2 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 157,
+    "needed": 136,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c2",
+   "fresh_prime": 139,
+   "shape": [
+    3,
+    1,
+    1,
+    2
+   ],
+   "progression_modulus": 5880,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 2,
+     "condition": "x = 2 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 2,
+     "condition": "x = 2 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 38,
+     "condition": "x = 38 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 158,
+    "needed": 138,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c2",
+   "fresh_prime": 149,
+   "shape": [
+    3,
+    1,
+    1,
+    2
+   ],
+   "progression_modulus": 5880,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 2,
+     "condition": "x = 2 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 2,
+     "condition": "x = 2 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 159,
+    "needed": 148,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c2",
+   "fresh_prime": 151,
+   "shape": [
+    3,
+    1,
+    1,
+    2
+   ],
+   "progression_modulus": 5880,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 6,
+     "condition": "x = 6 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 2,
+     "condition": "x = 2 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 160,
+    "needed": 150,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c2",
+   "fresh_prime": 157,
+   "shape": [
+    3,
+    1,
+    1,
+    2
+   ],
+   "progression_modulus": 5880,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 6,
+     "condition": "x = 6 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 2,
+     "condition": "x = 2 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 38,
+     "condition": "x = 38 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 161,
+    "needed": 156,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c2",
+   "fresh_prime": 163,
+   "shape": [
+    3,
+    1,
+    1,
+    2
+   ],
+   "progression_modulus": 5880,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 6,
+     "condition": "x = 6 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 2,
+     "condition": "x = 2 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 162,
+    "needed": 162,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c3",
+   "fresh_prime": 107,
+   "shape": [
+    3,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 840,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 2,
+     "condition": "x = 2 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 112,
+    "needed": 106,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     89,
+     101
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c3",
+   "fresh_prime": 113,
+   "shape": [
+    3,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 840,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 6,
+     "condition": "x = 6 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 114,
+    "needed": 112,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c4",
+   "fresh_prime": 173,
+   "shape": [
+    2,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 8820,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 2,
+     "residue": 2,
+     "condition": "x = 2 (mod 4)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 1,
+     "condition": "x = 1 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 172,
+    "needed": 172,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     97,
+     67,
+     17,
+     163,
+     19,
+     37,
+     101,
+     79,
+     23,
+     71,
+     83,
+     61,
+     29,
+     41,
+     31,
+     47,
+     73,
+     103,
+     139,
+     113,
+     109,
+     89,
+     107,
+     13,
+     43,
+     127,
+     131,
+     137,
+     53,
+     149,
+     151,
+     157,
+     59,
+     167
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c4",
+   "fresh_prime": 179,
+   "shape": [
+    2,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 8820,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 2,
+     "residue": 2,
+     "condition": "x = 2 (mod 4)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 1,
+     "condition": "x = 1 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 186,
+    "needed": 178,
+    "base_prime_order": [
+     2,
+     5,
+     79,
+     3,
+     7,
+     163,
+     139,
+     17,
+     59,
+     31,
+     37,
+     11,
+     73,
+     41,
+     71,
+     83,
+     43,
+     53,
+     23,
+     29,
+     157,
+     47,
+     103,
+     19,
+     97,
+     109,
+     89,
+     61,
+     107,
+     113,
+     127,
+     131,
+     137,
+     67,
+     149,
+     151,
+     13,
+     101,
+     167,
+     173
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c4",
+   "fresh_prime": 181,
+   "shape": [
+    2,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 8820,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 2,
+     "residue": 2,
+     "condition": "x = 2 (mod 4)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 4,
+     "condition": "x = 4 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 180,
+    "needed": 180,
+    "base_prime_order": [
+     2,
+     3,
+     11,
+     5,
+     7,
+     137,
+     43,
+     17,
+     59,
+     179,
+     31,
+     79,
+     73,
+     131,
+     113,
+     167,
+     71,
+     29,
+     89,
+     61,
+     47,
+     13,
+     23,
+     97,
+     139,
+     37,
+     19,
+     107,
+     101,
+     41,
+     127,
+     53,
+     67,
+     103,
+     149,
+     151,
+     157,
+     163,
+     83,
+     109,
+     173
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c4",
+   "fresh_prime": 191,
+   "shape": [
+    2,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 8820,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 2,
+     "residue": 2,
+     "condition": "x = 2 (mod 4)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 4,
+     "condition": "x = 4 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 192,
+    "needed": 190,
+    "base_prime_order": [
+     2,
+     5,
+     101,
+     3,
+     7,
+     97,
+     67,
+     73,
+     23,
+     163,
+     43,
+     53,
+     83,
+     41,
+     109,
+     79,
+     71,
+     29,
+     59,
+     13,
+     47,
+     11,
+     103,
+     37,
+     61,
+     89,
+     127,
+     107,
+     31,
+     113,
+     17,
+     149,
+     167,
+     157,
+     131,
+     137,
+     139,
+     179,
+     151,
+     173,
+     19,
+     181
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c4",
+   "fresh_prime": 193,
+   "shape": [
+    2,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 8820,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 2,
+     "residue": 2,
+     "condition": "x = 2 (mod 4)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 7,
+     "condition": "x = 7 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 192,
+    "needed": 192,
+    "base_prime_order": [
+     2,
+     167,
+     163,
+     3,
+     157,
+     7,
+     5,
+     83,
+     101,
+     181,
+     13,
+     179,
+     17,
+     103,
+     31,
+     79,
+     47,
+     61,
+     97,
+     59,
+     113,
+     19,
+     29,
+     67,
+     89,
+     131,
+     43,
+     107,
+     53,
+     139,
+     151,
+     109,
+     137,
+     149,
+     23,
+     11,
+     71,
+     41,
+     127,
+     191,
+     73,
+     37,
+     173
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4c4",
+   "fresh_prime": 197,
+   "shape": [
+    2,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 8820,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 2,
+     "residue": 2,
+     "condition": "x = 2 (mod 4)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 7,
+     "condition": "x = 7 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 196,
+    "needed": 196,
+    "base_prime_order": [
+     2,
+     3,
+     5,
+     7,
+     97,
+     179,
+     17,
+     173,
+     193,
+     157,
+     79,
+     53,
+     13,
+     41,
+     37,
+     101,
+     181,
+     59,
+     109,
+     29,
+     43,
+     31,
+     191,
+     131,
+     47,
+     103,
+     137,
+     127,
+     113,
+     67,
+     107,
+     19,
+     151,
+     139,
+     23,
+     71,
+     163,
+     149,
+     83,
+     11,
+     73,
+     167,
+     61,
+     89
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 263,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 2,
+     "condition": "x = 2 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 296,
+    "needed": 262,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241,
+     251,
+     257
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 269,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 2,
+     "condition": "x = 2 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 38,
+     "condition": "x = 38 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 297,
+    "needed": 268,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241,
+     251,
+     257,
+     263
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 271,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 2,
+     "condition": "x = 2 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 298,
+    "needed": 270,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241,
+     251,
+     257,
+     263,
+     269
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 277,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 6,
+     "condition": "x = 6 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 299,
+    "needed": 276,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241,
+     251,
+     257,
+     263,
+     269,
+     271
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 281,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 6,
+     "condition": "x = 6 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 38,
+     "condition": "x = 38 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 300,
+    "needed": 280,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241,
+     251,
+     257,
+     263,
+     269,
+     271,
+     277
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 283,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 6,
+     "condition": "x = 6 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 301,
+    "needed": 282,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241,
+     251,
+     257,
+     263,
+     269,
+     271,
+     277,
+     281
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 293,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 10,
+     "condition": "x = 10 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 302,
+    "needed": 292,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241,
+     251,
+     257,
+     263,
+     269,
+     271,
+     277,
+     281,
+     283
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 307,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 10,
+     "condition": "x = 10 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 38,
+     "condition": "x = 38 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 306,
+    "needed": 306,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     239,
+     41,
+     71,
+     157,
+     43,
+     29,
+     101,
+     31,
+     47,
+     13,
+     103,
+     53,
+     257,
+     109,
+     89,
+     181,
+     23,
+     113,
+     127,
+     191,
+     233,
+     139,
+     149,
+     151,
+     83,
+     163,
+     167,
+     173,
+     179,
+     227,
+     131,
+     193,
+     197,
+     199,
+     229,
+     223,
+     107,
+     211,
+     137,
+     73,
+     241,
+     251,
+     97,
+     263,
+     269,
+     271,
+     277,
+     281,
+     283,
+     293
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 311,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 10,
+     "condition": "x = 10 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 312,
+    "needed": 310,
+    "base_prime_order": [
+     2,
+     5,
+     109,
+     3,
+     7,
+     191,
+     263,
+     131,
+     59,
+     19,
+     43,
+     79,
+     163,
+     41,
+     71,
+     229,
+     37,
+     29,
+     23,
+     31,
+     271,
+     13,
+     103,
+     157,
+     97,
+     11,
+     47,
+     107,
+     73,
+     127,
+     193,
+     179,
+     137,
+     251,
+     307,
+     223,
+     181,
+     101,
+     149,
+     61,
+     173,
+     17,
+     53,
+     67,
+     197,
+     277,
+     211,
+     151,
+     167,
+     233,
+     83,
+     239,
+     241,
+     139,
+     257,
+     113,
+     269,
+     89,
+     199,
+     281,
+     283,
+     293,
+     227
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 313,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 14,
+     "condition": "x = 14 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 313,
+    "needed": 312,
+    "base_prime_order": [
+     2,
+     5,
+     131,
+     3,
+     7,
+     29,
+     223,
+     103,
+     59,
+     19,
+     37,
+     79,
+     73,
+     61,
+     173,
+     43,
+     83,
+     41,
+     23,
+     167,
+     71,
+     13,
+     17,
+     31,
+     89,
+     109,
+     97,
+     11,
+     229,
+     53,
+     179,
+     107,
+     137,
+     139,
+     311,
+     211,
+     157,
+     193,
+     251,
+     257,
+     67,
+     127,
+     199,
+     227,
+     307,
+     197,
+     241,
+     277,
+     271,
+     191,
+     281,
+     151,
+     47,
+     293,
+     239,
+     101,
+     269,
+     163,
+     283,
+     113,
+     181,
+     233,
+     149,
+     263
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 317,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 14,
+     "condition": "x = 14 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 38,
+     "condition": "x = 38 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 316,
+    "needed": 316,
+    "base_prime_order": [
+     2,
+     5,
+     181,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     137,
+     37,
+     53,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     47,
+     31,
+     13,
+     103,
+     79,
+     97,
+     89,
+     109,
+     107,
+     313,
+     113,
+     191,
+     131,
+     19,
+     139,
+     239,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     11,
+     127,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     149,
+     241,
+     251,
+     257,
+     263,
+     269,
+     271,
+     277,
+     281,
+     283,
+     293,
+     307,
+     311,
+     101
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h4_25c20",
+   "fresh_prime": 331,
+   "shape": [
+    4,
+    1,
+    2,
+    2
+   ],
+   "progression_modulus": 58800,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 14,
+     "condition": "x = 14 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 330,
+    "needed": 330,
+    "base_prime_order": [
+     2,
+     3,
+     5,
+     7,
+     293,
+     11,
+     73,
+     107,
+     29,
+     163,
+     61,
+     43,
+     139,
+     19,
+     71,
+     281,
+     37,
+     181,
+     23,
+     193,
+     97,
+     41,
+     13,
+     89,
+     211,
+     151,
+     149,
+     17,
+     167,
+     127,
+     109,
+     229,
+     227,
+     233,
+     53,
+     257,
+     101,
+     239,
+     157,
+     269,
+     31,
+     283,
+     173,
+     313,
+     131,
+     191,
+     137,
+     223,
+     263,
+     179,
+     277,
+     271,
+     199,
+     113,
+     251,
+     47,
+     79,
+     241,
+     67,
+     197,
+     307,
+     59,
+     103,
+     311,
+     317,
+     83
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c1",
+   "fresh_prime": 97,
+   "shape": [
+    3,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 840,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 109,
+    "needed": 96,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     53,
+     89
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c2",
+   "fresh_prime": 109,
+   "shape": [
+    3,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 840,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 2,
+     "condition": "x = 2 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 113,
+    "needed": 108,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     89,
+     107,
+     101
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c3",
+   "fresh_prime": 101,
+   "shape": [
+    3,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 840,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 110,
+    "needed": 100,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     53,
+     97,
+     89
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 211,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 1,
+     "condition": "x = 1 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 249,
+    "needed": 210,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 223,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 1,
+     "condition": "x = 1 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 31,
+     "condition": "x = 31 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 250,
+    "needed": 222,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 227,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 1,
+     "condition": "x = 1 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 251,
+    "needed": 226,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 229,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 4,
+     "condition": "x = 4 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 252,
+    "needed": 228,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 233,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 4,
+     "condition": "x = 4 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 31,
+     "condition": "x = 31 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 253,
+    "needed": 232,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 239,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 4,
+     "condition": "x = 4 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 254,
+    "needed": 238,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 241,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 7,
+     "condition": "x = 7 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 24,
+     "condition": "x = 24 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 255,
+    "needed": 240,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 251,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 7,
+     "condition": "x = 7 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 31,
+     "condition": "x = 31 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 256,
+    "needed": 250,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8c4",
+   "fresh_prime": 257,
+   "shape": [
+    3,
+    2,
+    1,
+    2
+   ],
+   "progression_modulus": 17640,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 2,
+     "residue": 7,
+     "condition": "x = 7 (mod 9)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 257,
+    "needed": 256,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197,
+     199,
+     211,
+     223,
+     227,
+     229,
+     233,
+     239,
+     241,
+     251
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h8_25c20",
+   "fresh_prime": 167,
+   "shape": [
+    3,
+    1,
+    2,
+    1
+   ],
+   "progression_modulus": 4200,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 3,
+     "residue": 4,
+     "condition": "x = 4 (mod 8)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 2,
+     "residue": 20,
+     "condition": "x = 20 (mod 25)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 166,
+    "needed": 166,
+    "base_prime_order": [
+     2,
+     5,
+     3,
+     13,
+     7,
+     19,
+     137,
+     11,
+     47,
+     37,
+     41,
+     83,
+     29,
+     53,
+     101,
+     31,
+     71,
+     79,
+     17,
+     23,
+     103,
+     127,
+     89,
+     43,
+     109,
+     61,
+     113,
+     67,
+     151,
+     139,
+     97,
+     59,
+     73,
+     131,
+     157,
+     107,
+     149,
+     163
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h16c2",
+   "fresh_prime": 131,
+   "shape": [
+    4,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 1680,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 8,
+     "condition": "x = 8 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 2,
+     "condition": "x = 2 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 130,
+    "needed": 130,
+    "base_prime_order": [
+     2,
+     5,
+     113,
+     7,
+     3,
+     71,
+     11,
+     79,
+     37,
+     59,
+     109,
+     23,
+     29,
+     43,
+     89,
+     83,
+     31,
+     73,
+     61,
+     13,
+     103,
+     47,
+     41,
+     19,
+     97,
+     107,
+     17,
+     53,
+     67,
+     101,
+     127
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h16c3",
+   "fresh_prime": 127,
+   "shape": [
+    4,
+    1,
+    1,
+    1
+   ],
+   "progression_modulus": 1680,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 4,
+     "residue": 8,
+     "condition": "x = 8 (mod 16)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 1,
+     "residue": 3,
+     "condition": "x = 3 (mod 7)"
+    }
+   ],
+   "set_building": {
+    "sets": 126,
+    "needed": 126,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  },
+  {
+   "unit": "h32c4",
+   "fresh_prime": 199,
+   "shape": [
+    5,
+    1,
+    1,
+    2
+   ],
+   "progression_modulus": 23520,
+   "conditions": [
+    {
+     "prime": 2,
+     "exponent": 5,
+     "residue": 16,
+     "condition": "x = 16 (mod 32)"
+    },
+    {
+     "prime": 3,
+     "exponent": 1,
+     "residue": 1,
+     "condition": "x = 1 (mod 3)"
+    },
+    {
+     "prime": 5,
+     "exponent": 1,
+     "residue": 4,
+     "condition": "x = 4 (mod 5)"
+    },
+    {
+     "prime": 7,
+     "exponent": 2,
+     "residue": 45,
+     "condition": "x = 45 (mod 49)"
+    }
+   ],
+   "set_building": {
+    "sets": 225,
+    "needed": 198,
+    "base_prime_order": [
+     2,
+     5,
+     11,
+     3,
+     7,
+     61,
+     67,
+     17,
+     59,
+     19,
+     37,
+     79,
+     73,
+     41,
+     71,
+     83,
+     43,
+     29,
+     23,
+     31,
+     47,
+     13,
+     103,
+     53,
+     97,
+     109,
+     89,
+     107,
+     101,
+     113,
+     127,
+     131,
+     137,
+     139,
+     149,
+     151,
+     157,
+     163,
+     167,
+     173,
+     179,
+     181,
+     191,
+     193,
+     197
+    ],
+    "note": "Codex lemma (src/construction-search.tex, 'Disjoint set-building rule'): T'=(e+1)T+floor(T/(p-1)) over the base primes p<q in this order (67 excluded when q=89); the q-arrow rooted at this progression needs q-1 input sets"
+   }
+  }
+ ],
+ "piece_count": 44,
+ "fresh_primes": [
+  89,
+  97,
+  101,
+  103,
+  107,
+  109,
+  113,
+  127,
+  131,
+  137,
+  139,
+  149,
+  151,
+  157,
+  163,
+  167,
+  173,
+  179,
+  181,
+  191,
+  193,
+  197,
+  199,
+  211,
+  223,
+  227,
+  229,
+  233,
+  239,
+  241,
+  251,
+  257,
+  263,
+  269,
+  271,
+  277,
+  281,
+  283,
+  293,
+  307,
+  311,
+  313,
+  317,
+  331
+ ]
+}

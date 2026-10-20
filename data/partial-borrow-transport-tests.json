@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "cached_union_comparisons": 600,
+  "checked_transport_conditions": 68190,
+  "repeated_resource_rejected": true,
+  "incorrect_prefix_rejected": true
+}

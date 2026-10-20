@@ -1,0 +1,308 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref,listings}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\E}{\mathbb E}
+\newcommand{\N}{\mathbb N}
+\title{A certified numerical improvement of the BBMST minimum-modulus bound}
+\author{Computational investigation and proof certificate}
+\date{14 October 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We give a computer-assisted proof that a finite covering system with distinct
+positive integer moduli has a modulus at most $615299$. Equivalently, distinct
+moduli all at least $615300$ cannot cover the integers. The argument retains
+BBMST's distortion method, restricted second-moment estimate, and analytic
+termination theorem. The changes are a modest optimization of the distortion
+parameters, an efficient finite evaluation of the restricted moments, and an
+explicit continuation to the analytic stopping criterion. A standalone Python
+verifier uses outward-rounded integer intervals throughout. This is a local
+computational proof with an explicit mathematical reduction, not a claim of
+independent peer review or publication priority.
+\end{abstract}
+
+\section{Statement and scope}
+The source is Balister, Bollob\'as, Morris, Sahasrabudhe and Tiba (BBMST),
+\emph{On the Erd\H{o}s Covering Problem: the density of the uncovered set},
+\href{https://arxiv.org/html/1811.03547v1}{arXiv:1811.03547v1}.
+Numbering here refers to that version, especially Sections 6--8.
+Its Theorem 8.1 excludes distinct moduli all at least $616000$.
+
+\begin{theorem}\label{thm:main}
+Every finite covering system of the integers with distinct positive integer
+moduli contains a modulus at most $615299$.
+\end{theorem}
+
+This improves the exclusion cutoff by $700$. The familiar formulation ``upper
+bound $616000$'' is thus replaced by the explicit integer upper bound $615299$.
+We do not assert that this is the optimum attainable by the method.
+
+The proof has two parts: the mathematical reduction below, and the finite
+integer calculation in \texttt{code/verify\_minimum\_modulus.py}.
+The latter reads the rational parameter witness
+\texttt{data/minimum-modulus-certificate.json.gz}. It ignores the witness's
+floating-point claims of success and its recorded numerical checkpoints.
+The authoritative numerical output is
+\texttt{data/minimum-modulus-certificate-verified.json}.
+
+\section{The distortion criterion used}
+Let $p_i$ denote the $i$th prime, including primes absent from the least common
+multiple of the moduli. For each stage choose $0\leq\delta_i\leq1/2$.
+Use BBMST's measures $P_i$, removed sets $B_i$, and fibre proportions $\alpha_i$.
+Write
+\[
+ \mu_i=1-\sum_{j\leq i}P_j(B_j),\qquad
+ \nu(p_i^a)=(1-\delta_i)^{-1}\quad(a\geq1),
+\]
+extending $\nu$ multiplicatively. Define
+\[
+ C_i=\prod_{j\leq i}\left(1+\frac{\nu(p_j)}{p_j-1}\right),\qquad
+ T_i=\prod_{j\leq i}\left(1+
+             \frac{(3p_j-1)\nu(p_j)}{(p_j-1)^2}\right).
+\]
+BBMST's moment bounds and measure construction imply
+\begin{equation}\label{eq:loss}
+ P_i(B_i)\leq
+ \min\left\{M_i^{(1)},\frac{M_i^{(2)}}{4\delta_i(1-\delta_i)}\right\},
+ \qquad M_i^{(r)}=\E_{i-1}\alpha_i^r,
+\end{equation}
+when $\delta_i>0$. With $\delta_i=0$ we use the first moment.
+The factor $4\delta_i$ follows pointwise from
+$(x-\delta_i)_+\leq x^2/(4\delta_i)$.
+Marginal preservation makes the sum of these losses a valid upper bound for
+the final covered mass.
+
+We use the following established analytic implication, BBMST Theorem 6.1:
+if $k\geq10$, $\mu_k>0$, and
+\begin{equation}\label{eq:stop}
+ \frac{T_k}{\mu_k}\leq k(\log k+\log\log k-3)^2,
+\end{equation}
+then the system does not cover the integers. Here $T_k/\mu_k$ is their $f_k$
+with $i_0=0$ and $\kappa=1$. The generic second-moment bound
+$M_i^{(2)}\leq T_{i-1}/(p_i-1)^2$ verifies their required hypothesis (20).
+This theorem handles the entire uncomputed tail, not merely primes below a
+numerical limit. If the system has no prime factors beyond a verified stage,
+positivity of the survivor bound already proves noncoverage.
+
+\section{Exact finite reduction of the restricted moments}
+Fix a cutoff $K$, a current prime $p=p_i$, and the preceding primes $q<p$.
+All smooth numbers in this section have prime factors strictly below $p$.
+Set $C=C_{i-1}$, $T=T_{i-1}$, and, on these smooth numbers, put
+\[
+ w(m)=\frac{\nu(m)}m,\qquad
+ F(m)=\sum_{\substack{j\geq1\\mp^j\geq K}}p^{-j},\qquad
+ W(m,n)=\frac{\nu(\operatorname{lcm}(m,n))}{\operatorname{lcm}(m,n)}.
+\]
+The restriction that the original moduli are distinct is essential: there is
+at most one progression for each $mp^j$. BBMST's indicator moment estimate
+then gives
+\begin{equation}\label{eq:restricted}
+ M_i^{(1)}\leq\sum_m F(m)w(m),\qquad
+ M_i^{(2)}\leq\sum_{m,n}F(m)F(n)W(m,n).
+\end{equation}
+Allowing all smooth numbers and all exponents only enlarges the sums when the
+original least common multiple has restricted prime powers.
+
+For each $j\geq1$ with $p^j<K$ define
+\[
+ s_j=\left\lceil K/p^j\right\rceil,
+ \quad z_j=p^{-j},\quad A=\frac1{p-1}.
+\]
+There are finitely many such $j$, and
+\begin{equation}\label{eq:F}
+ F(m)=A-\sum_j z_j\,\mathbf1_{m<s_j}.
+\end{equation}
+All later powers have already been summed by the geometric series $A$.
+
+Define the multiplicative function $r$ on smooth integers by
+\begin{equation}\label{eq:r}
+ r(q^a)=\frac{\nu(q)}{q^a}
+       \frac{a+1+1/(q-1)}{1+\nu(q)/(q-1)},\qquad r(1)=1.
+\end{equation}
+The exact row sum of the kernel is
+\begin{equation}\label{eq:row}
+ \sum_n W(m,n)=C r(m).
+\end{equation}
+Indeed, at $q^a\Vert m$, summing over the exponent $b$ of $q$ in $n$ gives
+$\nu(q)q^{-a}(a+1+1/(q-1))$; at $q\nmid m$ it gives
+$1+\nu(q)/(q-1)$. Also $\sum_{m,n}W(m,n)=T$, by the same Euler-factor
+calculation as BBMST Lemma 3.7.
+
+For efficient finite pair sums, define $h(m)=m/\nu(m)$ and
+$J=h*\mu_{\mathrm{Mob}}$, where $\mu_{\mathrm{Mob}}$ is the M\"obius function.
+This $\mu_{\mathrm{Mob}}$ is unrelated to the survivor mass $\mu_i$.
+The local factors are
+\begin{equation}\label{eq:J}
+ J(1)=1,\qquad J(q)=\frac q{\nu(q)}-1,\qquad
+ J(q^a)=\frac{q^a-q^{a-1}}{\nu(q)}\quad(a\geq2).
+\end{equation}
+They are nonnegative because $\nu(q)\leq2\leq q$.
+Multiplicativity gives the identity
+\[
+ W(m,n)=w(m)w(n)h(\gcd(m,n))
+       =w(m)w(n)\sum_{d\mid m,\ d\mid n}J(d).
+\]
+Set $N=s_1-1$ when there are restricted powers, and $N=0$ otherwise. Extend
+$w,r,J$ by zero on nonsmooth integers in the following finite sums, and define
+\[
+ U=C\sum_jz_j\sum_{m<s_j}r(m),\qquad
+ v(m)=w(m)\sum_{j:m<s_j}z_j,
+\]
+\[
+ V=\sum_{d=1}^{N}J(d)
+          \left(\sum_{\substack{1\leq m\leq N\\d\mid m}}v(m)\right)^2.
+\]
+Expanding \eqref{eq:F} in \eqref{eq:restricted} now yields the exact majorants
+\begin{align}
+ \widehat M_i^{(1)}&=CA-\sum_jz_j\sum_{m<s_j}w(m),\label{eq:m1}\\
+ \widehat M_i^{(2)}&=TA^2-2AU+V.\label{eq:m2}
+\end{align}
+These expressions evaluate BBMST's restricted sums, rather than postulating
+a stronger universal moment inequality. The convolution replaces a quadratic
+pair enumeration with divisor sums of order $N\log N$. At $K=615300$ and
+$p=239$, $N=2574$, and it decreases thereafter. If $p\geq K$, then $U=V=0$.
+There is no discarded smooth-number or prime-power tail.
+
+\section{Initialization and rational parameter witness}
+Set $K=615300$ and $\delta_i=0$ for $i\leq51$, so $p_{51}=233$.
+The exact uniform-measure union bound gives
+\begin{equation}\label{eq:init}
+ \mu_{51}\geq1-
+ \prod_{q\leq233}\frac q{q-1}
+ +\sum_{\substack{1\leq m<K\\m\text{ is }233\text{-smooth}}}\frac1m.
+\end{equation}
+The verifier enumerates precisely the finite set in this formula.
+Its certified lower bound exceeds $0.6541240631682086$.
+
+The witness specifies an integer $D_i$ for every $52\leq i\leq1050000$;
+the proof uses exactly
+\[
+ \delta_i= D_i/10^{12}.
+\]
+The verifier checks $0<D_i\leq5\cdot10^{11}$ before processing any stage.
+No numerical optimality assertion is needed for the proof.
+
+For reproducibility of the search, the unrounded exploratory choice was
+\[
+ d_i=t(p_i)(1-p_i^{-1/2})\,
+ \frac{1+a_i}{1+\sqrt{1+4u_{i-1}a_i(1+a_i)/\widehat M_i^{(2)}}},
+ \qquad a_i=\frac{3p_i-1}{(p_i-1)^2},
+\]
+followed by clipping to $(0,1/2]$ and rounding to multiples of $10^{-12}$.
+Here $u_{i-1}$ is the exploratory survivor bound before the step.
+The multiplier $t$ is constant on the following intervals, and equals $1$
+above $630000$:
+\begin{center}
+\begin{tabular}{rr}
+\toprule
+Prime interval & Multiplier \\
+\midrule
+$233<p\leq400$ & $0.997072977247918$\\
+$400<p\leq800$ & $1.0011180232054513$\\
+$800<p\leq2000$ & $1.0047360222987132$\\
+$2000<p\leq10000$ & $1.005711696549407$\\
+$10000<p\leq100000$ & $1.003990673495079$\\
+$100000<p\leq630000$ & $1.0019513485013882$\\
+\bottomrule
+\end{tabular}
+\end{center}
+These six parameters were selected by two passes of one-dimensional golden
+section searches, minimizing the exploratory $f_{51000}$ at $K=615000$.
+They were then reused at $K=615300$. Metadata containing these floating-point
+multipliers is informational; only the integer list $D_i$ enters verification.
+
+\section{Directed arithmetic and final inequalities}
+Every interval in the verifier is represented by integers $[l,u]$ meaning
+$[l/10^{40},u/10^{40}]$. Addition and subtraction use exact integer endpoints;
+multiplication and positive-denominator division round outward using integer
+floor and ceiling. In particular, cancellation in \eqref{eq:m2} is enclosed,
+not hidden behind a relative-error allowance.
+
+Starting from a lower endpoint of \eqref{eq:init}, maintain a scalar lower
+bound $u_i$ for $\mu_i$ by subtracting an upper endpoint of the loss in
+\eqref{eq:loss}. The verifier asserts $u_i>0$ at every step. Interval products
+enclose $C_i,T_i$, and an upper bound for $f_i$ is the outward-rounded ratio
+$\overline T_i/u_i$. The unrestricted product bound remains valid for the
+uncomputed stages regardless of the earlier use of restricted moments.
+
+Logarithms in \eqref{eq:stop} are also certified with integer arithmetic.
+For $1\leq x\leq2$, put $z=(x-1)/(x+1)$ and use
+\[
+ \log x=2\sum_{j=0}^{79}\frac{z^{2j+1}}{2j+1}+R,
+ \qquad 0\leq R\leq\frac{2z^{161}}{161(1-z^2)}.
+\]
+Range reduction $x=2^e y$, $1\leq y<2$, reduces all required logarithms to
+this formula. Monotonicity allows a lower endpoint of $\log k$ as the input
+for a lower bound on $\log\log k$. Thus the stopping test has an upper bound
+on its left side and a lower bound on its right side.
+
+At the final stage $k=1050000$, $p_k=16313527$, the verified output implies
+the following deliberately coarser inequalities:
+\begin{align*}
+ \mu_k&>0.00049578893768,\\
+ f_k&<191101044,\\
+ k(\log k+\log\log k-3)^2&>191181612.
+\end{align*}
+The strict margin exceeds $80568$. Therefore \eqref{eq:stop} holds, and
+BBMST Theorem 6.1 proves Theorem~\ref{thm:main}. The precise endpoint values
+and a SHA-256 hash of the uncompressed witness are recorded in the verification
+JSON file. The rational witness, rather than the generator's platform-dependent
+floating-point output, fixes the calculation being certified.
+
+\section{Experiments, checks, and limitations}
+The baseline $K=616000$, $i_0=51$ computation gives
+$\mu_{51}\approx0.654258882518139$, reproducing BBMST's displayed initial
+value. Its exploratory $f_{51000}\approx5590148$ is close to, but not exactly,
+their reported $5589593$. The generator uses the previous survivor bound in
+the parameter formula; the paper displays a same-index survivor bound there.
+Thus we do not claim a bit-for-bit reconstruction of their parameter sequence.
+The discrepancy does not affect the verification of the supplied witness.
+
+The searches varied the first distorted prime, uniform parameter scaling,
+power-law corrections, transition ramps, and the six block multipliers above.
+The JSON search records retain the results. Uniform scalings and transition
+ramps generally worsened this numerical objective. These failed searches are
+not impossibility proofs for smaller cutoffs.
+
+At $K=615300$, the block adjustment reduced the exploratory $f_{51000}$
+from approximately $5804109.37$ to $5792780.39$. The unadjusted sequence
+experimentally reached the analytic criterion at $k=1744533$; the adjusted
+sequence first did so at $k=1041581$. The delivered certificate continues to
+the round index $1050000$ to obtain a comfortable strict margin. It does not
+rely on rounded entries of BBMST's Table 1.
+
+The first moment is evaluated exactly as a smooth Euler product minus a finite
+sum. The second-moment implementation is an efficient exact reformulation
+of BBMST's majorant. No stronger universal first- or second-moment inequality
+has been established in this investigation, and no fundamental change of the
+distortion method is being claimed.
+
+The separate test script performs $2520$ exact-rational interval arithmetic
+checks and $24$ moment checks against an independently implemented recursive
+$\Theta_i(s,t)$ calculation. The latter sums exponent tails as exact geometric
+series using Python fractions. These checks supplement the algebraic proof;
+they do not replace it. This is not a proof-assistant formalization.
+
+\section{Reproduction}
+All scripts require only Python 3's standard library. Run from the repository
+root. The primary verification does not run the optimizer:
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/test_minimum_modulus.py
+python code/verify_minimum_modulus.py data/minimum-modulus-certificate.json.gz --output data/minimum-modulus-certificate-verified.json
+\end{lstlisting}
+The certificate check took about half a minute in the local environment;
+runtime and memory use depend on the machine. To repeat the exploratory
+optimization and regenerate a candidate witness:
+\begin{lstlisting}[basicstyle=\ttfamily\small,breaklines=true]
+python code/optimize_minimum_modulus.py
+python code/minimum_modulus_experiment.py --K 615300 --blocks data/minimum-modulus-optimization.json --limit 18000000 --min-stop 1050000 --output data/minimum-modulus-certificate.json.gz
+python code/verify_minimum_modulus.py data/minimum-modulus-certificate.json.gz --output data/minimum-modulus-certificate-verified.json
+\end{lstlisting}
+A regenerated candidate must pass the verifier before it is used as a proof.
+The generator's upper prime limit is only a search limit: it proves nothing
+about the infinite tail unless the certified stopping inequality is satisfied.
+\end{document}

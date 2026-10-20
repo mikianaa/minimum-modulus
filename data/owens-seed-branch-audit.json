@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "minimum": 42,
+      "rows": 381,
+      "kernel_states": 7257600,
+      "uncovered_states": 3319008,
+      "hole_gaps": {
+        "8 mod 16": 0,
+        "4 mod 8 outside 1 mod 5": 0,
+        "16 mod 32 outside 4 mod 5": 0
+      }
+    },
+    {
+      "minimum": 50,
+      "rows": 378,
+      "kernel_states": 7257600,
+      "uncovered_states": 3690224,
+      "hole_gaps": {
+        "8 mod 16": 17160,
+        "4 mod 8 outside 1 mod 5": 34752,
+        "16 mod 32 outside 4 mod 5": 3500
+      }
+    }
+  ],
+  "scope": "Three local seed claims only; neither the full Owens thesis nor a minimum-50 cover is certified."
+}

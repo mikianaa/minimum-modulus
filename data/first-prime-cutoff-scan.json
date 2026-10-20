@@ -1,0 +1,40 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/first-prime-extended-14490.json",
+  "source_sha256": "ed4ba3b5cfdfe71de4ef35f3f04767e921fe2614b0b3847c1a30e45d4923d68f",
+  "short_terminal": 8000,
+  "long_terminal": 250000,
+  "note": "Fixed parameters; cutoff transfer only. No impossibility or optimality claim.",
+  "rows": [
+    {
+      "K": 14490,
+      "short_mu": 0.0038788158523162274,
+      "survivor_change": 0.0,
+      "predicted_long_margin": -1.0215705050042542e-05
+    },
+    {
+      "K": 14489,
+      "short_mu": 0.0038788130147095813,
+      "survivor_change": -2.837606646183266e-09,
+      "predicted_long_margin": -1.0218542656688725e-05
+    },
+    {
+      "K": 14488,
+      "short_mu": 0.003878479417827242,
+      "survivor_change": -3.364344889852412e-07,
+      "predicted_long_margin": -1.0552139539027783e-05
+    },
+    {
+      "K": 14487,
+      "short_mu": 0.003874709370533504,
+      "survivor_change": -4.10648178272334e-06,
+      "predicted_long_margin": -1.4322186832765882e-05
+    },
+    {
+      "K": 14485,
+      "short_mu": 0.003874581754618613,
+      "survivor_change": -4.234097697614417e-06,
+      "predicted_long_margin": -1.4449802747656959e-05
+    }
+  ]
+}

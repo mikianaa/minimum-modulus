@@ -1,0 +1,22 @@
+{
+  "status": "EXPERIMENTAL",
+  "source": "data/first-prime-extended-14485.json",
+  "source_sha256": "092f6189dcd0026745188dbe3dc5173a54417d71ebc36e910f2a626309af0ed7",
+  "short_terminal": 8000,
+  "long_terminal": 300000,
+  "note": "Fixed parameters; cutoff transfer only. No impossibility or optimality claim.",
+  "rows": [
+    {
+      "K": 14485,
+      "short_mu": 0.003874082094128584,
+      "survivor_change": 0.0,
+      "predicted_long_margin": 3.087307305132248e-06
+    },
+    {
+      "K": 14484,
+      "short_mu": 0.003831199338559641,
+      "survivor_change": -4.288275556894308e-05,
+      "predicted_long_margin": -3.979544826381083e-05
+    }
+  ]
+}

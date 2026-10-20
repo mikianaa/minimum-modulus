@@ -1,0 +1,337 @@
+{
+  "minimum": 3,
+  "primes": [
+    2,
+    3,
+    5,
+    7
+  ],
+  "depths": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "method": "joint_parity_normalized_exact_period_model",
+  "period": 210,
+  "unit_points_constrained": 96,
+  "selection_variables": 276,
+  "seconds_solver_budget": 30,
+  "normalization": "p:0; 2p:1 modulo p and free parity; no prime powers",
+  "rows": [
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "residues": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "residues": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "residues": [
+        0,
+        2,
+        4,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "residues": [
+        1,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        0,
+        6
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        0,
+        5
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "residues": [
+        1,
+        0,
+        2,
+        2
+      ]
+    },
+    {
+      "exponents": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        2,
+        3
+      ]
+    },
+    {
+      "exponents": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "residues": [
+        0,
+        2,
+        2,
+        1
+      ]
+    }
+  ],
+  "congruences": [
+    {
+      "residue": 0,
+      "modulus": 3
+    },
+    {
+      "residue": 4,
+      "modulus": 6
+    },
+    {
+      "residue": 0,
+      "modulus": 5
+    },
+    {
+      "residue": 1,
+      "modulus": 10
+    },
+    {
+      "residue": 0,
+      "modulus": 7
+    },
+    {
+      "residue": 1,
+      "modulus": 14
+    },
+    {
+      "residue": 14,
+      "modulus": 15
+    },
+    {
+      "residue": 13,
+      "modulus": 30
+    },
+    {
+      "residue": 20,
+      "modulus": 21
+    },
+    {
+      "residue": 26,
+      "modulus": 42
+    },
+    {
+      "residue": 32,
+      "modulus": 35
+    },
+    {
+      "residue": 37,
+      "modulus": 70
+    },
+    {
+      "residue": 17,
+      "modulus": 105
+    },
+    {
+      "residue": 92,
+      "modulus": 210
+    }
+  ],
+  "model_build_seconds": 0.0,
+  "solver_status": "FEASIBLE",
+  "solver_best_bound": 0.0,
+  "solver_objective": 22.0,
+  "anchor_parities": [
+    0,
+    1,
+    1
+  ],
+  "direct_period_check": {
+    "status": "UNCOVERED",
+    "period_checked": 210,
+    "uncovered_count": 22,
+    "uncovered_density": "11/105",
+    "first_uncovered_residues": [
+      2,
+      8,
+      19,
+      23,
+      38,
+      47,
+      53,
+      79,
+      86,
+      97,
+      109,
+      116,
+      128,
+      139,
+      143,
+      157,
+      158,
+      173,
+      176,
+      187,
+      199,
+      206
+    ],
+    "all_moduli_distinct_squarefree": true
+  },
+  "verification": {
+    "status": "UNCOVERED",
+    "point": [
+      0,
+      4,
+      4,
+      6
+    ],
+    "nodes": 7,
+    "uncovered_progression": {
+      "residue": 19706,
+      "modulus": 44100
+    }
+  },
+  "status": "UNCOVERED",
+  "uncovered_progression": {
+    "residue": 2,
+    "modulus": 210
+  },
+  "elapsed_seconds": 30.031
+}

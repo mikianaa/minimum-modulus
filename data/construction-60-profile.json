@@ -1,0 +1,151 @@
+{
+  "minimum": 60,
+  "status": "NECESSARY_CONDITIONS_ONLY",
+  "smooth_capacity": [
+    {
+      "largest_prime": 2,
+      "capacity": "1/32",
+      "decimal": 0.03125
+    },
+    {
+      "largest_prime": 3,
+      "capacity": "13/96",
+      "decimal": 0.13541666666666666
+    },
+    {
+      "largest_prime": 5,
+      "capacity": "2363/7200",
+      "decimal": 0.32819444444444446
+    },
+    {
+      "largest_prime": 7,
+      "capacity": "199307/352800",
+      "decimal": 0.5649291383219954
+    },
+    {
+      "largest_prime": 11,
+      "capacity": "3084667/3880800",
+      "decimal": 0.7948533807462379
+    },
+    {
+      "largest_prime": 13,
+      "capacity": "104496767/100900800",
+      "decimal": 1.0356386371564943
+    },
+    {
+      "largest_prime": 17,
+      "capacity": "34406222749/27445017600",
+      "decimal": 1.253641854068259
+    },
+    {
+      "largest_prime": 19,
+      "capacity": "4583262010711/3128732006400",
+      "decimal": 1.4648944049332688
+    },
+    {
+      "largest_prime": 23,
+      "capacity": "239695174052981/143921672294400",
+      "decimal": 1.6654557318002172
+    },
+    {
+      "largest_prime": 29,
+      "capacity": "30585914274309371/16694913986150400",
+      "decimal": 1.8320498266527476
+    },
+    {
+      "largest_prime": 31,
+      "capacity": "6244146351508450111/3105254001423974400",
+      "decimal": 2.0108327204940646
+    }
+  ],
+  "finite_profiles": [
+    {
+      "largest_prime": 19,
+      "base_cap": 1000,
+      "resources": 271,
+      "capacity": "6880777219/6110804700",
+      "decimal": 1.126001820840388
+    },
+    {
+      "largest_prime": 19,
+      "base_cap": 3000,
+      "resources": 531,
+      "capacity": "1021170173/791683200",
+      "decimal": 1.2898722279315766
+    },
+    {
+      "largest_prime": 19,
+      "base_cap": 10000,
+      "resources": 991,
+      "capacity": "48741042033773/35198235072000",
+      "decimal": 1.3847581259137116
+    },
+    {
+      "largest_prime": 23,
+      "base_cap": 1000,
+      "resources": 307,
+      "capacity": "93238178623/74959204320",
+      "decimal": 1.243852298978085
+    },
+    {
+      "largest_prime": 23,
+      "base_cap": 3000,
+      "resources": 620,
+      "capacity": "924847275631/642507465600",
+      "decimal": 1.4394342869889292
+    },
+    {
+      "largest_prime": 23,
+      "base_cap": 10000,
+      "resources": 1201,
+      "capacity": "13866355631636009/8905153473216000",
+      "decimal": 1.5571158513260663
+    },
+    {
+      "largest_prime": 31,
+      "base_cap": 1000,
+      "resources": 369,
+      "capacity": "10720444249609/7487591631520",
+      "decimal": 1.4317613429236555
+    },
+    {
+      "largest_prime": 31,
+      "base_cap": 3000,
+      "resources": 776,
+      "capacity": "271960712639795/161731979240832",
+      "decimal": 1.6815518731445405
+    },
+    {
+      "largest_prime": 31,
+      "base_cap": 10000,
+      "resources": 1585,
+      "capacity": "867108080760189083/470925468965952000",
+      "decimal": 1.8412851669801726
+    },
+    {
+      "largest_prime": 43,
+      "base_cap": 1000,
+      "resources": 440,
+      "capacity": "108216213829204400719/65937117111616951200",
+      "decimal": 1.6412032944360957
+    },
+    {
+      "largest_prime": 43,
+      "base_cap": 3000,
+      "resources": 973,
+      "capacity": "109603734492479505/55819781681792128",
+      "decimal": 1.9635285411413779
+    },
+    {
+      "largest_prime": 43,
+      "base_cap": 10000,
+      "resources": 2098,
+      "capacity": "162696173803717519975523/74603138217715179072000",
+      "decimal": 2.180822116744197
+    }
+  ],
+  "class_count_lower_bound": 103,
+  "maximum_modulus_lower_bound": 162,
+  "harmonic_sum_60_through_161": "117497643169669533282013207438014246804302534340713552439353704461259/117671955487901874837890815641362681946988303003141220897970719568000",
+  "harmonic_sum_60_through_162": "39408004421757955280913642840740063095152261041561186658586977041753/39223985162633958279296938547120893982329434334380406965990239856000"
+}

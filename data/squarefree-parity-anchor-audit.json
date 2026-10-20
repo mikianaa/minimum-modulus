@@ -1,0 +1,411 @@
+{
+  "method": "exact_normalized_anchor_capacity",
+  "audits": [
+    {
+      "odd_primes": [
+        3
+      ],
+      "period": 6,
+      "parity_patterns": [
+        {
+          "anchor_parities": [
+            0
+          ],
+          "residual_before_composites": 3,
+          "composite_capacity_upper_bound": 0,
+          "uncovered_lower_bound": 3
+        }
+      ],
+      "universal_uncovered_lower_bound": 3,
+      "status": "COVER_EXCLUDED"
+    },
+    {
+      "odd_primes": [
+        3,
+        5
+      ],
+      "period": 30,
+      "parity_patterns": [
+        {
+          "anchor_parities": [
+            0,
+            0
+          ],
+          "residual_before_composites": 11,
+          "composite_capacity_upper_bound": 3,
+          "uncovered_lower_bound": 8
+        },
+        {
+          "anchor_parities": [
+            0,
+            1
+          ],
+          "residual_before_composites": 10,
+          "composite_capacity_upper_bound": 3,
+          "uncovered_lower_bound": 7
+        }
+      ],
+      "universal_uncovered_lower_bound": 7,
+      "status": "COVER_EXCLUDED"
+    },
+    {
+      "odd_primes": [
+        3,
+        5,
+        7
+      ],
+      "period": 210,
+      "parity_patterns": [
+        {
+          "anchor_parities": [
+            0,
+            0,
+            0
+          ],
+          "residual_before_composites": 63,
+          "composite_capacity_upper_bound": 36,
+          "uncovered_lower_bound": 27
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            1
+          ],
+          "residual_before_composites": 58,
+          "composite_capacity_upper_bound": 36,
+          "uncovered_lower_bound": 22
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            0
+          ],
+          "residual_before_composites": 56,
+          "composite_capacity_upper_bound": 36,
+          "uncovered_lower_bound": 20
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            1
+          ],
+          "residual_before_composites": 54,
+          "composite_capacity_upper_bound": 36,
+          "uncovered_lower_bound": 18
+        }
+      ],
+      "universal_uncovered_lower_bound": 18,
+      "status": "COVER_EXCLUDED"
+    },
+    {
+      "odd_primes": [
+        3,
+        5,
+        7,
+        11
+      ],
+      "period": 2310,
+      "parity_patterns": [
+        {
+          "anchor_parities": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "residual_before_composites": 615,
+          "composite_capacity_upper_bound": 497,
+          "uncovered_lower_bound": 118
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "residual_before_composites": 582,
+          "composite_capacity_upper_bound": 482,
+          "uncovered_lower_bound": 100
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "residual_before_composites": 562,
+          "composite_capacity_upper_bound": 482,
+          "uncovered_lower_bound": 80
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "residual_before_composites": 540,
+          "composite_capacity_upper_bound": 481,
+          "uncovered_lower_bound": 59
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "residual_before_composites": 540,
+          "composite_capacity_upper_bound": 484,
+          "uncovered_lower_bound": 56
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "residual_before_composites": 524,
+          "composite_capacity_upper_bound": 479,
+          "uncovered_lower_bound": 45
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "residual_before_composites": 516,
+          "composite_capacity_upper_bound": 479,
+          "uncovered_lower_bound": 37
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "residual_before_composites": 510,
+          "composite_capacity_upper_bound": 488,
+          "uncovered_lower_bound": 22
+        }
+      ],
+      "universal_uncovered_lower_bound": 22,
+      "status": "COVER_EXCLUDED"
+    },
+    {
+      "odd_primes": [
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "period": 30030,
+      "parity_patterns": [
+        {
+          "anchor_parities": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "residual_before_composites": 7245,
+          "composite_capacity_upper_bound": 7536,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "residual_before_composites": 6900,
+          "composite_capacity_upper_bound": 7286,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "residual_before_composites": 6834,
+          "composite_capacity_upper_bound": 7256,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "residual_before_composites": 6552,
+          "composite_capacity_upper_bound": 7067,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "residual_before_composites": 6582,
+          "composite_capacity_upper_bound": 7176,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "residual_before_composites": 6344,
+          "composite_capacity_upper_bound": 7083,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "residual_before_composites": 6300,
+          "composite_capacity_upper_bound": 7081,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "residual_before_composites": 6120,
+          "composite_capacity_upper_bound": 7049,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "residual_before_composites": 6300,
+          "composite_capacity_upper_bound": 7166,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "residual_before_composites": 6120,
+          "composite_capacity_upper_bound": 7081,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "residual_before_composites": 6088,
+          "composite_capacity_upper_bound": 7071,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            0,
+            1,
+            1
+          ],
+          "residual_before_composites": 5964,
+          "composite_capacity_upper_bound": 7047,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "residual_before_composites": 5976,
+          "composite_capacity_upper_bound": 7031,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          "residual_before_composites": 5892,
+          "composite_capacity_upper_bound": 7103,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "residual_before_composites": 5880,
+          "composite_capacity_upper_bound": 7121,
+          "uncovered_lower_bound": 0
+        },
+        {
+          "anchor_parities": [
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "residual_before_composites": 5850,
+          "composite_capacity_upper_bound": 7254,
+          "uncovered_lower_bound": 0
+        }
+      ],
+      "universal_uncovered_lower_bound": 0,
+      "status": "NOT_EXCLUDED_BY_THIS_BOUND"
+    }
+  ]
+}

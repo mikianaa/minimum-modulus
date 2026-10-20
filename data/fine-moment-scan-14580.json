@@ -1,0 +1,132 @@
+{
+  "status": "EXPERIMENTAL",
+  "witness": "data/sparse-certificate-14580.json",
+  "rows": [
+    {
+      "numerator": 80,
+      "denominator": 32,
+      "order": 2.5,
+      "moment": 25796640.803904645,
+      "tail": 0.0009831894306968924
+    },
+    {
+      "numerator": 81,
+      "denominator": 32,
+      "order": 2.53125,
+      "moment": 39003189.46258893,
+      "tail": 0.0009422268280913554
+    },
+    {
+      "numerator": 82,
+      "denominator": 32,
+      "order": 2.5625,
+      "moment": 59409261.81545528,
+      "tail": 0.0009099339718767126
+    },
+    {
+      "numerator": 83,
+      "denominator": 32,
+      "order": 2.59375,
+      "moment": 91175735.17440628,
+      "tail": 0.0008862694223383603
+    },
+    {
+      "numerator": 84,
+      "denominator": 32,
+      "order": 2.625,
+      "moment": 141003686.54053903,
+      "tail": 0.0008715098879702712
+    },
+    {
+      "numerator": 85,
+      "denominator": 32,
+      "order": 2.65625,
+      "moment": 219767628.8296362,
+      "tail": 0.0008637899290753859
+    },
+    {
+      "numerator": 86,
+      "denominator": 32,
+      "order": 2.6875,
+      "moment": 345251868.36037606,
+      "tail": 0.0008630817484968891
+    },
+    {
+      "numerator": 87,
+      "denominator": 32,
+      "order": 2.71875,
+      "moment": 546770964.887335,
+      "tail": 0.0008707280903082208
+    },
+    {
+      "numerator": 88,
+      "denominator": 32,
+      "order": 2.75,
+      "moment": 873033737.7808793,
+      "tail": 0.0008865541411779885
+    },
+    {
+      "numerator": 89,
+      "denominator": 32,
+      "order": 2.78125,
+      "moment": 1405636232.9813898,
+      "tail": 0.0009102380910638279
+    },
+    {
+      "numerator": 90,
+      "denominator": 32,
+      "order": 2.8125,
+      "moment": 2282403604.1181273,
+      "tail": 0.0009429543004512799
+    },
+    {
+      "numerator": 91,
+      "denominator": 32,
+      "order": 2.84375,
+      "moment": 3738108439.289546,
+      "tail": 0.0009872729335916473
+    },
+    {
+      "numerator": 92,
+      "denominator": 32,
+      "order": 2.875,
+      "moment": 6176106816.533291,
+      "tail": 0.001042670389381699
+    },
+    {
+      "numerator": 93,
+      "denominator": 32,
+      "order": 2.90625,
+      "moment": 10295461322.818716,
+      "tail": 0.0011109926931556439
+    },
+    {
+      "numerator": 94,
+      "denominator": 32,
+      "order": 2.9375,
+      "moment": 17318519851.68943,
+      "tail": 0.0011973719254850341
+    },
+    {
+      "numerator": 95,
+      "denominator": 32,
+      "order": 2.96875,
+      "moment": 29401989508.947342,
+      "tail": 0.0013022256049943892
+    },
+    {
+      "numerator": 96,
+      "denominator": 32,
+      "order": 3.0,
+      "moment": 50386235638.693954,
+      "tail": 0.0014294155516755829
+    }
+  ],
+  "best": {
+    "numerator": 86,
+    "denominator": 32,
+    "order": 2.6875,
+    "moment": 345251868.36037606,
+    "tail": 0.0008630817484968891
+  }
+}
