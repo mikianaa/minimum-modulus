@@ -28,6 +28,7 @@ only says what the project is and how it is laid out.
 | `src/*.tex` | Proofs: `conditional-stoploss-improvement.tex` (upper-bound certificates), `minimum-modulus-improvement.tex` (first 615,299 certificate), `construction-search.tex` (lower-side search models and obstructions). |
 | `code/` | Searches, verifiers and tests. Files `fable_*.py` are Fable's tools; the rest are Codex's. Verifiers use only the standard library; searches need NumPy or OR-Tools. |
 | `data/` | Exact witnesses, verification reports and experiment results (JSON). Fable's results are `fable-*.json`. |
+| `meta/` | Meta-analysis log of the agents' progress: `agent-progress.jsonl` (one record per milestone or attempt: bounds, method, candidates, failure cause), `meta_stats.py` (token usage and cost from the local Claude Code and Codex transcripts), rendered `agent-progress.md` and `token-usage.json`. Schema in `meta/README.md`. |
 | `notes/` | Dated working notes: `fable-notes-*.md` (Fable), `codex-readme-log-2026-10-14-15.md` (Codex's detailed log, formerly the body of this README), fraction-bound tables. |
 | `literature/` | `SOURCES.md` with references; PDFs are kept locally and ignored by git. |
 | `tmp/` | Ignored. Python environments `tmp/fable-venv` (numpy, scipy, ortools, python-sat) and `tmp/construction-deps`. |

@@ -1,0 +1,50 @@
+# Agent progress (rendered by meta/meta_stats.py; source: agent-progress.jsonl)
+
+Cumulative tokens are all tokens (input, cache, output) spent by the agent on this
+project from 14 Oct 2026 up to the milestone's timestamp. `rigor`: certified = integer
+verifier passed; conditional = depends on an unverified source; candidate = not yet
+checked; none = no new bound.
+
+| # | time (JST) | agent | side | kind | result | rigor | method | candidates / successes | failure cause | tokens at discovery (agent / all) | wall-clock |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 10-14 21:41 | codex | upper | certificate | M <= 615,299 (BBMST method, rational witness, integer verifier) | certified | parameter-optimization | - | none | 2.2M / 2.2M | - |
+| 2 | 10-14 22:05 | codex | upper | certificate | M <= 39,999 (convex comparison replaces the quadratic loss; conditioning at 2 and 3) | certified | inequality-improvement, conditioning | - | none | 5.3M / 5.3M | - |
+| 3 | 10-14 22:42 | codex | upper | certificate | M <= 19,999 (conditioning on 64,315 configurations of primes through 53; policy search) | certified | conditioning, parameter-optimization | 6 / 3 | none | 9.6M / 9.6M | - |
+| 4 | 10-15 07:31 | codex | upper | certificate | M <= 16,999 (891,573 configurations, sharper product bins, third-moment tail) | certified | conditioning, inequality-improvement | 4 / 2 | none | 17.6M / 17.6M | - |
+| 5 | 10-15 09:48 | codex | upper | certificate | M <= 14,599 (exact early conditioning, joint early/late distortions, order-11/4 tail moment) | certified | conditioning, parameter-optimization | - | none | 55.2M / 55.2M | - |
+| 6 | 10-15 16:04 | codex | upper | certificate | M <= 14,496 (recursive joint atom bounds, quadratic density envelope, prefix refinement) | certified | inequality-improvement, conditioning | - | none | 80.3M / 80.3M | - |
+| 7 | 10-15 21:22 | codex | upper | certificate | M <= 14,484 (standalone cutoff 14,485, 300,000 stages; the current record) | certified | parameter-optimization, conditioning | - | none | 126.2M / 126.2M | - |
+| 8 | 10-15 23:59 | codex | lower | construction | No construction above 42: kernel/CP-SAT at 43, structural targets 1000, 100, 60, 50, squarefree 30 and 3; restricted capacity obstructions proved | none | exact-search, density-bound | 20 / 0 | search-dead-end | 130.1M / 130.1M | - |
+| 9 | 10-17 17:51 | claude-code | upper | audit | Independent audit of the 14,484 certificate: sound; method saturated at these parameters | none | audit, numerical-experiment | - | none | 17.6M / 147.9M | 6.3 h |
+| 10 | 10-18 21:23 | claude-code | upper | lead | Cap-inflation lead: replaying with all caps nu=1 cuts early loss 0.857 -> 0.730 (ceiling 0.126 > 0.09 needed); refuted by Monte Carlo the same night (realised gain 1-2 %) | none | numerical-experiment, inequality-improvement | 1 / 0 | numerical | 24.7M / 155.0M | 3 h |
+| 11 | 10-18 23:05 | claude-code | side | tool | Minimal-LCM frontier collected; SAT/CP-SAT cover tools reproduce m<=4 but cannot find the known m=7 system in 1 h | none | literature, tooling, exact-search | 4 / 2 | search-dead-end | 34.9M / 165.2M | 8 h |
+| 12 | 10-19 07:54 | claude-code | side | obstruction | HKLT Problem 1: 3-stage distortion bound reproduces m<=9 for {2,3,5}-smooth LCM exactly; m=9 not settled (gap 0.06) | certified | inequality-improvement | - | none | 40.6M / 170.8M | 1 h |
+| 13 | 10-19 12:56 | claude-code | lower | construction | Candidate with minimum modulus 43: Owens minus 10 mod 42 + 14 smooth spares + 44 fresh-prime arrows; kernel coverage complete, 40,000-sample integer check, 44/44 orders certified | conditional | construction-patch, exact-search | 11 / 1 | none | 75.5M / 206.8M | 3.5 h |
+| 14 | 10-20 03:59 | claude-code | lower | construction | Candidate with minimum modulus 44: additionally deletes the modulus-43 class; 43 fresh-prime arrows (89, 97..317); kernel-verified | conditional | construction-patch, exact-search | 3 / 1 | none | 93.4M / 224.7M | 5 h |
+| 15 | 10-20 17:29 | claude-code | upper | lead | Truncation alpha<=1 measured at 21-25 % of the stage loss (tower adversary), class collisions 2-14 %; no proof route (coordinate induction breaks) | none | numerical-experiment, new-lemma | 3 / 0 | logical-gap | 110.0M / 241.3M | 6 h |
+| 16 | 10-20 19:30 | claude-code | lower | obstruction | 45 by patching the 44-system is infeasible: hole 0.0037 + 0.001 of density vs fresh-prime capacity 0.00085 | none | density-bound, exact-search | 6 / 0 | capacity-shortfall | 110.3M / 241.6M | 4 h |
+| 17 | 10-21 10:20 | claude-code | lower | obstruction | 45 impossible inside the Nielsen/Owens framework: rigorous per-prime fraction bounds give odd-branch density 0.319 < 0.366 needed; at 42 the sum is exactly 0.366 | certified | density-bound, new-lemma | 2 / 0 | capacity-shortfall | 136.5M / 271.3M | 4 h |
+| 18 | 10-21 14:13 | claude-code | lower | tool | Constructive set-count pipeline (greedy min-waste ILP on the (2,3,5,7) kernel) confirms the counts: 11 on W x 1 mod 4 gives 9/10 at 42 and 7/10 at 45 | none | exact-search, tooling | 17 / 2 | capacity-shortfall | 142.8M / 277.6M | 20 h |
+| 19 | 10-21 14:30 | claude-code | upper | refutation | Truncation lead closed: exact small-instance adversaries reach 93-96 % of the untruncated comparison, so the comparison is within 5-10 % of the true single-stage adversary; 10,000 needs 11 % | none | numerical-experiment | 2 / 0 | numerical | 145.6M / 280.4M | 4 h |
+
+Notes per entry:
+
+1. Six-block parameter search over BBMST's distortion parameters plus explicit numerical continuation to stage 1,050,000; gcd convolution for the restricted second moment. Files: src/minimum-modulus-improvement.tex, data/minimum-modulus-certificate-verified.json.
+2. Direct convex-comparison stage bound; 361 stop-loss checks, 384 dependent-coordinate comparisons. Files: data/stoploss-verified-40000.json.
+3. Trials at 10,000 exhausted the survivor estimate; some 18,000 and 19,000 runs kept positive estimates but failed the stopping condition. Intermediate certificates 29,999 and 21,999. Files: data/sparse-verified-20000.json, data/sparse-policy-sweep.json.
+4. Unsuccessful experiments at 10,000 and 16,900; intermediate certificate 17,999. Files: data/sparse-verified-17000.json.
+5. Intermediate certificate 14,799. Files: data/sparse-verified-14600.json.
+6. Preceded by 14,579 and 14,500; the standalone 14,499 run was abandoned when 14,496 completed. Files: data/prefix-refinement-verified-14497.json.
+7. Parameter tuning is saturated here: later audits found the loss budget 0.40 below p=100 and 0.45 for 100<p<1000, with the comparison exact for its model. Files: data/sparse-verified-14485.json, data/latest-certified-bound.json.
+8. About twenty bounded solver runs across targets, each with an independently checked uncovered progression; obstructions exclude only restricted repair families (one independent divisor block per root). Produced the Owens transcription (owens_seed_core, nielsen_prime11) that the later 43/44 candidates build on. Files: src/construction-search.tex, notes/codex-readme-log-2026-10-14-15.md.
+9. Tail formulas replayed, reachable-support bounds checked on 4.2M random paths, exact DP and Monte Carlo stage losses agree with the verifier to 0.01 %. Lineage-double-counting idea refuted the same day (Owens' system has sieve mass exactly 1). Files: data/conditioning-method-checks.json.
+10. Per-stage loss profile first (losses flat at 2.2-2.9 % of survivor for p=17..113). The modulated cap gains 1.0-2.0 % of the stage loss against ceilings of 9-28 % because deep divisor patterns are heavy at every earlier stage. Files: data/fable-loss-profile-14485.json, data/fable-nu-cap-diagnostic-14485.json, code/fable_modulated_cap_mc.py.
+11. Known values 120, 360, 1440 validated; 5040/10080 not found within limits; UNSAT proofs are the bottleneck. Files: code/fable_sat_cover.py, code/fable_cpsat_cover.py, code/fable_lcm_scan.py.
+12. Min loss 1.060 at K=9 (not excluded), 0.960 at K=10 (excluded). Files: code/fable_smooth235_bound.py.
+13. Key structural fact found first: the 43-hole is a product of all 42 kernel 7-states with a column set. Eleven design-ILP iterations (design_ilp1..11) before overload 0; first integer check hit int64 overflow. Simplified from 99 to 44 pieces the same afternoon. Files: data/fable-m43-construction.json, notes/fable-notes-2026-10-18.md.
+14. Needed a harder order optimisation (46 more feasible (shape, prime) pairs) before the joint design ILP became feasible. Files: data/fable-m44-construction.json.
+15. Branching (non-tower) adversaries recover 8-27 % on train and nothing on test; self-saturated moduli carry only 2-16 % of the overflow. The proof target would need global residue consistency across fibres, which the coordinate induction discards. Files: code/fable_class_collision_mc.py, code/fable_self_saturated.py, notes/fable-notes-2026-10-20-upper.md.
+16. Exact sliced kernel on W x 1 mod 4 x 1 mod 11; all 11s, 13s, 143s resources with positive coverage are consumed by Nielsen's 11/13 pair; spares, fresh primes, sub-arrows and four re-partitions all fall short. Files: notes/fable-notes-2026-10-20-m45.md.
+17. Calibrated at 42 (bound 11 vs Nielsen's 10, 22/22 on hole 24). The deficit is the class-mod-9 region, i.e. the W trick lost with modulus 44. Rigorous for the framework, not for M in general. Files: notes/fable-m45-fraction-bounds-M45.txt, notes/fable-m45-fraction-bounds-M42.txt.
+18. Exact CP-SAT too slow above 10k rows; greedy undercounts Nielsen-level designs by 1-3. Only R5 (3 mod 9 x odd) supports 11 and 13 fully at 45; the orphan region 3 mod 9 x 5 mod 8 (density 1/72) has no prime left. Files: data/fable-m45-setcount-pipeline.json.
+19. Annealed families under the uniform measure water-fill across many coordinates with no saturated fibre; the 20 Oct estimate that 70-90 % of the overflow was unrealisable was wrong. Block tail would move 14,484 only to about 14,482. Files: code/fable_adversary_toy.py, data/fable-adversary-toy-results.json, notes/fable-notes-2026-10-21-upper.md.
