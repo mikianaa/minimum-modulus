@@ -210,3 +210,26 @@ class, 5/7 stages on the even holes, top-level primes on product regions with do
 minimum modulus 45 is impossible by the density budget, and the patch of the 44-system is the best
 possible (short by about 0.005 of density: K44 after spares 0.0037 + secondary holes 0.001 vs fresh
 capacity 0.00085). A 45 would need a construction outside this framework.
+
+## 21 Oct: constructive counts (greedy engine, depths (4,4,2,1), lower bounds) and realized patch capacity
+
+Pipeline results so far (sets found / needed): 11 on W x 1 mod 4: 9/10 at 42 (Nielsen 10), 7/10 at 45;
+17 on W x 5 mod 8: 12/16; 17 on hole 12: 12/16 (Owens 16 with borrowing); 23 on hole 12: 13/22;
+11 on R5 = (3 mod 9) x odd: **10/10 (fits, constructive)**; 13 on R5: **12/12**; 17 on R5: 14/16;
+19 on R5: 13/18; N(R) (all tuples) W4 11, W8 14, R1 14. The greedy undercounts by 1-3 relative to
+Nielsen-level designs, so these are consistent with the fraction bounds above.
+
+Realized fresh-prime capacity in the 43/44 patches (from the certificates): the 42-hole H has density
+1/42 = 0.0238; the seed covers 29.5 %, the 14 smooth spares bring it to 75.6 %, so the 31 fresh
+primes 89..257 delivered only 0.0058 of density, and the 12 primes 263..317 delivered 0.00023 on K.
+That is 0.006 for 43 primes, well below the shape-optimal model (0.0157): the hole shapes force deeper
+pieces. For 45 the remaining need is 0.0047 (K44 after spares 0.0037 + secondary 0.001) with primes
+>= 331 only (model 0.00085, realized far less): short by an order of magnitude.
+
+Best redesign configuration found (odd branch): 11 on U1 = (1 mod 3) x 1 mod 4 u (3 mod 9) x 1 mod 8
+(a depth-3 region with 10 sets plus slack, if the union keeps >= 10: estimated 8-10), 13 on W x 3 mod 4
+with the two 11^ copies, 17/23/31 on holes 12/24/36 as Owens. Orphan: (3 mod 9) x 5 mod 8, density
+1/72 = 0.0139, a product region supporting any prime up to 37 but all of 11..31 are used; as fresh-prime
+pieces it would need about 0.014-0.018 of capacity on top of H'. Not reachable.
+
+Final pipeline results (label: found/asked): W1_42 9/10, W1_45 7/10, N_W4 11/24, W8_17_45 12/16, N_W8 14/24, H12_17_45 12/16, H12_23_45 13/22, N_R1 14/28, R5_11_45 10/10, R5_13_45 12/12, R5_17_45 14/16, R5_19_45 13/18, N_R5 16/24, H24_23_45 16/22, N_R2 17/28, H36_31_45 24/30, N_R3 24/34. Raw solutions: data/fable-m45-setcount-pipeline.json.
