@@ -5,3 +5,4 @@ __pycache__/
 *.out
 *.toc
 literature/*.pdf
+meta/
